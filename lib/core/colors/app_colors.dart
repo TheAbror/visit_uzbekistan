@@ -1,18 +1,4 @@
-// ignore_for_file: use_full_hex_values_for_flutter_colors
-
 import 'package:flutter/material.dart';
-
-class RandomColors {
-  static List<Color> availableColors = [
-    AppColors.primary,
-    AppColors.bittersweet,
-    AppColors.iconMain,
-    AppColors.crayola,
-    AppColors.error,
-    AppColors.emirald,
-    AppColors.textSecondary,
-  ];
-}
 
 class AppColors {
   static const Color primary = Color(0XFF426DFF);
@@ -221,4 +207,22 @@ class Palette {
   static const Color secondary950 = Color(0xFF131904);
   static const Color secondary975 = Color(0xFF0A0C02);
   static const Color secondary1000 = Color(0xFF000000);
+
+  static const Color borderDividerColor = Color(0XFFD9D9D9);
+  static const boxShadow = Color.fromRGBO(255, 242, 218, 0.1);
+  static const boxShadow2 = Color.fromRGBO(167, 155, 137, 0.1);
+  static List<BoxShadow> get defaultShadow => [
+        const BoxShadow(
+          color: boxShadow,
+          blurRadius: 15.0,
+          spreadRadius: 3.0,
+          offset: Offset(0.0, 3.0),
+        ),
+        const BoxShadow(
+          color: boxShadow2,
+          blurRadius: 15.0,
+          spreadRadius: 3.0,
+          offset: Offset(0.0, 3.0),
+        ),
+      ];
 }
