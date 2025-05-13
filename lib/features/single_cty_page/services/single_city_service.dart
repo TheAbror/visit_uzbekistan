@@ -1,5 +1,5 @@
 import 'package:chopper/chopper.dart';
-import 'package:visit_uzbekistan/features/root/single_cty_page/models/single_city_response.dart';
+import 'package:visit_uzbekistan/features/single_cty_page/models/single_city_response.dart';
 
 part 'single_city_service.chopper.dart';
 

@@ -1,3 +1,4 @@
+import 'package:visit_uzbekistan/features/splash/splash_page/splash_page.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -13,10 +14,10 @@ class MainRouteGenerator {
       //     builder: (_) => const SignInPage(),
       //   );
 
-      // case AppRoutes.homePage:
-      //   return CustomCupertinoStyleNavigationRoute(
-      //     builder: (_) => const HomePage(),
-      //   );
+      case AppRoutes.homePage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const RootPage(),
+        );
 
       // case AppRoutes.staffHome:
       //   return CustomCupertinoStyleNavigationRoute(
@@ -140,7 +141,7 @@ class MainRouteGenerator {
 
       default:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const SizedBox(), //TODO
+          builder: (_) => const SplashPage(),
         );
     }
   }
