@@ -31,9 +31,17 @@ class _SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+    return Stack(
+      fit: StackFit.expand,
       children: [
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/background_gradient.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
         Spacer(flex: 3),
         Center(
           child: Icon(
@@ -52,7 +60,7 @@ class _SplashView extends StatelessWidget {
           child: ActionButton(
             text: 'Skip',
             onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.homePage);
+              Navigator.pushNamed(context, AppRoutes.onBoardingPage);
             },
           ),
         ),
