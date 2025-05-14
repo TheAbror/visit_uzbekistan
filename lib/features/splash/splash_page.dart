@@ -32,7 +32,6 @@ class _SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      fit: StackFit.expand,
       children: [
         Container(
           decoration: const BoxDecoration(
@@ -42,26 +41,22 @@ class _SplashView extends StatelessWidget {
             ),
           ),
         ),
-        Spacer(flex: 3),
         Center(
           child: Icon(
             Icons.travel_explore,
             size: 150,
           ),
         ),
-        const Spacer(flex: 2),
-        const Center(
-          child: CircularProgressIndicator(color: AppColors.float),
-        ),
-        const Spacer(flex: 3),
-        const SizedBox(height: 60),
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: ActionButton(
-            text: 'Skip',
-            onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.onBoardingPage);
-            },
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: ActionButton(
+              text: 'Skip',
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.onBoardingPage);
+              },
+            ),
           ),
         ),
       ],

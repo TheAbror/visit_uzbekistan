@@ -80,12 +80,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
           showBackButton: false,
           back: const Icon(Icons.arrow_back),
           skip: Text(
-            'l10n.skip',
+            'Skip',
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           next: const Icon(Icons.arrow_forward),
           done: Text(
-            'l10n.done',
+            'Done',
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           curve: Curves.fastLinearToSlowEaseIn,
