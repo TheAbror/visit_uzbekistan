@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color(0XFF3662C9);
-  static const Color primaryHover = Color(0XFF2E5AEF);
+  static const Color primary = Color(0xFF3DBDEC);
+  static const Color secondary = Color(0xFF1F2B5B);
+  static const Color primaryHover = Color.fromARGB(255, 29, 162, 211);
   static const Color primaryLight = Color(0XFFE0E7FF);
-  static const Color primaryDark = Color(0XFF1B2F73);
+  static const Color primaryDark = Color(0XFF444444);
   static const Color velvet = Color(0XFF7436F8);
   static const Color onBackground = Color(0XFF1F1F1F);
   static const Color surface = Color(0XFF292929);
@@ -25,6 +26,12 @@ class AppColors {
   static const Color backgroundModule = Color(0XFFF5F5F5);
   static const Color inputField = Color(0XFFF5F5F5);
   static const Color float = Color(0XFFFFFFFF);
+  static const Color miscellaneousTabUnselected = Color(0XFF999999);
+  static const Color foregroundTertiaryRest = Color(0XFFA2A2A2);
+  static const Color dividerColor = Color(0XFFE1E1E1);
+  static const Color borderDividerColor = Color(0XFFD9D9D9);
+  static const Color usefulAppsBgColor = Color(0XFFF7F7F7);
+  static const Color singleCityTitleColor = Color(0XFF5B5F64);
   static const Color onPrimary = Color(0XFFFFFFFF);
   static const Color buttonDisabled = Color(0XFFF2F2F2);
 
@@ -39,6 +46,85 @@ class AppColors {
   static const Color emirald = Color(0XFF5DD39E);
   static const Color bittersweet = Color(0XFFFF715B);
   static const Color crayola = Color(0XFFFB6376);
+
+  static const secondaryDark = Color(0xffA6B7D4);
+  static const accent = Color(0xff05BAD1);
+  static const red = Color(0xFFd32f2f);
+  static const expressRed = Color(0xFFE53333);
+  static const systemRed = Color(0xFFFF3B30);
+  static const pink = Color(0xffE5326E);
+  static const yellow = Color.fromARGB(255, 253, 209, 77);
+  static const transparent = Color(0x00FFFFFF);
+  static const black = Color(0xFF000000);
+  static const grey2 = Color(0xFF4F4F4F);
+  static const white = Color(0xFFffffff);
+  static const border = Color(0xFFD0D0D0);
+  static const focusedBorder = Color(0xFF140F1E);
+  static const textTitle = Color(0xFF140F1E);
+  static const greyDisabled = Color(0xFFE7E7E7);
+  static const labelColor = Color(0xFF3C3C43);
+  static const hintColor = Color(0xFFC4C4C4);
+  static const iconColor = Color(0xFFBABABA);
+  static const switcherCircleColor = Color(0xFFEBEBEB);
+  static const backgroundColor = Color(0xFFEDF2F7);
+  // static const backgroundColorDark = Color(0xFF161d31);
+  static const backgroundColorDark = Color(0xff303030);
+  static const darkGrey = Color(0xFF9C99A0);
+  static const lightGrey = Color(0xFF888888);
+  static const disabledButtonBg = Color(0xFFB6C5D1);
+  static const textFieldGreyBg = Color(0xFFF0F3F6);
+  static const textFieldHintColor = Color(0xFFB6C5D1);
+  static const textColorDarkBlue = Color(0xFF171F46);
+
+  static const textColorLight = Color(0xFF140F1E);
+  static const textColorDark = Color(0xFFb4b7bd);
+  static const textColorSubtitleGray = Color(0xFFb2bac6);
+
+  static const crimson = Color(0xffE52E71);
+  static const orange = Color(0xffFF8A00);
+  static const orange2 = Color(0xffFF8C00);
+  static const orange3 = Color(0xFFFFF2DA);
+
+  static const crimsonAlt = Color(0xFFED5C65);
+  static const deepOrange = Color(0xffde5335);
+  static const custom = Color(0xfff05640);
+  static const mapBorder = Color(0xFFE5326E);
+  static const darkPurple = Color(0xff292432);
+  static const cF1F1F1 = Color(0xffF1F1F1);
+  static const c_1d1427 = Color(0xff1d1427);
+  static const backgroundOverly = Color(0x99333333);
+  static const backgroundAlt = Color(0xFFFCFCFC);
+  static const violet = Color(0xFF4B1BD3);
+  static const darkBlack = Color(0xFF1E1428);
+  static const borderColor = Color(0xFFC4C4C4);
+  static const alertBack = Color(0xFFF2F2F2);
+
+  static const textColorPrimary = Color(0xFF3754DB);
+  static const textBodyLight = Color(0xFF425466);
+  static const colorGray900 = Color(0xFF1A202C);
+  static const colorGray800 = Color(0xFF2D3748);
+  static const colorGray700 = Color(0xFF4A5568);
+  static const colorGray600 = Color(0xFF718096);
+  static const colorGray500 = Color(0xFFA0AEC0);
+  static const colorGray300 = Color(0xFFE2E8F0);
+  static const colorGray200 = Color(0xFFE4ECF7);
+
+  static const boxShadow = Color.fromRGBO(255, 242, 218, 0.1);
+  static const boxShadow2 = Color.fromRGBO(167, 155, 137, 0.1);
+  static List<BoxShadow> get defaultShadow => [
+        const BoxShadow(
+          color: boxShadow,
+          blurRadius: 15.0,
+          spreadRadius: 3.0,
+          offset: Offset(0.0, 3.0),
+        ),
+        const BoxShadow(
+          color: boxShadow2,
+          blurRadius: 15.0,
+          spreadRadius: 3.0,
+          offset: Offset(0.0, 3.0),
+        ),
+      ];
 }
 
 class Palette {

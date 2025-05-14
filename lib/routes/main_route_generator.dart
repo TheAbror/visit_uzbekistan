@@ -1,3 +1,4 @@
+import 'package:visit_uzbekistan/features/single_cty_page/single_city_page.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -17,9 +18,15 @@ class MainRouteGenerator {
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const RootPage(),
         );
+
       case AppRoutes.onBoardingPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const OnboardingPage(),
+        );
+
+      case AppRoutes.singleCityPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const SignleCityPage(),
         );
 
       default:

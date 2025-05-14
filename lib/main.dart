@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
         builder: BotToastInit(),
         navigatorObservers: [BotToastNavigatorObserver()],

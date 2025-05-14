@@ -54,3 +54,4 @@ export 'package:introduction_screen/introduction_screen.dart';
 export 'package:visit_uzbekistan/features/auth/sign_in_page.dart';
 export 'package:visit_uzbekistan/features/onboarding/onboarding_page.dart';
 export 'package:visit_uzbekistan/features/splash/splash_page.dart';
+export 'package:visit_uzbekistan/core/buttons/action_button.dart';
