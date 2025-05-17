@@ -109,6 +109,7 @@ class _SignInPageState extends State<SignInPage> {
             bottom: 40.h,
             child: GestureDetector(
               onTap: () async {
+                // ignore: unused_local_variable
                 final result = await TermsBottomSheet.show(context);
               },
               child: Text(
