@@ -13,7 +13,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushNamed(
+      context,
+      AppRoutes.signIn,
+    );
   }
 
   // ignore: unused_element
@@ -54,20 +57,23 @@ class _OnboardingPageState extends State<OnboardingPage> {
           infiniteAutoScroll: true,
           pages: [
             PageViewModel(
-              title: 'l10n.introSlideTitle1',
-              body: 'l10n.introSlideDescription1',
+              title: 'Visit Uzbekistan',
+              body:
+                  'Discover the land of ancient cities, vibrant markets, and warm hospitality. From the Silk Road to stunning architecture, Uzbekistan offers a unique blend of history and culture that’s waiting to be explored.',
               image: _buildImage('img1.jpg'),
               decoration: pageDecoration,
             ),
             PageViewModel(
-              title: 'l10n.introSlideTitle2',
-              body: 'l10n.introSlideDescription2',
+              title: 'Plan Smarter. Travel Easier',
+              body:
+                  'Get essential travel tips, find top-rated tours, explore where to eat and stay, and prepare with confidence. Everything you need—before and during your trip—is right here in one app.',
               image: _buildImage('img2.jpg'),
               decoration: pageDecoration,
             ),
             PageViewModel(
-              title: 'l10n.introSlideTitle3',
-              body: 'l10n.introSlideDescription3',
+              title: 'Explore with Confidence, Anytime.',
+              body:
+                  'Enjoy offline maps, safety advice, eSIM info, and multi-language support. Whether it’s Tashkent or Samarkand, we’ve got you covered—wherever your journey takes you.',
               image: _buildImage('img3.jpg'),
               decoration: pageDecoration,
             ),

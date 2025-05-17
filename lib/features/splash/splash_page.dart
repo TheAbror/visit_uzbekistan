@@ -54,7 +54,11 @@ class _SplashView extends StatelessWidget {
             child: ActionButton(
               text: 'Skip',
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.onBoardingPage);
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.onBoardingPage,
+                  (route) => false,
+                );
               },
             ),
           ),

@@ -93,7 +93,11 @@ class _SignInPageState extends State<SignInPage> {
             bottom: 60.h,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushReplacementNamed(context, AppRoutes.rootPage);
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.rootPage,
+                  (route) => false,
+                );
               },
               child: Text(
                 'May be later',
@@ -257,41 +261,6 @@ Let me know if you want a Privacy Policy, User Agreement, or Tour Partner Agreem
 
 
 '''),
-
-        // Expanded(
-        //   child: BlocBuilder<SplashBloc, SplashState>(
-        //     builder: (context, state) {
-        //       if (state.blocProgress == BlocProgress.IS_LOADING) {
-        //         return const PrimaryLoader();
-        //       }
-        //       // else if (state.terms.isEmpty) {
-        //       //   return Padding(
-        //       //     padding: EdgeInsets.only(top: 24.h),
-        //       //     child: const Text(
-        //       //       'No Results',
-        //       //     ),
-        //       //   );
-        //       // }
-
-        //       return SingleChildScrollView(
-        //         child: Column(
-        //           children: [
-        //             // Text(state.terms),
-        //             SizedBox(height: 24.h),
-        //             ActionButton(
-        //               text: 'Принять',
-        //               onPressed: () {
-        //                 Navigator.pop(context, true);
-        //               },
-        //             ),
-        //             SizedBox(height: 24.h),
-        //           ],
-        //         ),
-        //       );
-        //     },
-        //   ),
-        // ),
-        // INFO: Always needed for Scrollable Bottom sheets
         SizedBox(height: 24.h),
       ],
     );
