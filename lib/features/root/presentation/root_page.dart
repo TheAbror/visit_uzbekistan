@@ -11,7 +11,9 @@ class _RootPageState extends State<RootPage> {
   @override
   void initState() {
     super.initState();
+
     context.read<RootBloc>().getCities();
+    context.read<RootBloc>().getPlaces();
   }
 
   @override

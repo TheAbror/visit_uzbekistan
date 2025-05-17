@@ -45,6 +45,9 @@ dynamic deserialize<SingleItemType>(Map<String, dynamic> json) {
     case CitiesResponse:
       return CitiesResponse.fromJson(json);
 
+    case PlacesResponse:
+      return PlacesResponse.fromJson(json);
+
     default:
       return null;
   }

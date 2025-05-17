@@ -41,6 +41,42 @@ class RootBloc extends Cubit<RootState> {
     }
   }
 
+  void getPlaces() async {
+    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+
+    try {
+      final response = await ApiProvider.citiesService.getPlaces();
+
+      if (response.isSuccessful) {
+        final result = response.body;
+
+        if (result != null) {
+          emit(state.copyWith(
+            places: result.places,
+            blocProgress: BlocProgress.LOADED,
+          ));
+        }
+      } else {
+        final error =
+            ErrorResponse.fromJson(json.decode(response.error.toString()));
+
+        emit(state.copyWith(
+          blocProgress: BlocProgress.FAILED,
+          failureMessage: error.message,
+        ));
+      }
+    } catch (e) {
+      debugPrint('Error getting inquiries: $e');
+
+      if (!isClosed) {
+        emit(state.copyWith(
+          blocProgress: BlocProgress.FAILED,
+          // failureMessage: AppStrings.internalErrorMessage,
+        ));
+      }
+    }
+  }
+
   void changeTab(int tabIndex) {
     emit(state.copyWith(tabIndex: tabIndex));
   }

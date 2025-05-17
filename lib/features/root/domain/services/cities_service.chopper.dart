@@ -28,4 +28,16 @@ final class _$CitiesService extends CitiesService {
     );
     return client.send<CitiesResponse, CitiesResponse>($request);
   }
+
+  @override
+  Future<Response<PlacesResponse>> getPlaces() {
+    final Uri $url =
+        Uri.parse('https://39fd-213-230-92-231.ngrok-free.app/api/places');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<PlacesResponse, PlacesResponse>($request);
+  }
 }

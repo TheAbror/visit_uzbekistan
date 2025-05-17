@@ -10,4 +10,7 @@ abstract class CitiesService extends ChopperService {
 
   @Get(path: AppStrings.cities)
   Future<Response<CitiesResponse>> getCities();
+
+  @Get(path: AppStrings.places)
+  Future<Response<PlacesResponse>> getPlaces();
 }

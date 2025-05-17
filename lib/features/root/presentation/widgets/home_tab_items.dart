@@ -1,35 +1,36 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class HomeTabItems extends StatelessWidget {
-  const HomeTabItems({super.key});
+  final List<dynamic> item;
+
+  const HomeTabItems({
+    super.key,
+    required this.item,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RootBloc, RootState>(
-      builder: (context, state) {
-        return Container(
-          height: 250.h,
-          margin: EdgeInsets.only(bottom: 8.h),
-          width: double.infinity,
-          child: ListView.builder(
-            itemCount: state.cities.length,
-            padding: EdgeInsets.only(left: 8.w),
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final item = state.cities[index];
+    return Container(
+      height: 250.h,
+      margin: EdgeInsets.only(bottom: 8.h),
+      width: double.infinity,
+      child: ListView.builder(
+        itemCount: item.length,
+        padding: EdgeInsets.only(left: 8.w),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final singleItem = item[index];
 
-              return ItemInfo(item: item);
-            },
-          ),
-        );
-      },
+          return ItemInfo(item: singleItem);
+        },
+      ),
     );
   }
 }
 
 class ItemInfo extends StatelessWidget {
-  final SingleCityResponse item;
+  final dynamic item;
 
   const ItemInfo({
     super.key,
