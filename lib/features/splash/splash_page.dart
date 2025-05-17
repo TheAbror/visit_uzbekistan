@@ -49,7 +49,7 @@ class _SplashView extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
             child: ActionButton(
               text: 'Skip',
               onPressed: () {

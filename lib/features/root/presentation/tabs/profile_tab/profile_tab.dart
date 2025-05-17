@@ -69,16 +69,12 @@ class ProfileTab extends StatelessWidget {
             ),
           ],
         ),
-        appBar(),
+        CustomAppBar(
+          title: 'More',
+          color: AppColors.primary,
+          height: 56.h,
+        ),
       ],
-    );
-  }
-
-  Widget appBar() {
-    return CustomAppBar(
-      title: 'Vlog',
-      color: AppColors.primary,
-      height: 56.h,
     );
   }
 }

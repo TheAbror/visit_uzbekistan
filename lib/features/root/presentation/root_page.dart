@@ -19,8 +19,8 @@ class _RootPageState extends State<RootPage> {
             children: [
               HomeTab(),
               SizedBox(),
-              SizedBox(),
               ProfileTab(),
+              MoreTab(),
             ],
           ),
           extendBody: true,

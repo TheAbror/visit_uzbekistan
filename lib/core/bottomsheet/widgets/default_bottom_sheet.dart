@@ -1,4 +1,3 @@
-import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class DefaultBottomSheet extends StatelessWidget {
