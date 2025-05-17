@@ -59,3 +59,4 @@ export 'package:visit_uzbekistan/features/root/presentation/tabs/home_tab/home_t
 export 'package:visit_uzbekistan/features/root/presentation/widgets/root_page_bottom_appbar.dart';
 export 'package:visit_uzbekistan/features/root/presentation/widgets/home_tab_items.dart';
 export 'package:visit_uzbekistan/features/root/presentation/widgets/title_and_view_all_widget.dart';
+export 'package:visit_uzbekistan/gen/assets.gen.dart';

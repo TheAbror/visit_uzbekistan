@@ -2,7 +2,7 @@ import 'package:visit_uzbekistan/widget_imports.dart';
 
 // ThemeData lightTheme() {
 //   return ThemeData(
-//     // fontFamily: FontFamily.lato, //TODO
+//      fontFamily: FontFamily.lato,
 //     colorScheme: ColorScheme.light(
 //       primary: AppColors.primary,
 //       background: NewColorsLight.bgPage2,
@@ -80,7 +80,7 @@ import 'package:visit_uzbekistan/widget_imports.dart';
 
 // ThemeData darkTheme() {
 //   return ThemeData(
-//     // fontFamily: FontFamily.lato, //TODO
+//      fontFamily: FontFamily.lato,
 //     colorScheme: ColorScheme.dark(
 //       primary: AppColors.primaryDark,
 //       background: NewColorsDark.bgPage2,

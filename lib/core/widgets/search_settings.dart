@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:visit_uzbekistan/widget_imports.dart';
 
 class SearchSettings extends StatelessWidget {
   final VoidCallback? onTap;
@@ -22,17 +21,7 @@ class SearchSettings extends StatelessWidget {
             bottom: 10.h,
             top: 10.h,
           ),
-          child:
-              // Assets.icons.staffIcons.settingIcon.svg(
-              //   height: 24.w,
-              //   width: 24.w,
-              //   colorFilter: ColorFilter.mode(
-              //     color,
-              //     BlendMode.srcIn,
-              //   ),
-              // ),
-              Icon(IconsaxPlusLinear.setting_2) //TODO
-          ),
+          child: Icon(IconsaxPlusLinear.setting_2)),
     );
   }
 }

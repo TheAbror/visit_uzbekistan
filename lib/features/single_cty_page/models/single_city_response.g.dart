@@ -9,7 +9,7 @@ part of 'single_city_response.dart';
 DashboardStudentResponse _$DashboardStudentResponseFromJson(
         Map<String, dynamic> json) =>
     DashboardStudentResponse(
-      id: (json['id'] as num?)?.toInt() ?? 0,
+      id: json['id'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$DashboardStudentResponseToJson(

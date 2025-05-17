@@ -1,4 +1,3 @@
-import 'package:visit_uzbekistan/core/buttons/action_button.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class SplashPage extends StatefulWidget {
