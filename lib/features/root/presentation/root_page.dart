@@ -9,6 +9,12 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   @override
+  void initState() {
+    super.initState();
+    context.read<RootBloc>().getCities();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<RootBloc, RootState>(
       builder: (context, state) {

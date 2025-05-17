@@ -13,16 +13,16 @@ class HomeTab extends StatelessWidget {
             onTap: () {},
           ),
           HomeTabItems(),
-          TitleAndViewAllWidget(
-            title: 'Articles',
-            onTap: () {},
-          ),
-          HomeTabItems(),
-          TitleAndViewAllWidget(
-            title: 'Some dummy text',
-            onTap: () {},
-          ),
-          HomeTabItems(),
+          // TitleAndViewAllWidget(
+          //   title: 'Articles',
+          //   onTap: () {},
+          // ),
+          // HomeTabItems(),
+          // TitleAndViewAllWidget(
+          //   title: 'Some dummy text',
+          //   onTap: () {},
+          // ),
+          // HomeTabItems(),
         ],
       ),
     );

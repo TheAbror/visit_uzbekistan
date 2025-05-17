@@ -1,5 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:http/io_client.dart' as http;
+import 'package:visit_uzbekistan/features/root/domain/services/cities_service.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class ApiProvider {
@@ -7,7 +8,7 @@ class ApiProvider {
       NotAuthorizedInterceptor();
 
   static late ChopperClient _client;
-  // static late ScannerService scannerService;
+  static late CitiesService citiesService;
 
   ///Services
   static create({String? token, int? institutionID, String? language}) {
@@ -16,7 +17,7 @@ class ApiProvider {
         HttpClient()..connectionTimeout = const Duration(seconds: 40),
       ),
       services: [
-        // ScannerService.create(),
+        CitiesService.create(),
       ],
       interceptors: getInterceptors(
         token: token,
@@ -26,7 +27,7 @@ class ApiProvider {
       converter: CustomDataConverter(),
     );
 
-    // scannerService = _client.getService<ScannerService>();
+    citiesService = _client.getService<CitiesService>();
   }
 
   static List getInterceptors({
