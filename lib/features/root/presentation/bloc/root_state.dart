@@ -2,8 +2,8 @@ part of 'root_bloc.dart';
 
 class RootState extends Equatable {
   final int tabIndex;
-  final List<SingleCityResponse> cities;
-  final List<SinglePlaceResponse> places;
+  final List<SingleItemResponse> cities;
+  final List<SingleItemResponse> places;
   final BlocProgress blocProgress;
   final String failureMessage;
 
@@ -27,8 +27,8 @@ class RootState extends Equatable {
 
   RootState copyWith({
     int? tabIndex,
-    List<SingleCityResponse>? cities,
-    List<SinglePlaceResponse>? places,
+    List<SingleItemResponse>? cities,
+    List<SingleItemResponse>? places,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {

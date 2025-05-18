@@ -30,12 +30,12 @@ class RootBloc extends Cubit<RootState> {
         ));
       }
     } catch (e) {
-      debugPrint('Error getting inquiries: $e');
+      debugPrint('Error getting: $e');
 
       if (!isClosed) {
         emit(state.copyWith(
           blocProgress: BlocProgress.FAILED,
-          // failureMessage: AppStrings.internalErrorMessage,
+          failureMessage: e.toString(),
         ));
       }
     }
@@ -66,12 +66,12 @@ class RootBloc extends Cubit<RootState> {
         ));
       }
     } catch (e) {
-      debugPrint('Error getting inquiries: $e');
+      debugPrint('Error getting: $e');
 
       if (!isClosed) {
         emit(state.copyWith(
           blocProgress: BlocProgress.FAILED,
-          // failureMessage: AppStrings.internalErrorMessage,
+          failureMessage: e.toString(),
         ));
       }
     }

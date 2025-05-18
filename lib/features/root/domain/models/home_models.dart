@@ -15,52 +15,6 @@ part 'home_models.g.dart';
 //   ]
 // }
 
-@JsonSerializable(includeIfNull: true, explicitToJson: true)
-class CitiesResponse {
-  @JsonKey(defaultValue: [])
-  final List<SingleCityResponse> cities;
-
-  CitiesResponse({required this.cities});
-
-  factory CitiesResponse.fromJson(Map<String, dynamic> json) =>
-      _$CitiesResponseFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CitiesResponseToJson(this);
-}
-
-@JsonSerializable(includeIfNull: true, explicitToJson: true)
-class SingleCityResponse {
-  @JsonKey(defaultValue: 0)
-  final int id;
-  @JsonKey(defaultValue: '')
-  final String name;
-  @JsonKey(defaultValue: '', name: 'short_desc')
-  final String shortDescription;
-  @JsonKey(defaultValue: '')
-  final String info;
-  @JsonKey(defaultValue: '')
-  final String photo;
-  @JsonKey(defaultValue: '', name: 'created_at')
-  final String createdAt;
-  @JsonKey(defaultValue: '', name: 'updated_at')
-  final String updatedAt;
-
-  SingleCityResponse({
-    required this.id,
-    required this.name,
-    required this.info,
-    required this.photo,
-    required this.shortDescription,
-    required this.createdAt,
-    required this.updatedAt,
-  });
-
-  factory SingleCityResponse.fromJson(Map<String, dynamic> json) =>
-      _$SingleCityResponseFromJson(json);
-
-  Map<String, dynamic> toJson() => _$SingleCityResponseToJson(this);
-}
-
 // {
 //   "places": [
 //     {
@@ -77,9 +31,22 @@ class SingleCityResponse {
 // }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
+class CitiesResponse {
+  @JsonKey(defaultValue: [])
+  final List<SingleItemResponse> cities;
+
+  CitiesResponse({required this.cities});
+
+  factory CitiesResponse.fromJson(Map<String, dynamic> json) =>
+      _$CitiesResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CitiesResponseToJson(this);
+}
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
 class PlacesResponse {
   @JsonKey(defaultValue: [])
-  final List<SinglePlaceResponse> places;
+  final List<SingleItemResponse> places;
 
   PlacesResponse({required this.places});
 
@@ -90,11 +57,11 @@ class PlacesResponse {
 }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
-class SinglePlaceResponse {
+class SingleItemResponse {
   @JsonKey(defaultValue: 0)
   final int id;
   @JsonKey(defaultValue: 0, name: 'city_id')
-  final int cityID;
+  final int? cityID;
   @JsonKey(defaultValue: '')
   final String name;
   @JsonKey(defaultValue: '', name: 'short_desc')
@@ -108,9 +75,9 @@ class SinglePlaceResponse {
   @JsonKey(defaultValue: '', name: 'updated_at')
   final String updatedAt;
 
-  SinglePlaceResponse({
+  SingleItemResponse({
     required this.id,
-    required this.cityID,
+    this.cityID,
     required this.name,
     required this.info,
     required this.photo,
@@ -119,8 +86,8 @@ class SinglePlaceResponse {
     required this.updatedAt,
   });
 
-  factory SinglePlaceResponse.fromJson(Map<String, dynamic> json) =>
-      _$SinglePlaceResponseFromJson(json);
+  factory SingleItemResponse.fromJson(Map<String, dynamic> json) =>
+      _$SingleItemResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SinglePlaceResponseToJson(this);
+  Map<String, dynamic> toJson() => _$SingleItemResponseToJson(this);
 }
