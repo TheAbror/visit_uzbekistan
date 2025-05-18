@@ -5,11 +5,11 @@ part 'root_state.dart';
 class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
-  void getCities() async {
+  void getAllCities() async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 
     try {
-      final response = await ApiProvider.citiesService.getCities();
+      final response = await ApiProvider.homeServices.getAllCities();
 
       if (response.isSuccessful) {
         final result = response.body;
@@ -41,11 +41,11 @@ class RootBloc extends Cubit<RootState> {
     }
   }
 
-  void getPlaces() async {
+  void getAllPlaces() async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 
     try {
-      final response = await ApiProvider.citiesService.getPlaces();
+      final response = await ApiProvider.homeServices.getAllPlaces();
 
       if (response.isSuccessful) {
         final result = response.body;

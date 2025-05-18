@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cities_service.dart';
+part of 'home_services.dart';
 
 // **************************************************************************
 // ChopperGenerator
@@ -8,17 +8,17 @@ part of 'cities_service.dart';
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-final class _$CitiesService extends CitiesService {
-  _$CitiesService([ChopperClient? client]) {
+final class _$HomeServices extends HomeServices {
+  _$HomeServices([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final Type definitionType = CitiesService;
+  final Type definitionType = HomeServices;
 
   @override
-  Future<Response<CitiesResponse>> getCities() {
+  Future<Response<CitiesResponse>> getAllCities() {
     final Uri $url =
         Uri.parse('https://39fd-213-230-92-231.ngrok-free.app/api/cities');
     final Request $request = Request(
@@ -30,7 +30,7 @@ final class _$CitiesService extends CitiesService {
   }
 
   @override
-  Future<Response<PlacesResponse>> getPlaces() {
+  Future<Response<PlacesResponse>> getAllPlaces() {
     final Uri $url =
         Uri.parse('https://39fd-213-230-92-231.ngrok-free.app/api/places');
     final Request $request = Request(

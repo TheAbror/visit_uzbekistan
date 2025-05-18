@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'cities_response.g.dart';
+part 'home_models.g.dart';
 
 // {
 //   "cities": [

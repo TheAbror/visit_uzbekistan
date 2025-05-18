@@ -25,17 +25,17 @@ class BeforeTheTripTab extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  UsefulAppsItem(
+                  UsefulApplicationssItem(
                     title: 'RMVgo',
                     subTitle: 'Tickets & routes for public transport',
                     svgPicture: 'assets/icons/single_city/dbbahnho.svg',
                   ),
-                  UsefulAppsItem(
+                  UsefulApplicationssItem(
                     title: 'DB Bahnhof live',
                     subTitle: 'Live train tracking and train information',
                     svgPicture: 'assets/icons/single_city/dbbahnho.svg',
                   ),
-                  UsefulAppsItem(
+                  UsefulApplicationssItem(
                     title: 'Free Now',
                     subTitle: 'Taxi and car rental',
                     svgPicture: 'assets/icons/single_city/freenow.svg',

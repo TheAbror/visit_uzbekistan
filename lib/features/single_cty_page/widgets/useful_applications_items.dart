@@ -1,12 +1,12 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class UsefulAppsItem extends StatelessWidget {
+class UsefulApplicationssItem extends StatelessWidget {
   final String title;
   final String subTitle;
   final String svgPicture;
   final bool isLast;
 
-  const UsefulAppsItem({
+  const UsefulApplicationssItem({
     super.key,
     required this.svgPicture,
     required this.title,
