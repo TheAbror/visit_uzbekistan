@@ -34,9 +34,9 @@ class TitleAndViewAllWidget extends StatelessWidget {
             child: Text(
               'View all',
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 13.sp,
                 color: AppColors.primary,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),

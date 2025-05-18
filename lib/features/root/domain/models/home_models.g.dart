@@ -37,23 +37,57 @@ Map<String, dynamic> _$PlacesResponseToJson(PlacesResponse instance) =>
 SingleItemResponse _$SingleItemResponseFromJson(Map<String, dynamic> json) =>
     SingleItemResponse(
       id: json['id'] as int? ?? 0,
-      cityID: json['city_id'] as int? ?? 0,
       name: json['name'] as String? ?? '',
       info: json['info'] as String? ?? '',
       photo: json['photo'] as String? ?? '',
       shortDescription: json['short_desc'] as String? ?? '',
       createdAt: json['created_at'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
+      cityID: json['city_id'] as int? ?? 0,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0,
+      cityName: json['city_name'] as String? ?? '',
     );
 
 Map<String, dynamic> _$SingleItemResponseToJson(SingleItemResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'city_id': instance.cityID,
       'name': instance.name,
       'short_desc': instance.shortDescription,
       'info': instance.info,
       'photo': instance.photo,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'city_id': instance.cityID,
+      'city_name': instance.cityName,
+      'rating': instance.rating,
+    };
+
+SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
+    SingleCityResponse(
+      places: (json['places'] as List<dynamic>?)
+              ?.map(
+                  (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      restaurants: (json['restaurants'] as List<dynamic>?)
+              ?.map(
+                  (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      id: json['id'] as int? ?? 0,
+      name: json['name'] as String? ?? '',
+      info: json['info'] as String? ?? '',
+      photo: json['photo'] as String? ?? '',
+      shortDescription: json['short_desc'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'short_desc': instance.shortDescription,
+      'info': instance.info,
+      'photo': instance.photo,
+      'places': instance.places.map((e) => e.toJson()).toList(),
+      'restaurants': instance.restaurants.map((e) => e.toJson()).toList(),
     };

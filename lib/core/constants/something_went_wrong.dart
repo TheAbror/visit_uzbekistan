@@ -7,7 +7,7 @@ class SomethingWentWrong extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'context.localizations.somethingWentWrong',
+        'Something went wrong',
         style: TextStyle(
           fontSize: 14.sp,
           fontWeight: FontWeight.bold,

@@ -1,7 +1,7 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class HomeTabItems extends StatelessWidget {
-  final List<dynamic> item;
+  final List<SingleItemResponse> item;
 
   const HomeTabItems({
     super.key,
@@ -30,7 +30,7 @@ class HomeTabItems extends StatelessWidget {
 }
 
 class ItemInfo extends StatelessWidget {
-  final dynamic item;
+  final SingleItemResponse item;
 
   const ItemInfo({
     super.key,
@@ -41,7 +41,11 @@ class ItemInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.singleCityPage);
+        Navigator.pushNamed(
+          context,
+          AppRoutes.singleCityPage,
+          arguments: item.id,
+        );
       },
       child: Container(
         margin: EdgeInsets.only(right: 8.w),
@@ -57,18 +61,41 @@ class ItemInfo extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12.r),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12.r),
+                    topRight: Radius.circular(12.r),
+                  ),
                   child: Image.network(
-                      height: 180.h, width: 280.w, fit: BoxFit.fill,
-                      //                    errorBuilder: (BuildContext context, Object exception, StackTrace stackTrace) {
-                      //     return Text('Your error widget...');
-                      // },
-
-                      //   errorBuilder: (BuildContext context, Object exception, StackTrace stackTrace) {
-                      // return SizedBox();
-                      //   },
-                      loadingBuilder: (BuildContext context, Widget child,
-                          ImageChunkEvent? loadingProgress) {
+                      height: 180.h,
+                      width: 280.w,
+                      fit: BoxFit.fill, errorBuilder: (
+                    BuildContext context,
+                    Object exception,
+                    StackTrace? stackTrace,
+                  ) {
+                    return Container(
+                      height: 180.h,
+                      width: 280.w,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/sign_in_bg.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      // child: Center(
+                      //   child: const Text(
+                      //     'No results',
+                      //     style: TextStyle(
+                      //         color: AppColors.textMain,
+                      //         fontWeight: FontWeight.bold),
+                      //   ),
+                      // ),
+                    );
+                  }, loadingBuilder: (
+                    BuildContext context,
+                    Widget child,
+                    ImageChunkEvent? loadingProgress,
+                  ) {
                     if (loadingProgress == null) return child;
                     return SizedBox(
                       height: 180.h,
@@ -82,9 +109,7 @@ class ItemInfo extends StatelessWidget {
                         ),
                       ),
                     );
-                  },
-                      // 'https://dynamic-media.tacdn.com/media/photo-o/2f/61/65/1f/caption.jpg?w=800&h=600&s=1',
-                      item.photo),
+                  }, item.photo),
                 ),
                 Align(
                   alignment: Alignment.topRight,
@@ -104,21 +129,51 @@ class ItemInfo extends StatelessWidget {
               ],
             ),
             SizedBox(height: 6.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Text(
-                item.name,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 4.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Flexible(
-                child: Text(
-                  item.shortDescription,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 2.h),
+                    Text(
+                      item.name,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 2.h),
+                    Flexible(
+                      child: Text(
+                        item.shortDescription,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    if (item.cityID != null && item.cityID != 0)
+                      SizedBox(height: 4.h),
+                    if (item.cityName != '')
+                      Row(
+                        children: [
+                          Icon(
+                            IconsaxPlusLinear.location,
+                            size: 14.sp,
+                          ),
+                          SizedBox(width: 4.w),
+                          Text(
+                            item.cityName ?? '',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    if (item.rating != null && item.rating != 0)
+                      SizedBox(height: 4.h),
+                    if (item.rating != null && item.rating != 0)
+                      Row(
+                        children: [
+                          Text('Rating: '),
+                          Text(item.rating.toString()),
+                        ],
+                      ),
+                  ],
                 ),
               ),
             ),

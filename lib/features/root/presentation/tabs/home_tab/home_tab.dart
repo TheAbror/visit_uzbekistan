@@ -18,16 +18,18 @@ class HomeTab extends StatelessWidget {
 
           return ListView(
             children: [
-              TitleAndViewAllWidget(
-                title: 'Cities',
-                onTap: () {},
-              ),
+              if (state.cities.isNotEmpty)
+                TitleAndViewAllWidget(
+                  title: 'Cities',
+                  onTap: () {},
+                ),
               HomeTabItems(item: state.cities),
               //
-              TitleAndViewAllWidget(
-                title: 'Places',
-                onTap: () {},
-              ),
+              if (state.places.isNotEmpty)
+                TitleAndViewAllWidget(
+                  title: 'Places',
+                  onTap: () {},
+                ),
               HomeTabItems(item: state.places),
               //
               // TitleAndViewAllWidget(

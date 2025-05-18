@@ -26,7 +26,9 @@ class MainRouteGenerator {
 
       case AppRoutes.singleCityPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const SignleCityPage(),
+          builder: (_) => SignleCityPage(
+            cityID: settings.arguments as int,
+          ),
         );
 
       default:

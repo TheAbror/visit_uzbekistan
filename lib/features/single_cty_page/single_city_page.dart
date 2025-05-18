@@ -1,31 +1,50 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class SignleCityPage extends StatelessWidget {
-  static const routeName = '/single/city';
-  // static String routeName = '/';
+  final int cityID;
 
-  const SignleCityPage({super.key});
+  const SignleCityPage({
+    super.key,
+    required this.cityID,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: DefaultTabController(
-        length: 4,
-        child: Stack(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.network(
-                  'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQt5VjtiKK_Ersw6MMIWEmULmKh2eX8jToM384_6QqH018ZwyoYRrsSJu9wo7yuhp93bhj4doenkoIEnnPlGKzliPGihjz2Nsk7pfrdPA',
-                  // height: MediaQuery.of(context).size.height * 0.3,
-                  //@KH
-                ),
-              ],
-            ),
-            ArrowBackAndStarWidgets(),
-            _Body(),
-          ],
+        length: 7,
+        child: BlocProvider(
+          create: (context) => SingleCityBloc()..getSingleCity(cityID),
+          child: BlocBuilder<SingleCityBloc, SingleCityState>(
+            builder: (context, state) {
+              if (state.blocProgress == BlocProgress.IS_LOADING) {
+                return Center(child: CircularProgressIndicator());
+              }
+
+              if (state.blocProgress == BlocProgress.FAILED) {
+                return const SomethingWentWrong();
+              }
+              return Stack(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.network(
+                        height: MediaQuery.of(context).size.height * 0.35,
+                        width: double.infinity,
+                        state.response.photo,
+                        fit: BoxFit.contain,
+                      ),
+                    ],
+                  ),
+                  ArrowBackAndStarWidgets(),
+                  _Body(
+                    item: state.response,
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
@@ -33,10 +52,14 @@ class SignleCityPage extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
+  final SingleCityResponse item;
+
+  _Body({required this.item});
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: MediaQuery.of(context).size.height * 0.3 - 55,
+      top: MediaQuery.of(context).size.height * 0.35 - 55,
       left: 0,
       right: 0,
       bottom: 0,
@@ -57,7 +80,7 @@ class _Body extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Frankfurt am Main',
+                    item.name,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -85,7 +108,7 @@ class _Body extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                'Germany',
+                item.shortDescription,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -96,38 +119,38 @@ class _Body extends StatelessWidget {
             SizedBox(height: 16),
             Align(
               alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 4),
-                child: TabBar(
-                  tabAlignment: TabAlignment.start,
-                  isScrollable: true,
-                  dividerColor: Colors.transparent,
-                  labelColor: AppColors.float,
-                  // unselectedLabelColor: AppColors.foregroundTertiaryRest,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  indicatorColor: Colors.transparent,
-                  indicatorPadding: EdgeInsets.symmetric(
-                    horizontal: 0,
-                    vertical: 0,
-                  ),
-                  labelPadding: EdgeInsets.symmetric(
-                    horizontal: 2,
-                    vertical: 0,
-                  ),
-                  indicator: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  tabs: [
-                    SingleCityTab(label: 'Before the trip'),
-                    SingleCityTab(label: 'At the airport'),
-                    SingleCityTab(label: 'Transportation'),
-                    SingleCityTab(label: 'City'),
-                  ],
+              child: TabBar(
+                tabAlignment: TabAlignment.start,
+                isScrollable: true,
+                dividerColor: Colors.transparent,
+                labelColor: AppColors.float,
+                // unselectedLabelColor: AppColors.foregroundTertiaryRest,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorColor: Colors.transparent,
+                indicatorPadding: EdgeInsets.symmetric(
+                  horizontal: 0,
+                  vertical: 0,
                 ),
+                labelPadding: EdgeInsets.symmetric(
+                  horizontal: 2,
+                  vertical: 0,
+                ),
+                indicator: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                tabs: [
+                  SingleCityTab(label: 'Before the trip'),
+                  SingleCityTab(label: 'Restaurants'),
+                  SingleCityTab(label: 'Hotels'),
+                  SingleCityTab(label: 'Car rental'),
+                  SingleCityTab(label: 'Tours'),
+                  SingleCityTab(label: 'Tours1'),
+                  SingleCityTab(label: 'Tours2'),
+                ],
               ),
             ),
             SizedBox(height: 8),
@@ -146,6 +169,9 @@ class _Body extends StatelessWidget {
                     OnTheAirportTab(),
                     TransportationTab(),
                     CityTab(),
+                    SizedBox(),
+                    SizedBox(),
+                    SizedBox(),
                   ],
                 ),
               ),
