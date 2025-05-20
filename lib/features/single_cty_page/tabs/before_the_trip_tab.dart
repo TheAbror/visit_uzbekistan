@@ -6,6 +6,7 @@ class BeforeTheTripTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       children: [
         SingleCityTitle(title: 'Useful Apps'),

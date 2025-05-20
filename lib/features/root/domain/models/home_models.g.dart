@@ -64,6 +64,12 @@ Map<String, dynamic> _$SingleItemResponseToJson(SingleItemResponse instance) =>
 
 SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
     SingleCityResponse(
+      id: json['id'] as int? ?? 0,
+      name: json['name'] as String? ?? '',
+      location: json['location'] as String? ?? '',
+      info: json['info'] as String? ?? '',
+      photo: json['photo'] as String? ?? '',
+      shortDescription: json['short_desc'] as String? ?? '',
       places: (json['places'] as List<dynamic>?)
               ?.map(
                   (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
@@ -74,17 +80,13 @@ SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
                   (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
-      id: json['id'] as int? ?? 0,
-      name: json['name'] as String? ?? '',
-      info: json['info'] as String? ?? '',
-      photo: json['photo'] as String? ?? '',
-      shortDescription: json['short_desc'] as String? ?? '',
     );
 
 Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'location': instance.location,
       'short_desc': instance.shortDescription,
       'info': instance.info,
       'photo': instance.photo,

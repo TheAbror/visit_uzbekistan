@@ -1,4 +1,3 @@
-import 'package:visit_uzbekistan/features/auth/widgets/terms_bottomsheet/terms_bottomsheet.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class SignInPage extends StatefulWidget {
@@ -94,10 +93,15 @@ class _SignInPageState extends State<SignInPage> {
             bottom: 60.h,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamedAndRemoveUntil(
+                // Navigator.pushNamedAndRemoveUntil(
+                //   context,
+                //   AppRoutes.rootPage,
+                //   (route) => false,
+                // );
+                Navigator.pushNamed(
                   context,
-                  AppRoutes.rootPage,
-                  (route) => false,
+                  AppRoutes.singleCityPage,
+                  arguments: 0,
                 );
               },
               child: Text(

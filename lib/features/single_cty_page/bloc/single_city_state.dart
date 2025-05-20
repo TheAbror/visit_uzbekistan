@@ -17,6 +17,7 @@ class SingleCityState extends Equatable {
         id: 0,
         name: '',
         info: '',
+        location: '',
         photo: '',
         shortDescription: '',
         places: [],

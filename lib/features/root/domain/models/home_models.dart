@@ -156,6 +156,8 @@ class SingleCityResponse {
   final int id;
   @JsonKey(defaultValue: '')
   final String name;
+  @JsonKey(defaultValue: '')
+  final String location;
   @JsonKey(defaultValue: '', name: 'short_desc')
   final String shortDescription;
   @JsonKey(defaultValue: '')
@@ -168,13 +170,14 @@ class SingleCityResponse {
   final List<SingleItemResponse> restaurants;
 
   SingleCityResponse({
-    required this.places,
-    required this.restaurants,
     required this.id,
     required this.name,
+    required this.location,
     required this.info,
     required this.photo,
     required this.shortDescription,
+    required this.places,
+    required this.restaurants,
   });
 
   factory SingleCityResponse.fromJson(Map<String, dynamic> json) =>

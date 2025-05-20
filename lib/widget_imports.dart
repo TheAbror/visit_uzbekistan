@@ -67,3 +67,4 @@ export 'package:visit_uzbekistan/core/bloc_progress/error.dart';
 export 'package:visit_uzbekistan/core/app_strings.dart';
 export 'package:visit_uzbekistan/core/constants/something_went_wrong.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/bloc/single_city_bloc.dart';
+export 'package:visit_uzbekistan/features/auth/widgets/terms_bottomsheet/terms_bottomsheet.dart';
