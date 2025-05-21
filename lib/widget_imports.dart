@@ -36,7 +36,6 @@ export 'package:visit_uzbekistan/features/single_cty_page/tabs/before_the_trip_t
 export 'package:visit_uzbekistan/features/single_cty_page/tabs/city_tab.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/tabs/on_the_airport_tab.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/tabs/transportation_tab.dart';
-export 'package:visit_uzbekistan/features/single_cty_page/widgets/arrow_back_and_star_widgets.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/single_city_widgets.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/useful_applications_items.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/things_to_do_item.dart';
@@ -68,3 +67,5 @@ export 'package:visit_uzbekistan/core/app_strings.dart';
 export 'package:visit_uzbekistan/core/constants/something_went_wrong.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/bloc/single_city_bloc.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/terms_bottomsheet/terms_bottomsheet.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/single_city_page_tabbar.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/single_city_page_tabbar_view.dart';

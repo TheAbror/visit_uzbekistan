@@ -55,3 +55,62 @@ class SingleCityTitle extends StatelessWidget {
     );
   }
 }
+
+class SingleCityPageBgImage extends StatelessWidget {
+  const SingleCityPageBgImage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(
+      'https://uzbekistan.travel/storage/app/media/Rasmlar/Samarqand/umumiy/cropped-images/shutterstock_1979665571-0-0-0-0-1738745770.jpg',
+      fit: BoxFit.cover,
+      width: double.infinity,
+      height: double.infinity,
+      alignment: Alignment.topCenter,
+    );
+  }
+}
+
+class SingleCityPageLeadingIcon extends StatelessWidget {
+  const SingleCityPageLeadingIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Container(
+        height: 26.w,
+        width: 26.w,
+        padding: EdgeInsets.symmetric(horizontal: 4.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: SvgPicture.asset(
+            height: 24.w,
+            width: 24.w,
+            'assets/icons/single_city/arrow-left.svg'),
+      ),
+      onPressed: () => Navigator.pop(context),
+    );
+  }
+}
+
+class SingleCityPageMakeFavoriteWidget extends StatelessWidget {
+  const SingleCityPageMakeFavoriteWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        padding: EdgeInsets.all(8),
+        margin: EdgeInsets.only(right: 8.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: SvgPicture.asset('assets/icons/single_city/star.svg'),
+      ),
+    );
+  }
+}
