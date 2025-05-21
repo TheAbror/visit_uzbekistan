@@ -12,7 +12,7 @@ class SingleCityPageTabBar extends StatelessWidget {
         isScrollable: true,
         dividerColor: Colors.transparent,
         labelColor: AppColors.float,
-        // unselectedLabelColor: AppColors.foregroundTertiaryRest,
+        unselectedLabelColor: AppColors.foregroundTertiaryRest,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorColor: Colors.transparent,
         indicatorPadding: EdgeInsets.symmetric(

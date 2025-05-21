@@ -1,4 +1,3 @@
-import 'package:visit_uzbekistan/features/single_cty_page/widgets/title_desc_reviews.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 // const SliverToBoxAdapter(
@@ -15,6 +14,7 @@ import 'package:visit_uzbekistan/widget_imports.dart';
 // ),
 // centerTitle: false,
 
+//TODO use planes photo for bgImage
 class SignleCityPage extends StatelessWidget {
   final int cityID;
 
@@ -59,37 +59,23 @@ class NewBody extends StatelessWidget {
     return DefaultTabController(
       length: 7,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 24),
-        decoration: BoxDecoration(
-          color: AppColors.float,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(32),
-            topRight: Radius.circular(32),
-          ),
-        ),
+        padding: EdgeInsets.symmetric(vertical: 16.h),
+        decoration: BoxDecoration(color: AppColors.float),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TitleDescReviews(),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 16.w,
-                right: 16.w,
-                bottom: 16.h,
-              ),
-              child: Text(
-                'item.shortDescription',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.miscellaneousTabUnselected,
-                ),
-              ),
+            TitleDescReviews(
+              title: 'Samarkand',
+              reviews: '32 Reviews',
+            ),
+            SingleCityPageShortDesc(
+              shortDesc:
+                  '''Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries ''',
             ),
             SingleCityPageTabBar(),
-            SizedBox(height: 8),
-            Divider(height: 0.5, thickness: 0.5),
-            SizedBox(height: 16),
+            SizedBox(height: 8.h),
+            Divider(height: 0.5.h, thickness: 0.5),
+            SizedBox(height: 16.h),
             SingleCityPageTabBarView(),
           ],
         ),

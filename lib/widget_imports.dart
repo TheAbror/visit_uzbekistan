@@ -69,3 +69,4 @@ export 'package:visit_uzbekistan/features/single_cty_page/bloc/single_city_bloc.
 export 'package:visit_uzbekistan/features/auth/widgets/terms_bottomsheet/terms_bottomsheet.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/single_city_page_tabbar.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/single_city_page_tabbar_view.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/widgets/title_desc_reviews.dart';

@@ -1,7 +1,14 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class TitleDescReviews extends StatelessWidget {
-  const TitleDescReviews({super.key});
+  final String title;
+  final String reviews;
+
+  const TitleDescReviews({
+    super.key,
+    required this.title,
+    required this.reviews,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +17,7 @@ class TitleDescReviews extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            'item.name',
+            title,
             style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.w600,
@@ -26,7 +33,7 @@ class TitleDescReviews extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  '32 Reviews',
+                  reviews,
                   style: TextStyle(fontSize: 12.sp),
                 ),
                 SizedBox(width: 4),
@@ -35,6 +42,36 @@ class TitleDescReviews extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class SingleCityPageShortDesc extends StatelessWidget {
+  final String shortDesc;
+
+  const SingleCityPageShortDesc({
+    super.key,
+    required this.shortDesc,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 16.w,
+        right: 16.w,
+        bottom: 8.h,
+      ),
+      child: Text(
+        shortDesc,
+        style: TextStyle(
+          fontSize: 15.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColors.miscellaneousTabUnselected,
+        ),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }
