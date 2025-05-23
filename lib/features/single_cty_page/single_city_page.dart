@@ -59,7 +59,7 @@ class NewBody extends StatelessWidget {
     return DefaultTabController(
       length: 7,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 16.h),
+        padding: EdgeInsets.symmetric(vertical: 10.h),
         decoration: BoxDecoration(color: AppColors.float),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +75,6 @@ class NewBody extends StatelessWidget {
             SingleCityPageTabBar(),
             SizedBox(height: 8.h),
             Divider(height: 0.5.h, thickness: 0.5),
-            SizedBox(height: 16.h),
             SingleCityPageTabBarView(),
           ],
         ),

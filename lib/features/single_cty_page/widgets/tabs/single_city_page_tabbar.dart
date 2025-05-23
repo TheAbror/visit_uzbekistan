@@ -29,7 +29,7 @@ class SingleCityPageTabBar extends StatelessWidget {
             Radius.circular(8),
           ),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: defaultPadding),
         tabs: [
           SingleCityTab(label: 'Before the trip'),
           SingleCityTab(label: 'Restaurants'),

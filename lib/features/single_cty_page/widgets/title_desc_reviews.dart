@@ -13,7 +13,7 @@ class TitleDescReviews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: defaultPadding),
       child: Row(
         children: [
           Text(
@@ -59,14 +59,14 @@ class SingleCityPageShortDesc extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: 16.w,
-        right: 16.w,
+        left: defaultPadding,
+        right: defaultPadding,
         bottom: 8.h,
       ),
       child: Text(
         shortDesc,
         style: TextStyle(
-          fontSize: 15.sp,
+          fontSize: 13.sp,
           fontWeight: FontWeight.w500,
           color: AppColors.miscellaneousTabUnselected,
         ),

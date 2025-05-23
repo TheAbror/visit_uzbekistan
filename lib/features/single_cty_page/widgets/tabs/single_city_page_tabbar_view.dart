@@ -7,7 +7,11 @@ class SingleCityPageTabBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.only(
+          left: defaultPadding,
+          right: defaultPadding,
+          top: 8.h,
+        ),
         child: TabBarView(
           physics: NeverScrollableScrollPhysics(),
           children: [
