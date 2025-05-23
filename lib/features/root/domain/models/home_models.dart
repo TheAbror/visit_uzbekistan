@@ -62,6 +62,8 @@ class SingleItemResponse {
   final int id;
   @JsonKey(defaultValue: '')
   final String name;
+  @JsonKey(defaultValue: '')
+  final String location;
   @JsonKey(defaultValue: '', name: 'short_desc')
   final String shortDescription;
   @JsonKey(defaultValue: '')
@@ -79,10 +81,13 @@ class SingleItemResponse {
   final String? cityName;
   @JsonKey(defaultValue: 0)
   final double? rating;
+  @JsonKey(defaultValue: false)
+  final bool? isImageTiny;
 
   SingleItemResponse({
     required this.id,
     required this.name,
+    required this.location,
     required this.info,
     required this.photo,
     required this.shortDescription,
@@ -91,6 +96,7 @@ class SingleItemResponse {
     this.cityID,
     this.rating,
     this.cityName,
+    this.isImageTiny,
   });
 
   factory SingleItemResponse.fromJson(Map<String, dynamic> json) =>

@@ -93,16 +93,16 @@ class _SignInPageState extends State<SignInPage> {
             bottom: 60.h,
             child: GestureDetector(
               onTap: () {
-                // Navigator.pushNamedAndRemoveUntil(
-                //   context,
-                //   AppRoutes.rootPage,
-                //   (route) => false,
-                // );
-                Navigator.pushNamed(
+                Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.singleCityPage,
-                  arguments: 0,
+                  AppRoutes.rootPage,
+                  (route) => false,
                 );
+                // Navigator.pushNamed(
+                //   context,
+                //   AppRoutes.singleCityPage,
+                //   arguments: 0,
+                // );
               },
               child: Text(
                 'May be later',

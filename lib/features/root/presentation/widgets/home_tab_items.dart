@@ -49,7 +49,7 @@ class ItemInfo extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.only(right: 8.w),
-        height: 180.h,
+        height: 185.h,
         width: 280.w,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -66,50 +66,48 @@ class ItemInfo extends StatelessWidget {
                     topRight: Radius.circular(12.r),
                   ),
                   child: Image.network(
-                      height: 180.h,
-                      width: 280.w,
-                      fit: BoxFit.fill, errorBuilder: (
-                    BuildContext context,
-                    Object exception,
-                    StackTrace? stackTrace,
-                  ) {
-                    return Container(
-                      height: 180.h,
-                      width: 280.w,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/sign_in_bg.jpg'),
-                          fit: BoxFit.cover,
+                    height: 180.h,
+                    width: 280.w,
+                    fit: item.isImageTiny == true
+                        ? BoxFit.fitWidth
+                        : BoxFit.none,
+                    errorBuilder: (
+                      BuildContext context,
+                      Object exception,
+                      StackTrace? stackTrace,
+                    ) {
+                      return Container(
+                        height: 180.h,
+                        width: 280.w,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/sign_in_bg.jpg'),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                      // child: Center(
-                      //   child: const Text(
-                      //     'No results',
-                      //     style: TextStyle(
-                      //         color: AppColors.textMain,
-                      //         fontWeight: FontWeight.bold),
-                      //   ),
-                      // ),
-                    );
-                  }, loadingBuilder: (
-                    BuildContext context,
-                    Widget child,
-                    ImageChunkEvent? loadingProgress,
-                  ) {
-                    if (loadingProgress == null) return child;
-                    return SizedBox(
-                      height: 180.h,
-                      width: 280.w,
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                              : null,
+                      );
+                    },
+                    loadingBuilder: (
+                      BuildContext context,
+                      Widget child,
+                      ImageChunkEvent? loadingProgress,
+                    ) {
+                      if (loadingProgress == null) return child;
+                      return SizedBox(
+                        height: 180.h,
+                        width: 280.w,
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
                         ),
-                      ),
-                    );
-                  }, item.photo),
+                      );
+                    },
+                    item.photo,
+                  ),
                 ),
                 Align(
                   alignment: Alignment.topRight,
@@ -128,7 +126,7 @@ class ItemInfo extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 6.h),
+            SizedBox(height: 3.h),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -145,12 +143,16 @@ class ItemInfo extends StatelessWidget {
                       child: Text(
                         item.shortDescription,
                         maxLines: 2,
+                        style: TextStyle(
+                          fontSize: 11.sp,
+                          color: AppColors.miscellaneousTabUnselected,
+                        ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     if (item.cityID != null && item.cityID != 0)
                       SizedBox(height: 4.h),
-                    if (item.cityName != '')
+                    if (item.location != '')
                       Row(
                         children: [
                           Icon(

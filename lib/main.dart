@@ -15,6 +15,7 @@ void main() async {
         MultiBlocProvider(
           providers: [
             BlocProvider(create: (context) => RootBloc()),
+            BlocProvider(create: (context) => HomeBloc()),
           ],
           child: const MyApp(),
         ),

@@ -6,15 +6,15 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<RootBloc, RootState>(
+      child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
           }
 
-          if (state.blocProgress == BlocProgress.FAILED) {
-            return const SomethingWentWrong();
-          }
+          // if (state.blocProgress == BlocProgress.FAILED) {
+          //   return const SomethingWentWrong();
+          // }
 
           return ListView(
             children: [
@@ -23,20 +23,22 @@ class HomeTab extends StatelessWidget {
                   title: 'Cities',
                   onTap: () {},
                 ),
-              HomeTabItems(item: state.cities),
+              if (state.cities.isNotEmpty) HomeTabItems(item: state.cities),
               //
               if (state.places.isNotEmpty)
                 TitleAndViewAllWidget(
                   title: 'Places',
                   onTap: () {},
                 ),
-              HomeTabItems(item: state.places),
-              //
-              // TitleAndViewAllWidget(
-              //   title: 'Some dummy text',
-              //   onTap: () {},
-              // ),
-              // HomeTabItems(),
+              if (state.cities.isNotEmpty) HomeTabItems(item: state.places),
+              // useful apps
+              if (state.usefulApps.isNotEmpty)
+                TitleAndViewAllWidget(
+                  title: 'Useful apps',
+                  onTap: () {},
+                ),
+              if (state.usefulApps.isNotEmpty)
+                HomeTabItems(item: state.usefulApps),
             ],
           );
         },
