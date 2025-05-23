@@ -72,3 +72,4 @@ export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/single_ci
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/title_desc_reviews.dart';
 export 'package:visit_uzbekistan/core/constants/app_configs.dart';
 export 'package:visit_uzbekistan/features/root/presentation/bloc/home_bloc.dart';
+export 'package:visit_uzbekistan/features/root/presentation/bloc/search_bloc.dart';

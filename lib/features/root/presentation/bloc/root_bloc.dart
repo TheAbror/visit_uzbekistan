@@ -8,4 +8,18 @@ class RootBloc extends Cubit<RootState> {
   void changeTab(int tabIndex) {
     emit(state.copyWith(tabIndex: tabIndex));
   }
+
+  void addFavorite(SingleItemResponse item, BuildContext context) {
+    final updatedList = List<SingleItemResponse>.from(state.favorites);
+
+    if (state.favorites.contains(item)) {
+      updatedList.remove(item);
+    } else {
+      updatedList.add(item);
+    }
+
+    emit(state.copyWith(favorites: updatedList));
+
+    context.read<SearchBloc>().addFromFavorite(item.name);
+  }
 }

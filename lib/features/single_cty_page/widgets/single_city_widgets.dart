@@ -96,21 +96,39 @@ class SingleCityPageLeadingIcon extends StatelessWidget {
 }
 
 class SingleCityPageMakeFavoriteWidget extends StatelessWidget {
-  const SingleCityPageMakeFavoriteWidget({super.key});
+  final int cityID;
+
+  const SingleCityPageMakeFavoriteWidget({
+    super.key,
+    required this.cityID,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: EdgeInsets.all(8),
-        margin: EdgeInsets.only(right: 8.w),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(50),
-        ),
-        child: SvgPicture.asset('assets/icons/single_city/star.svg'),
-      ),
+    return BlocBuilder<RootBloc, RootState>(
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: () {
+            // context.read<RootBloc>().addFavorite(item);
+          },
+          child: Container(
+            padding: EdgeInsets.all(4.w),
+            margin: EdgeInsets.only(right: 8.w),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Icon(
+              state.favorites.contains(
+                      state.favorites.firstWhere((e) => e.id == cityID))
+                  ? IconsaxPlusBold.heart
+                  : IconsaxPlusLinear.heart,
+              size: 18.sp,
+              color: Colors.red,
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -16,6 +16,7 @@ void main() async {
           providers: [
             BlocProvider(create: (context) => RootBloc()),
             BlocProvider(create: (context) => HomeBloc()),
+            BlocProvider(create: (context) => SearchBloc()),
           ],
           child: const MyApp(),
         ),

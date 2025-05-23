@@ -70,7 +70,7 @@ class ItemInfo extends StatelessWidget {
                     width: 280.w,
                     fit: item.isImageTiny == true
                         ? BoxFit.fitWidth
-                        : BoxFit.none,
+                        : BoxFit.fill,
                     errorBuilder: (
                       BuildContext context,
                       Object exception,
@@ -109,20 +109,32 @@ class ItemInfo extends StatelessWidget {
                     item.photo,
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    margin: EdgeInsets.only(right: 4.w, top: 4.h),
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      color: AppColors.float,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Icon(
-                      Icons.favorite_border_rounded,
-                      size: 16.sp,
-                    ),
-                  ),
+                BlocBuilder<RootBloc, RootState>(
+                  builder: (context, state) {
+                    return Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () {
+                          context.read<RootBloc>().addFavorite(item, context);
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 4.w, top: 4.h),
+                          padding: EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            color: AppColors.float,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Icon(
+                            state.favorites.contains(item)
+                                ? IconsaxPlusBold.heart
+                                : IconsaxPlusLinear.heart,
+                            size: 18.sp,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

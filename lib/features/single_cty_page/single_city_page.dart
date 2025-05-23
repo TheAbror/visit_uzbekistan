@@ -14,7 +14,6 @@ import 'package:visit_uzbekistan/widget_imports.dart';
 // ),
 // centerTitle: false,
 
-//TODO use planes photo for bgImage
 class SignleCityPage extends StatelessWidget {
   final int cityID;
 
@@ -33,7 +32,7 @@ class SignleCityPage extends StatelessWidget {
             floating: true,
             expandedHeight: 200.h,
             leading: SingleCityPageLeadingIcon(),
-            actions: [SingleCityPageMakeFavoriteWidget()],
+            actions: [SingleCityPageMakeFavoriteWidget(cityID: cityID)],
             flexibleSpace: FlexibleSpaceBar(
               stretchModes: const [StretchMode.zoomBackground],
               expandedTitleScale: 1.8,

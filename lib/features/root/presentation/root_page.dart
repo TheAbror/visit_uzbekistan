@@ -1,3 +1,4 @@
+import 'package:visit_uzbekistan/features/root/presentation/tabs/search_tab/search_tab.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class RootPage extends StatefulWidget {
@@ -12,8 +13,8 @@ class _RootPageState extends State<RootPage> {
   void initState() {
     super.initState();
 
-    context.read<HomeBloc>().getAllCities();
-    context.read<HomeBloc>().getAllPlaces();
+    context.read<HomeBloc>().getAllCities(context);
+    context.read<HomeBloc>().getAllPlaces(context);
   }
 
   @override
@@ -26,7 +27,7 @@ class _RootPageState extends State<RootPage> {
             index: state.tabIndex,
             children: [
               HomeTab(),
-              SizedBox(),
+              SearchTab(),
               ProfileTab(),
               MoreTab(),
             ],
