@@ -74,3 +74,8 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
     return true;
   }
 }
+
+
+
+//https://github.com/ivansaul/Flutter-UI-Kit/blob/master/custom_slivers/lib/home_screen.dart
+//https://www.youtube.com/shorts/DXopel8Pf50
