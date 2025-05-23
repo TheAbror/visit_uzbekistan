@@ -119,10 +119,11 @@ class SingleCityPageMakeFavoriteWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
             ),
             child: Icon(
-              state.favorites.contains(
-                      state.favorites.firstWhere((e) => e.id == cityID))
-                  ? IconsaxPlusBold.heart
-                  : IconsaxPlusLinear.heart,
+              // state.favorites.contains(
+              //         state.favorites.firstWhere((e) => e.id == cityID))
+              //     ? IconsaxPlusBold.heart
+              //     :
+              IconsaxPlusLinear.heart,
               size: 18.sp,
               color: Colors.red,
             ),
