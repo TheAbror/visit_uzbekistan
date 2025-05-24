@@ -1,11 +1,11 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class SignleCityPage extends StatelessWidget {
-  final int cityID;
+  final int id;
 
   const SignleCityPage({
     super.key,
-    required this.cityID,
+    required this.id,
   });
 
   @override
@@ -20,13 +20,8 @@ class SignleCityPage extends StatelessWidget {
               pinned: true,
               floating: true,
               expandedHeight: 200.h,
-              // title: Text(
-              //   'Samarkand',
-              //   style: TextStyle(color: AppColors.float),
-              // ),
-              // centerTitle: false,
               leading: SingleCityPageLeadingIcon(),
-              actions: [SingleCityPageMakeFavoriteWidget(cityID: cityID)],
+              actions: [SingleCityPageMakeFavoriteWidget(cityID: id)],
               flexibleSpace: FlexibleSpaceBar(
                 stretchModes: const [StretchMode.zoomBackground],
                 expandedTitleScale: 1.8,

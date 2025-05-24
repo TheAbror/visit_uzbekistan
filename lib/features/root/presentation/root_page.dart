@@ -22,7 +22,7 @@ class _RootPageState extends State<RootPage> {
     return BlocBuilder<RootBloc, RootState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Color(0XFFEEF2F6),
+          backgroundColor: AppColors.rootBgColor,
           body: IndexedStack(
             index: state.tabIndex,
             children: [

@@ -62,7 +62,8 @@ class SingleCityPageBgImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.network(
-      'https://uzbekistan.travel/storage/app/media/Rasmlar/Samarqand/umumiy/cropped-images/shutterstock_1979665571-0-0-0-0-1738745770.jpg',
+      // 'https://uzbekistan.travel/storage/app/media/Rasmlar/Samarqand/umumiy/cropped-images/shutterstock_1979665571-0-0-0-0-1738745770.jpg',
+      'https://www.advantour.com/img/uzbekistan/images/urgench.jpg',
       fit: BoxFit.cover,
       width: double.infinity,
       height: double.infinity,

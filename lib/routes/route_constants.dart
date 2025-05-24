@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static const rootPage = '/rootPage';
   static const onBoardingPage = '/onBoardingPage';
   static const singleCityPage = '/singleCityPage';
+  static const singleCarPage = '/singleCarPage';
 }

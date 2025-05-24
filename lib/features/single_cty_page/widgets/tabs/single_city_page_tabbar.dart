@@ -33,16 +33,43 @@ class SingleCityPageTabBar extends StatelessWidget {
           ),
           padding: EdgeInsets.symmetric(horizontal: defaultPadding),
           tabs: [
-            SingleCityTab(label: 'About Samarkand'),
+            SingleCityTab(label: 'About Urgench'),
             SingleCityTab(label: 'Before the trip'),
+            SingleCityTab(label: 'Transportation'),
             SingleCityTab(label: 'Restaurants'),
             SingleCityTab(label: 'Hotels'),
-            SingleCityTab(label: 'Car rental'),
             SingleCityTab(label: 'Tours'),
             SingleCityTab(label: 'Tours1'),
             SingleCityTab(label: 'Tours2'),
           ],
         ),
+
+        //     TabBar(
+        //   isScrollable: true,
+        //   labelColor: Colors.redAccent,
+        //   unselectedLabelColor: Colors.grey,
+        //   indicatorColor: Colors.redAccent,
+        //   labelPadding: EdgeInsets.only(
+        //     left: 20,
+        //     right: 20,
+        //     bottom: 10,
+        //     top: 10,
+        //   ),
+        //   labelStyle: TextStyle(
+        //     fontWeight: FontWeight.bold,
+        //     fontSize: 15,
+        //   ),
+        //   tabs: [
+        //     Text('NEWS'),
+        //     Text('SUMMARY'),
+        //     Text('CAREER'),
+        //     Text('MATCHES'),
+        //     Text('GOALS'),
+        //     Text('GOALS'),
+        //     Text('GOALS'),
+        //     Text('GOALS'),
+        //   ],
+        // ),
       ),
     );
   }

@@ -70,8 +70,8 @@ class SingleCityPageShortDesc extends StatelessWidget {
           fontWeight: FontWeight.w500,
           color: AppColors.miscellaneousTabUnselected,
         ),
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
+        // maxLines: 2,
+        // overflow: TextOverflow.ellipsis,
       ),
     );
   }
