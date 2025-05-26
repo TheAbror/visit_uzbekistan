@@ -10,31 +10,34 @@ class SignleCityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.float,
-      body: DefaultTabController(
-        length: 8,
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              pinned: true,
-              floating: true,
-              expandedHeight: 200.h,
-              leading: SingleCityPageLeadingIcon(),
-              actions: [SingleCityPageMakeFavoriteWidget(cityID: id)],
-              flexibleSpace: FlexibleSpaceBar(
-                stretchModes: const [StretchMode.zoomBackground],
-                expandedTitleScale: 1.8,
-                background: SingleCityPageBgImage(),
+    return BlocProvider(
+      create: (context) => SingleCityBloc(),
+      child: Scaffold(
+        backgroundColor: AppColors.float,
+        body: DefaultTabController(
+          length: 8,
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                pinned: true,
+                floating: true,
+                expandedHeight: 200.h,
+                leading: SingleCityPageLeadingIcon(),
+                actions: [SingleCityPageMakeFavoriteWidget(cityID: id)],
+                flexibleSpace: FlexibleSpaceBar(
+                  stretchModes: const [StretchMode.zoomBackground],
+                  expandedTitleScale: 1.8,
+                  background: SingleCityPageBgImage(),
+                ),
               ),
-            ),
-            SliverPersistentHeader(
-              pinned: true,
-              // floating: false,
-              delegate: _HeaderDelegate(),
-            ),
-            SliverFillRemaining(child: SingleCityPageTabBarView()),
-          ],
+              SliverPersistentHeader(
+                pinned: true,
+                floating: false,
+                delegate: _HeaderDelegate(),
+              ),
+              SliverFillRemaining(child: SingleCityPageTabBarView()),
+            ],
+          ),
         ),
       ),
     );

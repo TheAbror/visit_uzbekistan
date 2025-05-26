@@ -1,11 +1,13 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class HomeTabItems extends StatelessWidget {
+  final bool isDeocrationNeeded;
   final List<SingleItemResponse> item;
 
   const HomeTabItems({
     super.key,
     required this.item,
+    this.isDeocrationNeeded = false,
   });
 
   @override
@@ -22,7 +24,10 @@ class HomeTabItems extends StatelessWidget {
         itemBuilder: (context, index) {
           final singleItem = item[index];
 
-          return ItemInfo(item: singleItem);
+          return ItemInfo(
+            item: singleItem,
+            isDeocrationNeeded: isDeocrationNeeded,
+          );
         },
       ),
     );
@@ -30,11 +35,13 @@ class HomeTabItems extends StatelessWidget {
 }
 
 class ItemInfo extends StatelessWidget {
+  final bool isDeocrationNeeded;
   final SingleItemResponse item;
 
   const ItemInfo({
     super.key,
     required this.item,
+    this.isDeocrationNeeded = false,
   });
 
   @override
@@ -51,10 +58,16 @@ class ItemInfo extends StatelessWidget {
         margin: EdgeInsets.only(right: 8.w),
         height: 185.h,
         width: 280.w,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12.r),
-        ),
+        decoration: isDeocrationNeeded
+            ? BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                border: Border.all(color: AppColors.borderColor),
+                boxShadow: AppColors.defaultShadow,
+              )
+            : BoxDecoration(
+                color: AppColors.float,
+                borderRadius: BorderRadius.circular(12.r),
+              ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

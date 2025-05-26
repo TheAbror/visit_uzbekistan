@@ -5,26 +5,24 @@ class SingleCityPageTabBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: defaultPadding,
-          right: defaultPadding,
-          top: 10.h,
-        ),
-        child: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
-          children: [
-            AboutCityTab(),
-            BeforeTheTripTab(),
-            TransportationTab(),
-            OnTheAirportTab(),
-            SizedBox(),
-            SizedBox(),
-            SizedBox(),
-            SizedBox(),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.only(
+        left: defaultPadding,
+        right: defaultPadding,
+        top: 10.h,
+      ),
+      child: TabBarView(
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          AboutCityTab(),
+          BeforeTheTripTab(),
+          TransportationTab(),
+          RestaurantsTab(),
+          PlacesTab(),
+          SizedBox(),
+          SizedBox(),
+          OnTheAirportTab(),
+        ],
       ),
     );
   }
@@ -55,6 +53,48 @@ Postal code: 220100
 Region: Khorazm Region''',
         ),
       ],
+    );
+  }
+}
+
+class RestaurantsTab extends StatelessWidget {
+  const RestaurantsTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SingleCityBloc, SingleCityState>(
+      builder: (context, state) {
+        return ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            HomeTabItems(
+              isDeocrationNeeded: true,
+              item: state.response.restaurants,
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class PlacesTab extends StatelessWidget {
+  const PlacesTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SingleCityBloc, SingleCityState>(
+      builder: (context, state) {
+        return ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            HomeTabItems(
+              isDeocrationNeeded: true,
+              item: state.response.places,
+            ),
+          ],
+        );
+      },
     );
   }
 }

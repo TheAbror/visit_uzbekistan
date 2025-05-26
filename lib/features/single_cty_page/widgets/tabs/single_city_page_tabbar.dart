@@ -37,10 +37,10 @@ class SingleCityPageTabBar extends StatelessWidget {
             SingleCityTab(label: 'Before the trip'),
             SingleCityTab(label: 'Transportation'),
             SingleCityTab(label: 'Restaurants'),
-            SingleCityTab(label: 'Hotels'),
-            SingleCityTab(label: 'Tours'),
-            SingleCityTab(label: 'Tours1'),
+            SingleCityTab(label: 'Places'),
+            SingleCityTab(label: 'Sizedbox'),
             SingleCityTab(label: 'Tours2'),
+            SingleCityTab(label: 'Hotels'),
           ],
         ),
 
