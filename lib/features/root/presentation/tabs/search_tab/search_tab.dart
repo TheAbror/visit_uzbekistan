@@ -34,7 +34,7 @@ class SearchTab extends StatelessWidget {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: 'Search...',
+                          hintText: context.localizations.search,
                           border: InputBorder.none,
                           isDense: true,
                           hintStyle: TextStyle(
@@ -56,7 +56,7 @@ class SearchTab extends StatelessWidget {
               // useful apps
               if (state.favorites.isNotEmpty)
                 TitleAndViewAllWidget(
-                  title: 'Favorites',
+                  title: context.localizations.favorites,
                   onTap: () {},
                 ),
               if (state.favorites.isNotEmpty)

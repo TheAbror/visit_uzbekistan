@@ -180,6 +180,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Articles'**
   String get articles;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search...'**
+  String get search;
+
+  /// No description provided for @favorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favorites;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View all'**
+  String get viewAll;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

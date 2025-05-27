@@ -43,7 +43,12 @@ class HomeTab extends StatelessWidget {
               if (state.articles.isNotEmpty)
                 TitleAndViewAllWidget(
                   title: context.localizations.articles,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.viewAllPage,
+                    );
+                  },
                 ),
               if (state.articles.isNotEmpty) HomeTabItems(item: state.articles),
             ],

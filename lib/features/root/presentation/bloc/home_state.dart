@@ -43,12 +43,12 @@ class HomeState extends Equatable {
           info:
               'According to the Resolution of the Cabinet of Ministers No. 658 (November 15, 2022), the import, sale, purchase, storage, and use of drones and their spare parts are prohibited in Uzbekistan except for government-authorized entities. Only government agencies or those with explicit permits may import and operate drones, and these require authorization from Mininfocom and the Agency "Uzaviation". Unauthorized drones are not allowed in Uzbekistan.',
           photo:
-              'https://www.pngfind.com/pngs/m/181-1817491_no-drone-signs-no-drone-sign-hd-png.png',
+              'https://img.safetysignsupplies.co.uk/highres/PU5861-L15-V-xl.png?status=user-zoom',
           shortDescription:
               'Understand Uzbekistan\'s strict regulations for drones and UAVs.',
           createdAt: '',
           updatedAt: '',
-          isImageTiny: false,
+          isImageTiny: true,
         ),
       ],
       usefulApps: [

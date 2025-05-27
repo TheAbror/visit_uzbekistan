@@ -27,5 +27,11 @@
   "usefulApps": "Useful apps",
   "@usefulApps": {},
   "articles": "Articles",
-  "@articles": {}
+  "@articles": {},
+  "search": "Search...",
+  "@search": {},
+  "favorites": "Favorites",
+  "@favorites": {},
+  "viewAll": "View all",
+  "@viewAll": {}
 }

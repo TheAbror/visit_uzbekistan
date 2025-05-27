@@ -47,4 +47,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get articles => 'Articles';
+
+  @override
+  String get search => 'Search...';
+
+  @override
+  String get favorites => 'Favorites';
+
+  @override
+  String get viewAll => 'View all';
 }

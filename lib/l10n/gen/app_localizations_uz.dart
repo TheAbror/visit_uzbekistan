@@ -47,4 +47,13 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get articles => 'Maqolalar';
+
+  @override
+  String get search => 'Qidirish...';
+
+  @override
+  String get favorites => 'Sevimlilar';
+
+  @override
+  String get viewAll => 'Hammasini ko\'rish';
 }

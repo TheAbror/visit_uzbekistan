@@ -27,5 +27,11 @@
   "usefulApps": "Полезные приложения",
   "@usefulApps": {},
   "articles": "Статьи",
-  "@articles": {}
+  "@articles": {},
+  "search": "Поиск...",
+  "@search": {},
+  "favorites": "Избранное",
+  "@favorites": {},
+  "viewAll": "Просмотреть все",
+  "@viewAll": {}
 }

@@ -32,7 +32,7 @@ class TitleAndViewAllWidget extends StatelessWidget {
           GestureDetector(
             onTap: onTap,
             child: Text(
-              'View all',
+              context.localizations.viewAll,
               style: TextStyle(
                 fontSize: 13.sp,
                 color: AppColors.primary,

@@ -36,7 +36,6 @@ class ApiProvider {
     String? language,
   }) {
     final userLang = PreferencesServices.getLangCode();
-    final savedInstitutionID = PreferencesServices.getInstitutionId() ?? 1;
 
     List interceptors = [];
 
@@ -49,9 +48,6 @@ class ApiProvider {
           HttpHeaders.acceptHeader: 'application/json',
           HttpHeaders.contentTypeHeader: 'application/json',
           HttpHeaders.authorizationHeader: token != null ? 'Bearer $token' : '',
-          'Institution': institutionID != null
-              ? institutionID.toString()
-              : savedInstitutionID.toString(),
           'Accept-Language': userLang ?? 'en'
         },
       ),

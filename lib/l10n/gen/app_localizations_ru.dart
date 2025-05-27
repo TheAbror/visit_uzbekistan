@@ -47,4 +47,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get articles => 'Статьи';
+
+  @override
+  String get search => 'Поиск...';
+
+  @override
+  String get favorites => 'Избранное';
+
+  @override
+  String get viewAll => 'Просмотреть все';
 }

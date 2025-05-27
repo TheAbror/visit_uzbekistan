@@ -65,7 +65,15 @@ class MoreTab extends StatelessWidget {
             SettingRowItem(
               title: 'help',
               iconPath: 'assets/icons/info_rect.svg',
-              onTap: () {},
+              onTap: () {
+                showModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return const HelpBottomSheet();
+                  },
+                );
+              },
               hideDivider: true,
             ),
           ],

@@ -27,5 +27,11 @@
   "usefulApps": "Foydali ilovalar",
   "@usefulApps": {},
   "articles": "Maqolalar",
-  "@articles": {}
+  "@articles": {},
+  "search": "Qidirish...",
+  "@search": {},
+  "favorites": "Sevimlilar",
+  "@favorites": {},
+  "viewAll": "Hammasini ko'rish",
+  "@viewAll": {}
 }

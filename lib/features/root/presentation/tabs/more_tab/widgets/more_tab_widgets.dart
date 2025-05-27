@@ -115,7 +115,14 @@ class LogoutButton extends StatelessWidget {
           children: [
             Icon(IconsaxPlusLinear.logout_1),
             SizedBox(width: 8.w),
-            Text('Logout'),
+            Text(
+              'Logout',
+              style: TextStyle(
+                color: AppColors.textColorDarkBlue,
+                fontWeight: FontWeight.w600,
+                fontSize: 18.sp,
+              ),
+            ),
           ],
         ),
       ),
@@ -372,7 +379,7 @@ class LanguageBtmSheet extends StatelessWidget {
               ],
             ),
             SizedBox(height: 12.h),
-            langRow(
+            moreTabOptions(
               'Русский',
               const Locale.fromSubtags(
                 languageCode: 'ru',
@@ -381,7 +388,7 @@ class LanguageBtmSheet extends StatelessWidget {
               context,
               true,
             ),
-            langRow(
+            moreTabOptions(
               'English',
               const Locale.fromSubtags(
                 languageCode: 'en',
@@ -390,7 +397,7 @@ class LanguageBtmSheet extends StatelessWidget {
               context,
               true,
             ),
-            langRow(
+            moreTabOptions(
               'O\'zbekcha',
               const Locale.fromSubtags(
                 languageCode: 'uz',
@@ -404,53 +411,136 @@ class LanguageBtmSheet extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget langRow(
-    String title,
-    Locale locale,
-    BuildContext context,
-    bool showLine,
-  ) {
-    final code = context.read<LocalizationBloc>().state.languageCode;
+Widget moreTabOptions(
+  String title,
+  Locale locale,
+  BuildContext context,
+  bool showLine,
+) {
+  final code = context.read<LocalizationBloc>().state.languageCode;
 
-    final isActive = locale.languageCode == code;
+  final isActive = locale.languageCode == code;
 
-    return InkWell(
-      onTap: () {
-        context
-            .read<LocalizationBloc>()
-            .changeLocalization(locale.languageCode);
-      },
-      child: SizedBox(
-        height: 56.h,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 55.h,
-              child: Row(
-                children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: const Color(0xFF425466),
-                    ),
+  return InkWell(
+    onTap: () {
+      context.read<LocalizationBloc>().changeLocalization(locale.languageCode);
+    },
+    child: SizedBox(
+      height: 56.h,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 55.h,
+            child: Row(
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w600,
+                    color: const Color(0xFF425466),
                   ),
-                  const Expanded(child: SizedBox()),
-                  SvgPicture.asset(
-                      'assets/icons/checkbox_${isActive ? 'filled' : 'empty'}.svg')
-                ],
-              ),
+                ),
+                const Expanded(child: SizedBox()),
+                SvgPicture.asset(
+                    'assets/icons/checkbox_${isActive ? 'filled' : 'empty'}.svg')
+              ],
             ),
-            showLine
-                ? Container(
-                    width: double.infinity,
-                    height: 1.h,
-                    color: AppColors.colorGray200,
-                  )
-                : const SizedBox(),
+          ),
+          showLine
+              ? Container(
+                  width: double.infinity,
+                  height: 1.h,
+                  color: AppColors.colorGray200,
+                )
+              : const SizedBox(),
+        ],
+      ),
+    ),
+  );
+}
+
+class HelpBottomSheet extends StatelessWidget {
+  const HelpBottomSheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: 8.h,
+        bottom: 32.h,
+        left: 20.w,
+        right: 20.w,
+      ),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
+        ),
+        color: Colors.white,
+      ),
+      child: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const BottomSheetTopIcon(),
+            SizedBox(height: 20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                // SvgPicture.asset(
+                //   'assets/icons/global.svg',
+                //   height: 24.h,
+                //   width: 24.w,
+                //   colorFilter: ColorFilter.mode(
+                //     AppColors.textColorDarkBlue,
+                //     BlendMode.srcIn,
+                //   ),
+                // ),
+                // SizedBox(width: 8.w),
+                Text(
+                  'Choose help option',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textColorDarkBlue,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 12.h),
+            moreTabOptions(
+              'Gmail',
+              const Locale.fromSubtags(
+                languageCode: 'ru',
+                countryCode: 'RU',
+              ),
+              context,
+              true,
+            ),
+            moreTabOptions(
+              'Telegram',
+              const Locale.fromSubtags(
+                languageCode: 'en',
+                countryCode: 'US',
+              ),
+              context,
+              true,
+            ),
+            moreTabOptions(
+              'WhatsApp',
+              const Locale.fromSubtags(
+                languageCode: 'uz',
+                countryCode: 'UZ',
+              ),
+              context,
+              false,
+            ),
           ],
         ),
       ),
