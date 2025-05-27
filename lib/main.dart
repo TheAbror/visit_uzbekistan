@@ -17,32 +17,46 @@ void main() async {
             BlocProvider(create: (context) => RootBloc()),
             BlocProvider(create: (context) => HomeBloc()),
             BlocProvider(create: (context) => SearchBloc()),
+            BlocProvider(
+                create: (context) => LocalizationBloc()..initLocalization()),
           ],
           child: const MyApp(),
         ),
       );
     },
   );
-
-  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final _deviceLanguage = Platform.localeName.splitLangCodeFromLocale();
+
+  @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 800),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      child: MaterialApp(
-        themeMode: ThemeMode.light,
-        debugShowCheckedModeBanner: false,
-        builder: BotToastInit(),
-        navigatorObservers: [BotToastNavigatorObserver()],
-        onGenerateRoute: MainRouteGenerator().generateRoute,
-      ),
+    return BlocBuilder<LocalizationBloc, LocalizationState>(
+      builder: (context, state) {
+        return ScreenUtilInit(
+          designSize: const Size(360, 800),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          child: MaterialApp(
+            themeMode: ThemeMode.light,
+            debugShowCheckedModeBanner: false,
+            builder: BotToastInit(),
+            navigatorObservers: [BotToastNavigatorObserver()],
+            onGenerateRoute: MainRouteGenerator().generateRoute,
+            locale: Locale(state.languageCode ?? _deviceLanguage),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+          ),
+        );
+      },
     );
   }
 }

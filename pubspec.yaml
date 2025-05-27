@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.8
 
@@ -101,6 +103,19 @@ dev_dependencies:
 
   injectable_generator: 2.6.2
 
+
+flutter_gen:
+  output: lib/gen/ 
+  line_length: 80 
+
+arb_generator:
+  input_filepath: "assets/localization/localization.csv"
+  output_directory: "lib/l10n"
+  filename_prepend: "app_"
+  csv_settings:
+    delimiter: ","
+    base_index: 1
+    
 
 flutter:
   uses-material-design: true

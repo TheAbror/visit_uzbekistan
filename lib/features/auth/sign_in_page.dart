@@ -51,7 +51,7 @@ class _SignInPageState extends State<SignInPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SignInButton(
-                  text: 'Sign in with Google',
+                  text: context.localizations.signInWith + ' Google',
                   onTap: () {
                     print('clicked');
                     signIn(context);
@@ -64,7 +64,7 @@ class _SignInPageState extends State<SignInPage> {
                 SizedBox(height: 20),
                 if (Platform.isIOS)
                   SignInButton(
-                    text: 'Sign in with Apple',
+                    text: context.localizations.signInWith + ' Apple',
                     onTap: () {},
                     icon: Icon(Icons.apple, size: 26),
                   ),
@@ -85,12 +85,12 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           Positioned(
-            top: 70,
-            left: 16,
+            top: 70.h,
+            left: 16.w,
             child: CustomAppBarBackButton(),
           ),
           Positioned(
-            bottom: 60.h,
+            bottom: 65.h,
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamedAndRemoveUntil(
@@ -105,21 +105,24 @@ class _SignInPageState extends State<SignInPage> {
                 // );
               },
               child: Text(
-                'May be later',
+                context.localizations.maybeLater,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
           ),
           Positioned(
-            bottom: 40.h,
+            bottom: 35.h,
+            left: 16.w,
+            right: 16.w,
             child: GestureDetector(
               onTap: () async {
                 // ignore: unused_local_variable
                 final result = await TermsBottomSheet.show(context);
               },
               child: Text(
-                'By using this app, you agree to our Terms and Conditions.',
+                context.localizations.byUsingThisApp,
                 style: TextStyle(color: Colors.grey, fontSize: 10.sp),
+                textAlign: TextAlign.center,
               ),
             ),
           ),

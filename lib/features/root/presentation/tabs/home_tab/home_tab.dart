@@ -20,25 +20,32 @@ class HomeTab extends StatelessWidget {
             children: [
               if (state.cities.isNotEmpty)
                 TitleAndViewAllWidget(
-                  title: 'Cities',
+                  title: context.localizations.cities,
                   onTap: () {},
                 ),
               if (state.cities.isNotEmpty) HomeTabItems(item: state.cities),
               //
               if (state.places.isNotEmpty)
                 TitleAndViewAllWidget(
-                  title: 'Places',
+                  title: context.localizations.places,
                   onTap: () {},
                 ),
               if (state.cities.isNotEmpty) HomeTabItems(item: state.places),
               // useful apps
               if (state.usefulApps.isNotEmpty)
                 TitleAndViewAllWidget(
-                  title: 'Useful apps',
+                  title: context.localizations.usefulApps,
                   onTap: () {},
                 ),
               if (state.usefulApps.isNotEmpty)
                 HomeTabItems(item: state.usefulApps),
+              // articles
+              if (state.articles.isNotEmpty)
+                TitleAndViewAllWidget(
+                  title: context.localizations.articles,
+                  onTap: () {},
+                ),
+              if (state.articles.isNotEmpty) HomeTabItems(item: state.articles),
             ],
           );
         },

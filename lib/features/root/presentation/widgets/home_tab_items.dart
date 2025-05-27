@@ -61,8 +61,9 @@ class ItemInfo extends StatelessWidget {
         decoration: isDeocrationNeeded
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(12.r),
-                border: Border.all(color: AppColors.borderColor),
-                boxShadow: AppColors.defaultShadow,
+                // border: Border.all(color: AppColors.borderColor),
+                // boxShadow: AppColors.defaultShadow,
+                color: AppColors.rootBgColor,
               )
             : BoxDecoration(
                 color: AppColors.float,

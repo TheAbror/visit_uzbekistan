@@ -72,3 +72,9 @@ export 'package:visit_uzbekistan/features/single_cty_page/widgets/title_desc_rev
 export 'package:visit_uzbekistan/core/constants/app_configs.dart';
 export 'package:visit_uzbekistan/features/root/presentation/bloc/home_bloc.dart';
 export 'package:visit_uzbekistan/features/root/presentation/bloc/search_bloc.dart';
+export 'package:visit_uzbekistan/l10n/gen/app_localizations.dart';
+export 'package:visit_uzbekistan/l10n/gen/app_localizations_en.dart';
+export 'package:visit_uzbekistan/core/bottomsheet/outline_buttons_bottomsheet/outline_buttons_bottomsheet.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/more_tab/widgets/more_tab_widgets.dart';
+export 'package:visit_uzbekistan/core/extensions/string_extensions.dart';
+export 'package:visit_uzbekistan/features/root/presentation/bloc/localization_bloc/localization_bloc.dart';

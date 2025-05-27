@@ -15,7 +15,7 @@ class SignleCityPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.float,
         body: DefaultTabController(
-          length: 8,
+          length: 6,
           child: CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(

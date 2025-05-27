@@ -4,6 +4,7 @@ class HomeState extends Equatable {
   final List<SingleItemResponse> cities;
   final List<SingleItemResponse> places;
   final List<SingleItemResponse> usefulApps;
+  final List<SingleItemResponse> articles;
   final BlocProgress blocProgress;
   final String failureMessage;
 
@@ -11,6 +12,7 @@ class HomeState extends Equatable {
     required this.cities,
     required this.places,
     required this.usefulApps,
+    required this.articles,
     required this.blocProgress,
     required this.failureMessage,
   });
@@ -19,6 +21,36 @@ class HomeState extends Equatable {
     return HomeState(
       cities: [],
       places: [],
+      articles: [
+        SingleItemResponse(
+          id: 0,
+          name: 'Proof of Residence in Uzbekistan',
+          location: '',
+          info:
+              'All foreign citizens visiting Uzbekistan on a temporary basis (whether they need a visa or not) must submit documents for registration at the place of residence within 72 hours upon arrival to Uzbekistan. Registration is not necessary if you arrive during weekends, holidays, or if your stay does not exceed three working days. Hotels automatically register your stay, but if you stay in a private home or apartment, you must register yourself via the website http://www.emehmon.uz/. Overnight train tickets serve as proof of your whereabouts. If you are camping or staying with friends for more than three nights, you must also register. The inviting party is responsible for ensuring guests are registered on time.',
+          photo:
+              'https://marketing.uz/brend-goda-2022/uploads/works/covers/ba7d81c771f0bd1eae92be86c665f74f.jpg',
+          shortDescription:
+              'Important information about registration for foreign visitors in Uzbekistan.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: false,
+        ),
+        SingleItemResponse(
+          id: 1,
+          name: 'Drones are Not Allowed in Uzbekistan',
+          location: '',
+          info:
+              'According to the Resolution of the Cabinet of Ministers No. 658 (November 15, 2022), the import, sale, purchase, storage, and use of drones and their spare parts are prohibited in Uzbekistan except for government-authorized entities. Only government agencies or those with explicit permits may import and operate drones, and these require authorization from Mininfocom and the Agency "Uzaviation". Unauthorized drones are not allowed in Uzbekistan.',
+          photo:
+              'https://www.pngfind.com/pngs/m/181-1817491_no-drone-signs-no-drone-sign-hd-png.png',
+          shortDescription:
+              'Understand Uzbekistan\'s strict regulations for drones and UAVs.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: false,
+        ),
+      ],
       usefulApps: [
         SingleItemResponse(
           id: 0,
@@ -69,12 +101,14 @@ class HomeState extends Equatable {
     List<SingleItemResponse>? cities,
     List<SingleItemResponse>? places,
     List<SingleItemResponse>? usefulApps,
+    List<SingleItemResponse>? articles,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
     return HomeState(
       cities: cities ?? this.cities,
       places: places ?? this.places,
+      articles: articles ?? this.articles,
       usefulApps: usefulApps ?? this.usefulApps,
       blocProgress: blocProgress ?? this.blocProgress,
       failureMessage: failureMessage ?? this.failureMessage,
@@ -86,6 +120,7 @@ class HomeState extends Equatable {
         cities,
         places,
         usefulApps,
+        articles,
         blocProgress,
         failureMessage,
       ];

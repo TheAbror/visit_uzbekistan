@@ -19,8 +19,6 @@ class SingleCityPageTabBarView extends StatelessWidget {
           TransportationTab(),
           RestaurantsTab(),
           PlacesTab(),
-          SizedBox(),
-          SizedBox(),
           OnTheAirportTab(),
         ],
       ),
