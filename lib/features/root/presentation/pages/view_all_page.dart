@@ -55,14 +55,18 @@ class ViewAllPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  //
-                  ListView.builder(
+                  GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 8.h,
+                      crossAxisSpacing: 8.h,
+                      childAspectRatio: 0.9,
+                    ),
                     itemCount: state.favorites.length,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final singleItem = state.favorites[index];
-
                       return ItemInfo(item: singleItem);
                     },
                   ),
@@ -93,9 +97,6 @@ class ItemInfo extends StatelessWidget {
         );
       },
       child: Container(
-        margin: EdgeInsets.only(bottom: 4.w),
-        height: 205.h,
-        width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.float,
           borderRadius: BorderRadius.circular(12.r),
@@ -103,6 +104,7 @@ class ItemInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Image + Favorite Icon
             Stack(
               children: [
                 ClipRRect(
@@ -111,36 +113,27 @@ class ItemInfo extends StatelessWidget {
                     topRight: Radius.circular(12.r),
                   ),
                   child: Image.network(
-                    height: 180.h,
-                    width: double.infinity,
+                    item.photo,
                     fit: item.isImageTiny == true
                         ? BoxFit.fitWidth
-                        : BoxFit.fill,
-                    errorBuilder: (
-                      BuildContext context,
-                      Object exception,
-                      StackTrace? stackTrace,
-                    ) {
-                      return Container(
-                        height: 180.h,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/sign_in_bg.jpg'),
-                            fit: BoxFit.cover,
-                          ),
+                        : BoxFit.cover,
+                    height: 120.h,
+                    width: double.infinity,
+                    errorBuilder: (context, error, stackTrace) => Container(
+                      height: 120.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/sign_in_bg.jpg'),
+                          fit: BoxFit.cover,
                         ),
-                      );
-                    },
-                    loadingBuilder: (
-                      BuildContext context,
-                      Widget child,
-                      ImageChunkEvent? loadingProgress,
-                    ) {
+                      ),
+                    ),
+                    loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
                       return SizedBox(
-                        height: 180.h,
-                        width: 280.w,
+                        height: 120.h,
+                        width: double.infinity,
                         child: Center(
                           child: CircularProgressIndicator(
                             value: loadingProgress.expectedTotalBytes != null
@@ -151,89 +144,105 @@ class ItemInfo extends StatelessWidget {
                         ),
                       );
                     },
-                    item.photo,
                   ),
                 ),
-                BlocBuilder<RootBloc, RootState>(
-                  builder: (context, state) {
-                    return Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
+                // Favorite Icon
+                Positioned(
+                  top: 4.h,
+                  right: 4.w,
+                  child: BlocBuilder<RootBloc, RootState>(
+                    builder: (context, state) {
+                      final isFavorite = state.favorites.contains(item);
+                      return GestureDetector(
                         onTap: () {
                           context.read<RootBloc>().addFavorite(item, context);
                         },
                         child: Container(
-                          margin: EdgeInsets.only(right: 4.w, top: 4.h),
-                          padding: EdgeInsets.all(3),
+                          padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             color: AppColors.float,
                             borderRadius: BorderRadius.circular(50),
                           ),
                           child: Icon(
-                            state.favorites.contains(item)
+                            isFavorite
                                 ? IconsaxPlusBold.heart
                                 : IconsaxPlusLinear.heart,
                             size: 18.sp,
                             color: Colors.red,
                           ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 3.h),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 2.h),
-                    Text(
-                      item.name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+            // Item Details
+            Padding(
+              padding: EdgeInsets.all(8.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13.sp,
                     ),
-                    SizedBox(height: 2.h),
-                    Flexible(
-                      child: Text(
-                        item.shortDescription,
-                        maxLines: 2,
-                        style: TextStyle(
-                          fontSize: 11.sp,
-                          color: AppColors.miscellaneousTabUnselected,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 2.h),
+                  Text(
+                    item.shortDescription,
+                    style: TextStyle(
+                      fontSize: 11.sp,
+                      color: AppColors.miscellaneousTabUnselected,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  if (item.location.isNotEmpty) ...[
+                    SizedBox(height: 4.h),
+                    Row(
+                      children: [
+                        Icon(
+                          IconsaxPlusLinear.location,
+                          size: 14.sp,
                         ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    if (item.cityID != null && item.cityID != 0)
-                      SizedBox(height: 4.h),
-                    if (item.location != '')
-                      Row(
-                        children: [
-                          Icon(
-                            IconsaxPlusLinear.location,
-                            size: 14.sp,
-                          ),
-                          SizedBox(width: 4.w),
-                          Text(
+                        SizedBox(width: 4.w),
+                        Flexible(
+                          child: Text(
                             item.cityName ?? '',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 11.sp,
+                            ),
+                            overflow: TextOverflow.ellipsis,
                           ),
-                        ],
-                      ),
-                    if (item.rating != null && item.rating != 0)
-                      SizedBox(height: 4.h),
-                    if (item.rating != null && item.rating != 0)
-                      Row(
-                        children: [
-                          Text('Rating: '),
-                          Text(item.rating.toString()),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
                   ],
-                ),
+                  if (item.rating != null && item.rating != 0) ...[
+                    SizedBox(height: 4.h),
+                    Row(
+                      children: [
+                        Text(
+                          'Rating: ',
+                          style: TextStyle(fontSize: 11.sp),
+                        ),
+                        Text(
+                          item.rating.toString(),
+                          style: TextStyle(
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ],
               ),
             ),
           ],
