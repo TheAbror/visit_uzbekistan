@@ -36,7 +36,7 @@ class HomeTab extends StatelessWidget {
                 // useful apps
                 if (state.usefulApps.isNotEmpty)
                   TitleAndViewAllWidget(
-                    title: context.localizations.usefulApps,
+                    title: context.localizations.usefulApps + 'df sdf sdfdfsd ',
                     onTap: () {},
                   ),
                 if (state.usefulApps.isNotEmpty)

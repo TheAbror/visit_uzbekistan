@@ -20,15 +20,19 @@ class TitleAndViewAllWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18.sp,
-              color: AppColors.secondary,
-              fontWeight: FontWeight.w500,
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 18.sp,
+                color: AppColors.secondary,
+                fontWeight: FontWeight.w500,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          const Spacer(),
+          SizedBox(width: 10.w),
           GestureDetector(
             onTap: onTap,
             child: Text(
