@@ -1,3 +1,6 @@
+import 'package:visit_uzbekistan/features/auth/code_verification_page/code_verification_page.dart';
+import 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_enter_details_page.dart';
+import 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_page.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -55,6 +58,21 @@ class MainRouteGenerator {
       case AppRoutes.forgotPasswordSuccessPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const ForgotPasswordSuccessPage(),
+        );
+
+      case AppRoutes.codeVerificationPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const CodeVerificationPage(),
+        );
+
+      case AppRoutes.signUpPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const SignUpPage(),
+        );
+
+      case AppRoutes.signUpEnterDetails:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const SignUpEnterDetailsPage(),
         );
 
       default:

@@ -101,8 +101,7 @@ class __BodyState extends State<_Body> {
             onPressed: () {
               // context.read<AuthBloc>().getVerificationCodeBySendingLogin(_emailController.text);
 
-              Navigator.pushNamed(
-                  context, AppRoutes.forgotPasswordNewPassordPage);
+              Navigator.pushNamed(context, AppRoutes.codeVerificationPage);
             },
           ),
         ],

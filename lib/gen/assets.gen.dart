@@ -190,8 +190,12 @@ class $AssetsIconsAuthGen {
   AssetGenImage get forgotPasswordSuccess =>
       const AssetGenImage('assets/icons/auth/forgot_password_success.png');
 
+  /// File path: assets/icons/auth/tick-circle.png
+  AssetGenImage get tickCircle =>
+      const AssetGenImage('assets/icons/auth/tick-circle.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [forgotPasswordSuccess];
+  List<AssetGenImage> get values => [forgotPasswordSuccess, tickCircle];
 }
 
 class $AssetsIconsSingleCityGen {
