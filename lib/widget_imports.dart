@@ -47,7 +47,7 @@ export 'package:google_sign_in/google_sign_in.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/custom_app_bar_back_button.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/google_sign_in_api.dart';
 export 'package:introduction_screen/introduction_screen.dart';
-export 'package:visit_uzbekistan/features/auth/sign_in_page.dart';
+export 'package:visit_uzbekistan/features/auth/log_in_page.dart';
 export 'package:visit_uzbekistan/features/onboarding/onboarding_page.dart';
 export 'package:visit_uzbekistan/features/splash/splash_page.dart';
 export 'package:visit_uzbekistan/core/buttons/action_button.dart';

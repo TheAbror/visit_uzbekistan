@@ -70,12 +70,6 @@ class _BodyState extends State<_Body> {
             ),
             // DividerWithOrText(),
             // ContinueWithGoogleButton(),
-            Spacer(),
-            Text(
-              'context.localizations.bysignningAgree',
-              style: TextStyle(fontSize: 13.sp),
-            ),
-            SizedBox(height: 40.h),
           ],
         ),
       ),

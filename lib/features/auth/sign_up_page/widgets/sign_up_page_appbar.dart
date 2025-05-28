@@ -25,11 +25,10 @@ class SignUpPageAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Spacer(),
           GestureDetector(
-            // onTap: () => context.replceNamed(AppRoutes.signInPage),
-            onTap: () => Navigator.pushNamed(context, AppRoutes.signIn),
+            onTap: () => Navigator.pushNamed(context, AppRoutes.logInPage),
             behavior: HitTestBehavior.opaque,
             child: Text(
-              'Sign In',
+              'Log In',
               style: TextStyle(
                 fontSize: 15.sp,
                 color: Theme.of(context).colorScheme.primary,

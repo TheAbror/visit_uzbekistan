@@ -1,15 +1,15 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class SignInPage extends StatefulWidget {
+class LogInPage extends StatefulWidget {
   static String routeName = '/sign_in';
 
-  const SignInPage({super.key});
+  const LogInPage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<LogInPage> createState() => _LogInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -276,8 +276,8 @@ class _SignInPageState extends State<SignInPage> {
             SizedBox(height: 5.h),
             GestureDetector(
               onTap: () async {
-                // ignore: unused_local_variable
                 final result = await TermsBottomSheet.show(context);
+                print(result);
               },
               child: Text(
                 context.localizations.byUsingThisApp,

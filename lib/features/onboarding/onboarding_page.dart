@@ -13,10 +13,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.pushNamed(
-      context,
-      AppRoutes.signIn,
-    );
+    Navigator.pushNamed(context, AppRoutes.logInPage);
   }
 
   // ignore: unused_element

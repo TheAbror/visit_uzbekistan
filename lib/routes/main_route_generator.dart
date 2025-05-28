@@ -11,9 +11,9 @@ class MainRouteGenerator {
           builder: (_) => const SplashPage(),
         );
 
-      case AppRoutes.signIn:
+      case AppRoutes.logInPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const SignInPage(),
+          builder: (_) => const LogInPage(),
         );
 
       case AppRoutes.rootPage:
@@ -77,7 +77,7 @@ class MainRouteGenerator {
 
       default:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const SignInPage(),
+          builder: (_) => const LogInPage(),
         );
     }
   }
