@@ -6,4 +6,8 @@ abstract class AppRoutes {
   static const singleCityPage = '/singleCityPage';
   static const singleCarPage = '/singleCarPage';
   static const viewAllPage = '/viewAllPage';
+  //
+  static const forgotPasswordPage = '/forgotPasswordPage';
+  static const forgotPasswordSuccessPage = '/forgotPasswordSuccessPage';
+  static const forgotPasswordNewPassordPage = '/forgotPasswordNewPassordPage';
 }

@@ -77,3 +77,9 @@ export 'package:visit_uzbekistan/core/bottomsheet/outline_buttons_bottomsheet/ou
 export 'package:visit_uzbekistan/features/root/presentation/tabs/more_tab/widgets/more_tab_widgets.dart';
 export 'package:visit_uzbekistan/core/extensions/string_extensions.dart';
 export 'package:visit_uzbekistan/features/root/presentation/bloc/localization_bloc/localization_bloc.dart';
+export 'package:visit_uzbekistan/features/auth/widgets/forgot_password_page/forgot_password_page.dart';
+export 'package:visit_uzbekistan/features/auth/widgets/forgot_password_page/forgot_password_new_password_page.dart';
+export 'package:visit_uzbekistan/features/auth/widgets/forgot_password_page/forgot_password_success_page.dart';
+export 'package:visit_uzbekistan/features/root/presentation/pages/view_all_page.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/single_city_page.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/tabs/transportation_tab/single_car_page.dart/single_car_page.dart';

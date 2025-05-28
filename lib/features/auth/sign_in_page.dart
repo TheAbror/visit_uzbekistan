@@ -88,78 +88,109 @@ class _SignInPageState extends State<SignInPage> {
             SizedBox(height: 20.h),
             Container(
               height: 56.h,
-              margin: EdgeInsets.only(bottom: 12.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16.r),
                 color: AppColors.siginButtonsColor,
               ),
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Row(
-                children: [
-                  SizedBox(width: 8.w),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Login',
-                        border: InputBorder.none,
-                        isDense: true,
-                        hintStyle: TextStyle(
-                          fontSize: 15.sp,
-                          color: AppColors.lightGrey,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Login',
+                  isDense: true,
+                  hintStyle: TextStyle(
+                    fontSize: 15.sp,
+                    color: AppColors.lightGrey,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
                     ),
                   ),
-                ],
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                      width: 1,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: AppColors.siginButtonsColor,
+                ),
+                style: TextStyle(
+                  fontSize: 15.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-            SizedBox(height: 5.h),
+            SizedBox(height: 10.h),
             Container(
               height: 56.h,
-              margin: EdgeInsets.only(bottom: 12.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16.r),
                 color: AppColors.siginButtonsColor,
               ),
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Row(
-                children: [
-                  SizedBox(width: 8.w),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Password',
-                        border: InputBorder.none,
-                        isDense: true,
-                        hintStyle: TextStyle(
-                          fontSize: 15.sp,
-                          color: AppColors.lightGrey,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  isDense: true,
+                  hintStyle: TextStyle(
+                    fontSize: 15.sp,
+                    color: AppColors.lightGrey,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
                     ),
                   ),
-                ],
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                      width: 1,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: AppColors.siginButtonsColor,
+                ),
+                style: TextStyle(
+                  fontSize: 15.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-            SizedBox(height: 5.h),
+            SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: AppColors.siginSecondaryTextColor),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.forgotPasswordPage);
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: AppColors.siginSecondaryTextColor),
+                  ),
                 ),
               ],
             ),
@@ -167,7 +198,7 @@ class _SignInPageState extends State<SignInPage> {
             InkWell(
               onTap: () {
                 print('clicked');
-                signIn(context);
+                // signIn(context);
               },
               borderRadius: BorderRadius.circular(32),
               child: Container(
@@ -196,7 +227,31 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 15.h),
+            Row(
+              children: [
+                SizedBox(width: 10.w),
+                Text(
+                  'Don`t have account?',
+                  style: TextStyle(
+                    color: AppColors.siginSecondaryTextColor,
+                    fontSize: 13.sp,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    //
+                  },
+                  child: Text(
+                    ' Sign Up',
+                    style: TextStyle(
+                      color: AppColors.siginTextColor,
+                      fontSize: 13.sp,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Spacer(),
             GestureDetector(
               onTap: () {
@@ -216,7 +271,7 @@ class _SignInPageState extends State<SignInPage> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
             GestureDetector(
               onTap: () async {
                 // ignore: unused_local_variable
@@ -224,7 +279,11 @@ class _SignInPageState extends State<SignInPage> {
               },
               child: Text(
                 context.localizations.byUsingThisApp,
-                style: TextStyle(color: Colors.grey, fontSize: 10.sp),
+                style: TextStyle(
+                  color: AppColors.siginSecondaryTextColor,
+                  fontSize: 10.sp,
+                  decoration: TextDecoration.underline,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),

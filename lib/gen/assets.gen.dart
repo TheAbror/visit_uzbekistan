@@ -9,95 +9,13 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsFontsGen {
-  const $AssetsFontsGen();
-
-  /// File path: assets/fonts/Montserrat-Black.ttf
-  String get montserratBlack => 'assets/fonts/Montserrat-Black.ttf';
-
-  /// File path: assets/fonts/Montserrat-BlackItalic.ttf
-  String get montserratBlackItalic => 'assets/fonts/Montserrat-BlackItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-Bold.ttf
-  String get montserratBold => 'assets/fonts/Montserrat-Bold.ttf';
-
-  /// File path: assets/fonts/Montserrat-BoldItalic.ttf
-  String get montserratBoldItalic => 'assets/fonts/Montserrat-BoldItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-ExtraBold.ttf
-  String get montserratExtraBold => 'assets/fonts/Montserrat-ExtraBold.ttf';
-
-  /// File path: assets/fonts/Montserrat-ExtraBoldItalic.ttf
-  String get montserratExtraBoldItalic =>
-      'assets/fonts/Montserrat-ExtraBoldItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-ExtraLight.ttf
-  String get montserratExtraLight => 'assets/fonts/Montserrat-ExtraLight.ttf';
-
-  /// File path: assets/fonts/Montserrat-ExtraLightItalic.ttf
-  String get montserratExtraLightItalic =>
-      'assets/fonts/Montserrat-ExtraLightItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-Italic.ttf
-  String get montserratItalic => 'assets/fonts/Montserrat-Italic.ttf';
-
-  /// File path: assets/fonts/Montserrat-Light.ttf
-  String get montserratLight => 'assets/fonts/Montserrat-Light.ttf';
-
-  /// File path: assets/fonts/Montserrat-LightItalic.ttf
-  String get montserratLightItalic => 'assets/fonts/Montserrat-LightItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-Medium.ttf
-  String get montserratMedium => 'assets/fonts/Montserrat-Medium.ttf';
-
-  /// File path: assets/fonts/Montserrat-MediumItalic.ttf
-  String get montserratMediumItalic =>
-      'assets/fonts/Montserrat-MediumItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-Regular.ttf
-  String get montserratRegular => 'assets/fonts/Montserrat-Regular.ttf';
-
-  /// File path: assets/fonts/Montserrat-SemiBold.ttf
-  String get montserratSemiBold => 'assets/fonts/Montserrat-SemiBold.ttf';
-
-  /// File path: assets/fonts/Montserrat-SemiBoldItalic.ttf
-  String get montserratSemiBoldItalic =>
-      'assets/fonts/Montserrat-SemiBoldItalic.ttf';
-
-  /// File path: assets/fonts/Montserrat-Thin.ttf
-  String get montserratThin => 'assets/fonts/Montserrat-Thin.ttf';
-
-  /// File path: assets/fonts/Montserrat-ThinItalic.ttf
-  String get montserratThinItalic => 'assets/fonts/Montserrat-ThinItalic.ttf';
-
-  /// List of all assets
-  List<String> get values => [
-        montserratBlack,
-        montserratBlackItalic,
-        montserratBold,
-        montserratBoldItalic,
-        montserratExtraBold,
-        montserratExtraBoldItalic,
-        montserratExtraLight,
-        montserratExtraLightItalic,
-        montserratItalic,
-        montserratLight,
-        montserratLightItalic,
-        montserratMedium,
-        montserratMediumItalic,
-        montserratRegular,
-        montserratSemiBold,
-        montserratSemiBoldItalic,
-        montserratThin,
-        montserratThinItalic
-      ];
-}
-
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   /// File path: assets/icons/arrow_back.svg
   String get arrowBack => 'assets/icons/arrow_back.svg';
+
+  $AssetsIconsAuthGen get auth => const $AssetsIconsAuthGen();
 
   /// File path: assets/icons/checkbox_checked.svg
   String get checkboxChecked => 'assets/icons/checkbox_checked.svg';
@@ -265,6 +183,17 @@ class $AssetsImagesGen {
       ];
 }
 
+class $AssetsIconsAuthGen {
+  const $AssetsIconsAuthGen();
+
+  /// File path: assets/icons/auth/forgot_password_success.png
+  AssetGenImage get forgotPasswordSuccess =>
+      const AssetGenImage('assets/icons/auth/forgot_password_success.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [forgotPasswordSuccess];
+}
+
 class $AssetsIconsSingleCityGen {
   const $AssetsIconsSingleCityGen();
 
@@ -321,7 +250,6 @@ class $AssetsIconsSingleCityGen {
 class Assets {
   Assets._();
 
-  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

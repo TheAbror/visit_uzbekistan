@@ -75,7 +75,7 @@ class ViewAllPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final singleItem = state.favorites[index];
 
-                      return ItemInfo(item: singleItem);
+                      return _ItemInfo(item: singleItem);
                     },
                   ),
                 ],
@@ -86,11 +86,10 @@ class ViewAllPage extends StatelessWidget {
   }
 }
 
-class ItemInfo extends StatelessWidget {
+class _ItemInfo extends StatelessWidget {
   final SingleItemResponse item;
 
-  const ItemInfo({
-    super.key,
+  const _ItemInfo({
     required this.item,
   });
 

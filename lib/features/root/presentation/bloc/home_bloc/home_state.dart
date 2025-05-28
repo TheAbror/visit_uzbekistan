@@ -29,7 +29,7 @@ class HomeState extends Equatable {
           info:
               'All foreign citizens visiting Uzbekistan on a temporary basis (whether they need a visa or not) must submit documents for registration at the place of residence within 72 hours upon arrival to Uzbekistan. Registration is not necessary if you arrive during weekends, holidays, or if your stay does not exceed three working days. Hotels automatically register your stay, but if you stay in a private home or apartment, you must register yourself via the website http://www.emehmon.uz/. Overnight train tickets serve as proof of your whereabouts. If you are camping or staying with friends for more than three nights, you must also register. The inviting party is responsible for ensuring guests are registered on time.',
           photo:
-              'https://marketing.uz/brend-goda-2022/uploads/works/covers/ba7d81c771f0bd1eae92be86c665f74f.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/My.gov.uz.svg/800px-My.gov.uz.svg.png',
           shortDescription:
               'Important information about registration for foreign visitors in Uzbekistan.',
           createdAt: '',
