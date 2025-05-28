@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color rootBgColor = Color(0XFFEEF2F6);
+  static const Color siginButtonsColor = Color(0XFFF6F9FD);
+  static const Color siginTextColor = Color(0XFF3F60F4);
+  static const Color siginSecondaryTextColor = Color(0XFF767A8B);
   static const Color primary = Color(0xFF3DBDEC);
   static const Color secondary = Color(0xFF1F2B5B);
   static const Color primaryHover = Color.fromARGB(255, 29, 162, 211);

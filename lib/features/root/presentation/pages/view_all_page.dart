@@ -14,6 +14,13 @@ class ViewAllPage extends StatelessWidget {
                 return Center(child: CircularProgressIndicator());
               }
 
+              if (state.favorites.isEmpty)
+                return Expanded(
+                  child: Center(
+                    child: Text('No results'),
+                  ),
+                );
+
               // if (state.blocProgress == BlocProgress.FAILED) {
               //   return const SomethingWentWrong();
               // }
@@ -67,6 +74,7 @@ class ViewAllPage extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final singleItem = state.favorites[index];
+
                       return ItemInfo(item: singleItem);
                     },
                   ),

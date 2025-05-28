@@ -34,7 +34,7 @@ class HomeState extends Equatable {
               'Important information about registration for foreign visitors in Uzbekistan.',
           createdAt: '',
           updatedAt: '',
-          isImageTiny: false,
+          isImageTiny: true,
         ),
         SingleItemResponse(
           id: 1,

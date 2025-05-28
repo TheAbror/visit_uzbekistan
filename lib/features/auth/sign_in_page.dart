@@ -14,84 +14,191 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      appBar: AppBar(
+        leading: CustomAppBarBackButton(),
+        backgroundColor: Colors.transparent,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          children: [
+            Text(
+              'Sign In',
+              style: TextStyle(
+                fontSize: 28.sp,
+                fontWeight: FontWeight.bold,
+                color: AppColors.siginTextColor,
+              ),
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              'Start your adventure along the Silk Road — discover the wonders of Uzbekistan!',
+              // 'Explore the Silk Road’s magic — unlock the wonders of Uzbekistan and start your adventure here!',
+              style: TextStyle(color: AppColors.siginSecondaryTextColor),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 30.h),
+            InkWell(
+              onTap: () {
+                print('clicked');
+                signIn(context);
+              },
+              borderRadius: BorderRadius.circular(32),
+              child: Container(
+                padding: EdgeInsets.all(16.w),
+                decoration: BoxDecoration(
+                  color: AppColors.siginButtonsColor,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/icons/google_icon.png',
+                      height: 24,
+                    ),
+                    Spacer(),
+                    Text(context.localizations.signInWith + ' Google'),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20.h),
+            Row(
               children: [
-                Opacity(
-                  opacity: 0.3,
-                  child: Image.asset(
-                    'assets/images/sign_in_bg.jpg',
-                    fit: BoxFit.fitHeight,
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8.w),
+                    height: 1,
+                    color: AppColors.rootBgColor.withOpacity(0.7),
                   ),
                 ),
-                Opacity(
-                  opacity: 0.3,
-                  child: Image.asset(
-                    'assets/images/sign_in_bg.jpg',
-                    fit: BoxFit.fitHeight,
-                  ),
+                Text(
+                  'or',
                 ),
-                Opacity(
-                  opacity: 0.3,
-                  child: Image.asset(
-                    'assets/images/sign_in_bg.jpg',
-                    fit: BoxFit.fitHeight,
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8.w),
+                    height: 1,
+                    color: AppColors.rootBgColor.withOpacity(0.7),
                   ),
                 ),
               ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            SizedBox(height: 20.h),
+            Container(
+              height: 56.h,
+              margin: EdgeInsets.only(bottom: 12.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16.r),
+                color: AppColors.siginButtonsColor,
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Row(
+                children: [
+                  SizedBox(width: 8.w),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Login',
+                        border: InputBorder.none,
+                        isDense: true,
+                        hintStyle: TextStyle(
+                          fontSize: 15.sp,
+                          color: AppColors.lightGrey,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 5.h),
+            Container(
+              height: 56.h,
+              margin: EdgeInsets.only(bottom: 12.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16.r),
+                color: AppColors.siginButtonsColor,
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Row(
+                children: [
+                  SizedBox(width: 8.w),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        border: InputBorder.none,
+                        isDense: true,
+                        hintStyle: TextStyle(
+                          fontSize: 15.sp,
+                          color: AppColors.lightGrey,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 5.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SignInButton(
-                  text: context.localizations.signInWith + ' Google',
-                  onTap: () {
-                    print('clicked');
-                    signIn(context);
-                  },
-                  icon: Image.asset(
-                    'assets/icons/google_icon.png',
-                    height: 24,
-                  ),
+                Text(
+                  'Forgot Password?',
+                  style: TextStyle(color: AppColors.siginSecondaryTextColor),
                 ),
-                SizedBox(height: 20),
-                if (Platform.isIOS)
-                  SignInButton(
-                    text: context.localizations.signInWith + ' Apple',
-                    onTap: () {},
-                    icon: Icon(Icons.apple, size: 26),
-                  ),
               ],
             ),
-          ),
-          Positioned(
-            top: 100,
-            child: Column(
-              children: [
-                SvgPicture.asset(
-                  'assets/images/logo_with_text.svg',
-                  height: 50,
+            SizedBox(height: 25.h),
+            InkWell(
+              onTap: () {
+                print('clicked');
+                signIn(context);
+              },
+              borderRadius: BorderRadius.circular(32),
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(16.w),
+                decoration: BoxDecoration(
+                  color: AppColors.siginTextColor,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.siginTextColor.withOpacity(0.1),
+                      offset: Offset(1, 2),
+                      blurRadius: 1,
+                      spreadRadius: 2,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 20),
-                Text('Some dummy text')
-              ],
+                child: Center(
+                  child: Text(
+                    'Log In',
+                    style: TextStyle(
+                      color: AppColors.float,
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ),
-          Positioned(
-            top: 70.h,
-            left: 16.w,
-            child: CustomAppBarBackButton(),
-          ),
-          Positioned(
-            bottom: 65.h,
-            child: GestureDetector(
+            SizedBox(height: 20.h),
+            Spacer(),
+            GestureDetector(
               onTap: () {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
@@ -109,12 +216,8 @@ class _SignInPageState extends State<SignInPage> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 35.h,
-            left: 16.w,
-            right: 16.w,
-            child: GestureDetector(
+            SizedBox(height: 10.h),
+            GestureDetector(
               onTap: () async {
                 // ignore: unused_local_variable
                 final result = await TermsBottomSheet.show(context);
@@ -125,8 +228,9 @@ class _SignInPageState extends State<SignInPage> {
                 textAlign: TextAlign.center,
               ),
             ),
-          ),
-        ],
+            SizedBox(height: 40.h),
+          ],
+        ),
       ),
     );
   }
