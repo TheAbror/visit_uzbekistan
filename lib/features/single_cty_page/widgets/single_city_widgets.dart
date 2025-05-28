@@ -68,6 +68,25 @@ class SingleCityPageBgImage extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       alignment: Alignment.topCenter,
+      loadingBuilder: (
+        BuildContext context,
+        Widget child,
+        ImageChunkEvent? loadingProgress,
+      ) {
+        if (loadingProgress == null) return child;
+        return SizedBox(
+          height: 200.h,
+          width: double.infinity,
+          child: Center(
+            child: CircularProgressIndicator(
+              value: loadingProgress.expectedTotalBytes != null
+                  ? loadingProgress.cumulativeBytesLoaded /
+                      loadingProgress.expectedTotalBytes!
+                  : null,
+            ),
+          ),
+        );
+      },
     );
   }
 }

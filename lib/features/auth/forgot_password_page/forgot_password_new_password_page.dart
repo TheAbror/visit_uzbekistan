@@ -33,7 +33,7 @@ class _BodyState extends State<_Body> {
           children: [
             SizedBox(height: 32.h),
             Text(
-              'context.localizations.newpassword',
+              context.localizations.newPassword,
               style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w500,
@@ -48,7 +48,7 @@ class _BodyState extends State<_Body> {
             TextFormField(
               validator: (username) {
                 if (username == null || username.isEmpty) {
-                  return 'Can not be empty';
+                  return context.localizations.cantBeEmpty;
                 }
                 if (controller1.text != controller2.text) {
                   return 'Passwords do not match';
@@ -72,7 +72,7 @@ class _BodyState extends State<_Body> {
             TextFormField(
               validator: (username) {
                 if (username == null || username.isEmpty) {
-                  return 'Can not be empty';
+                  return context.localizations.cantBeEmpty;
                 }
                 if (controller1.text != controller2.text) {
                   return 'Passwords do not match';
@@ -89,7 +89,7 @@ class _BodyState extends State<_Body> {
             ),
             SizedBox(height: 40.h),
             ActionButton(
-              text: 'context.localizations.changepassword',
+              text: context.localizations.changePassword,
               onPressed: () {
                 // context.read<AuthBloc>().resetPasswordToNew(controller1.text.trim());
                 // }

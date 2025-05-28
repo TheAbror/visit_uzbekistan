@@ -84,6 +84,11 @@ SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
                   (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      articles: (json['articles'] as List<dynamic>?)
+              ?.map(
+                  (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
@@ -96,4 +101,45 @@ Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
       'photo': instance.photo,
       'places': instance.places.map((e) => e.toJson()).toList(),
       'restaurants': instance.restaurants.map((e) => e.toJson()).toList(),
+      'articles': instance.articles.map((e) => e.toJson()).toList(),
+    };
+
+ArticlesResponse _$ArticlesResponseFromJson(Map<String, dynamic> json) =>
+    ArticlesResponse(
+      articles: (json['articles'] as List<dynamic>?)
+              ?.map(
+                  (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+    );
+
+Map<String, dynamic> _$ArticlesResponseToJson(ArticlesResponse instance) =>
+    <String, dynamic>{
+      'articles': instance.articles.map((e) => e.toJson()).toList(),
+    };
+
+SingleArticleResponse _$SingleArticleResponseFromJson(
+        Map<String, dynamic> json) =>
+    SingleArticleResponse(
+      id: json['id'] as int? ?? 0,
+      title: json['title'] as String? ?? '',
+      desc: json['desc'] as String? ?? '',
+      shortDescription: json['short_desc'] as String? ?? '',
+      photo: json['photo'] as String? ?? '',
+      url: json['url'] as String? ?? '',
+      createdAt: json['created_at'] as String? ?? '',
+      updatedAt: json['updated_at'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$SingleArticleResponseToJson(
+        SingleArticleResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'desc': instance.desc,
+      'short_desc': instance.shortDescription,
+      'photo': instance.photo,
+      'url': instance.url,
+      'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
     };

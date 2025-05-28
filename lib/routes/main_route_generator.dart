@@ -1,6 +1,7 @@
 import 'package:visit_uzbekistan/features/auth/code_verification_page/code_verification_page.dart';
 import 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_enter_details_page.dart';
 import 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_page.dart';
+import 'package:visit_uzbekistan/features/html_view/html_view.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -28,8 +29,11 @@ class MainRouteGenerator {
 
       case AppRoutes.singleCityPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => SignleCityPage(
-            id: settings.arguments as int,
+          builder: (_) => BlocProvider(
+            create: (context) => SingleCityBloc(),
+            child: SignleCityPage(
+              id: settings.arguments as int,
+            ),
           ),
         );
 
@@ -73,6 +77,13 @@ class MainRouteGenerator {
       case AppRoutes.signUpEnterDetails:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const SignUpEnterDetailsPage(),
+        );
+
+      case AppRoutes.htmlView:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => HtmlView(
+            id: settings.arguments as int,
+          ),
         );
 
       default:

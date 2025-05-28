@@ -16,3 +16,24 @@ articles,Articles,Статьи,Maqolalar
 search,Search...,Поиск...,Qidirish...
 favorites,Favorites,Избранное,Sevimlilar
 viewAll,View all,Просмотреть все,Hammasini ko'rish
+startYourAdventure,Start your adventure along the Silk Road — discover the wonders of Uzbekistan!,Начните свое приключение по Шелковому пути — откройте для себя чудеса Узбекистана!,Ipak yo‘li bo‘ylab sarguzashtingizni boshlang — O‘zbekiston mo‘jizalarini kashf eting!
+or,or,или,yoki
+forgotPassword,Forgot Password?,Забыли пароль?,Parolni unutdingizmi?
+dontHaveAccount,Don`t have account?,Нет учетной записи?,Hisobingiz yo'qmi?
+signUp,Sign Up,Зарегистрироваться,Ro'yxatdan o'tish
+createYourAccount,Create your account,Создайте свой аккаунт,Hisob qaydnomangizni yarating
+email,Email,Электронная почта,Elektron pochta
+cantBeEmpty,Can`t be empty,Не может быть пустым,Bo'sh bo'lishi mumkin emas
+enterYourEmail,Enter your email,Введите адрес электронной почты,Elektron pochtangizni kiriting
+weWillSendYouACode,We’ll send you a code to reset your password,Мы отправим вам код для сброса пароля,Parolingizni tiklash uchun sizga kod yuboramiz
+enterCode,Enter code,Введите код,Kodni kiriting
+weHaveSentYou,We have sent a code to,Мы отправили код на,Biz kodni yubordik
+newPassword,New password,Новый пароль,Yangi parol
+passwordMustContain,Password must contain at least 5 letters,Пароль должен содержать не менее 5 букв,Parol kamida 5 ta harfdan iborat bo'lishi kerak
+repeatPassword,Repeat password,Повторите пароль,Parolni qayta kiriting
+passwordReset,Password reset,Пароль сброшен,Parol tiklandi
+didnotGetIt,Didn’t get it?,Не получили?,Qabul qilmadingizmi?
+sendAgain,Send again,Отправить еще раз,Yana yuborish
+changePassword,Change password,Изменить пароль,Parolni o'zgartirish
+signInNow,Sign in now,Войти сейчас,Hozir kirish
+resendCode,Resend code,Отправить код повторно,Kodni qayta yuborish

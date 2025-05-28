@@ -31,7 +31,7 @@ class _BodyState extends State<_Body> {
           ),
           SizedBox(height: 24.h),
           Text(
-            'context.localizations.passwordreset',
+            context.localizations.passwordReset,
             style: TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.w500,
@@ -39,7 +39,7 @@ class _BodyState extends State<_Body> {
           ),
           SizedBox(height: 32.h),
           ActionButton(
-            text: 'context.localizations.signinnow',
+            text: context.localizations.signInNow,
             onPressed: () {
               // context.goNamed(AppRoutes.rootPage);
               // // if (formKey.currentState!.validate()) {

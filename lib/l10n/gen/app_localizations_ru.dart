@@ -56,4 +56,67 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get viewAll => 'Просмотреть все';
+
+  @override
+  String get startYourAdventure => 'Начните свое приключение по Шелковому пути — откройте для себя чудеса Узбекистана!';
+
+  @override
+  String get or => 'или';
+
+  @override
+  String get forgotPassword => 'Забыли пароль?';
+
+  @override
+  String get dontHaveAccount => 'Нет учетной записи?';
+
+  @override
+  String get signUp => 'Зарегистрироваться';
+
+  @override
+  String get createYourAccount => 'Создайте свой аккаунт';
+
+  @override
+  String get email => 'Электронная почта';
+
+  @override
+  String get cantBeEmpty => 'Не может быть пустым';
+
+  @override
+  String get enterYourEmail => 'Введите адрес электронной почты';
+
+  @override
+  String get weWillSendYouACode => 'Мы отправим вам код для сброса пароля';
+
+  @override
+  String get enterCode => 'Введите код';
+
+  @override
+  String get weHaveSentYou => 'Мы отправили код на';
+
+  @override
+  String get newPassword => 'Новый пароль';
+
+  @override
+  String get passwordMustContain => 'Пароль должен содержать не менее 5 букв';
+
+  @override
+  String get repeatPassword => 'Повторите пароль';
+
+  @override
+  String get passwordReset => 'Пароль сброшен';
+
+  @override
+  String get didnotGetIt => 'Не получили?';
+
+  @override
+  String get sendAgain => 'Отправить еще раз';
+
+  @override
+  String get changePassword => 'Изменить пароль';
+
+  @override
+  String get signInNow => 'Войти сейчас';
+
+  @override
+  String get resendCode => 'Отправить код повторно';
 }

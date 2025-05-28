@@ -20,6 +20,7 @@ class SingleCityState extends Equatable {
         location: '',
         photo: '',
         shortDescription: '',
+        articles: [],
         places: [
           SingleItemResponse(
             id: 1,
@@ -40,7 +41,7 @@ class SingleCityState extends Equatable {
           SingleItemResponse(
             id: 1,
             name: "Gavhar",
-            shortDescription: "about Gavhar",
+            shortDescription: "about Gavhar lorem ipsum some other text",
             location: 'Urgench, Uzbekistan',
             info:
                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
@@ -49,7 +50,33 @@ class SingleCityState extends Equatable {
             cityID: 1,
             createdAt: '2025-05-1812: 44: 48.000000Z',
             updatedAt: '2025-05-18T12:44:48.0000007',
-          )
+          ),
+          SingleItemResponse(
+            id: 1,
+            name: "Gavhar",
+            shortDescription: "about Gavhar lorem ipsum some other text",
+            location: 'Urgench, Uzbekistan',
+            info:
+                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+            photo:
+                'https://avatars.mds.yandex.net/get-altay/9954022/2a00000188fcc5eb8c09cd54cba6e9e91d94/L_height',
+            cityID: 1,
+            createdAt: '2025-05-1812: 44: 48.000000Z',
+            updatedAt: '2025-05-18T12:44:48.0000007',
+          ),
+          SingleItemResponse(
+            id: 1,
+            name: "Gavhar",
+            shortDescription: "about Gavhar lorem ipsum some other text",
+            location: 'Urgench, Uzbekistan',
+            info:
+                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+            photo:
+                'https://avatars.mds.yandex.net/get-altay/9954022/2a00000188fcc5eb8c09cd54cba6e9e91d94/L_height',
+            cityID: 1,
+            createdAt: '2025-05-1812: 44: 48.000000Z',
+            updatedAt: '2025-05-18T12:44:48.0000007',
+          ),
         ],
       ),
       blocProgress: BlocProgress.NOT_STARTED,

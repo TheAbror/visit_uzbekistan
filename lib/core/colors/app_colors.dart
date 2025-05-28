@@ -129,6 +129,15 @@ class AppColors {
           offset: Offset(0.0, 3.0),
         ),
       ];
+
+  static List<BoxShadow> get defaultShadowForItems => [
+        BoxShadow(
+          color: AppColors.siginTextColor.withOpacity(0.1),
+          offset: Offset(1, 2),
+          blurRadius: 1,
+          spreadRadius: 1,
+        ),
+      ];
 }
 
 class Palette {

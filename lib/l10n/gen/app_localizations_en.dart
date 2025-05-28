@@ -56,4 +56,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get viewAll => 'View all';
+
+  @override
+  String get startYourAdventure => 'Start your adventure along the Silk Road — discover the wonders of Uzbekistan!';
+
+  @override
+  String get or => 'or';
+
+  @override
+  String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get dontHaveAccount => 'Don`t have account?';
+
+  @override
+  String get signUp => 'Sign Up';
+
+  @override
+  String get createYourAccount => 'Create your account';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get cantBeEmpty => 'Can`t be empty';
+
+  @override
+  String get enterYourEmail => 'Enter your email';
+
+  @override
+  String get weWillSendYouACode => 'We’ll send you a code to reset your password';
+
+  @override
+  String get enterCode => 'Enter code';
+
+  @override
+  String get weHaveSentYou => 'We have sent a code to';
+
+  @override
+  String get newPassword => 'New password';
+
+  @override
+  String get passwordMustContain => 'Password must contain at least 5 letters';
+
+  @override
+  String get repeatPassword => 'Repeat password';
+
+  @override
+  String get passwordReset => 'Password reset';
+
+  @override
+  String get didnotGetIt => 'Didn’t get it?';
+
+  @override
+  String get sendAgain => 'Send again';
+
+  @override
+  String get changePassword => 'Change password';
+
+  @override
+  String get signInNow => 'Sign in now';
+
+  @override
+  String get resendCode => 'Resend code';
 }

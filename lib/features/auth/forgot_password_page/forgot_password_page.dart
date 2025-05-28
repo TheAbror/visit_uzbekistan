@@ -55,7 +55,7 @@ class __BodyState extends State<_Body> {
         children: [
           SizedBox(height: 32.h),
           Text(
-            'context.localizations.enteryouremailorphone',
+            context.localizations.enterYourEmail,
             style: TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.w500,
@@ -63,7 +63,7 @@ class __BodyState extends State<_Body> {
           ),
           SizedBox(height: 10.h),
           Text(
-            'context.localizations.wellsendyou',
+            context.localizations.weWillSendYouACode,
             style: TextStyle(
               fontWeight: FontWeight.w400,
             ),
@@ -72,7 +72,7 @@ class __BodyState extends State<_Body> {
           TextFormField(
             validator: (username) {
               if (username == null || username.isEmpty) {
-                return 'context.localizations.cantbeempty';
+                return context.localizations.cantBeEmpty;
               }
 
               if (RegExp(r'^\d').hasMatch(username)) {
@@ -92,7 +92,7 @@ class __BodyState extends State<_Body> {
             textInputAction: TextInputAction.next,
             decoration: AuthFieldDecoration(
               context,
-              'Email or Phone number',
+              context.localizations.email,
             ),
           ),
           SizedBox(height: 24.h),

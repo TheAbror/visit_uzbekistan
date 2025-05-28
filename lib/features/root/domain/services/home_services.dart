@@ -19,4 +19,10 @@ abstract class HomeServices extends ChopperService {
 
   @Get(path: '${AppStrings.places}/{id}')
   Future<Response<PlacesResponse>> getSinglePlace(@Path('id') int id);
+
+  @Get(path: AppStrings.articles)
+  Future<Response<ArticlesResponse>> getAllArticels();
+
+  @Get(path: '${AppStrings.articles}/{id}')
+  Future<Response<SingleArticleResponse>> getSingleArticle(@Path('id') int id);
 }

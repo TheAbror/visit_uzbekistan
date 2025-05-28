@@ -12,6 +12,8 @@ class LogInPage extends StatefulWidget {
 class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
+    final l10 = context.localizations;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -23,7 +25,7 @@ class _LogInPageState extends State<LogInPage> {
         child: Column(
           children: [
             Text(
-              'Sign In',
+              l10.login,
               style: TextStyle(
                 fontSize: 28.sp,
                 fontWeight: FontWeight.bold,
@@ -32,8 +34,7 @@ class _LogInPageState extends State<LogInPage> {
             ),
             SizedBox(height: 10.h),
             Text(
-              'Start your adventure along the Silk Road — discover the wonders of Uzbekistan!',
-              // 'Explore the Silk Road’s magic — unlock the wonders of Uzbekistan and start your adventure here!',
+              l10.startYourAdventure,
               style: TextStyle(color: AppColors.siginSecondaryTextColor),
               textAlign: TextAlign.center,
             ),
@@ -73,9 +74,7 @@ class _LogInPageState extends State<LogInPage> {
                     color: AppColors.rootBgColor.withOpacity(0.7),
                   ),
                 ),
-                Text(
-                  'or',
-                ),
+                Text(l10.or),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 8.w),
@@ -94,7 +93,7 @@ class _LogInPageState extends State<LogInPage> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Login',
+                  hintText: l10.login,
                   isDense: true,
                   hintStyle: TextStyle(
                     fontSize: 15.sp,
@@ -141,7 +140,7 @@ class _LogInPageState extends State<LogInPage> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: l10.password,
                   isDense: true,
                   hintStyle: TextStyle(
                     fontSize: 15.sp,
@@ -179,7 +178,7 @@ class _LogInPageState extends State<LogInPage> {
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 15.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -188,7 +187,7 @@ class _LogInPageState extends State<LogInPage> {
                     Navigator.pushNamed(context, AppRoutes.forgotPasswordPage);
                   },
                   child: Text(
-                    'Forgot Password?',
+                    l10.forgotPassword,
                     style: TextStyle(color: AppColors.siginSecondaryTextColor),
                   ),
                 ),
@@ -218,7 +217,7 @@ class _LogInPageState extends State<LogInPage> {
                 ),
                 child: Center(
                   child: Text(
-                    'Log In',
+                    l10.login,
                     style: TextStyle(
                       color: AppColors.float,
                       fontSize: 14.sp,
@@ -232,7 +231,7 @@ class _LogInPageState extends State<LogInPage> {
               children: [
                 SizedBox(width: 10.w),
                 Text(
-                  'Don`t have account?',
+                  l10.dontHaveAccount,
                   style: TextStyle(
                     color: AppColors.siginSecondaryTextColor,
                     fontSize: 13.sp,
@@ -245,7 +244,7 @@ class _LogInPageState extends State<LogInPage> {
                     Navigator.pushNamed(context, AppRoutes.signUpPage);
                   },
                   child: Text(
-                    ' Sign Up',
+                    ' ' + l10.signUp,
                     style: TextStyle(
                       color: AppColors.siginTextColor,
                       fontSize: 13.sp,

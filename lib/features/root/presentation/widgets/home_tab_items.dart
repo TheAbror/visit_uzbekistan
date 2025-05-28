@@ -27,6 +27,13 @@ class HomeTabItems extends StatelessWidget {
           return ItemInfo(
             item: singleItem,
             isDeocrationNeeded: isDeocrationNeeded,
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                AppRoutes.htmlView,
+                arguments: singleItem.id,
+              );
+            },
           );
         },
       ),
@@ -37,23 +44,19 @@ class HomeTabItems extends StatelessWidget {
 class ItemInfo extends StatelessWidget {
   final bool isDeocrationNeeded;
   final SingleItemResponse item;
+  final VoidCallback? onTap;
 
   const ItemInfo({
     super.key,
     required this.item,
     this.isDeocrationNeeded = false,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          AppRoutes.singleCityPage,
-          arguments: item.id,
-        );
-      },
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(right: 8.w),
         height: 185.h,
@@ -160,9 +163,27 @@ class ItemInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 2.h),
-                    Text(
-                      item.name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          item.name,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        if (item.rating != null && item.rating != 0) ...[
+                          SizedBox(height: 4.h),
+                          Row(
+                            children: [
+                              Text(item.rating.toString()),
+                              SizedBox(width: 2.w),
+                              Icon(
+                                IconsaxPlusBold.star,
+                                color: Colors.amber,
+                              ),
+                            ],
+                          ),
+                        ]
+                      ],
                     ),
                     SizedBox(height: 2.h),
                     Flexible(
@@ -177,30 +198,28 @@ class ItemInfo extends StatelessWidget {
                       ),
                     ),
                     if (item.cityID != null && item.cityID != 0)
-                      SizedBox(height: 4.h),
-                    if (item.location != '')
-                      Row(
-                        children: [
-                          Icon(
-                            IconsaxPlusLinear.location,
-                            size: 14.sp,
-                          ),
-                          SizedBox(width: 4.w),
-                          Text(
-                            item.cityName ?? '',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    if (item.rating != null && item.rating != 0)
-                      SizedBox(height: 4.h),
-                    if (item.rating != null && item.rating != 0)
-                      Row(
-                        children: [
-                          Text('Rating: '),
-                          Text(item.rating.toString()),
-                        ],
-                      ),
+                      if (item.location.isNotEmpty) ...[
+                        SizedBox(height: 4.h),
+                        Row(
+                          children: [
+                            Icon(
+                              IconsaxPlusLinear.location,
+                              size: 14.sp,
+                            ),
+                            SizedBox(width: 4.w),
+                            Flexible(
+                              child: Text(
+                                item.location,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11.sp,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                   ],
                 ),
               ),

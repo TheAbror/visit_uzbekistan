@@ -56,4 +56,67 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get viewAll => 'Hammasini ko\'rish';
+
+  @override
+  String get startYourAdventure => 'Ipak yo‘li bo‘ylab sarguzashtingizni boshlang — O‘zbekiston mo‘jizalarini kashf eting!';
+
+  @override
+  String get or => 'yoki';
+
+  @override
+  String get forgotPassword => 'Parolni unutdingizmi?';
+
+  @override
+  String get dontHaveAccount => 'Hisobingiz yo\'qmi?';
+
+  @override
+  String get signUp => 'Ro\'yxatdan o\'tish';
+
+  @override
+  String get createYourAccount => 'Hisob qaydnomangizni yarating';
+
+  @override
+  String get email => 'Elektron pochta';
+
+  @override
+  String get cantBeEmpty => 'Bo\'sh bo\'lishi mumkin emas';
+
+  @override
+  String get enterYourEmail => 'Elektron pochtangizni kiriting';
+
+  @override
+  String get weWillSendYouACode => 'Parolingizni tiklash uchun sizga kod yuboramiz';
+
+  @override
+  String get enterCode => 'Kodni kiriting';
+
+  @override
+  String get weHaveSentYou => 'Biz kodni yubordik';
+
+  @override
+  String get newPassword => 'Yangi parol';
+
+  @override
+  String get passwordMustContain => 'Parol kamida 5 ta harfdan iborat bo\'lishi kerak';
+
+  @override
+  String get repeatPassword => 'Parolni qayta kiriting';
+
+  @override
+  String get passwordReset => 'Parol tiklandi';
+
+  @override
+  String get didnotGetIt => 'Qabul qilmadingizmi?';
+
+  @override
+  String get sendAgain => 'Yana yuborish';
+
+  @override
+  String get changePassword => 'Parolni o\'zgartirish';
+
+  @override
+  String get signInNow => 'Hozir kirish';
+
+  @override
+  String get resendCode => 'Kodni qayta yuborish';
 }

@@ -174,6 +174,8 @@ class SingleCityResponse {
   final List<SingleItemResponse> places;
   @JsonKey(defaultValue: [])
   final List<SingleItemResponse> restaurants;
+  @JsonKey(defaultValue: [])
+  final List<SingleItemResponse> articles;
 
   SingleCityResponse({
     required this.id,
@@ -184,10 +186,60 @@ class SingleCityResponse {
     required this.shortDescription,
     required this.places,
     required this.restaurants,
+    required this.articles,
   });
 
   factory SingleCityResponse.fromJson(Map<String, dynamic> json) =>
       _$SingleCityResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$SingleCityResponseToJson(this);
+}
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
+class ArticlesResponse {
+  @JsonKey(defaultValue: [])
+  final List<SingleItemResponse> articles;
+
+  ArticlesResponse({required this.articles});
+
+  factory ArticlesResponse.fromJson(Map<String, dynamic> json) =>
+      _$ArticlesResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ArticlesResponseToJson(this);
+}
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
+class SingleArticleResponse {
+  @JsonKey(defaultValue: 0)
+  final int id;
+  @JsonKey(defaultValue: '')
+  final String title;
+  @JsonKey(defaultValue: '')
+  final String desc;
+  @JsonKey(defaultValue: '', name: 'short_desc')
+  final String shortDescription;
+  @JsonKey(defaultValue: '')
+  final String photo;
+  @JsonKey(defaultValue: '')
+  final String url;
+  @JsonKey(defaultValue: '', name: 'created_at')
+  final String createdAt;
+  @JsonKey(defaultValue: '', name: 'updated_at')
+  final String updatedAt;
+
+  SingleArticleResponse({
+    required this.id,
+    required this.title,
+    required this.desc,
+    required this.shortDescription,
+    required this.photo,
+    required this.url,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory SingleArticleResponse.fromJson(Map<String, dynamic> json) =>
+      _$SingleArticleResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SingleArticleResponseToJson(this);
 }

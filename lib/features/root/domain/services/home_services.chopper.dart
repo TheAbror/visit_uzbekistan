@@ -19,8 +19,7 @@ final class _$HomeServices extends HomeServices {
 
   @override
   Future<Response<CitiesResponse>> getAllCities() {
-    final Uri $url =
-        Uri.parse('https://3413-213-230-92-231.ngrok-free.app/api/cities');
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/cities');
     final Request $request = Request(
       'GET',
       $url,
@@ -31,8 +30,7 @@ final class _$HomeServices extends HomeServices {
 
   @override
   Future<Response<SingleCityResponse>> getSingleCity(int id) {
-    final Uri $url = Uri.parse(
-        'https://3413-213-230-92-231.ngrok-free.app/api/cities/${id}');
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/cities/${id}');
     final Request $request = Request(
       'GET',
       $url,
@@ -43,8 +41,7 @@ final class _$HomeServices extends HomeServices {
 
   @override
   Future<Response<PlacesResponse>> getAllPlaces() {
-    final Uri $url =
-        Uri.parse('https://3413-213-230-92-231.ngrok-free.app/api/places');
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/places');
     final Request $request = Request(
       'GET',
       $url,
@@ -55,13 +52,35 @@ final class _$HomeServices extends HomeServices {
 
   @override
   Future<Response<PlacesResponse>> getSinglePlace(int id) {
-    final Uri $url = Uri.parse(
-        'https://3413-213-230-92-231.ngrok-free.app/api/places/${id}');
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/places/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
     return client.send<PlacesResponse, PlacesResponse>($request);
+  }
+
+  @override
+  Future<Response<ArticlesResponse>> getAllArticels() {
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/articles');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<ArticlesResponse, ArticlesResponse>($request);
+  }
+
+  @override
+  Future<Response<SingleArticleResponse>> getSingleArticle(int id) {
+    final Uri $url =
+        Uri.parse('http://travel.getcontact.uz/api/articles/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<SingleArticleResponse, SingleArticleResponse>($request);
   }
 }

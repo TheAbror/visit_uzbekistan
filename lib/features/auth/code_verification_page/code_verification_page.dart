@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'dart:async';
 
 import 'package:visit_uzbekistan/widget_imports.dart';
@@ -20,7 +22,7 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
   @override
   void initState() {
     super.initState();
-    startTimer(context);
+    // startTimer(context);
   }
 
   void startTimer(BuildContext context) {
@@ -39,7 +41,7 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
 
   @override
   void dispose() {
-    _timer.cancel();
+    // _timer.cancel();
     super.dispose();
   }
 
@@ -59,7 +61,7 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
             SizedBox(height: 32.h),
 
             Text(
-              'context.localizations.entercode',
+              context.localizations.enterCode,
               style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w500,
@@ -67,15 +69,15 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
             ),
             SizedBox(height: 10.h),
 
-            Column(
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'context.localizations.wehavesentyoucodeto',
+                  context.localizations.weHaveSentYou,
                   style: TextStyle(fontWeight: FontWeight.w400),
                 ),
                 SizedBox(height: 4.h),
-                Text('+ 998991234567'),
+                Text(' +998991234567'),
               ],
             ),
             SizedBox(height: 40.h),
@@ -111,7 +113,7 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
               behavior: HitTestBehavior.opaque,
               child: Center(
                 child: Text(
-                  'Resend code',
+                  context.localizations.resendCode,
                   style:
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),

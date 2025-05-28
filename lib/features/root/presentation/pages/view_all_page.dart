@@ -34,6 +34,7 @@ class ViewAllPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.r),
                       color: AppColors.white,
+                      boxShadow: AppColors.defaultShadowForItems,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: Row(
@@ -67,7 +68,7 @@ class ViewAllPage extends StatelessWidget {
                       crossAxisCount: 2,
                       mainAxisSpacing: 8.h,
                       crossAxisSpacing: 8.h,
-                      childAspectRatio: 0.9,
+                      childAspectRatio: 0.82,
                     ),
                     itemCount: state.favorites.length,
                     shrinkWrap: true,
@@ -75,7 +76,7 @@ class ViewAllPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final singleItem = state.favorites[index];
 
-                      return _ItemInfo(item: singleItem);
+                      return GridViewItem(item: singleItem);
                     },
                   ),
                 ],
@@ -86,10 +87,10 @@ class ViewAllPage extends StatelessWidget {
   }
 }
 
-class _ItemInfo extends StatelessWidget {
+class GridViewItem extends StatelessWidget {
   final SingleItemResponse item;
 
-  const _ItemInfo({
+  const GridViewItem({
     required this.item,
   });
 
@@ -107,6 +108,7 @@ class _ItemInfo extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.float,
           borderRadius: BorderRadius.circular(12.r),
+          boxShadow: AppColors.defaultShadowForItems,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,7 +208,7 @@ class _ItemInfo extends StatelessWidget {
                       fontSize: 11.sp,
                       color: AppColors.miscellaneousTabUnselected,
                     ),
-                    maxLines: 2,
+                    maxLines: item.location.isEmpty ? 3 : 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   if (item.location.isNotEmpty) ...[
@@ -220,7 +222,7 @@ class _ItemInfo extends StatelessWidget {
                         SizedBox(width: 4.w),
                         Flexible(
                           child: Text(
-                            item.cityName ?? '',
+                            item.location,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 11.sp,

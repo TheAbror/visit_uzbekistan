@@ -83,5 +83,4 @@ export 'package:visit_uzbekistan/features/auth/forgot_password_page/forgot_passw
 export 'package:visit_uzbekistan/features/root/presentation/pages/view_all_page.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/single_city_page.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/tabs/transportation_tab/single_car_page.dart/single_car_page.dart';
-export 'package:visit_uzbekistan/features/auth/sign_up_page/widgets/sign_up_page_appbar.dart';
 export 'package:visit_uzbekistan/features/auth/sign_up_page/widgets/sign_up_enter_details_page_appbar.dart';

@@ -6,7 +6,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SignUpPageAppBar(),
+      appBar: SignInCustomAppBar(),
       body: _Body(),
       resizeToAvoidBottomInset: false,
     );
@@ -33,37 +33,22 @@ class _BodyState extends State<_Body> {
           children: [
             SizedBox(height: 32.h),
             Text(
-              'context.localizations.createayourccount',
+              context.localizations.createYourAccount,
               style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(height: 10.h),
 
-            Text(
-              'context.localizations.buildskillsfortodayetc',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-              ),
-            ),
             SizedBox(height: 40.h),
 
             _loginField(context),
             SizedBox(height: 24.h),
 
             ActionButton(
-              text: 'context.localizations.signup',
+              text: context.localizations.signUp,
               onPressed: () {
                 // final login = _login.text.trim();
-
-                // if (_formKey.currentState!.validate()) {
-                //   // context.read<AuthBloc>().sendSignUpKeyForVerification(sign_up_key);
-
-                //   context.read<AuthBloc>().saveLogin(login);
-                //   // context.goNamed(AppRoutes.codeVerificationPage, extra: false);
-                //   context.goNamed(AppRoutes.rootPage);
-                // }
 
                 Navigator.pushNamed(context, AppRoutes.signUpEnterDetails);
               },
@@ -80,7 +65,7 @@ class _BodyState extends State<_Body> {
     return TextFormField(
       validator: (username) {
         if (username == null || username.isEmpty) {
-          return 'context.localizations.cantbeempty';
+          return context.localizations.cantBeEmpty;
         }
 
         if (RegExp(r'^\d').hasMatch(username)) {
@@ -97,10 +82,7 @@ class _BodyState extends State<_Body> {
       },
       controller: _login,
       textInputAction: TextInputAction.next,
-      decoration: AuthFieldDecoration(
-        context,
-        'Email or Phone number',
-      ),
+      decoration: AuthFieldDecoration(context, context.localizations.email),
     );
   }
 }
