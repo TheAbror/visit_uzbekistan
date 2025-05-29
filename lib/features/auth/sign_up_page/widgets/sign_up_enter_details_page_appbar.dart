@@ -2,9 +2,7 @@ import 'package:visit_uzbekistan/widget_imports.dart';
 
 class SignUpEnterDetailsPageAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const SignUpEnterDetailsPageAppBar({
-    super.key,
-  });
+  const SignUpEnterDetailsPageAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class SignUpEnterDetailsPageAppBar extends StatelessWidget
             },
             behavior: HitTestBehavior.opaque,
             child: Text(
-              'context.localizations.skipstep',
+              context.localizations.skipStep,
               style: TextStyle(
                 fontSize: 15.sp,
                 color: Theme.of(context).colorScheme.primary,

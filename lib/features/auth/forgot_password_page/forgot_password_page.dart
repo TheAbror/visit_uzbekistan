@@ -138,30 +138,12 @@ InputDecoration AuthFieldDecoration(
     ),
     fillColor: Theme.of(context).colorScheme.surfaceTint,
     hintText: hintText,
-    suffixIcon:
-        // suffixicon
-        //     ? BlocBuilder<AuthBloc, AuthState>(
-        //         builder: (context, state) {
-        //           return InkWell(
-        //             onTap: () {
-        //               context.read<AuthBloc>().isPasswordHidden();
-        //             },
-        //             child: state.isPasswordHidden
-        //                 ? Icon(
-        //                     Icons.visibility_outlined,
-        //                     size: 20.sp,
-        //                     color: Theme.of(context).colorScheme.primary,
-        //                   )
-        //                 :
-
-        Icon(
-      Icons.visibility_off_outlined,
-      size: 20.sp,
-      color: Theme.of(context).colorScheme.primary,
-    ),
-    // );
-    // },
-    // )
-    // : SizedBox(),
+    suffixIcon: suffixicon
+        ? Icon(
+            Icons.visibility_outlined,
+            size: 20.sp,
+            color: Theme.of(context).colorScheme.primary,
+          )
+        : SizedBox(),
   );
 }

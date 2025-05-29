@@ -75,5 +75,15 @@
   "signInNow": "Войти сейчас",
   "@signInNow": {},
   "resendCode": "Отправить код повторно",
-  "@resendCode": {}
+  "@resendCode": {},
+  "skipStep": "Пропустить шаг",
+  "@skipStep": {},
+  "tellUsAboutY": "Расскажите о себе",
+  "@tellUsAboutY": {},
+  "firstName": "Имя",
+  "@firstName": {},
+  "lastName": "Фамилия",
+  "@lastName": {},
+  "emailAddress": "Адрес электронной почты",
+  "@emailAddress": {}
 }

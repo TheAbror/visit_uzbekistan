@@ -1,18 +1,18 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class SingleCarPage extends StatefulWidget {
+class SingleTransportPage extends StatefulWidget {
   final int id;
 
-  const SingleCarPage({
+  const SingleTransportPage({
     super.key,
     required this.id,
   });
 
   @override
-  State<SingleCarPage> createState() => _SingleCarPageState();
+  State<SingleTransportPage> createState() => _SingleTransportPageState();
 }
 
-class _SingleCarPageState extends State<SingleCarPage> {
+class _SingleTransportPageState extends State<SingleTransportPage> {
   final List<String> images = [
     'https://bydzone.uz/wp-content/uploads/2024/02/byd-han-exterior-03-20-min.png',
     'https://bydzone.uz/wp-content/uploads/2024/02/byd-han-exterior-15-13-min.png',

@@ -112,7 +112,7 @@ class TransportationItem extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          AppRoutes.singleCarPage,
+          AppRoutes.singleTransportPage,
           arguments: 0,
         );
       },

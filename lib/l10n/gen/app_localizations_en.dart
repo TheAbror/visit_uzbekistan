@@ -119,4 +119,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resendCode => 'Resend code';
+
+  @override
+  String get skipStep => 'Skip step';
+
+  @override
+  String get tellUsAboutY => 'Tell us about yourself';
+
+  @override
+  String get firstName => 'First name';
+
+  @override
+  String get lastName => 'Last name';
+
+  @override
+  String get emailAddress => 'Email address';
 }

@@ -53,14 +53,10 @@ class SearchTab extends StatelessWidget {
                   ],
                 ),
               ),
-              // useful apps
               if (state.favorites.isNotEmpty)
-                TitleAndViewAllWidget(
-                  title: context.localizations.favorites,
-                  onTap: () {},
-                ),
-              if (state.favorites.isNotEmpty)
-                HomeTabItems(item: state.favorites),
+                HomeTabItems(
+                    header: context.localizations.favorites,
+                    item: state.favorites),
             ],
           );
         },

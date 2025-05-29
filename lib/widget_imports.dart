@@ -82,5 +82,11 @@ export 'package:visit_uzbekistan/features/auth/forgot_password_page/forgot_passw
 export 'package:visit_uzbekistan/features/auth/forgot_password_page/forgot_password_success_page.dart';
 export 'package:visit_uzbekistan/features/root/presentation/pages/view_all_page.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/single_city_page.dart';
-export 'package:visit_uzbekistan/features/single_cty_page/tabs/transportation_tab/single_car_page.dart/single_car_page.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/tabs/transportation_tab/single_transport_page/single_transport_page.dart';
 export 'package:visit_uzbekistan/features/auth/sign_up_page/widgets/sign_up_enter_details_page_appbar.dart';
+export 'package:visit_uzbekistan/features/root/presentation/widgets/enum/open_page_named.dart';
+export 'package:visit_uzbekistan/features/auth/code_verification_page/code_verification_page.dart';
+export 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_enter_details_page.dart';
+export 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_page.dart';
+export 'package:visit_uzbekistan/features/html_view/html_view.dart';
+export 'package:visit_uzbekistan/features/usefull_apps/usefull_apps_page.dart';

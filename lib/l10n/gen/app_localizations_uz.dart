@@ -119,4 +119,19 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get resendCode => 'Kodni qayta yuborish';
+
+  @override
+  String get skipStep => 'Qadamni o\'tkazib yuborish';
+
+  @override
+  String get tellUsAboutY => 'O\'zingiz haqingizda gapirib bering';
+
+  @override
+  String get firstName => 'Ism';
+
+  @override
+  String get lastName => 'Familiya';
+
+  @override
+  String get emailAddress => 'E-pochta manzili';
 }

@@ -1,3 +1,4 @@
+import 'package:visit_uzbekistan/core/bloc_progress/super_bloc_progress.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 part 'home_state.dart';
@@ -86,7 +87,13 @@ class HomeBloc extends Cubit<HomeState> {
   }
 
   void getAllArticels(BuildContext context) async {
-    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+    emit(
+      state.copyWith(
+        articles: state.articles.copyWith(
+          blocProgress: BlocProgress.IS_LOADING,
+        ),
+      ),
+    );
 
     try {
       final response = await ApiProvider.homeServices.getAllArticels();
@@ -95,18 +102,24 @@ class HomeBloc extends Cubit<HomeState> {
         final result = response.body;
 
         if (result != null) {
-          emit(state.copyWith(
-            articles: result,
-            blocProgress: BlocProgress.LOADED,
-          ));
+          emit(
+            state.copyWith(
+              articles: state.articles.copyWith(
+                model: result,
+                blocProgress: BlocProgress.LOADED,
+              ),
+            ),
+          );
         }
       } else {
         final error =
             ErrorResponse.fromJson(json.decode(response.error.toString()));
 
         emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: error.message,
+          articles: state.articles.copyWith(
+            blocProgress: BlocProgress.FAILED,
+            failureMessage: error.message,
+          ),
         ));
       }
     } catch (e) {
@@ -114,8 +127,10 @@ class HomeBloc extends Cubit<HomeState> {
 
       if (!isClosed) {
         emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: e.toString(),
+          articles: state.articles.copyWith(
+            blocProgress: BlocProgress.FAILED,
+            failureMessage: e.toString(),
+          ),
         ));
       }
     }

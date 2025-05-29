@@ -2,12 +2,12 @@ import 'package:visit_uzbekistan/widget_imports.dart';
 
 class TitleAndViewAllWidget extends StatelessWidget {
   final String title;
-  final void Function()? onTap;
+  final OpenPageNamed openPageNamed;
 
   const TitleAndViewAllWidget({
     super.key,
     required this.title,
-    required this.onTap,
+    this.openPageNamed = OpenPageNamed.singleCity,
   });
 
   @override
@@ -34,7 +34,32 @@ class TitleAndViewAllWidget extends StatelessWidget {
           ),
           SizedBox(width: 10.w),
           GestureDetector(
-            onTap: onTap,
+            onTap: () {
+              // String routeName;
+
+              // switch (openPageNamed) {
+              //   case OpenPageNamed.article:
+              //     routeName = AppRoutes.htmlView;
+              //     break;
+              //   case OpenPageNamed.usefulApp:
+              //     routeName = AppRoutes.singleCityPage;
+              //     break;
+              //   default:
+              //     routeName = AppRoutes.singleCityPage;
+              //     break;
+              // }
+
+              // Navigator.pushNamed(
+              //   context,
+              //   routeName,
+              //   arguments: singleItem.id,
+              // );
+
+              Navigator.pushNamed(
+                context,
+                AppRoutes.viewAllPage,
+              );
+            },
             child: Text(
               context.localizations.viewAll,
               style: TextStyle(

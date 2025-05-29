@@ -1,13 +1,10 @@
 abstract class AppRoutes {
+  //splash & onboarding
   static const splashPage = '/splashPage';
-  static const logInPage = '/logInPage';
-  static const rootPage = '/rootPage';
   static const onBoardingPage = '/onBoardingPage';
-  static const singleCityPage = '/singleCityPage';
-  static const singleCarPage = '/singleCarPage';
-  static const viewAllPage = '/viewAllPage';
 
-  //
+  //auth
+  static const logInPage = '/logInPage';
   static const forgotPasswordPage = '/forgotPasswordPage';
   static const forgotPasswordSuccessPage = '/forgotPasswordSuccessPage';
   static const forgotPasswordNewPassordPage = '/forgotPasswordNewPassordPage';
@@ -17,4 +14,9 @@ abstract class AppRoutes {
 
   //
   static const htmlView = '/htmlView';
+  static const usefullAppsPage = '/usefullAppsPage';
+  static const rootPage = '/rootPage';
+  static const singleCityPage = '/singleCityPage';
+  static const singleTransportPage = '/singleTransportPage';
+  static const viewAllPage = '/viewAllPage';
 }

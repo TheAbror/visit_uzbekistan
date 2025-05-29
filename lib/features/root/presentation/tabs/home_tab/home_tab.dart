@@ -18,44 +18,39 @@ class HomeTab extends StatelessWidget {
 
           return ListView(
             children: [
+              //cities
               if (state.cities.isNotEmpty)
-                TitleAndViewAllWidget(
-                  title: context.localizations.cities,
-                  onTap: () {},
+                HomeTabItems(
+                  header: context.localizations.cities,
+                  item: state.cities,
+                  pageNamed: OpenPageNamed.singleCity,
                 ),
-              if (state.cities.isNotEmpty) HomeTabItems(item: state.cities),
-              //
-              if (state.places.isNotEmpty)
-                TitleAndViewAllWidget(
-                  title: context.localizations.places,
-                  onTap: () {},
+
+              //please
+              if (state.cities.isNotEmpty)
+                HomeTabItems(
+                  header: context.localizations.places,
+                  item: state.places,
                 ),
-              if (state.cities.isNotEmpty) HomeTabItems(item: state.places),
+
               // useful apps
               if (state.usefulApps.isNotEmpty)
-                TitleAndViewAllWidget(
-                  title: context.localizations.usefulApps,
-                  onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.htmlView);
-                  },
-                ),
-              if (state.usefulApps.isNotEmpty)
-                HomeTabItems(item: state.usefulApps),
-              // articles
-              if (state.articles.articles.isNotEmpty)
-                TitleAndViewAllWidget(
-                  title: context.localizations.articles,
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.viewAllPage,
-                    );
-                  },
-                ),
-              if (state.articles.articles.isNotEmpty)
                 HomeTabItems(
-                  item: state.articles.articles,
+                  header: context.localizations.usefulApps,
+                  item: state.usefulApps,
+                  pageNamed: OpenPageNamed.usefulApp,
                 ),
+
+              // articles
+              if (state.articles.model.articles.isNotEmpty)
+                HomeTabItems(
+                  header: context.localizations.articles,
+                  item: state.articles.model.articles,
+                  pageNamed: OpenPageNamed.article,
+                ),
+
+              if (state.articles.blocProgress == BlocProgress.IS_LOADING)
+                Center(child: CircularProgressIndicator())
             ],
           );
         },
@@ -63,10 +58,3 @@ class HomeTab extends StatelessWidget {
     );
   }
 }
-
-
-//  Navigator.pushNamed(
-//           context,
-//           AppRoutes.singleCityPage,
-//           arguments: item.id,
-//         );

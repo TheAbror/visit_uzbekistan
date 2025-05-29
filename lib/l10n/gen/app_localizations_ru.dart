@@ -119,4 +119,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get resendCode => 'Отправить код повторно';
+
+  @override
+  String get skipStep => 'Пропустить шаг';
+
+  @override
+  String get tellUsAboutY => 'Расскажите о себе';
+
+  @override
+  String get firstName => 'Имя';
+
+  @override
+  String get lastName => 'Фамилия';
+
+  @override
+  String get emailAddress => 'Адрес электронной почты';
 }

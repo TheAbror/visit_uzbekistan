@@ -75,5 +75,15 @@
   "signInNow": "Sign in now",
   "@signInNow": {},
   "resendCode": "Resend code",
-  "@resendCode": {}
+  "@resendCode": {},
+  "skipStep": "Skip step",
+  "@skipStep": {},
+  "tellUsAboutY": "Tell us about yourself",
+  "@tellUsAboutY": {},
+  "firstName": "First name",
+  "@firstName": {},
+  "lastName": "Last name",
+  "@lastName": {},
+  "emailAddress": "Email address",
+  "@emailAddress": {}
 }

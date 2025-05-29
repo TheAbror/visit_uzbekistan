@@ -37,3 +37,8 @@ sendAgain,Send again,Отправить еще раз,Yana yuborish
 changePassword,Change password,Изменить пароль,Parolni o'zgartirish
 signInNow,Sign in now,Войти сейчас,Hozir kirish
 resendCode,Resend code,Отправить код повторно,Kodni qayta yuborish
+skipStep,Skip step,Пропустить шаг,Qadamni o'tkazib yuborish
+tellUsAboutY,Tell us about yourself,Расскажите о себе,O'zingiz haqingizda gapirib bering
+firstName,First name,Имя,Ism
+lastName,Last name,Фамилия,Familiya
+emailAddress,Email address,Адрес электронной почты,E-pochta manzili

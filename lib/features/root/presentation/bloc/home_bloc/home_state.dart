@@ -4,7 +4,7 @@ class HomeState extends Equatable {
   final List<SingleItemResponse> cities;
   final List<SingleItemResponse> places;
   final List<SingleItemResponse> usefulApps;
-  final ArticlesResponse articles;
+  final SuperBlocProgress<ArticlesResponse> articles;
   final SingleArticleResponse singleArticle;
   final BlocProgress blocProgress;
   final String failureMessage;
@@ -23,7 +23,9 @@ class HomeState extends Equatable {
     return HomeState(
       cities: [],
       places: [],
-      articles: ArticlesResponse(articles: []),
+      articles: SuperBlocProgress(
+        model: ArticlesResponse(articles: []),
+      ),
       singleArticle: SingleArticleResponse(
         id: 0,
         title: '',
@@ -103,6 +105,18 @@ class HomeState extends Equatable {
           updatedAt: '',
           isImageTiny: false,
         ),
+        SingleItemResponse(
+          id: 0,
+          name: 'Uzum Tezkor',
+          location: '',
+          info: '',
+          photo: 'https://api.logobank.uz/media/logos_png/Uzum_Tezkor-01.png',
+          shortDescription:
+              'Новый сервис доставки готовой еды из ресторанов Ташкента от экосистемы Uzum.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: true,
+        ),
       ],
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',
@@ -113,7 +127,7 @@ class HomeState extends Equatable {
     List<SingleItemResponse>? cities,
     List<SingleItemResponse>? places,
     List<SingleItemResponse>? usefulApps,
-    ArticlesResponse? articles,
+    SuperBlocProgress<ArticlesResponse>? articles,
     SingleArticleResponse? singleArticle,
     BlocProgress? blocProgress,
     String? failureMessage,

@@ -75,5 +75,15 @@
   "signInNow": "Hozir kirish",
   "@signInNow": {},
   "resendCode": "Kodni qayta yuborish",
-  "@resendCode": {}
+  "@resendCode": {},
+  "skipStep": "Qadamni o'tkazib yuborish",
+  "@skipStep": {},
+  "tellUsAboutY": "O'zingiz haqingizda gapirib bering",
+  "@tellUsAboutY": {},
+  "firstName": "Ism",
+  "@firstName": {},
+  "lastName": "Familiya",
+  "@lastName": {},
+  "emailAddress": "E-pochta manzili",
+  "@emailAddress": {}
 }

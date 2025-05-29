@@ -6,84 +6,85 @@ class ViewAllPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: SafeArea(
-          child: BlocBuilder<RootBloc, RootState>(
-            builder: (context, state) {
-              if (state.blocProgress == BlocProgress.IS_LOADING) {
-                return Center(child: CircularProgressIndicator());
-              }
+      appBar: AppBar(),
+      body: SafeArea(
+        child: BlocBuilder<RootBloc, RootState>(
+          builder: (context, state) {
+            if (state.blocProgress == BlocProgress.IS_LOADING) {
+              return Center(child: CircularProgressIndicator());
+            }
 
-              if (state.favorites.isEmpty)
-                return Expanded(
-                  child: Center(
-                    child: Text('No results'),
+            if (state.favorites.isEmpty)
+              return Expanded(
+                child: Center(
+                  child: Text('No results'),
+                ),
+              );
+
+            // if (state.blocProgress == BlocProgress.FAILED) {
+            //   return const SomethingWentWrong();
+            // }
+
+            return ListView(
+              padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+              children: [
+                Container(
+                  height: 56.h,
+                  margin: EdgeInsets.only(bottom: 12.h),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.r),
+                    color: AppColors.white,
+                    boxShadow: AppColors.defaultShadowForItems,
                   ),
-                );
-
-              // if (state.blocProgress == BlocProgress.FAILED) {
-              //   return const SomethingWentWrong();
-              // }
-
-              return ListView(
-                padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-                children: [
-                  Container(
-                    height: 56.h,
-                    margin: EdgeInsets.only(bottom: 12.h),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.r),
-                      color: AppColors.white,
-                      boxShadow: AppColors.defaultShadowForItems,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Row(
-                      children: [
-                        Icon(IconsaxPlusLinear.search_normal_1),
-                        SizedBox(width: 16.w),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: context.localizations.search,
-                              border: InputBorder.none,
-                              isDense: true,
-                              hintStyle: TextStyle(
-                                fontSize: 15.sp,
-                                color: AppColors.lightGrey,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            style: TextStyle(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Row(
+                    children: [
+                      Icon(IconsaxPlusLinear.search_normal_1),
+                      SizedBox(width: 16.w),
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: context.localizations.search,
+                            border: InputBorder.none,
+                            isDense: true,
+                            hintStyle: TextStyle(
                               fontSize: 15.sp,
-                              color: Colors.black,
+                              color: AppColors.lightGrey,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 8.h,
-                      crossAxisSpacing: 8.h,
-                      childAspectRatio: 0.82,
-                    ),
-                    itemCount: state.favorites.length,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      final singleItem = state.favorites[index];
+                ),
+                GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 8.h,
+                    crossAxisSpacing: 8.h,
+                    childAspectRatio: 0.82,
+                  ),
+                  itemCount: state.favorites.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final singleItem = state.favorites[index];
 
-                      return GridViewItem(item: singleItem);
-                    },
-                  ),
-                ],
-              );
-            },
-          ),
-        ));
+                    return GridViewItem(item: singleItem);
+                  },
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
   }
 }
 
@@ -192,14 +193,28 @@ class GridViewItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    item.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 13.sp,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          item.name,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          maxLines: 1,
+                        ),
+                      ),
+                      if (item.rating != null && item.rating != 0) ...[
+                        Row(
+                          children: [
+                            Text(item.rating.toString()),
+                            SizedBox(width: 2.w),
+                            Icon(
+                              IconsaxPlusBold.star,
+                              color: Colors.amber,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ],
                   ),
                   SizedBox(height: 2.h),
                   Text(
@@ -211,8 +226,9 @@ class GridViewItem extends StatelessWidget {
                     maxLines: item.location.isEmpty ? 3 : 2,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  if (item.shortDescription.length < 20) SizedBox(height: 17.h),
                   if (item.location.isNotEmpty) ...[
-                    SizedBox(height: 4.h),
+                    SizedBox(height: 2.h),
                     Row(
                       children: [
                         Icon(
@@ -224,28 +240,10 @@ class GridViewItem extends StatelessWidget {
                           child: Text(
                             item.location,
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
                               fontSize: 11.sp,
+                              color: Colors.grey,
                             ),
                             overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                  if (item.rating != null && item.rating != 0) ...[
-                    SizedBox(height: 4.h),
-                    Row(
-                      children: [
-                        Text(
-                          'Rating: ',
-                          style: TextStyle(fontSize: 11.sp),
-                        ),
-                        Text(
-                          item.rating.toString(),
-                          style: TextStyle(
-                            fontSize: 11.sp,
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],

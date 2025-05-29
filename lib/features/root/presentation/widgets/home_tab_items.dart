@@ -1,55 +1,73 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class HomeTabItems extends StatelessWidget {
-  final bool isDeocrationNeeded;
+  final String header;
+  final OpenPageNamed pageNamed;
   final List<SingleItemResponse> item;
 
   const HomeTabItems({
     super.key,
     required this.item,
-    this.isDeocrationNeeded = false,
+    required this.header,
+    this.pageNamed = OpenPageNamed.singleCity,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 250.h,
-      margin: EdgeInsets.only(bottom: 8.h),
-      width: double.infinity,
-      child: ListView.builder(
-        itemCount: item.length,
-        padding: EdgeInsets.only(left: 8.w),
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          final singleItem = item[index];
+    return Column(
+      children: [
+        TitleAndViewAllWidget(title: header),
+        Container(
+          height: 250.h,
+          margin: EdgeInsets.only(bottom: 8.h),
+          width: double.infinity,
+          child: ListView.builder(
+            itemCount: item.length,
+            padding: EdgeInsets.only(left: 8.w),
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              final singleItem = item[index];
 
-          return ItemInfo(
-            item: singleItem,
-            isDeocrationNeeded: isDeocrationNeeded,
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                AppRoutes.htmlView,
-                arguments: singleItem.id,
+              return ItemInfo(
+                item: singleItem,
+                onTap: () {
+                  String routeName;
+
+                  switch (pageNamed) {
+                    case OpenPageNamed.article:
+                      routeName = AppRoutes.htmlView;
+                      break;
+                    case OpenPageNamed.usefulApp:
+                      routeName = AppRoutes.usefullAppsPage;
+                      break;
+                    default:
+                      routeName = AppRoutes.singleCityPage;
+                      break;
+                  }
+
+                  Navigator.pushNamed(
+                    context,
+                    routeName,
+                    arguments: singleItem.id,
+                  );
+                },
               );
             },
-          );
-        },
-      ),
+          ),
+        ),
+      ],
     );
   }
 }
 
 class ItemInfo extends StatelessWidget {
-  final bool isDeocrationNeeded;
   final SingleItemResponse item;
   final VoidCallback? onTap;
 
   const ItemInfo({
     super.key,
     required this.item,
-    this.isDeocrationNeeded = false,
     this.onTap,
   });
 
@@ -61,17 +79,10 @@ class ItemInfo extends StatelessWidget {
         margin: EdgeInsets.only(right: 8.w),
         height: 185.h,
         width: 280.w,
-        decoration: isDeocrationNeeded
-            ? BoxDecoration(
-                borderRadius: BorderRadius.circular(12.r),
-                // border: Border.all(color: AppColors.borderColor),
-                // boxShadow: AppColors.defaultShadow,
-                color: AppColors.rootBgColor,
-              )
-            : BoxDecoration(
-                color: AppColors.float,
-                borderRadius: BorderRadius.circular(12.r),
-              ),
+        decoration: BoxDecoration(
+          color: AppColors.float,
+          borderRadius: BorderRadius.circular(12.r),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -171,7 +182,7 @@ class ItemInfo extends StatelessWidget {
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         if (item.rating != null && item.rating != 0) ...[
-                          SizedBox(height: 4.h),
+                          SizedBox(height: 2.h),
                           Row(
                             children: [
                               Text(item.rating.toString()),

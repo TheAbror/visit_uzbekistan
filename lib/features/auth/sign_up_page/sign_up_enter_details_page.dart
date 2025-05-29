@@ -35,6 +35,8 @@ class _BodyState extends State<_Body> {
 
   @override
   Widget build(BuildContext context) {
+    final l10 = context.localizations;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -42,7 +44,7 @@ class _BodyState extends State<_Body> {
         children: [
           SizedBox(height: 32.h),
           Text(
-            'context.localizations.tellUsAboutYrself',
+            l10.tellUsAboutY,
             style: TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.w500,
@@ -50,7 +52,7 @@ class _BodyState extends State<_Body> {
           ),
           SizedBox(height: 32.h),
           Text(
-            'context.localizations.firstname',
+            l10.firstName,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w600,
@@ -60,14 +62,14 @@ class _BodyState extends State<_Body> {
           _firstNameField(context),
           SizedBox(height: 16.h),
           Text(
-            'context.localizations.lastname',
+            l10.lastName,
             style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 8.h),
           _lastNameField(context),
           SizedBox(height: 16.h),
           Text(
-            'context.localizations.emailaddress',
+            l10.emailAddress,
             style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 8.h),
@@ -81,7 +83,7 @@ class _BodyState extends State<_Body> {
           _passwordField(context),
           SizedBox(height: 40.h),
           ActionButton(
-            text: 'context.localizations.startlearning',
+            text: l10.continueButton,
             onPressed: () {
               // final firstName = _firstName.text.trim();
               // final lastName = _lastName.text.trim();
@@ -185,7 +187,7 @@ class _BodyState extends State<_Body> {
       decoration: AuthFieldDecoration(
         context,
         '',
-        // suffixicon: true,
+        suffixicon: true,
       ),
     );
   }
