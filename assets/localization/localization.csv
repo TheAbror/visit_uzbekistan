@@ -1,44 +1,44 @@
-keys,en,ru,uz
-signIn,Sign in,Войти,Tizimga kirish
-enterYourCredentials,Enter you credentials to access the platform,Введите свои учетные данные для доступа к платформе,Platformaga kirish uchun ma'lumotlaringizni kiriting
-login,Login,Авторизоваться,Tizimga kirish
-password,Password,Пароль,Parol
-continueButton,Continue,Продолжить,Davom etish
-signInWith,Sign in with,Войти с помощью,Tizimga kirish
-maybeLater,May be later,Может быть позже,Keginroq
-byUsingThisApp,"By using this app, you agree to our Terms and Conditions.","Используя это приложение, вы соглашаетесь с нашими Условиями и положениями.",Ushbu ilovadan foydalanish orqali siz bizning shartlarimizga rozilik bildirasiz.
-chooseLanguage,Choose language,Выберите язык,Tilni tanlang
-language,Language,Язык,Til
-cities,Cities,Города,Shaharlar
-places,Places,Места,Joylar
-usefulApps,Useful apps,Полезные приложения,Foydali ilovalar
-articles,Articles,Статьи,Maqolalar
-search,Search...,Поиск...,Qidirish...
-favorites,Favorites,Избранное,Sevimlilar
-viewAll,View all,Просмотреть все,Hammasini ko'rish
-startYourAdventure,Start your adventure along the Silk Road — discover the wonders of Uzbekistan!,Начните свое приключение по Шелковому пути — откройте для себя чудеса Узбекистана!,Ipak yo‘li bo‘ylab sarguzashtingizni boshlang — O‘zbekiston mo‘jizalarini kashf eting!
-or,or,или,yoki
-forgotPassword,Forgot Password?,Забыли пароль?,Parolni unutdingizmi?
-dontHaveAccount,Don`t have account?,Нет учетной записи?,Hisobingiz yo'qmi?
-signUp,Sign Up,Зарегистрироваться,Ro'yxatdan o'tish
-createYourAccount,Create your account,Создайте свой аккаунт,Hisob qaydnomangizni yarating
-email,Email,Электронная почта,Elektron pochta
-cantBeEmpty,Can`t be empty,Не может быть пустым,Bo'sh bo'lishi mumkin emas
-enterYourEmail,Enter your email,Введите адрес электронной почты,Elektron pochtangizni kiriting
-weWillSendYouACode,We’ll send you a code to reset your password,Мы отправим вам код для сброса пароля,Parolingizni tiklash uchun sizga kod yuboramiz
-enterCode,Enter code,Введите код,Kodni kiriting
-weHaveSentYou,We have sent a code to,Мы отправили код на,Biz kodni yubordik
-newPassword,New password,Новый пароль,Yangi parol
-passwordMustContain,Password must contain at least 5 letters,Пароль должен содержать не менее 5 букв,Parol kamida 5 ta harfdan iborat bo'lishi kerak
-repeatPassword,Repeat password,Повторите пароль,Parolni qayta kiriting
-passwordReset,Password reset,Пароль сброшен,Parol tiklandi
-didnotGetIt,Didn’t get it?,Не получили?,Qabul qilmadingizmi?
-sendAgain,Send again,Отправить еще раз,Yana yuborish
-changePassword,Change password,Изменить пароль,Parolni o'zgartirish
-signInNow,Sign in now,Войти сейчас,Hozir kirish
-resendCode,Resend code,Отправить код повторно,Kodni qayta yuborish
-skipStep,Skip step,Пропустить шаг,Qadamni o'tkazib yuborish
-tellUsAboutY,Tell us about yourself,Расскажите о себе,O'zingiz haqingizda gapirib bering
-firstName,First name,Имя,Ism
-lastName,Last name,Фамилия,Familiya
-emailAddress,Email address,Адрес электронной почты,E-pochta manzili
+keys,en,ru,uz,fr,es,it
+signIn,Sign in,Войти,Tizimga kirish,Connexion,Iniciar sesión,Accedi
+enterYourCredentials,Enter you credentials to access the platform,Введите свои учетные данные для доступа к платформе,Platformaga kirish uchun ma'lumotlaringizni kiriting,Saisissez vos identifiants pour accéder à la plateforme,Ingresa tus credenciales para acceder a la plataforma,Inserisci le tue credenziali per accedere alla piattaforma
+login,Login,Авторизоваться,Tizimga kirish,Connexion,Iniciar sesión,Accedi
+password,Password,Пароль,Parol,Mot de passe,Contraseña,Password
+continueButton,Continue,Продолжить,Davom etish,Continuer,Continuar,Continua
+signInWith,Sign in with,Войти с помощью,Tizimga kirish,Se connecter avec,Iniciar sesión con,Accedi con
+maybeLater,May be later,Может быть позже,Keginroq,Peut-être plus tard,Puede ser más tarde,Potrebbe essere più tardi
+byUsingThisApp,"By using this app, you agree to our Terms and Conditions.","Используя это приложение, вы соглашаетесь с нашими Условиями и положениями.",Ushbu ilovadan foydalanish orqali siz bizning shartlarimizga rozilik bildirasiz.,"En utilisant cette application, vous acceptez nos Conditions générales.","Al usar esta aplicación, aceptas nuestros Términos y Condiciones.","Utilizzando questa app, accetti i nostri Termini e Condizioni."
+chooseLanguage,Choose language,Выберите язык,Tilni tanlang,Choisir la langue,Elegir idioma,Scegli la lingua
+language,Language,Язык,Til,Langue,Idioma,Lingua
+cities,Cities,Города,Shaharlar,Villes,Ciudades,Città
+places,Places,Места,Joylar,Lieux,Lugares,Luoghi
+usefulApps,Useful apps,Полезные приложения,Foydali ilovalar,Applications utiles,Aplicaciones útiles,App utili
+articles,Articles,Статьи,Maqolalar,Articles,Artículos,Articoli
+search,Search...,Поиск...,Qidirish...,Rechercher...,Buscar...,Cerca...
+favorites,Favorites,Избранное,Sevimlilar,Favoris,Favoritos,Preferiti
+viewAll,View all,Просмотреть все,Hammasini ko'rish,Tout afficher,Ver todo,Visualizza tutto
+startYourAdventure,Start your adventure along the Silk Road — discover the wonders of Uzbekistan!,Начните свое приключение по Шелковому пути — откройте для себя чудеса Узбекистана!,Ipak yo‘li bo‘ylab sarguzashtingizni boshlang — O‘zbekiston mo‘jizalarini kashf eting!,Démarrez votre aventure sur la Route de la Soie et découvrez les merveilles de l'Ouzbékistan !,¡Comienza tu aventura por la Ruta de la Seda y descubre las maravillas de Uzbekistán!,Inizia la tua avventura lungo la Via della Seta: scopri le meraviglie dell'Uzbekistan!
+or,or,или,yoki,ou,o,o
+forgotPassword,Forgot Password?,Забыли пароль?,Parolni unutdingizmi?,Mot de passe oublié ?,¿Olvidaste tu contraseña?,Password dimenticata?
+dontHaveAccount,Don`t have account?,Нет учетной записи?,Hisobingiz yo'qmi?,Vous n'avez pas de compte ?,¿No tienes cuenta?,Non hai un account?
+signUp,Sign Up,Зарегистрироваться,Ro'yxatdan o'tish,S'inscrire,Regístrate,Registrati
+createYourAccount,Create your account,Создайте свой аккаунт,Hisob qaydnomangizni yarating,Créer votre compte,Crea tu cuenta,Crea il tuo account
+email,Email,Электронная почта,Elektron pochta,E-mail,Correo electrónico,Email
+cantBeEmpty,Can`t be empty,Не может быть пустым,Bo'sh bo'lishi mumkin emas,Ce champ est obligatoire,No puede dejar el campo vacío,Non può essere vuoto
+enterYourEmail,Enter your email,Введите адрес электронной почты,Elektron pochtangizni kiriting,Saisissez votre adresse e-mail,Ingresa tu correo electrónico,Inserisci la tua email
+weWillSendYouACode,We’ll send you a code to reset your password,Мы отправим вам код для сброса пароля,Parolingizni tiklash uchun sizga kod yuboramiz,Nous vous enverrons un code pour réinitialiser votre mot de passe,Te enviaremos un código para restablecer tu contraseña,Ti invieremo un codice per reimpostare la password
+enterCode,Enter code,Введите код,Kodni kiriting,Saisissez le code,Ingresar código,Inserisci il codice
+weHaveSentYou,We have sent a code to,Мы отправили код на,Biz kodni yubordik,Nous avons envoyé un code à,Te hemos enviado un código a,Abbiamo inviato un codice a
+newPassword,New password,Новый пароль,Yangi parol,Nouveau mot de passe,Nueva contraseña,Nuova password
+passwordMustContain,Password must contain at least 5 letters,Пароль должен содержать не менее 5 букв,Parol kamida 5 ta harfdan iborat bo'lishi kerak,Le mot de passe doit contenir au moins 5 lettres,La contraseña debe contener al menos 5 letras,La password deve contenere almeno 5 lettere
+repeatPassword,Repeat password,Повторите пароль,Parolni qayta kiriting,Répéter le mot de passe,Repetir contraseña,Ripeti password
+passwordReset,Password reset,Пароль сброшен,Parol tiklandi,Réinitialisation du mot de passe,Restablecer contraseña,Reimposta password
+didnotGetIt,Didn’t get it?,Не получили?,Qabul qilmadingizmi?,Vous ne l'avez pas reçu ?,¿No la recibiste?,Non l'hai ricevuta?
+sendAgain,Send again,Отправить еще раз,Yana yuborish,Recommander,Enviar de nuevo,Invia di nuovo
+changePassword,Change password,Изменить пароль,Parolni o'zgartirish,Modifier le mot de passe,Cambiar contraseña,Cambia password
+signInNow,Sign in now,Войти сейчас,Hozir kirish,Se connecter,Iniciar sesión ahora,Accedi ora
+resendCode,Resend code,Отправить код повторно,Kodni qayta yuborish,Renvoyer le code,Reenviar código,Invia di nuovo il codice
+skipStep,Skip step,Пропустить шаг,Qadamni o'tkazib yuborish,Ignorer l'étape,Omitir paso,Salta il passaggio
+tellUsAboutY,Tell us about yourself,Расскажите о себе,O'zingiz haqingizda gapirib bering,Parlez-nous de vous,Cuéntanos sobre ti,Parlaci di te
+firstName,First name,Имя,Ism,Prénom,Nombre,Nome
+lastName,Last name,Фамилия,Familiya,Nom,Apellidos,Cognome
+emailAddress,Email address,Адрес электронной почты,E-pochta manzili,Adresse e-mail,Correo electrónico,Indirizzo email

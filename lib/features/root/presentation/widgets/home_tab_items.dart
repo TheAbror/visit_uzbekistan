@@ -18,7 +18,7 @@ class HomeTabItems extends StatelessWidget {
       children: [
         TitleAndViewAllWidget(title: header),
         Container(
-          height: 250.h,
+          height: 235.h,
           margin: EdgeInsets.only(bottom: 8.h),
           width: double.infinity,
           child: ListView.builder(
@@ -77,8 +77,8 @@ class ItemInfo extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(right: 8.w),
-        height: 185.h,
-        width: 280.w,
+        height: 175.h,
+        width: 270.w,
         decoration: BoxDecoration(
           color: AppColors.float,
           borderRadius: BorderRadius.circular(12.r),
@@ -94,8 +94,8 @@ class ItemInfo extends StatelessWidget {
                     topRight: Radius.circular(12.r),
                   ),
                   child: Image.network(
-                    height: 180.h,
-                    width: 280.w,
+                    height: 170.h,
+                    width: 270.w,
                     fit: item.isImageTiny == true
                         ? BoxFit.fitWidth
                         : BoxFit.fill,
@@ -105,8 +105,8 @@ class ItemInfo extends StatelessWidget {
                       StackTrace? stackTrace,
                     ) {
                       return Container(
-                        height: 180.h,
-                        width: 280.w,
+                        height: 170.h,
+                        width: 270.w,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('assets/images/sign_in_bg.jpg'),
@@ -122,8 +122,8 @@ class ItemInfo extends StatelessWidget {
                     ) {
                       if (loadingProgress == null) return child;
                       return SizedBox(
-                        height: 180.h,
-                        width: 280.w,
+                        height: 170.h,
+                        width: 270.w,
                         child: Center(
                           child: CircularProgressIndicator(
                             value: loadingProgress.expectedTotalBytes != null
@@ -188,8 +188,9 @@ class ItemInfo extends StatelessWidget {
                               Text(item.rating.toString()),
                               SizedBox(width: 2.w),
                               Icon(
-                                IconsaxPlusBold.star,
+                                Icons.star_rate_rounded,
                                 color: Colors.amber,
+                                size: 16.sp,
                               ),
                             ],
                           ),
@@ -210,20 +211,20 @@ class ItemInfo extends StatelessWidget {
                     ),
                     if (item.cityID != null && item.cityID != 0)
                       if (item.location.isNotEmpty) ...[
-                        SizedBox(height: 4.h),
+                        SizedBox(height: 2.h),
                         Row(
                           children: [
                             Icon(
                               IconsaxPlusLinear.location,
-                              size: 14.sp,
+                              size: 11.sp,
                             ),
-                            SizedBox(width: 4.w),
+                            SizedBox(width: 3.w),
                             Flexible(
                               child: Text(
                                 item.location,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 11.sp,
+                                  fontSize: 10.sp,
                                 ),
                                 overflow: TextOverflow.ellipsis,
                               ),

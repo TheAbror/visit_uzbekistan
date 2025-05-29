@@ -336,7 +336,7 @@ class LanguageBtmSheet extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(
         top: 8.h,
-        bottom: 32.h,
+        bottom: 10.h,
         left: 20.w,
         right: 20.w,
       ),
@@ -380,15 +380,6 @@ class LanguageBtmSheet extends StatelessWidget {
             ),
             SizedBox(height: 12.h),
             moreTabOptions(
-              'Русский',
-              const Locale.fromSubtags(
-                languageCode: 'ru',
-                countryCode: 'RU',
-              ),
-              context,
-              true,
-            ),
-            moreTabOptions(
               'English',
               const Locale.fromSubtags(
                 languageCode: 'en',
@@ -396,6 +387,47 @@ class LanguageBtmSheet extends StatelessWidget {
               ),
               context,
               true,
+              svgFlag: Assets.icons.flags.flagEn.image(),
+            ),
+            moreTabOptions(
+              'Русский',
+              const Locale.fromSubtags(
+                languageCode: 'ru',
+                countryCode: 'RU',
+              ),
+              context,
+              true,
+              svgFlag: Assets.icons.flags.flagRu.image(),
+            ),
+            moreTabOptions(
+              'Spanish',
+              const Locale.fromSubtags(
+                languageCode: 'es',
+                countryCode: 'ES',
+              ),
+              context,
+              true,
+              svgFlag: Assets.icons.flags.flagSpain.image(),
+            ),
+            moreTabOptions(
+              'Italiano',
+              const Locale.fromSubtags(
+                languageCode: 'it',
+                countryCode: 'IT',
+              ),
+              context,
+              true,
+              svgFlag: Assets.icons.flags.flagItaly.image(),
+            ),
+            moreTabOptions(
+              'French',
+              const Locale.fromSubtags(
+                languageCode: 'fr',
+                countryCode: 'FR',
+              ),
+              context,
+              true,
+              svgFlag: Assets.icons.flags.flagFr.image(),
             ),
             moreTabOptions(
               'O\'zbekcha',
@@ -405,6 +437,7 @@ class LanguageBtmSheet extends StatelessWidget {
               ),
               context,
               false,
+              svgFlag: Assets.icons.flags.flagUz.image(),
             ),
           ],
         ),
@@ -417,8 +450,9 @@ Widget moreTabOptions(
   String title,
   Locale locale,
   BuildContext context,
-  bool showLine,
-) {
+  bool showLine, {
+  Widget? svgFlag,
+}) {
   final code = context.read<LocalizationBloc>().state.languageCode;
 
   final isActive = locale.languageCode == code;
@@ -435,6 +469,8 @@ Widget moreTabOptions(
             height: 55.h,
             child: Row(
               children: [
+                svgFlag ?? SizedBox(),
+                svgFlag != null ? SizedBox(width: 8.w) : SizedBox(),
                 Text(
                   title,
                   textAlign: TextAlign.left,

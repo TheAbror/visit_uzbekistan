@@ -127,6 +127,7 @@ flutter:
     - assets/icons/
     - assets/icons/single_city/
     - assets/icons/auth/
+    - assets/icons/flags/
     - assets/images/
 
   fonts:

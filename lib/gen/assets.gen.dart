@@ -38,6 +38,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/edit.svg
   String get edit => 'assets/icons/edit.svg';
 
+  $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
+
   /// File path: assets/icons/global.svg
   String get global => 'assets/icons/global.svg';
 
@@ -53,26 +55,14 @@ class $AssetsIconsGen {
   AssetGenImage get icLauncherIos =>
       const AssetGenImage('assets/icons/ic_launcher_ios.jpg');
 
-  /// File path: assets/icons/ic_pills.svg
-  String get icPills => 'assets/icons/ic_pills.svg';
-
   /// File path: assets/icons/ic_trash_can.svg
   String get icTrashCan => 'assets/icons/ic_trash_can.svg';
 
   /// File path: assets/icons/info_rect.svg
   String get infoRect => 'assets/icons/info_rect.svg';
 
-  /// File path: assets/icons/medical_record.svg
-  String get medicalRecord => 'assets/icons/medical_record.svg';
-
-  /// File path: assets/icons/pharmacy_icon.svg
-  String get pharmacyIcon => 'assets/icons/pharmacy_icon.svg';
-
   /// File path: assets/icons/pills_checked.svg
   String get pillsChecked => 'assets/icons/pills_checked.svg';
-
-  /// File path: assets/icons/pills_unchecked.svg
-  String get pillsUnchecked => 'assets/icons/pills_unchecked.svg';
 
   $AssetsIconsSingleCityGen get singleCity => const $AssetsIconsSingleCityGen();
 
@@ -93,13 +83,9 @@ class $AssetsIconsGen {
         googleIcon,
         icLauncherAndroid,
         icLauncherIos,
-        icPills,
         icTrashCan,
         infoRect,
-        medicalRecord,
-        pharmacyIcon,
         pillsChecked,
-        pillsUnchecked,
         userPlus
       ];
 }
@@ -196,6 +182,38 @@ class $AssetsIconsAuthGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [forgotPasswordSuccess, tickCircle];
+}
+
+class $AssetsIconsFlagsGen {
+  const $AssetsIconsFlagsGen();
+
+  /// File path: assets/icons/flags/flag_en.png
+  AssetGenImage get flagEn =>
+      const AssetGenImage('assets/icons/flags/flag_en.png');
+
+  /// File path: assets/icons/flags/flag_fr.png
+  AssetGenImage get flagFr =>
+      const AssetGenImage('assets/icons/flags/flag_fr.png');
+
+  /// File path: assets/icons/flags/flag_italy.png
+  AssetGenImage get flagItaly =>
+      const AssetGenImage('assets/icons/flags/flag_italy.png');
+
+  /// File path: assets/icons/flags/flag_ru.png
+  AssetGenImage get flagRu =>
+      const AssetGenImage('assets/icons/flags/flag_ru.png');
+
+  /// File path: assets/icons/flags/flag_spain.png
+  AssetGenImage get flagSpain =>
+      const AssetGenImage('assets/icons/flags/flag_spain.png');
+
+  /// File path: assets/icons/flags/flag_uz.png
+  AssetGenImage get flagUz =>
+      const AssetGenImage('assets/icons/flags/flag_uz.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [flagEn, flagFr, flagItaly, flagRu, flagSpain, flagUz];
 }
 
 class $AssetsIconsSingleCityGen {
