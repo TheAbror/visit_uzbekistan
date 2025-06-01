@@ -1,9 +1,9 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-part 'single_city_state.dart';
+part 'city_state.dart';
 
-class SingleCityBloc extends Cubit<SingleCityState> {
-  SingleCityBloc() : super(SingleCityState.initial());
+class CityBloc extends Cubit<CityState> {
+  CityBloc() : super(CityState.initial());
 
   // http://192.168.0.101:8000/api/cities/1
 

@@ -17,7 +17,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
   void initState() {
     super.initState();
 
-    context.read<SingleCityBloc>().getSingleCity(widget.id);
+    context.read<CityBloc>().getSingleCity(widget.id);
   }
 
   @override
@@ -25,7 +25,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
     return Scaffold(
       backgroundColor: AppColors.float,
       body: DefaultTabController(
-        length: 6,
+        length: 5,
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -56,7 +56,10 @@ class _SignleCityPageState extends State<SignleCityPage> {
 class _HeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return Container(
       color: AppColors.float,
       padding: EdgeInsets.only(top: 6.h),

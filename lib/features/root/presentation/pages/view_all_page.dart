@@ -68,7 +68,7 @@ class ViewAllPage extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 8.h,
                     crossAxisSpacing: 8.h,
-                    childAspectRatio: 0.82,
+                    childAspectRatio: 0.833,
                   ),
                   itemCount: state.favorites.length,
                   shrinkWrap: true,

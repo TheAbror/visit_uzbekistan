@@ -27,7 +27,7 @@ class MainRouteGenerator {
       case AppRoutes.singleCityPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => BlocProvider(
-            create: (context) => SingleCityBloc(),
+            create: (context) => CityBloc(),
             child: SignleCityPage(
               id: settings.arguments as int,
             ),

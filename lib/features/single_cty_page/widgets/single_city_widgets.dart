@@ -61,30 +61,37 @@ class SingleCityPageBgImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      // 'https://uzbekistan.travel/storage/app/media/Rasmlar/Samarqand/umumiy/cropped-images/shutterstock_1979665571-0-0-0-0-1738745770.jpg',
-      'https://www.advantour.com/img/uzbekistan/images/urgench.jpg',
-      fit: BoxFit.cover,
-      width: double.infinity,
-      height: double.infinity,
-      alignment: Alignment.topCenter,
-      loadingBuilder: (
-        BuildContext context,
-        Widget child,
-        ImageChunkEvent? loadingProgress,
-      ) {
-        if (loadingProgress == null) return child;
-        return SizedBox(
-          height: 200.h,
+    return BlocBuilder<CityBloc, CityState>(
+      builder: (context, state) {
+        if (state.blocProgress == BlocProgress.IS_LOADING) {
+          return Center(child: CircularProgressIndicator());
+        }
+
+        return Image.network(
+          state.response.photo,
+          fit: BoxFit.cover,
           width: double.infinity,
-          child: Center(
-            child: CircularProgressIndicator(
-              value: loadingProgress.expectedTotalBytes != null
-                  ? loadingProgress.cumulativeBytesLoaded /
-                      loadingProgress.expectedTotalBytes!
-                  : null,
-            ),
-          ),
+          height: double.infinity,
+          alignment: Alignment.topCenter,
+          loadingBuilder: (
+            BuildContext context,
+            Widget child,
+            ImageChunkEvent? loadingProgress,
+          ) {
+            if (loadingProgress == null) return child;
+            return SizedBox(
+              height: 200.h,
+              width: double.infinity,
+              child: Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes!
+                      : null,
+                ),
+              ),
+            );
+          },
         );
       },
     );
