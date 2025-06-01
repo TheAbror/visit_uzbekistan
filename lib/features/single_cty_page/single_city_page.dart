@@ -45,7 +45,24 @@ class _SignleCityPageState extends State<SignleCityPage> {
               floating: false,
               delegate: _HeaderDelegate(),
             ),
-            SliverFillRemaining(child: SingleCityPageTabBarView()),
+            SliverFillRemaining(
+                child: Padding(
+              padding: EdgeInsets.only(
+                left: defaultPadding,
+                right: defaultPadding,
+                top: 10.h,
+              ),
+              child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  AboutCityTab(),
+                  BeforeTheTripTab(),
+                  TransportationTab(),
+                  RestaurantsTab(),
+                  PlacesTab(),
+                ],
+              ),
+            )),
           ],
         ),
       ),
@@ -65,7 +82,47 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
       padding: EdgeInsets.only(top: 6.h),
       child: Column(
         children: [
-          SingleCityPageTabBar(),
+          BlocBuilder<CityBloc, CityState>(
+            builder: (context, state) {
+              return ColoredBox(
+                color: AppColors.float,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: TabBar(
+                    tabAlignment: TabAlignment.start,
+                    isScrollable: true,
+                    dividerColor: Colors.transparent,
+                    labelColor: AppColors.float,
+                    unselectedLabelColor: AppColors.foregroundTertiaryRest,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorColor: Colors.transparent,
+                    indicatorPadding: EdgeInsets.symmetric(
+                      horizontal: 0,
+                      vertical: 0,
+                    ),
+                    labelPadding: EdgeInsets.symmetric(
+                      horizontal: 2.w,
+                      vertical: 1.h,
+                    ),
+                    indicator: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8),
+                      ),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+                    tabs: [
+                      SingleCityTab(label: 'About ' + state.response.name),
+                      SingleCityTab(label: 'Before the trip'),
+                      SingleCityTab(label: 'Transportation'),
+                      SingleCityTab(label: 'Restaurants'),
+                      SingleCityTab(label: 'Places'),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
           SizedBox(height: 8.h),
           Divider(height: 0.5.h, thickness: 0.5),
         ],

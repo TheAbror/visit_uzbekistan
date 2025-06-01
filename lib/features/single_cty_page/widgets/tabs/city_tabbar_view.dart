@@ -1,30 +1,5 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class SingleCityPageTabBarView extends StatelessWidget {
-  const SingleCityPageTabBarView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: defaultPadding,
-        right: defaultPadding,
-        top: 10.h,
-      ),
-      child: TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          AboutCityTab(),
-          BeforeTheTripTab(),
-          TransportationTab(),
-          RestaurantsTab(),
-          PlacesTab(),
-        ],
-      ),
-    );
-  }
-}
-
 class AboutCityTab extends StatelessWidget {
   const AboutCityTab({super.key});
 
