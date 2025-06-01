@@ -18,7 +18,7 @@ class HomeTabItems extends StatelessWidget {
       children: [
         TitleAndViewAllWidget(title: header),
         Container(
-          height: 235.h,
+          height: 220.h,
           margin: EdgeInsets.only(bottom: 8.h),
           width: double.infinity,
           child: ListView.builder(
@@ -40,6 +40,9 @@ class HomeTabItems extends StatelessWidget {
                       break;
                     case OpenPageNamed.usefulApp:
                       routeName = AppRoutes.usefullAppsPage;
+                      break;
+                    case OpenPageNamed.mustKnow:
+                      routeName = AppRoutes.mustKnowPage;
                       break;
                     default:
                       routeName = AppRoutes.singleCityPage;
@@ -73,12 +76,14 @@ class ItemInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = 160;
+    final _width = 240;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(right: 8.w),
-        height: 175.h,
-        width: 270.w,
+        width: _width.w,
         decoration: BoxDecoration(
           color: AppColors.float,
           borderRadius: BorderRadius.circular(12.r),
@@ -94,8 +99,8 @@ class ItemInfo extends StatelessWidget {
                     topRight: Radius.circular(12.r),
                   ),
                   child: Image.network(
-                    height: 170.h,
-                    width: 270.w,
+                    height: _height.h,
+                    width: _width.w,
                     fit: item.isImageTiny == true
                         ? BoxFit.fitWidth
                         : BoxFit.fill,
@@ -105,8 +110,8 @@ class ItemInfo extends StatelessWidget {
                       StackTrace? stackTrace,
                     ) {
                       return Container(
-                        height: 170.h,
-                        width: 270.w,
+                        height: _height.h,
+                        width: _width.w,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('assets/images/sign_in_bg.jpg'),
@@ -115,6 +120,7 @@ class ItemInfo extends StatelessWidget {
                         ),
                       );
                     },
+                    //TODO while loading imaeg onTap not working
                     loadingBuilder: (
                       BuildContext context,
                       Widget child,
@@ -122,8 +128,8 @@ class ItemInfo extends StatelessWidget {
                     ) {
                       if (loadingProgress == null) return child;
                       return SizedBox(
-                        height: 170.h,
-                        width: 270.w,
+                        height: _height.h,
+                        width: 250.w,
                         child: Center(
                           child: CircularProgressIndicator(
                             value: loadingProgress.expectedTotalBytes != null
@@ -177,9 +183,13 @@ class ItemInfo extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          item.name,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                        Expanded(
+                          child: Text(
+                            item.name,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                         if (item.rating != null && item.rating != 0) ...[
                           SizedBox(height: 2.h),
@@ -209,29 +219,28 @@ class ItemInfo extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    if (item.cityID != null && item.cityID != 0)
-                      if (item.location.isNotEmpty) ...[
-                        SizedBox(height: 2.h),
-                        Row(
-                          children: [
-                            Icon(
-                              IconsaxPlusLinear.location,
-                              size: 11.sp,
-                            ),
-                            SizedBox(width: 3.w),
-                            Flexible(
-                              child: Text(
-                                item.location,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10.sp,
-                                ),
-                                overflow: TextOverflow.ellipsis,
+                    if (item.location.isNotEmpty) ...[
+                      SizedBox(height: 2.h),
+                      Row(
+                        children: [
+                          Icon(
+                            IconsaxPlusLinear.location,
+                            size: 11.sp,
+                          ),
+                          SizedBox(width: 3.w),
+                          Flexible(
+                            child: Text(
+                              item.location,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 10.sp,
                               ),
+                              overflow: TextOverflow.ellipsis,
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ],
                 ),
               ),

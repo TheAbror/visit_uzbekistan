@@ -1,7 +1,6 @@
 export 'dart:io';
 export 'package:flutter/material.dart';
 export 'package:flutter/foundation.dart';
-export 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 export 'package:visit_uzbekistan/core/api/auth_interceptor.dart';
 export 'package:visit_uzbekistan/core/api/custom_converter.dart';
 export 'package:visit_uzbekistan/core/db/preferences_services.dart';
@@ -90,3 +89,4 @@ export 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_enter_detail
 export 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_page.dart';
 export 'package:visit_uzbekistan/features/html_view/html_view.dart';
 export 'package:visit_uzbekistan/features/usefull_apps/usefull_apps_page.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/home_tab/widgets/home_tab_app_bar.dart';

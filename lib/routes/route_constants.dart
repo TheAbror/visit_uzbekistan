@@ -19,4 +19,5 @@ abstract class AppRoutes {
   static const singleCityPage = '/singleCityPage';
   static const singleTransportPage = '/singleTransportPage';
   static const viewAllPage = '/viewAllPage';
+  static const mustKnowPage = '/mustKnowPage';
 }

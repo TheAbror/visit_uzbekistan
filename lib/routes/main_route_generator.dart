@@ -1,3 +1,4 @@
+import 'package:visit_uzbekistan/features/must_know/must_know_page.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -85,6 +86,13 @@ class MainRouteGenerator {
       case AppRoutes.usefullAppsPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => UsefullAppsPage(
+            id: settings.arguments as int,
+          ),
+        );
+
+      case AppRoutes.mustKnowPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => MustKnowPage(
             id: settings.arguments as int,
           ),
         );

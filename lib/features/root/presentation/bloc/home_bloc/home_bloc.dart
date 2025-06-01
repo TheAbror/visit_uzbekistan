@@ -6,6 +6,18 @@ part 'home_state.dart';
 class HomeBloc extends Cubit<HomeState> {
   HomeBloc() : super(HomeState.initial());
 
+  void homeTabFilter(String value) {
+    final updatedList = List<String>.from(state.filterItemsSelected);
+
+    if (state.filterItemsSelected.contains(value)) {
+      updatedList.remove(value);
+    } else {
+      updatedList.add(value);
+    }
+
+    emit(state.copyWith(filterItemsSelected: updatedList));
+  }
+
   void getAllCities(BuildContext context) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 

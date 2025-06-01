@@ -18,37 +18,50 @@ class HomeTab extends StatelessWidget {
 
           return ListView(
             children: [
+              HomeTabAppBar(),
+              //must know
+              if (state.filterItemsSelected.contains('Must know'))
+                if (state.mustKnow.isNotEmpty)
+                  HomeTabItems(
+                    header: 'Must know',
+                    item: state.mustKnow,
+                    pageNamed: OpenPageNamed.mustKnow,
+                  ),
+
               //cities
-              if (state.cities.isNotEmpty)
-                HomeTabItems(
-                  header: context.localizations.cities,
-                  item: state.cities,
-                  pageNamed: OpenPageNamed.singleCity,
-                ),
+              if (state.filterItemsSelected.contains('Cities'))
+                if (state.cities.isNotEmpty)
+                  HomeTabItems(
+                    header: context.localizations.cities,
+                    item: state.cities,
+                    pageNamed: OpenPageNamed.singleCity,
+                  ),
 
               //please
-              if (state.cities.isNotEmpty)
-                HomeTabItems(
-                  header: context.localizations.places,
-                  item: state.places,
-                ),
+              if (state.filterItemsSelected.contains('Places'))
+                if (state.cities.isNotEmpty)
+                  HomeTabItems(
+                    header: context.localizations.places,
+                    item: state.places,
+                  ),
 
               // useful apps
-              if (state.usefulApps.isNotEmpty)
-                HomeTabItems(
-                  header: context.localizations.usefulApps,
-                  item: state.usefulApps,
-                  pageNamed: OpenPageNamed.usefulApp,
-                ),
+              if (state.filterItemsSelected.contains('Useful apps'))
+                if (state.usefulApps.isNotEmpty)
+                  HomeTabItems(
+                    header: context.localizations.usefulApps,
+                    item: state.usefulApps,
+                    pageNamed: OpenPageNamed.usefulApp,
+                  ),
 
               // articles
-              if (state.articles.model.articles.isNotEmpty)
-                HomeTabItems(
-                  header: context.localizations.articles,
-                  item: state.articles.model.articles,
-                  pageNamed: OpenPageNamed.article,
-                ),
-
+              if (state.filterItemsSelected.contains('Articles'))
+                if (state.articles.model.articles.isNotEmpty)
+                  HomeTabItems(
+                    header: context.localizations.articles,
+                    item: state.articles.model.articles,
+                    pageNamed: OpenPageNamed.article,
+                  ),
               if (state.articles.blocProgress == BlocProgress.IS_LOADING)
                 Center(child: CircularProgressIndicator())
             ],

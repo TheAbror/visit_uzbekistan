@@ -55,8 +55,9 @@ class SearchTab extends StatelessWidget {
               ),
               if (state.favorites.isNotEmpty)
                 HomeTabItems(
-                    header: context.localizations.favorites,
-                    item: state.favorites),
+                  header: context.localizations.favorites,
+                  item: state.favorites,
+                ),
             ],
           );
         },

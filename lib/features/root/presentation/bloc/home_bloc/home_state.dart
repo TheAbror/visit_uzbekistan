@@ -1,18 +1,25 @@
 part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
+  final List<String> filterItemsAll;
+  final List<String> filterItemsSelected;
+  //
   final List<SingleItemResponse> cities;
   final List<SingleItemResponse> places;
   final List<SingleItemResponse> usefulApps;
+  final List<SingleItemResponse> mustKnow;
   final SuperBlocProgress<ArticlesResponse> articles;
   final SingleArticleResponse singleArticle;
   final BlocProgress blocProgress;
   final String failureMessage;
 
   const HomeState({
+    required this.filterItemsAll,
+    required this.filterItemsSelected,
     required this.cities,
     required this.places,
     required this.usefulApps,
+    required this.mustKnow,
     required this.articles,
     required this.singleArticle,
     required this.blocProgress,
@@ -21,6 +28,20 @@ class HomeState extends Equatable {
 
   factory HomeState.initial() {
     return HomeState(
+      filterItemsAll: [
+        'Must know',
+        'Cities',
+        'Places',
+        'Useful apps',
+        'Articles',
+      ],
+      filterItemsSelected: [
+        'Must know',
+        'Cities',
+        'Places',
+        'Useful apps',
+        'Articles',
+      ],
       cities: [],
       places: [],
       articles: SuperBlocProgress(
@@ -36,35 +57,36 @@ class HomeState extends Equatable {
         createdAt: '',
         updatedAt: '',
       ),
-      // SingleItemResponse(
-      //   id: 0,
-      //   name: 'Proof of Residence in Uzbekistan',
-      //   location: '',
-      //   info:
-      //       'All foreign citizens visiting Uzbekistan on a temporary basis (whether they need a visa or not) must submit documents for registration at the place of residence within 72 hours upon arrival to Uzbekistan. Registration is not necessary if you arrive during weekends, holidays, or if your stay does not exceed three working days. Hotels automatically register your stay, but if you stay in a private home or apartment, you must register yourself via the website http://www.emehmon.uz/. Overnight train tickets serve as proof of your whereabouts. If you are camping or staying with friends for more than three nights, you must also register. The inviting party is responsible for ensuring guests are registered on time.',
-      //   photo:
-      //       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/My.gov.uz.svg/800px-My.gov.uz.svg.png',
-      //   shortDescription:
-      //       'Important information about registration for foreign visitors in Uzbekistan.',
-      //   createdAt: '',
-      //   updatedAt: '',
-      //   isImageTiny: true,
-      // ),
-      // SingleItemResponse(
-      //   id: 1,
-      //   name: 'Drones are Not Allowed in Uzbekistan',
-      //   location: '',
-      //   info:
-      //       'According to the Resolution of the Cabinet of Ministers No. 658 (November 15, 2022), the import, sale, purchase, storage, and use of drones and their spare parts are prohibited in Uzbekistan except for government-authorized entities. Only government agencies or those with explicit permits may import and operate drones, and these require authorization from Mininfocom and the Agency "Uzaviation". Unauthorized drones are not allowed in Uzbekistan.',
-      //   photo:
-      //       'https://img.safetysignsupplies.co.uk/highres/PU5861-L15-V-xl.png?status=user-zoom',
-      //   shortDescription:
-      //       'Understand Uzbekistan\'s strict regulations for drones and UAVs.',
-      //   createdAt: '',
-      //   updatedAt: '',
-      //   isImageTiny: true,
-      // ),
-
+      mustKnow: [
+        SingleItemResponse(
+          id: 0,
+          name: 'Proof of Residence in Uzbekistan',
+          location: '',
+          info:
+              'All foreign citizens visiting Uzbekistan on a temporary basis (whether they need a visa or not) must submit documents for registration at the place of residence within 72 hours upon arrival to Uzbekistan. Registration is not necessary if you arrive during weekends, holidays, or if your stay does not exceed three working days. Hotels automatically register your stay, but if you stay in a private home or apartment, you must register yourself via the website http://www.emehmon.uz/. Overnight train tickets serve as proof of your whereabouts. If you are camping or staying with friends for more than three nights, you must also register. The inviting party is responsible for ensuring guests are registered on time.',
+          photo:
+              'https://www.gazeta.uz/media/img/2021/10/94gUqr16339538042332_l.jpg',
+          shortDescription:
+              'Important information about registration for foreign visitors in Uzbekistan.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: true,
+        ),
+        SingleItemResponse(
+          id: 1,
+          name: 'Drones are Not Allowed in Uzbekistan',
+          location: '',
+          info:
+              'According to the Resolution of the Cabinet of Ministers No. 658 (November 15, 2022), the import, sale, purchase, storage, and use of drones and their spare parts are prohibited in Uzbekistan except for government-authorized entities. Only government agencies or those with explicit permits may import and operate drones, and these require authorization from Mininfocom and the Agency "Uzaviation". Unauthorized drones are not allowed in Uzbekistan.',
+          photo:
+              'https://img.safetysignsupplies.co.uk/highres/PU5861-L15-V-xl.png?status=user-zoom',
+          shortDescription:
+              'Understand Uzbekistan\'s strict regulations for drones and UAVs.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: true,
+        ),
+      ],
       usefulApps: [
         SingleItemResponse(
           id: 0,
@@ -80,7 +102,7 @@ class HomeState extends Equatable {
           isImageTiny: true,
         ),
         SingleItemResponse(
-          id: 0,
+          id: 1,
           name: 'Yandex Maps',
           location: '',
           info: '',
@@ -93,7 +115,7 @@ class HomeState extends Equatable {
           isImageTiny: true,
         ),
         SingleItemResponse(
-          id: 0,
+          id: 2,
           name: 'Fasten',
           location: '',
           info: '',
@@ -106,7 +128,7 @@ class HomeState extends Equatable {
           isImageTiny: false,
         ),
         SingleItemResponse(
-          id: 0,
+          id: 3,
           name: 'Uzum Tezkor',
           location: '',
           info: '',
@@ -124,19 +146,25 @@ class HomeState extends Equatable {
   }
 
   HomeState copyWith({
+    List<String>? filterItemsAll,
+    List<String>? filterItemsSelected,
     List<SingleItemResponse>? cities,
     List<SingleItemResponse>? places,
     List<SingleItemResponse>? usefulApps,
+    List<SingleItemResponse>? mustKnow,
     SuperBlocProgress<ArticlesResponse>? articles,
     SingleArticleResponse? singleArticle,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
     return HomeState(
+      filterItemsAll: filterItemsAll ?? this.filterItemsAll,
+      filterItemsSelected: filterItemsSelected ?? this.filterItemsSelected,
       cities: cities ?? this.cities,
       places: places ?? this.places,
       articles: articles ?? this.articles,
       usefulApps: usefulApps ?? this.usefulApps,
+      mustKnow: mustKnow ?? this.mustKnow,
       singleArticle: singleArticle ?? this.singleArticle,
       blocProgress: blocProgress ?? this.blocProgress,
       failureMessage: failureMessage ?? this.failureMessage,
@@ -145,9 +173,12 @@ class HomeState extends Equatable {
 
   @override
   List<Object?> get props => [
+        filterItemsAll,
+        filterItemsSelected,
         cities,
         places,
         usefulApps,
+        mustKnow,
         articles,
         singleArticle,
         blocProgress,

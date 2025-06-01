@@ -3,4 +3,5 @@ enum OpenPageNamed {
   article,
   usefulApp,
   html,
+  mustKnow,
 }
