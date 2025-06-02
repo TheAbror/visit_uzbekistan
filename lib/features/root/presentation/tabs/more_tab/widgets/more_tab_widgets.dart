@@ -30,57 +30,62 @@ CardRounded18 profileCard(BuildContext context) {
 
   return CardRounded18(
     height: 64.h,
-    child: Row(
-      children: [
-        SizedBox(
-          width: 40.w,
-          height: 40.h,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(32.r),
-            // child: profileImageUrl != null
-            //     ? Image.network(
-            //         profileImageUrl,
-            //         fit: BoxFit.cover,
-            //         errorBuilder: profileImageLocal != null
-            //             ? (ctx, _, __) {
-            //                 return Image.memory(
-            //                   profileImageLocal,
-            //                   fit: BoxFit.cover,
-            //                   errorBuilder: onErrorProfileWidget,
-            //                 );
-            //               }
-            //             : onErrorProfileWidget,
-            //       )
-            // : 'profileImageLocal' != null
-            //     ? Image.memory(
-            //         'profileImageLocal',
-            //         fit: BoxFit.cover,
-            //         errorBuilder: onErrorProfileWidget,
-            //       )
-            child: Image.asset('assets/images/male_avatar_placeholder.png'),
-          ),
-        ),
-        SizedBox(width: 8.w),
-        Expanded(
-          child: Text(
-            'fullNameText',
-            overflow: TextOverflow.fade,
-            maxLines: 1,
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textColorDarkBlue,
+    child: GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, AppRoutes.profilePage);
+      },
+      child: Row(
+        children: [
+          SizedBox(
+            width: 40.w,
+            height: 40.h,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(32.r),
+              // child: profileImageUrl != null
+              //     ? Image.network(
+              //         profileImageUrl,
+              //         fit: BoxFit.cover,
+              //         errorBuilder: profileImageLocal != null
+              //             ? (ctx, _, __) {
+              //                 return Image.memory(
+              //                   profileImageLocal,
+              //                   fit: BoxFit.cover,
+              //                   errorBuilder: onErrorProfileWidget,
+              //                 );
+              //               }
+              //             : onErrorProfileWidget,
+              //       )
+              // : 'profileImageLocal' != null
+              //     ? Image.memory(
+              //         'profileImageLocal',
+              //         fit: BoxFit.cover,
+              //         errorBuilder: onErrorProfileWidget,
+              //       )
+              child: Image.asset('assets/images/male_avatar_placeholder.png'),
             ),
           ),
-        ),
-        SizedBox(width: 8.w),
-        GestureDetector(
-          onTap: () {
-            // Navigator.of(context).pushNamed(ProfileUpdatePage.routeName);
-          },
-          child: const IconContainer(iconPath: 'assets/icons/edit.svg'),
-        ),
-      ],
+          SizedBox(width: 8.w),
+          Expanded(
+            child: Text(
+              'fullNameText',
+              overflow: TextOverflow.fade,
+              maxLines: 1,
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColors.textColorDarkBlue,
+              ),
+            ),
+          ),
+          SizedBox(width: 8.w),
+          GestureDetector(
+            onTap: () {
+              // Navigator.of(context).pushNamed(ProfileUpdatePage.routeName);
+            },
+            child: const IconContainer(iconPath: 'assets/icons/edit.svg'),
+          ),
+        ],
+      ),
     ),
   );
 }

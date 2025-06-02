@@ -18,6 +18,11 @@ class MainRouteGenerator {
           builder: (_) => const RootPage(),
         );
 
+      case AppRoutes.profilePage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const ProfilePage(),
+        );
+
       case AppRoutes.onBoardingPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const OnboardingPage(),

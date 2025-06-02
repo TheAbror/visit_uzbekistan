@@ -37,7 +37,7 @@ export 'package:visit_uzbekistan/features/single_cty_page/widgets/single_city_wi
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/useful_applications_items.dart';
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/things_to_do_item.dart';
 export 'package:visit_uzbekistan/features/root/presentation/root_page.dart';
-export 'package:visit_uzbekistan/features/root/presentation/tabs/profile_tab/profile_tab.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/profile_page/profile_page.dart';
 export 'package:visit_uzbekistan/features/root/presentation/bloc/root_bloc/root_bloc.dart';
 export 'package:visit_uzbekistan/features/splash/bloc/splash_bloc.dart';
 export 'package:visit_uzbekistan/routes/main_route_generator.dart';
@@ -67,7 +67,7 @@ export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/city_tabb
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/title_desc_reviews.dart';
 export 'package:visit_uzbekistan/core/constants/app_configs.dart';
 export 'package:visit_uzbekistan/features/root/presentation/bloc/home_bloc/home_bloc.dart';
-export 'package:visit_uzbekistan/features/root/presentation/bloc/search_tab/search_bloc.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/bloc/cities_bloc.dart';
 export 'package:visit_uzbekistan/l10n/gen/app_localizations.dart';
 export 'package:visit_uzbekistan/l10n/gen/app_localizations_en.dart';
 export 'package:visit_uzbekistan/core/bottomsheet/outline_buttons_bottomsheet/outline_buttons_bottomsheet.dart';

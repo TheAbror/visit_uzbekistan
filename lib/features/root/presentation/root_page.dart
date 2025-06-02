@@ -1,4 +1,4 @@
-import 'package:visit_uzbekistan/features/root/presentation/tabs/search_tab/search_tab.dart';
+import 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/cities_tab.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class RootPage extends StatefulWidget {
@@ -13,7 +13,7 @@ class _RootPageState extends State<RootPage> {
   void initState() {
     super.initState();
 
-    context.read<HomeBloc>().getAllCities(context);
+    context.read<CitiesBloc>().getAllCities(context);
     context.read<HomeBloc>().getAllPlaces(context);
     context.read<HomeBloc>().getAllArticels(context);
   }
@@ -28,8 +28,32 @@ class _RootPageState extends State<RootPage> {
             index: state.tabIndex,
             children: [
               HomeTab(),
-              SearchTab(),
-              ProfileTab(),
+              CitiesTab(),
+              // ProfileTab(),
+              SafeArea(
+                child: Column(
+                  children: [
+                    Text('''
+              Plan (instead of Profile)
+              
+              Help travelers plan ahead for their trip.
+              
+              Sections:
+              
+              Create or manage an itinerary
+              
+              Currency exchange tips
+              
+              Safety & cultural do’s and don’ts
+              
+              Tax refund info
+              
+              Travel tips & must-know essentials
+              
+              '''),
+                  ],
+                ),
+              ),
               MoreTab(),
             ],
           ),

@@ -19,7 +19,5 @@ class RootBloc extends Cubit<RootState> {
     }
 
     emit(state.copyWith(favorites: updatedList));
-
-    context.read<SearchBloc>().addFromFavorite(item.name);
   }
 }

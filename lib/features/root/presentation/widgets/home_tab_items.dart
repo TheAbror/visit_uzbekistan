@@ -123,7 +123,6 @@ class ItemInfo extends StatelessWidget {
                         ),
                       );
                     },
-                    //TODO while loading imaeg onTap not working
                     loadingBuilder: (
                       BuildContext context,
                       Widget child,

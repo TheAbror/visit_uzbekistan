@@ -21,9 +21,7 @@ class RootPageBottomAppBar extends StatelessWidget {
           children: <Widget>[
             IconButton(
               icon: Icon(
-                tabIndex == 0
-                    ? IconsaxPlusBold.home_2
-                    : IconsaxPlusLinear.home_2,
+                tabIndex == 0 ? IconsaxPlusBold.map_1 : IconsaxPlusLinear.map_1,
                 size: 22.h,
                 color: tabIndex == 0 ? AppColors.primary : Colors.grey,
               ),
@@ -34,8 +32,8 @@ class RootPageBottomAppBar extends StatelessWidget {
             IconButton(
               icon: Icon(
                 tabIndex == 1
-                    ? IconsaxPlusBold.search_normal_1
-                    : IconsaxPlusLinear.search_normal_1,
+                    ? IconsaxPlusBold.building
+                    : IconsaxPlusLinear.building,
                 size: 22.h,
                 color: tabIndex == 1 ? AppColors.primary : Colors.grey,
               ),
@@ -45,9 +43,7 @@ class RootPageBottomAppBar extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(
-                tabIndex == 2
-                    ? IconsaxPlusBold.profile
-                    : IconsaxPlusLinear.profile,
+                tabIndex == 2 ? IconsaxPlusBold.task : IconsaxPlusLinear.task,
                 size: 22.h,
                 color: tabIndex == 2 ? AppColors.primary : Colors.grey,
               ),

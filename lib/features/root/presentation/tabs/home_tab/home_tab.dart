@@ -28,24 +28,6 @@ class HomeTab extends StatelessWidget {
                     pageNamed: OpenPageNamed.mustKnow,
                   ),
 
-              //cities
-              if (state.filterItemsSelected.contains('Cities'))
-                if (state.cities.isNotEmpty)
-                  HomeTabItems(
-                    header: context.localizations.cities,
-                    item: state.cities,
-                    pageNamed: OpenPageNamed.singleCity,
-                  ),
-
-              //please
-              if (state.filterItemsSelected.contains('Places'))
-                if (state.cities.isNotEmpty)
-                  HomeTabItems(
-                    header: context.localizations.places,
-                    item: state.places,
-                    pageNamed: OpenPageNamed.places,
-                  ),
-
               // useful apps
               if (state.filterItemsSelected.contains('Useful apps'))
                 if (state.usefulApps.isNotEmpty)
@@ -53,6 +35,15 @@ class HomeTab extends StatelessWidget {
                     header: context.localizations.usefulApps,
                     item: state.usefulApps,
                     pageNamed: OpenPageNamed.usefulApp,
+                  ),
+
+              //places
+              if (state.filterItemsSelected.contains('Places'))
+                if (state.places.isNotEmpty)
+                  HomeTabItems(
+                    header: context.localizations.places,
+                    item: state.places,
+                    pageNamed: OpenPageNamed.places,
                   ),
 
               // articles

@@ -34,7 +34,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
         viewAllBloc.assignSearchValues(homeBloc.state.usefulApps);
         break;
       default:
-        viewAllBloc.assignSearchValues(homeBloc.state.cities);
+        // viewAllBloc.assignSearchValues(homeBloc.state.cities);
         break;
     }
   }
@@ -138,11 +138,11 @@ class GridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.pushNamed(
-        //   context,
-        //   AppRoutes.singleCityPage,
-        //   arguments: item.id,
-        // );
+        Navigator.pushNamed(
+          context,
+          AppRoutes.singleCityPage,
+          arguments: item.id,
+        );
       },
       child: Container(
         decoration: BoxDecoration(

@@ -2,8 +2,7 @@ part of 'root_bloc.dart';
 
 class RootState extends Equatable {
   final int tabIndex;
-  final List<SingleItemResponse> favorites;
-
+  final List<SingleItemResponse> favorites; //TODO show favorites somewhere
   final BlocProgress blocProgress;
   final String failureMessage;
 

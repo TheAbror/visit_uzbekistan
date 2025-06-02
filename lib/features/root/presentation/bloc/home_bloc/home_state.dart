@@ -4,7 +4,6 @@ class HomeState extends Equatable {
   final List<String> filterItemsAll;
   final List<String> filterItemsSelected;
   //
-  final List<SingleItemResponse> cities;
   final List<SingleItemResponse> places;
   final List<SingleItemResponse> usefulApps;
   final List<SingleItemResponse> mustKnow;
@@ -16,7 +15,6 @@ class HomeState extends Equatable {
   const HomeState({
     required this.filterItemsAll,
     required this.filterItemsSelected,
-    required this.cities,
     required this.places,
     required this.usefulApps,
     required this.mustKnow,
@@ -30,19 +28,16 @@ class HomeState extends Equatable {
     return HomeState(
       filterItemsAll: [
         'Must know',
-        'Cities',
         'Places',
         'Useful apps',
         'Articles',
       ],
       filterItemsSelected: [
         'Must know',
-        'Cities',
         'Places',
         'Useful apps',
         'Articles',
       ],
-      cities: [],
       places: [],
       articles: SuperBlocProgress(
         model: ArticlesResponse(articles: []),
@@ -148,7 +143,6 @@ class HomeState extends Equatable {
   HomeState copyWith({
     List<String>? filterItemsAll,
     List<String>? filterItemsSelected,
-    List<SingleItemResponse>? cities,
     List<SingleItemResponse>? places,
     List<SingleItemResponse>? usefulApps,
     List<SingleItemResponse>? mustKnow,
@@ -160,7 +154,6 @@ class HomeState extends Equatable {
     return HomeState(
       filterItemsAll: filterItemsAll ?? this.filterItemsAll,
       filterItemsSelected: filterItemsSelected ?? this.filterItemsSelected,
-      cities: cities ?? this.cities,
       places: places ?? this.places,
       articles: articles ?? this.articles,
       usefulApps: usefulApps ?? this.usefulApps,
@@ -175,7 +168,6 @@ class HomeState extends Equatable {
   List<Object?> get props => [
         filterItemsAll,
         filterItemsSelected,
-        cities,
         places,
         usefulApps,
         mustKnow,

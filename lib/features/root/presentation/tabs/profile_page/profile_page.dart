@@ -1,8 +1,8 @@
 import 'package:visit_uzbekistan/core/constants/text_named_const_widget.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class ProfileTab extends StatelessWidget {
-  const ProfileTab({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,8 @@ class ProfileTab extends StatelessWidget {
       'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQt5VjtiKK_Ersw6MMIWEmULmKh2eX8jToM384_6QqH018ZwyoYRrsSJu9wo7yuhp93bhj4doenkoIEnnPlGKzliPGihjz2Nsk7pfrdPA',
     ];
 
-    return Stack(
+    return Scaffold(
+        body: Stack(
       alignment: Alignment.topCenter,
       children: [
         ListView(
@@ -75,7 +76,7 @@ class ProfileTab extends StatelessWidget {
           height: 56.h,
         ),
       ],
-    );
+    ));
   }
 }
 

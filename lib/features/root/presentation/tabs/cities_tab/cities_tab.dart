@@ -1,20 +1,20 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class SearchTab extends StatelessWidget {
-  const SearchTab({super.key});
+class CitiesTab extends StatelessWidget {
+  const CitiesTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<RootBloc, RootState>(
+      child: BlocBuilder<CitiesBloc, CitiesState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
           }
 
-          // if (state.blocProgress == BlocProgress.FAILED) {
-          //   return const SomethingWentWrong();
-          // }
+          if (state.blocProgress == BlocProgress.FAILED) {
+            return const SomethingWentWrong();
+          }
 
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -25,6 +25,7 @@ class SearchTab extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.r),
                   color: AppColors.white,
+                  boxShadow: AppColors.defaultShadowForItems,
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Row(
@@ -33,6 +34,9 @@ class SearchTab extends StatelessWidget {
                     SizedBox(width: 16.w),
                     Expanded(
                       child: TextField(
+                        onChanged: (value) {
+                          context.read<CitiesBloc>().search(value);
+                        },
                         decoration: InputDecoration(
                           hintText: context.localizations.search,
                           border: InputBorder.none,
@@ -53,11 +57,29 @@ class SearchTab extends StatelessWidget {
                   ],
                 ),
               ),
-              if (state.favorites.isNotEmpty)
-                HomeTabItems(
-                  header: context.localizations.favorites,
-                  item: state.favorites,
-                ),
+              state.citiesSearched.isEmpty
+                  ? Container(
+                      margin: EdgeInsets.only(top: 300.h),
+                      child: Center(
+                        child: Text('No results'),
+                      ),
+                    )
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 8.h,
+                        crossAxisSpacing: 8.h,
+                        childAspectRatio: 0.85,
+                      ),
+                      itemCount: state.citiesSearched.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final singleItem = state.citiesSearched[index];
+
+                        return GridViewItem(item: singleItem);
+                      },
+                    ),
             ],
           );
         },
