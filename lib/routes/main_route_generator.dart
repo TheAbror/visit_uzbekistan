@@ -1,4 +1,3 @@
-import 'package:visit_uzbekistan/features/must_know/must_know_page.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -43,7 +42,12 @@ class MainRouteGenerator {
 
       case AppRoutes.viewAllPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const ViewAllPage(),
+          builder: (_) => BlocProvider(
+            create: (context) => ViewAllBloc(),
+            child: ViewAllPage(
+              pageNamed: settings.arguments as OpenPageNamed,
+            ),
+          ),
         );
 
       case AppRoutes.forgotPasswordPage:

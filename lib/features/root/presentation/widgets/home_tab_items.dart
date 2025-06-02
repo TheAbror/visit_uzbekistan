@@ -16,7 +16,10 @@ class HomeTabItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TitleAndViewAllWidget(title: header),
+        TitleAndViewAllWidget(
+          title: header,
+          openPageNamed: pageNamed,
+        ),
         Container(
           height: 220.h,
           margin: EdgeInsets.only(bottom: 8.h),

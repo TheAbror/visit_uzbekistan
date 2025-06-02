@@ -4,4 +4,5 @@ enum OpenPageNamed {
   usefulApp,
   html,
   mustKnow,
+  places,
 }

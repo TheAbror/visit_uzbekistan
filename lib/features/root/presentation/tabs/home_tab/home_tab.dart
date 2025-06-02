@@ -43,6 +43,7 @@ class HomeTab extends StatelessWidget {
                   HomeTabItems(
                     header: context.localizations.places,
                     item: state.places,
+                    pageNamed: OpenPageNamed.places,
                   ),
 
               // useful apps

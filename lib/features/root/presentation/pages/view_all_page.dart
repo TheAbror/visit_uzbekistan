@@ -1,29 +1,58 @@
 import 'package:visit_uzbekistan/widget_imports.dart';
 
-class ViewAllPage extends StatelessWidget {
-  const ViewAllPage({super.key});
+class ViewAllPage extends StatefulWidget {
+  final OpenPageNamed pageNamed;
+
+  const ViewAllPage({
+    super.key,
+    required this.pageNamed,
+  });
+
+  @override
+  State<ViewAllPage> createState() => _ViewAllPageState();
+}
+
+class _ViewAllPageState extends State<ViewAllPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    final homeBloc = context.read<HomeBloc>();
+    final viewAllBloc = context.read<ViewAllBloc>();
+
+    switch (widget.pageNamed) {
+      case OpenPageNamed.article:
+        viewAllBloc.assignSearchValues(homeBloc.state.articles.model.articles);
+        break;
+      case OpenPageNamed.places:
+        viewAllBloc.assignSearchValues(homeBloc.state.places);
+        break;
+      case OpenPageNamed.mustKnow:
+        viewAllBloc.assignSearchValues(homeBloc.state.mustKnow);
+        break;
+      case OpenPageNamed.usefulApp:
+        viewAllBloc.assignSearchValues(homeBloc.state.usefulApps);
+        break;
+      default:
+        viewAllBloc.assignSearchValues(homeBloc.state.cities);
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-        child: BlocBuilder<RootBloc, RootState>(
+        child: BlocBuilder<ViewAllBloc, ViewAllState>(
           builder: (context, state) {
             if (state.blocProgress == BlocProgress.IS_LOADING) {
               return Center(child: CircularProgressIndicator());
             }
 
-            if (state.favorites.isEmpty)
-              return Expanded(
-                child: Center(
-                  child: Text('No results'),
-                ),
-              );
-
-            // if (state.blocProgress == BlocProgress.FAILED) {
-            //   return const SomethingWentWrong();
-            // }
+            if (state.blocProgress == BlocProgress.FAILED) {
+              return const SomethingWentWrong();
+            }
 
             return ListView(
               padding: EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -43,6 +72,9 @@ class ViewAllPage extends StatelessWidget {
                       SizedBox(width: 16.w),
                       Expanded(
                         child: TextField(
+                          onChanged: (value) {
+                            context.read<ViewAllBloc>().search(value);
+                          },
                           decoration: InputDecoration(
                             hintText: context.localizations.search,
                             border: InputBorder.none,
@@ -63,22 +95,29 @@ class ViewAllPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 8.h,
-                    crossAxisSpacing: 8.h,
-                    childAspectRatio: 0.833,
-                  ),
-                  itemCount: state.favorites.length,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    final singleItem = state.favorites[index];
+                state.searchedList.isEmpty
+                    ? Container(
+                        margin: EdgeInsets.only(top: 300.h),
+                        child: Center(
+                          child: Text('No results'),
+                        ),
+                      )
+                    : GridView.builder(
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 8.h,
+                          crossAxisSpacing: 8.h,
+                          childAspectRatio: 0.85,
+                        ),
+                        itemCount: state.searchedList.length,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          final singleItem = state.searchedList[index];
 
-                    return GridViewItem(item: singleItem);
-                  },
-                ),
+                          return GridViewItem(item: singleItem);
+                        },
+                      ),
               ],
             );
           },
@@ -99,11 +138,11 @@ class GridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          AppRoutes.singleCityPage,
-          arguments: item.id,
-        );
+        // Navigator.pushNamed(
+        //   context,
+        //   AppRoutes.singleCityPage,
+        //   arguments: item.id,
+        // );
       },
       child: Container(
         decoration: BoxDecoration(
@@ -117,6 +156,7 @@ class GridViewItem extends StatelessWidget {
             // Image + Favorite Icon
             Stack(
               children: [
+                //TODO separate image to new widget
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12.r),
@@ -189,7 +229,10 @@ class GridViewItem extends StatelessWidget {
             ),
             // Item Details
             Padding(
-              padding: EdgeInsets.all(8.w),
+              padding: EdgeInsets.symmetric(
+                horizontal: 4.h,
+                vertical: 2.h,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -216,7 +259,6 @@ class GridViewItem extends StatelessWidget {
                       ],
                     ],
                   ),
-                  SizedBox(height: 2.h),
                   Text(
                     item.shortDescription,
                     style: TextStyle(
@@ -228,7 +270,7 @@ class GridViewItem extends StatelessWidget {
                   ),
                   if (item.shortDescription.length < 20) SizedBox(height: 17.h),
                   if (item.location.isNotEmpty) ...[
-                    SizedBox(height: 2.h),
+                    SizedBox(height: 6.h),
                     Row(
                       children: [
                         Icon(

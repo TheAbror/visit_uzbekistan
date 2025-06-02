@@ -58,6 +58,7 @@ class TitleAndViewAllWidget extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 AppRoutes.viewAllPage,
+                arguments: openPageNamed,
               );
             },
             child: Text(
