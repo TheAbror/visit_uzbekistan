@@ -5,56 +5,85 @@ class TransportationTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.zero,
-      children: [
-        TitleAndDivider(title: 'Book a driver'),
+    return BlocBuilder<CityBloc, CityState>(
+      builder: (context, state) {
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 8.h,
+            crossAxisSpacing: 8.h,
+            childAspectRatio: 0.85,
+          ),
+          itemCount: state.response.carRentals.length,
+          shrinkWrap: true,
+          padding: EdgeInsets.zero,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            final singleItem = state.response.carRentals[index];
 
-        TransportationItem(
-          image:
-              'https://bydzone.uz/wp-content/uploads/2024/02/black-02-7-min.png',
-          model: 'BYD Champion DM-I Champion',
-          carClass: 'Luxury',
-          price: 100,
-        ),
-        TransportationItem(
-          image:
-              'https://www.masmotors.ru/resources/models/49/colors/color/14_600x310.webp',
-          model: 'BYD Champion DM-I Champion',
-          carClass: 'Business',
-          price: 40,
-        ),
-
-        ///////
-
-        TitleAndDivider(
-          title: 'Rentals',
-          isDividerNeeded: true,
-        ),
-
-        NoDataAvailableYetWillAddSoon(
-            title: 'No rental cars available yet, we will add soon 😃'),
-
-        // //
-
-        TitleAndDivider(
-          title: 'Public transportation',
-          isDividerNeeded: true,
-        ),
-
-        NoDataAvailableYetWillAddSoon(
-            title:
-                'No public transportation data availbale yet, we will add soon 😃'),
-
-        TitleAndDivider(
-          title: 'Taxi',
-          isDividerNeeded: true,
-        ),
-
-        NoDataAvailableYetWillAddSoon(
-            title: 'No taxi data availbale yet, we will add soon 😃'),
-      ],
+            return GridViewItem(item: singleItem);
+          },
+        );
+      },
     );
+
+    //   BlocBuilder<CityBloc, CityState>(
+    //     builder: (context, state) {
+    //       return
+    //       Listv
+    //       // ListView(
+    //       //   padding: EdgeInsets.zero,
+    //       //   children: [
+    //       //     // TitleAndDivider(title: 'Book a driver'),
+
+    //       //     // TransportationItem(
+    //       //     //   image:
+    //       //     //       'https://bydzone.uz/wp-content/uploads/2024/02/black-02-7-min.png',
+    //       //     //   model: 'BYD Champion DM-I Champion',
+    //       //     //   carClass: 'Luxury',
+    //       //     //   price: 100,
+    //       //     // ),
+    //       //     // TransportationItem(
+    //       //     //   image:
+    //       //     //       'https://www.masmotors.ru/resources/models/49/colors/color/14_600x310.webp',
+    //       //     //   model: 'BYD Champion DM-I Champion',
+    //       //     //   carClass: 'Business',
+    //       //     //   price: 40,
+    //       //     // ),
+
+    //       //     // ///////
+
+    //       //     // TitleAndDivider(
+    //       //     //   title: 'Rentals',
+    //       //     //   isDividerNeeded: true,
+    //       //     // ),
+
+    //       //     // NoDataAvailableYetWillAddSoon(
+    //       //     //     title: 'No rental cars available yet, we will add soon 😃'),
+
+    //       //     // // //
+
+    //       //     // TitleAndDivider(
+    //       //     //   title: 'Public transportation',
+    //       //     //   isDividerNeeded: true,
+    //       //     // ),
+
+    //       //     // NoDataAvailableYetWillAddSoon(
+    //       //     //     title:
+    //       //     //         'No public transportation data availbale yet, we will add soon 😃'),
+
+    //       //     // TitleAndDivider(
+    //       //     //   title: 'Taxi',
+    //       //     //   isDividerNeeded: true,
+    //       //     // ),
+
+    //       //     // NoDataAvailableYetWillAddSoon(
+    //       //     //     title: 'No taxi data availbale yet, we will add soon 😃'),
+    //       //   ],
+    //       // );
+    //     },
+    //   );
+    // }
   }
 }
 

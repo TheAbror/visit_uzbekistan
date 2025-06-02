@@ -23,6 +23,7 @@ class CityState extends Equatable {
         articles: [],
         places: [],
         restaurants: [],
+        carRentals: [],
       ),
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',
