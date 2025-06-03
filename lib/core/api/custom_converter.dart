@@ -1,6 +1,6 @@
 // ignore_for_file: type_literal_in_constant_pattern
 import 'package:chopper/chopper.dart';
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 class CustomDataConverter extends JsonConverter {
   @override

@@ -1,4 +1,4 @@
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 class SignInCustomAppBar extends StatelessWidget
     implements PreferredSizeWidget {

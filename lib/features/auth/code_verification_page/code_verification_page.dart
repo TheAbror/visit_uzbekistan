@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 class CodeVerificationPage extends StatefulWidget {
   // final bool isForgorPassword;

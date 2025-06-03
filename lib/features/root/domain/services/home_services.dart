@@ -1,5 +1,5 @@
 import 'package:chopper/chopper.dart';
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 part 'home_services.chopper.dart';
 

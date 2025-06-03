@@ -1,7 +1,7 @@
 import 'package:chopper/chopper.dart';
 import 'package:http/io_client.dart' as http;
 import 'package:visit_uzbekistan/features/root/domain/services/home_services.dart';
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 class ApiProvider {
   static NotAuthorizedInterceptor notAuthorizedInterceptor =

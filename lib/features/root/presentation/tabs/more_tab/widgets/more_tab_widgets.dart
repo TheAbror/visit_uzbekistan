@@ -1,4 +1,4 @@
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 Widget onErrorProfileWidget(ctx, _, s) => Container(
       width: 56.w,

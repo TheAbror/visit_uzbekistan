@@ -1,5 +1,5 @@
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 class HtmlView extends StatefulWidget {
   final int id;

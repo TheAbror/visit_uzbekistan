@@ -1,5 +1,5 @@
 import 'package:visit_uzbekistan/core/bottomsheet/widgets/bottom_sheet_list_multiple_choice_item.dart';
-import 'package:visit_uzbekistan/widget_imports.dart';
+import 'package:visit_uzbekistan/widgets/widget_imports.dart';
 
 class HomeTabAppBar extends StatelessWidget {
   const HomeTabAppBar({super.key});
@@ -12,6 +12,20 @@ class HomeTabAppBar extends StatelessWidget {
         children: [
           Row(
             children: [
+              Container(
+                width: 40.w,
+                height: 40.h,
+                padding: EdgeInsets.all(2.w),
+                decoration: BoxDecoration(
+                  color: AppColors.float,
+                  borderRadius: BorderRadius.circular(32.r),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(32.r),
+                  child: Assets.images.maleAvatarPlaceholder.image(),
+                ),
+              ),
+              SizedBox(width: 8.w),
               Text(
                 'Hi',
                 style: TextStyle(fontSize: 16.sp),
@@ -31,74 +45,71 @@ class HomeTabAppBar extends StatelessWidget {
                     AppRoutes.favoritesPage,
                   );
                 },
-                child: Icon(
-                  IconsaxPlusLinear.heart,
-                ),
+                child: Icon(IconsaxPlusLinear.heart),
               ),
               SizedBox(width: 8.w),
-              Container(
-                width: 40.w,
-                height: 40.h,
-                padding: EdgeInsets.all(2.w),
-                decoration: BoxDecoration(
-                  color: AppColors.float,
-                  borderRadius: BorderRadius.circular(32.r),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(32.r),
-                  child: Assets.images.maleAvatarPlaceholder.image(),
-                ),
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    builder: (context) {
+                      return const HomeTabSearchFilter();
+                    },
+                  );
+                },
+                child: Icon(IconsaxPlusLinear.setting_3),
               ),
             ],
           ),
           SizedBox(height: 12.h),
-          Container(
-            height: 56.h,
-            margin: EdgeInsets.only(bottom: 12.h),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.r),
-              color: AppColors.white,
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Row(
-              children: [
-                Icon(IconsaxPlusLinear.search_normal_1),
-                SizedBox(width: 16.w),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: context.localizations.search,
-                      border: InputBorder.none,
-                      isDense: true,
-                      hintStyle: TextStyle(
-                        fontSize: 15.sp,
-                        color: AppColors.lightGrey,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 16.w),
-                GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet(
-                      backgroundColor: Colors.transparent,
-                      context: context,
-                      builder: (context) {
-                        return const HomeTabSearchFilter();
-                      },
-                    );
-                  },
-                  child: Icon(IconsaxPlusLinear.setting_3),
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   height: 56.h,
+          //   margin: EdgeInsets.only(bottom: 12.h),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(16.r),
+          //     color: AppColors.white,
+          //   ),
+          //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+          //   child: Row(
+          //     children: [
+          //       Icon(IconsaxPlusLinear.search_normal_1),
+          //       SizedBox(width: 16.w),
+          //       Expanded(
+          //         child: TextField(
+          //           decoration: InputDecoration(
+          //             hintText: context.localizations.search,
+          //             border: InputBorder.none,
+          //             isDense: true,
+          //             hintStyle: TextStyle(
+          //               fontSize: 15.sp,
+          //               color: AppColors.lightGrey,
+          //               fontWeight: FontWeight.w500,
+          //             ),
+          //           ),
+          //           style: TextStyle(
+          //             fontSize: 15.sp,
+          //             color: Colors.black,
+          //             fontWeight: FontWeight.w500,
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(width: 16.w),
+          //       GestureDetector(
+          //         onTap: () {
+          //           showModalBottomSheet(
+          //             backgroundColor: Colors.transparent,
+          //             context: context,
+          //             builder: (context) {
+          //               return const HomeTabSearchFilter();
+          //             },
+          //           );
+          //         },
+          //         child: Icon(IconsaxPlusLinear.setting_3),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
