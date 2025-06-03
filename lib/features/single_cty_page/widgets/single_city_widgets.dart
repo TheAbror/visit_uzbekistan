@@ -73,6 +73,8 @@ class SingleCityPageBgImage extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
           alignment: Alignment.topCenter,
+          //add error builder
+
           loadingBuilder: (
             BuildContext context,
             Widget child,

@@ -1,4 +1,3 @@
-import 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/cities_tab.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class RootPage extends StatefulWidget {
@@ -29,31 +28,7 @@ class _RootPageState extends State<RootPage> {
             children: [
               HomeTab(),
               CitiesTab(),
-              // ProfileTab(),
-              SafeArea(
-                child: Column(
-                  children: [
-                    Text('''
-              Plan (instead of Profile)
-              
-              Help travelers plan ahead for their trip.
-              
-              Sections:
-              
-              Create or manage an itinerary
-              
-              Currency exchange tips
-              
-              Safety & cultural do’s and don’ts
-              
-              Tax refund info
-              
-              Travel tips & must-know essentials
-              
-              '''),
-                  ],
-                ),
-              ),
+              PlansTab(),
               MoreTab(),
             ],
           ),

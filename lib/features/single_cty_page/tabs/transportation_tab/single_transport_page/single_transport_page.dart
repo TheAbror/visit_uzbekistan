@@ -88,6 +88,7 @@ class _SingleTransportPageState extends State<SingleTransportPage> {
                     return Image.network(
                       images[index],
                       fit: BoxFit.cover,
+                      //add error and loader builder
                     );
                   },
                 ),

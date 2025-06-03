@@ -46,23 +46,24 @@ class _SignleCityPageState extends State<SignleCityPage> {
               delegate: _HeaderDelegate(),
             ),
             SliverFillRemaining(
-                child: Padding(
-              padding: EdgeInsets.only(
-                left: defaultPadding,
-                right: defaultPadding,
-                top: 10.h,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: defaultPadding,
+                  right: defaultPadding,
+                  top: 10.h,
+                ),
+                child: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
+                  children: [
+                    AboutCityTab(),
+                    BeforeTheTripTab(),
+                    TransportationTab(),
+                    RestaurantsTab(),
+                    PlacesTab(),
+                  ],
+                ),
               ),
-              child: TabBarView(
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  AboutCityTab(),
-                  BeforeTheTripTab(),
-                  TransportationTab(),
-                  RestaurantsTab(),
-                  PlacesTab(),
-                ],
-              ),
-            )),
+            ),
           ],
         ),
       ),

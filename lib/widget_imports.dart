@@ -91,3 +91,5 @@ export 'package:visit_uzbekistan/features/root/presentation/tabs/home_tab/widget
 export 'package:visit_uzbekistan/core/bloc_progress/super_bloc_progress.dart';
 export 'package:visit_uzbekistan/features/must_know/must_know_page.dart';
 export 'package:visit_uzbekistan/features/root/presentation/pages/home_bloc/view_all_bloc.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/cities_tab.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/plans_tab.dart';

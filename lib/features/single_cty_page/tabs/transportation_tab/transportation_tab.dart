@@ -7,6 +7,15 @@ class TransportationTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
+        if (state.response.carRentals.isEmpty) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 50.h),
+            child: Center(
+              child: Text('No cars found'),
+            ),
+          );
+        }
+
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -161,6 +170,7 @@ class TransportationItem extends StatelessWidget {
               height: 80.w,
               width: 80.w,
               image,
+              //TODO add loader and error
             ),
             SizedBox(width: 2.w),
             Column(

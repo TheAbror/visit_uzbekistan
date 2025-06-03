@@ -23,24 +23,24 @@ class TitleDescReviews extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Spacer(),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.borderDividerColor),
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-            child: Row(
-              children: [
-                Text(
-                  reviews,
-                  style: TextStyle(fontSize: 12.sp),
-                ),
-                SizedBox(width: 4),
-                SvgPicture.asset('assets/icons/single_city/arrow-right.svg'),
-              ],
-            ),
-          ),
+          // Spacer(),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(16),
+          //     border: Border.all(color: AppColors.borderDividerColor),
+          //   ),
+          //   padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+          //   child: Row(
+          //     children: [
+          //       Text(
+          //         reviews,
+          //         style: TextStyle(fontSize: 12.sp),
+          //       ),
+          //       SizedBox(width: 4),
+          //       SvgPicture.asset('assets/icons/single_city/arrow-right.svg'),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

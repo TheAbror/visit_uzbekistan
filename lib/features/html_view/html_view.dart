@@ -1,4 +1,4 @@
-import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class HtmlView extends StatefulWidget {
@@ -32,8 +32,13 @@ class _HtmlViewState extends State<HtmlView> {
           }
 
           return ListView(
+            padding: EdgeInsets.only(
+              left: 8.w,
+              right: 8.w,
+              bottom: 40.h,
+            ),
             children: [
-              Html(data: state.singleArticle.desc),
+              HtmlWidget(state.singleArticle.desc),
             ],
           );
         },

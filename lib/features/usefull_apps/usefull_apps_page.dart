@@ -24,6 +24,7 @@ class UsefullAppsPage extends StatelessWidget {
                 height: 300.h,
                 width: double.infinity,
                 fit: BoxFit.contain,
+                //add error and loader builder
               ),
               SizedBox(height: 20.h),
               Text(item.shortDescription),

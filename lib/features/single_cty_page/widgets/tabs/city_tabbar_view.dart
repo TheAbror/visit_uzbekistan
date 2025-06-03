@@ -31,6 +31,15 @@ class RestaurantsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
+        if (state.response.restaurants.isEmpty) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 50.h),
+            child: Center(
+              child: Text('No restaurants found'),
+            ),
+          );
+        }
+
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -60,6 +69,15 @@ class PlacesTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
+        if (state.response.places.isEmpty) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 50.h),
+            child: Center(
+              child: Text('No places found'),
+            ),
+          );
+        }
+
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,

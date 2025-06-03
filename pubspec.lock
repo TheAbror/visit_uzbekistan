@@ -379,14 +379,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.3.2"
-  flutter_html:
-    dependency: "direct main"
-    description:
-      name: flutter_html
-      sha256: "38a2fd702ffdf3243fb7441ab58aa1bc7e6922d95a50db76534de8260638558d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
   flutter_keyboard_visibility:
     dependency: transitive
     description:
@@ -474,6 +466,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_widget_from_html_core:
+    dependency: "direct main"
+    description:
+      name: flutter_widget_from_html_core
+      sha256: f77ea1aa1ba29a38fcce04483f44f12382f541b9e8c2150df37166c23bbbd30f
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.16.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -754,14 +754,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  list_counter:
-    dependency: transitive
-    description:
-      name: list_counter
-      sha256: c447ae3dfcd1c55f0152867090e67e219d42fe6d4f2807db4bbe8b8d69912237
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   logging:
     dependency: "direct main"
     description:
