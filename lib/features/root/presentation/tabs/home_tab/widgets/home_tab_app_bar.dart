@@ -1,5 +1,5 @@
 import 'package:visit_uzbekistan/core/bottomsheet/widgets/bottom_sheet_list_multiple_choice_item.dart';
-import 'package:visit_uzbekistan/widgets/widget_imports.dart';
+import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class HomeTabAppBar extends StatelessWidget {
   const HomeTabAppBar({super.key});

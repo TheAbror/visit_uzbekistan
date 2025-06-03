@@ -1,5 +1,5 @@
 import 'package:visit_uzbekistan/core/constants/text_named_const_widget.dart';
-import 'package:visit_uzbekistan/widgets/widget_imports.dart';
+import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

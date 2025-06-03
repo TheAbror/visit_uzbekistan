@@ -1,4 +1,6 @@
-import 'package:visit_uzbekistan/widgets/widget_imports.dart';
+import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
+
+//TODO
 
 class PlansTab extends StatelessWidget {
   const PlansTab({super.key});

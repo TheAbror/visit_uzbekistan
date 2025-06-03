@@ -1,4 +1,4 @@
-import 'package:visit_uzbekistan/widgets/widget_imports.dart';
+import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class BottomSheetListMultipleChoiceItem<T> extends StatefulWidget {
   final String itemTitle;

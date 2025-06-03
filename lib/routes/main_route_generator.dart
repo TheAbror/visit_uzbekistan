@@ -1,5 +1,5 @@
 import 'package:visit_uzbekistan/features/favorites/favorites_page.dart';
-import 'package:visit_uzbekistan/widgets/widget_imports.dart';
+import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class MainRouteGenerator {
   Route<dynamic>? generateRoute(RouteSettings settings) {
