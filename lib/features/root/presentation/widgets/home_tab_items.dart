@@ -25,7 +25,7 @@ class HomeTabItems extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 8.h),
           width: double.infinity,
           child: ListView.builder(
-            itemCount: item.length,
+            itemCount: pageNamed == OpenPageNamed.usefulApp ? 5 : item.length,
             padding: EdgeInsets.only(left: 8.w),
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,

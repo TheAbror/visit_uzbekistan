@@ -64,7 +64,7 @@ class UsefullAppsPage extends StatelessWidget {
                 },
               ),
               SizedBox(height: 20.h),
-              Text(item.shortDescription),
+              Text(item.info),
               SizedBox(height: 20.h),
               ActionButton(
                 text: 'Download',

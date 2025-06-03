@@ -134,6 +134,48 @@ class HomeState extends Equatable {
           updatedAt: '',
           isImageTiny: true,
         ),
+        SingleItemResponse(
+          id: 4,
+          name: 'Uzrailways tickets',
+          location: '',
+          info:
+              'Uzrailway tickets / УзЖД Билет – официальное приложение АО Ozbekiston Temir Yollari для покупки железнодорожных билетов.',
+          photo:
+              'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/69/11/ee691110-da17-0094-cbb0-5170bbe0f618/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/460x0w.webp',
+          shortDescription:
+              'Uzrailway tickets / УзЖД Билет – официальное приложение АО Ozbekiston Temir Yollari для покупки железнодорожных билетов.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: true,
+        ),
+        SingleItemResponse(
+          id: 5,
+          name: 'Uzbekistan airways',
+          location: '',
+          info:
+              'JSC Uzbekistan Airways, operating as Uzbekistan Airways, is the flag carrier of Uzbekistan, headquartered in Tashkent. From its hub at Islam Karimov Tashkent International Airport, the airline serves a number of domestic destinations; the company also flies international services to Asia, Europe and North America.',
+          photo:
+              'https://www.uzairways.com/sites/default/files/2023-08/%D0%BD%D0%B0%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.jpg',
+          shortDescription:
+              'Uzrailway tickets / УзЖД Билет – официальное приложение АО Ozbekiston Temir Yollari для покупки железнодорожных билетов.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: true,
+        ),
+        SingleItemResponse(
+          id: 6,
+          name: 'Silkavia',
+          location: '',
+          info:
+              'Региональная авиакомпания Silk Avia 6 июля 2021года и является дочерней компанией АО «Uzbekistan Airports» Начало операционной деятельности запланировано на IV квартал 2022 года. Для полетов будут использоваться региональные самолеты ATR-72-600 с пассажиро-вместимостью до 70 человек. Маршрутная сеть – 40 маршрутов по всей республике до конца 2023 года по принципу point to hub (из столицы в регионы), но и по модели point to point (между регионами)',
+          photo:
+              'https://www.silk-avia.com/upload/iblock/f89/5mx2lvl8ciqvzds3hk09v7tuk8kp9m5s.jpg',
+          shortDescription:
+              'Региональная авиакомпания Silk Avia 6 июля 2021года и является дочерней компанией АО «Uzbekistan Airports» Начало операционной деятельности запланировано на IV квартал 2022 года. Для полетов будут использоваться региональные самолеты ATR-72-600 с пассажиро-вместимостью до 70 человек. Маршрутная сеть – 40 маршрутов по всей республике до конца 2023 года по принципу point to hub (из столицы в регионы), но и по модели point to point (между регионами)',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: true,
+        ),
       ],
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',

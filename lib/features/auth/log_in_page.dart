@@ -254,22 +254,38 @@ class _LogInPageState extends State<LogInPage> {
               ],
             ),
             Spacer(),
-            GestureDetector(
+            InkWell(
               onTap: () {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   AppRoutes.rootPage,
                   (route) => false,
                 );
-                // Navigator.pushNamed(
-                //   context,
-                //   AppRoutes.singleCityPage,
-                //   arguments: 0,
-                // );
               },
-              child: Text(
-                context.localizations.maybeLater,
-                style: TextStyle(fontWeight: FontWeight.bold),
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 8.w,
+                  vertical: 4.h,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.siginTextColor,
+                  borderRadius: BorderRadius.circular(6.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.siginTextColor.withOpacity(0.1),
+                      offset: Offset(1, 2),
+                      blurRadius: 1,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: Text(
+                  context.localizations.maybeLater,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.float,
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 5.h),
