@@ -184,13 +184,13 @@ class ItemInfo extends StatelessWidget {
 }
 
 class ImageAndFavoriteIcon extends StatelessWidget {
-  final int _width;
+  final int? _width;
   final int _height;
   final SingleItemResponse item;
 
   const ImageAndFavoriteIcon({
     super.key,
-    required int width,
+    int width = 240,
     required int height,
     required this.item,
   })  : _height = height,
@@ -207,7 +207,7 @@ class ImageAndFavoriteIcon extends StatelessWidget {
           ),
           child: Image.network(
             height: _height.h,
-            width: _width.w,
+            width: _width == null ? double.infinity : _width.w,
             fit: item.isImageTiny == true ? BoxFit.fitWidth : BoxFit.fill,
             //error case
             errorBuilder: (
@@ -217,7 +217,7 @@ class ImageAndFavoriteIcon extends StatelessWidget {
             ) {
               return Container(
                 height: _height.h,
-                width: _width.w,
+                width: _width == null ? double.infinity : _width.w,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/sign_in_bg.jpg'),
@@ -235,7 +235,7 @@ class ImageAndFavoriteIcon extends StatelessWidget {
               if (loadingProgress == null) return child;
               return SizedBox(
                 height: _height.h,
-                width: 250.w,
+                width: _width == null ? double.infinity : _width.w,
                 child: Center(
                   child: CircularProgressIndicator(
                     value: loadingProgress.expectedTotalBytes != null

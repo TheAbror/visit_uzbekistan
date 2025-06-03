@@ -154,79 +154,11 @@ class GridViewItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Image + Favorite Icon
-            Stack(
-              children: [
-                //TODO separate image to new widget
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12.r),
-                    topRight: Radius.circular(12.r),
-                  ),
-                  child: Image.network(
-                    item.photo,
-                    fit: item.isImageTiny == true
-                        ? BoxFit.fitWidth
-                        : BoxFit.cover,
-                    height: 120.h,
-                    width: double.infinity,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      height: 120.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/sign_in_bg.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return SizedBox(
-                        height: 120.h,
-                        width: double.infinity,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                    loadingProgress.expectedTotalBytes!
-                                : null,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                // Favorite Icon
-                Positioned(
-                  top: 4.h,
-                  right: 4.w,
-                  child: BlocBuilder<RootBloc, RootState>(
-                    builder: (context, state) {
-                      final isFavorite = state.favorites.contains(item);
-                      return GestureDetector(
-                        onTap: () {
-                          context.read<RootBloc>().addFavorite(item, context);
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            color: AppColors.float,
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: Icon(
-                            isFavorite
-                                ? IconsaxPlusBold.heart
-                                : IconsaxPlusLinear.heart,
-                            size: 18.sp,
-                            color: Colors.red,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
+            ImageAndFavoriteIcon(
+              height: 120,
+              item: item,
             ),
+
             // Item Details
             Padding(
               padding: EdgeInsets.symmetric(

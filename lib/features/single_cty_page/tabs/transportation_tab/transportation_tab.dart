@@ -146,6 +146,9 @@ class TransportationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = 80;
+    final _width = 80;
+
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
@@ -167,10 +170,45 @@ class TransportationItem extends StatelessWidget {
         child: Row(
           children: [
             Image.network(
-              height: 80.w,
-              width: 80.w,
+              height: _height.w,
+              width: _width.w,
               image,
-              //TODO add loader and error
+              errorBuilder: (
+                BuildContext context,
+                Object exception,
+                StackTrace? stackTrace,
+              ) {
+                return Container(
+                  height: _height.h,
+                  width: _width.w,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/sign_in_bg.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              },
+              //loader case
+              loadingBuilder: (
+                BuildContext context,
+                Widget child,
+                ImageChunkEvent? loadingProgress,
+              ) {
+                if (loadingProgress == null) return child;
+                return SizedBox(
+                  height: _height.h,
+                  width: _width.w,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      value: loadingProgress.expectedTotalBytes != null
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!
+                          : null,
+                    ),
+                  ),
+                );
+              },
             ),
             SizedBox(width: 2.w),
             Column(
