@@ -35,26 +35,6 @@ class TitleAndViewAllWidget extends StatelessWidget {
           SizedBox(width: 10.w),
           GestureDetector(
             onTap: () {
-              // String routeName;
-
-              // switch (openPageNamed) {
-              //   case OpenPageNamed.article:
-              //     routeName = AppRoutes.htmlView;
-              //     break;
-              //   case OpenPageNamed.usefulApp:
-              //     routeName = AppRoutes.singleCityPage;
-              //     break;
-              //   default:
-              //     routeName = AppRoutes.singleCityPage;
-              //     break;
-              // }
-
-              // Navigator.pushNamed(
-              //   context,
-              //   routeName,
-              //   arguments: singleItem.id,
-              // );
-
               Navigator.pushNamed(
                 context,
                 AppRoutes.viewAllPage,

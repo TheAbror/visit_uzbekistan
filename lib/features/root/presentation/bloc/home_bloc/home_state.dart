@@ -87,7 +87,8 @@ class HomeState extends Equatable {
           id: 0,
           name: 'Telegram',
           location: '',
-          info: '',
+          info:
+              'Telegram, also known as Telegram Messenger, is a cloud-based, cross-platform, social media and instant messaging service. It was originally launched for iOS on 14 August 2013 and Android on 20 October 2013.',
           photo:
               'https://static.vecteezy.com/system/resources/previews/018/930/484/non_2x/telegram-logo-telegram-icon-transparent-free-png.png',
           shortDescription:
@@ -100,7 +101,8 @@ class HomeState extends Equatable {
           id: 1,
           name: 'Yandex Maps',
           location: '',
-          info: '',
+          info:
+              'Yandex Maps (Russian: Яндекс Карты, romanized: Yandeks Karty) is a Russian web mapping service developed by Yandex. The service provides detailed maps of the whole world, directions and estimated times of arrival for driving, walking, cycling, kick scooter, and public transportation navigation.',
           photo:
               'https://cdn-images-1.medium.com/max/684/1*YUmI4_xb-knD5xxordlfKA@2x.png',
           shortDescription:
@@ -113,7 +115,8 @@ class HomeState extends Equatable {
           id: 2,
           name: 'Fasten',
           location: '',
-          info: '',
+          info:
+              'Fasten is a ride-hailing service, like Uber or Bolt, that allows users to request rides through a mobile app. It offers affordable rides, allows users to see the price in advance, and provides options for cash or card payments. The app also allows users to track their driver in real-time and offers detailed information about drivers and vehicles.',
           photo:
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREC1ZZ00pKRsE2hRijo-HSfT8hBJS4KnPMSfv2t9pDxgdZ9mzPqvTwn9YYMdhiux6Q-hY&usqp=CAU',
           shortDescription:
@@ -126,7 +129,8 @@ class HomeState extends Equatable {
           id: 3,
           name: 'Uzum Tezkor',
           location: '',
-          info: '',
+          info:
+              'Новый сервис доставки готовой еды из ресторанов Ташкента от экосистемы Uzum.',
           photo: 'https://api.logobank.uz/media/logos_png/Uzum_Tezkor-01.png',
           shortDescription:
               'Новый сервис доставки готовой еды из ресторанов Ташкента от экосистемы Uzum.',

@@ -45,6 +45,7 @@ SingleItemResponse _$SingleItemResponseFromJson(Map<String, dynamic> json) =>
       createdAt: json['created_at'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
       cityID: json['city_id'] as int? ?? 0,
+      type: json['type'] as String? ?? '',
       rating: (json['rating'] as num?)?.toDouble() ?? 0,
       cityName: json['city_name'] as String? ?? '',
       isImageTiny: json['isImageTiny'] as bool? ?? false,
@@ -62,6 +63,7 @@ Map<String, dynamic> _$SingleItemResponseToJson(SingleItemResponse instance) =>
       'updated_at': instance.updatedAt,
       'city_id': instance.cityID,
       'city_name': instance.cityName,
+      'type': instance.type,
       'rating': instance.rating,
       'isImageTiny': instance.isImageTiny,
     };

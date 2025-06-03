@@ -79,6 +79,8 @@ class SingleItemResponse {
   final int? cityID;
   @JsonKey(defaultValue: '', name: 'city_name')
   final String? cityName;
+  @JsonKey(defaultValue: '')
+  final String? type;
   @JsonKey(defaultValue: 0)
   final double? rating;
   @JsonKey(defaultValue: false)
@@ -94,6 +96,7 @@ class SingleItemResponse {
     required this.createdAt,
     required this.updatedAt,
     this.cityID,
+    this.type,
     this.rating,
     this.cityName,
     this.isImageTiny,

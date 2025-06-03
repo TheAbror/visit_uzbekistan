@@ -19,7 +19,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
 
     final homeBloc = context.read<HomeBloc>();
     final viewAllBloc = context.read<ViewAllBloc>();
-
+    //TODO should I leave it
     switch (widget.pageNamed) {
       case OpenPageNamed.article:
         viewAllBloc.assignSearchValues(homeBloc.state.articles.model.articles);

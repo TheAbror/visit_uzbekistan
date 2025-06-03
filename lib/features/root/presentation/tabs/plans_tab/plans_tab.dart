@@ -1,7 +1,5 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-//TODO
-
 class PlansTab extends StatelessWidget {
   const PlansTab({super.key});
 
@@ -9,24 +7,7 @@ class PlansTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 90.h,
-          color: AppColors.float,
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 10.h),
-              child: Text(
-                'Plans',
-                style: TextStyle(
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.siginTextColor,
-                ),
-              ),
-            ),
-          ),
-        ),
+        TabsAppBar(text: 'Plans'),
         Expanded(
           child: ListView(
             physics: BouncingScrollPhysics(),
@@ -57,6 +38,34 @@ class PlansTab extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class TabsAppBar extends StatelessWidget {
+  final String text;
+
+  TabsAppBar({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 90.h,
+      color: AppColors.float,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 10.h),
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 17.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColors.secondary,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

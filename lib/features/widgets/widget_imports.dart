@@ -95,3 +95,6 @@ export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/citi
 export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/plans_tab.dart';
 export 'package:visit_uzbekistan/features/widgets/grid_view_item.dart';
 export 'package:visit_uzbekistan/core/constants/launch_url.dart';
+export 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+export 'package:visit_uzbekistan/features/single_cty_page/tabs/tours_tab/tours_tab.dart';
+export 'package:visit_uzbekistan/features/widgets/get_route_name_from_type.dart';

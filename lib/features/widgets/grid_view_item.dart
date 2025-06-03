@@ -9,9 +9,13 @@ class GridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        final String routeName = getRouteNameFromType(
+          item.type ?? 'none',
+        );
+
         Navigator.pushNamed(
           context,
-          AppRoutes.singleCityPage,
+          routeName,
           arguments: item.id,
         );
       },

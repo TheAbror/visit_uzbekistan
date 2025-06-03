@@ -35,22 +35,9 @@ class HomeTabItems extends StatelessWidget {
               return ItemInfo(
                 item: singleItem,
                 onTap: () {
-                  String routeName;
-
-                  switch (pageNamed) {
-                    case OpenPageNamed.article:
-                      routeName = AppRoutes.htmlView;
-                      break;
-                    case OpenPageNamed.usefulApp:
-                      routeName = AppRoutes.usefullAppsPage;
-                      break;
-                    case OpenPageNamed.mustKnow:
-                      routeName = AppRoutes.mustKnowPage;
-                      break;
-                    default:
-                      routeName = AppRoutes.singleCityPage;
-                      break;
-                  }
+                  final String routeName = getRouteNameFromType(
+                    singleItem.type ?? 'none',
+                  );
 
                   Navigator.pushNamed(
                     context,

@@ -1,4 +1,3 @@
-import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class HtmlView extends StatefulWidget {

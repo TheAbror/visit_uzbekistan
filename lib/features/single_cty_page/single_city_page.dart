@@ -25,7 +25,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
     return Scaffold(
       backgroundColor: AppColors.float,
       body: DefaultTabController(
-        length: 5,
+        length: 6,
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -58,6 +58,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
                     AboutCityTab(),
                     BeforeTheTripTab(),
                     TransportationTab(),
+                    ToursTab(),
                     RestaurantsTab(),
                     PlacesTab(),
                   ],
@@ -116,6 +117,7 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
                       SingleCityTab(label: 'About ' + state.response.name),
                       SingleCityTab(label: 'Before the trip'),
                       SingleCityTab(label: 'Transportation'),
+                      SingleCityTab(label: 'Tours'),
                       SingleCityTab(label: 'Restaurants'),
                       SingleCityTab(label: 'Places'),
                     ],
@@ -142,8 +144,6 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
     return true;
   }
 }
-
-
 
 //https://github.com/ivansaul/Flutter-UI-Kit/blob/master/custom_slivers/lib/home_screen.dart
 //https://www.youtube.com/shorts/DXopel8Pf50

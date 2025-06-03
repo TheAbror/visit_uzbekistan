@@ -74,7 +74,6 @@ class SingleCityPageBgImage extends StatelessWidget {
           height: double.infinity,
           alignment: Alignment.topCenter,
           //add error builder
-
           loadingBuilder: (
             BuildContext context,
             Widget child,
@@ -90,6 +89,23 @@ class SingleCityPageBgImage extends StatelessWidget {
                       ? loadingProgress.cumulativeBytesLoaded /
                           loadingProgress.expectedTotalBytes!
                       : null,
+                ),
+              ),
+            );
+          },
+          //error case
+          errorBuilder: (
+            BuildContext context,
+            Object exception,
+            StackTrace? stackTrace,
+          ) {
+            return Container(
+              height: 200.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/sign_in_bg.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
             );
