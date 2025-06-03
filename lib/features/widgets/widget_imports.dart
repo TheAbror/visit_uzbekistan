@@ -94,3 +94,4 @@ export 'package:visit_uzbekistan/features/root/presentation/pages/home_bloc/view
 export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/cities_tab.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/plans_tab.dart';
 export 'package:visit_uzbekistan/features/widgets/grid_view_item.dart';
+export 'package:visit_uzbekistan/core/constants/launch_url.dart';

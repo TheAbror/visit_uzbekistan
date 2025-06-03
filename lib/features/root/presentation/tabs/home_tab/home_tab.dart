@@ -18,6 +18,7 @@ class HomeTab extends StatelessWidget {
 
           return ListView(
             children: [
+              //AppBar
               HomeTabAppBar(),
               //must know
               if (state.filterItemsSelected.contains('Must know'))

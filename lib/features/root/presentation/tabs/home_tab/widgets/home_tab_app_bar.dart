@@ -12,17 +12,25 @@ class HomeTabAppBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              Container(
-                width: 40.w,
-                height: 40.h,
-                padding: EdgeInsets.all(2.w),
-                decoration: BoxDecoration(
-                  color: AppColors.float,
-                  borderRadius: BorderRadius.circular(32.r),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(32.r),
-                  child: Assets.images.maleAvatarPlaceholder.image(),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.profilePage,
+                  );
+                },
+                child: Container(
+                  width: 40.w,
+                  height: 40.h,
+                  padding: EdgeInsets.all(2.w),
+                  decoration: BoxDecoration(
+                    color: AppColors.float,
+                    borderRadius: BorderRadius.circular(32.r),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(32.r),
+                    child: Assets.images.maleAvatarPlaceholder.image(),
+                  ),
                 ),
               ),
               SizedBox(width: 8.w),
