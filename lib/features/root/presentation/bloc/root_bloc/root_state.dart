@@ -2,13 +2,16 @@ part of 'root_bloc.dart';
 
 class RootState extends Equatable {
   final int tabIndex;
-  final List<SingleItemResponse> favorites; //TODO show favorites somewhere
+  //search functionality
+  final List<SingleItemResponse> favoritesInitial;
+  final List<SingleItemResponse> favoritesSearched;
   final BlocProgress blocProgress;
   final String failureMessage;
 
   const RootState({
     required this.tabIndex,
-    required this.favorites,
+    required this.favoritesInitial,
+    required this.favoritesSearched,
     required this.blocProgress,
     required this.failureMessage,
   });
@@ -16,7 +19,8 @@ class RootState extends Equatable {
   factory RootState.initial() {
     return RootState(
       tabIndex: 0,
-      favorites: [],
+      favoritesInitial: [],
+      favoritesSearched: [],
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',
     );
@@ -24,13 +28,15 @@ class RootState extends Equatable {
 
   RootState copyWith({
     int? tabIndex,
-    List<SingleItemResponse>? favorites,
+    List<SingleItemResponse>? favoritesInitial,
+    List<SingleItemResponse>? favoritesSearched,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
     return RootState(
       tabIndex: tabIndex ?? this.tabIndex,
-      favorites: favorites ?? this.favorites,
+      favoritesInitial: favoritesInitial ?? this.favoritesInitial,
+      favoritesSearched: favoritesSearched ?? this.favoritesSearched,
       blocProgress: blocProgress ?? this.blocProgress,
       failureMessage: failureMessage ?? this.failureMessage,
     );
@@ -39,7 +45,8 @@ class RootState extends Equatable {
   @override
   List<Object?> get props => [
         tabIndex,
-        favorites,
+        favoritesInitial,
+        favoritesSearched,
         blocProgress,
         failureMessage,
       ];

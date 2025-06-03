@@ -10,14 +10,26 @@ class RootBloc extends Cubit<RootState> {
   }
 
   void addFavorite(SingleItemResponse item, BuildContext context) {
-    final updatedList = List<SingleItemResponse>.from(state.favorites);
+    final updatedList = List<SingleItemResponse>.from(state.favoritesInitial);
 
-    if (state.favorites.contains(item)) {
+    if (state.favoritesInitial.contains(item)) {
       updatedList.remove(item);
     } else {
       updatedList.add(item);
     }
 
-    emit(state.copyWith(favorites: updatedList));
+    emit(state.copyWith(
+      favoritesInitial: updatedList,
+      favoritesSearched: updatedList,
+    ));
+  }
+
+  void search(String value) {
+    final searchedList = state.favoritesInitial
+        .where((element) =>
+            element.name.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+
+    emit(state.copyWith(favoritesSearched: searchedList));
   }
 }

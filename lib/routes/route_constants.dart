@@ -14,6 +14,7 @@ abstract class AppRoutes {
 
   //
   static const htmlView = '/htmlView';
+  static const favoritesPage = '/favoritesPage';
   static const usefullAppsPage = '/usefullAppsPage';
   static const rootPage = '/rootPage';
   static const profilePage = '/profilePage';

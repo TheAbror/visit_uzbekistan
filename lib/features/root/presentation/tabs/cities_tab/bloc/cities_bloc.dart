@@ -42,14 +42,6 @@ class CitiesBloc extends Cubit<CitiesState> {
     }
   }
 
-  // void addFromFavorite(String item) {
-  //   final updatedList = List<String>.from(state.initialList);
-
-  //   updatedList.add(item);
-
-  //   emit(state.copyWith(initialList: updatedList));
-  // }
-
   void search(String value) {
     final searchedList = state.cities
         .where((element) =>

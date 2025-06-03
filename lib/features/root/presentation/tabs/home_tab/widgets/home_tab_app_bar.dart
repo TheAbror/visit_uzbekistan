@@ -24,6 +24,18 @@ class HomeTabAppBar extends StatelessWidget {
                 ),
               ),
               Spacer(),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.favoritesPage,
+                  );
+                },
+                child: Icon(
+                  IconsaxPlusLinear.heart,
+                ),
+              ),
+              SizedBox(width: 8.w),
               Container(
                 width: 40.w,
                 height: 40.h,

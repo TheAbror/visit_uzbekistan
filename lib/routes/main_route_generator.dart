@@ -1,3 +1,4 @@
+import 'package:visit_uzbekistan/features/favorites/favorites_page.dart';
 import 'package:visit_uzbekistan/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -6,6 +7,11 @@ class MainRouteGenerator {
       case AppRoutes.splashPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const SplashPage(),
+        );
+
+      case AppRoutes.favoritesPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => const FavoritesPage(),
         );
 
       case AppRoutes.logInPage:

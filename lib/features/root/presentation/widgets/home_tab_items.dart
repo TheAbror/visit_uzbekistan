@@ -265,7 +265,7 @@ class ImageAndFavoriteIcon extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Icon(
-                    state.favorites.contains(item)
+                    state.favoritesInitial.contains(item)
                         ? IconsaxPlusBold.heart
                         : IconsaxPlusLinear.heart,
                     size: 18.sp,
