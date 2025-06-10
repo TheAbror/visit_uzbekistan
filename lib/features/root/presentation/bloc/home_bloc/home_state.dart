@@ -66,6 +66,7 @@ class HomeState extends Equatable {
           createdAt: '',
           updatedAt: '',
           isImageTiny: true,
+          link: 'https://uzbek-travel.com/visa/registration/',
         ),
         SingleItemResponse(
           id: 1,
@@ -80,6 +81,22 @@ class HomeState extends Equatable {
           createdAt: '',
           updatedAt: '',
           isImageTiny: true,
+          link: 'https://www.uzcaa.uz/en/drones',
+        ),
+        SingleItemResponse(
+          id: 2,
+          name: '16 things to know before visiting Uzbekistan',
+          location: '',
+          info: '',
+          photo:
+              'https://lp-cms-production.imgix.net/2023-08/GettyImages-1167036520.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop',
+          shortDescription:
+              'Uzbekistan is the Central Asian destination that you’ve been dreaming about. Magnificent blue-domed mosques, towering minarets, atmospheric Silk Road cities and ancient bazaars are coupled with the region’s best accommodation, easiest transportation and great value for money. It’s the most visited of the Central Asian republics and with good reason.',
+          createdAt: '',
+          updatedAt: '',
+          isImageTiny: false,
+          link:
+              'https://www.lonelyplanet.com/articles/things-to-know-before-traveling-to-uzbekistan',
         ),
       ],
       usefulApps: [

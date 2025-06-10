@@ -36,7 +36,7 @@ class HomeTabItems extends StatelessWidget {
                 item: singleItem,
                 onTap: () {
                   final String routeName = getRouteNameFromType(
-                    singleItem.type ?? 'none',
+                    singleItem.type ?? 'usefulApp',
                   );
 
                   Navigator.pushNamed(

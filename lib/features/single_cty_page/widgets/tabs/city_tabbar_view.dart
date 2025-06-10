@@ -10,13 +10,15 @@ class AboutCityTab extends StatelessWidget {
         return ListView(
           padding: EdgeInsets.zero,
           children: [
-            TitleDescReviews(
-              title: state.response.name,
-              reviews: '32 Reviews',
-            ),
-            SingleCityPageShortDesc(
-              shortDesc: state.response.info,
-            ),
+            // TitleDescReviews(
+            //   title: state.response.name,
+            //   reviews: '32 Reviews',
+            // ),
+            // SingleCityPageShortDesc(
+            //   shortDesc: state.response.info,
+            // ),
+
+            HtmlWidget(state.response.info),
           ],
         );
       },

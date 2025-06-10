@@ -8,12 +8,17 @@ String getRouteNameFromType(String type) {
       return AppRoutes.usefullAppsPage;
     case 'mustKnow':
       return AppRoutes.mustKnowPage;
-    case 'places':
-    case 'singleCity':
-    case 'html':
+    case 'city':
+      return AppRoutes.singleCityPage;
+    case 'restaurant':
+      return AppRoutes.viewAllPage;
+    case 'place':
+      return AppRoutes.viewAllPage;
+
+    // case 'html':
     // case 'none':
     //  return showMessage('Error '); //TODO
     default:
-      return AppRoutes.singleCityPage;
+      return AppRoutes.mustKnowPage;
   }
 }

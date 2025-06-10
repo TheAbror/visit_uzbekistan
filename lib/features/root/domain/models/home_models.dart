@@ -80,6 +80,8 @@ class SingleItemResponse {
   @JsonKey(defaultValue: '', name: 'city_name')
   final String? cityName;
   @JsonKey(defaultValue: '')
+  final String? link;
+  @JsonKey(defaultValue: '')
   final String? type;
   @JsonKey(defaultValue: 0)
   final double? rating;
@@ -98,6 +100,7 @@ class SingleItemResponse {
     this.cityID,
     this.type,
     this.rating,
+    this.link,
     this.cityName,
     this.isImageTiny,
   });
