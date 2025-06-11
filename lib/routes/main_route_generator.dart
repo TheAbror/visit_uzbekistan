@@ -112,6 +112,16 @@ class MainRouteGenerator {
           ),
         );
 
+      case AppRoutes.restaurantPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => RestaurantBloc(),
+            child: RestaurentPage(
+              id: settings.arguments as int,
+            ),
+          ),
+        );
+
       default:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const LogInPage(),

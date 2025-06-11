@@ -35,15 +35,19 @@ class HomeTabItems extends StatelessWidget {
               return ItemInfo(
                 item: singleItem,
                 onTap: () {
-                  final String routeName = getRouteNameFromType(
-                    singleItem.type ?? 'usefulApp',
+                  final String? routeName = getRouteNameFromType(
+                    singleItem.type ?? '',
                   );
 
-                  Navigator.pushNamed(
-                    context,
-                    routeName,
-                    arguments: singleItem.id,
-                  );
+                  if (routeName == null) {
+                    showMessage('error');
+                  } else {
+                    Navigator.pushNamed(
+                      context,
+                      routeName,
+                      arguments: singleItem.id,
+                    );
+                  }
                 },
               );
             },

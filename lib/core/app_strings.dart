@@ -6,4 +6,5 @@ class AppStrings {
   static const cities = 'cities';
   static const places = 'places';
   static const articles = 'articles';
+  static const restaurants = 'restaurants';
 }

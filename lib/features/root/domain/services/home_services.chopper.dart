@@ -83,4 +83,16 @@ final class _$HomeServices extends HomeServices {
     );
     return client.send<SingleArticleResponse, SingleArticleResponse>($request);
   }
+
+  @override
+  Future<Response<SingleItemResponse>> getSingleRestaurant(int id) {
+    final Uri $url =
+        Uri.parse('http://travel.getcontact.uz/api/restaurants/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<SingleItemResponse, SingleItemResponse>($request);
+  }
 }

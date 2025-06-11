@@ -11,7 +11,7 @@ String getRouteNameFromType(String type) {
     case 'city':
       return AppRoutes.singleCityPage;
     case 'restaurant':
-      return AppRoutes.viewAllPage;
+      return AppRoutes.restaurantPage;
     case 'place':
       return AppRoutes.viewAllPage;
 
