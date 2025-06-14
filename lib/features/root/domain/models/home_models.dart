@@ -182,7 +182,7 @@ class SingleCityResponse {
   final List<SingleItemResponse> restaurants;
   @JsonKey(defaultValue: [])
   final List<SingleItemResponse> articles;
-  @JsonKey(defaultValue: [], name: 'car_rentals')
+  @JsonKey(defaultValue: [], name: 'carRentals')
   final List<SingleItemResponse> carRentals;
 
   SingleCityResponse({

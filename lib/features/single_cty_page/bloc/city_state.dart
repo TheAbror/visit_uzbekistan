@@ -3,12 +3,14 @@ part of 'city_bloc.dart';
 class CityState extends Equatable {
   final SingleCityResponse response;
   final SingleItemResponse singleItem;
+  final SingleItemResponse carRentals;
   final String failureMessage;
   final BlocProgress blocProgress;
 
   const CityState({
     required this.response,
     required this.singleItem,
+    required this.carRentals,
     required this.failureMessage,
     required this.blocProgress,
   });
@@ -37,6 +39,16 @@ class CityState extends Equatable {
         createdAt: '',
         updatedAt: '',
       ),
+      carRentals: SingleItemResponse(
+        id: 0,
+        name: '',
+        location: '',
+        info: '',
+        photo: '',
+        shortDescription: '',
+        createdAt: '',
+        updatedAt: '',
+      ),
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',
     );
@@ -45,12 +57,14 @@ class CityState extends Equatable {
   CityState copyWith({
     SingleCityResponse? response,
     SingleItemResponse? singleItem,
+    SingleItemResponse? carRentals,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
     return CityState(
       response: response ?? this.response,
       singleItem: singleItem ?? this.singleItem,
+      carRentals: carRentals ?? this.carRentals,
       failureMessage: failureMessage ?? this.failureMessage,
       blocProgress: blocProgress ?? this.blocProgress,
     );
@@ -60,6 +74,7 @@ class CityState extends Equatable {
   List<Object?> get props => [
         response,
         singleItem,
+        carRentals,
         blocProgress,
         failureMessage,
       ];

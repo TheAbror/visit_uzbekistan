@@ -64,6 +64,8 @@ class ToursTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
+    return Center(
+      child: Text('No tours found'),
+    );
   }
 }

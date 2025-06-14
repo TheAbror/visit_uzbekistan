@@ -30,7 +30,18 @@ class TransportationTab extends StatelessWidget {
           itemBuilder: (context, index) {
             final singleItem = state.response.carRentals[index];
 
-            return GridViewItem(item: singleItem);
+            final newModel = SingleItemResponse(
+                id: singleItem.id,
+                name: singleItem.name,
+                location: singleItem.location,
+                info: singleItem.info,
+                photo: singleItem.photo,
+                shortDescription: singleItem.shortDescription,
+                createdAt: singleItem.createdAt,
+                updatedAt: singleItem.updatedAt,
+                isImageTiny: true);
+
+            return GridViewItem(item: newModel);
           },
         );
       },

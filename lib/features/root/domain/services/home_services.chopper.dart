@@ -95,4 +95,16 @@ final class _$HomeServices extends HomeServices {
     );
     return client.send<SingleItemResponse, SingleItemResponse>($request);
   }
+
+  @override
+  Future<Response<SingleItemResponse>> getRentalCars(int id) {
+    final Uri $url =
+        Uri.parse('http://travel.getcontact.uz/api/car_rentals/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<SingleItemResponse, SingleItemResponse>($request);
+  }
 }

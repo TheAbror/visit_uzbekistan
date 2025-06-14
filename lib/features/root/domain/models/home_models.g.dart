@@ -93,7 +93,7 @@ SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
                   (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
-      carRentals: (json['car_rentals'] as List<dynamic>?)
+      carRentals: (json['carRentals'] as List<dynamic>?)
               ?.map(
                   (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -111,7 +111,7 @@ Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
       'places': instance.places.map((e) => e.toJson()).toList(),
       'restaurants': instance.restaurants.map((e) => e.toJson()).toList(),
       'articles': instance.articles.map((e) => e.toJson()).toList(),
-      'car_rentals': instance.carRentals.map((e) => e.toJson()).toList(),
+      'carRentals': instance.carRentals.map((e) => e.toJson()).toList(),
     };
 
 ArticlesResponse _$ArticlesResponseFromJson(Map<String, dynamic> json) =>
