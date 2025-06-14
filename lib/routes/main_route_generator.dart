@@ -1,4 +1,3 @@
-import 'package:visit_uzbekistan/features/favorites/favorites_page.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class MainRouteGenerator {
@@ -117,6 +116,16 @@ class MainRouteGenerator {
           builder: (_) => BlocProvider(
             create: (context) => RestaurantBloc(),
             child: RestaurentPage(
+              id: settings.arguments as int,
+            ),
+          ),
+        );
+
+      case AppRoutes.placePage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => PlaceBloc(),
+            child: PlacePage(
               id: settings.arguments as int,
             ),
           ),

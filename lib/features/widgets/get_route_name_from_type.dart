@@ -13,11 +13,11 @@ String getRouteNameFromType(String type) {
     case 'restaurant':
       return AppRoutes.restaurantPage;
     case 'place':
-      return AppRoutes.viewAllPage;
+      return AppRoutes.placePage;
 
     // case 'html':
     // case 'none':
-    //  return showMessage('Error '); //TODO
+    //  return showMessage('Error ');
     default:
       return AppRoutes.mustKnowPage;
   }

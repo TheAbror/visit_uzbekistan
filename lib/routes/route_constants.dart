@@ -23,4 +23,5 @@ abstract class AppRoutes {
   static const viewAllPage = '/viewAllPage';
   static const mustKnowPage = '/mustKnowPage';
   static const restaurantPage = '/restaurantPage';
+  static const placePage = '/placePage';
 }

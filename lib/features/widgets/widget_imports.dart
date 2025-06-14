@@ -102,3 +102,6 @@ export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/places_ta
 export 'package:visit_uzbekistan/features/single_cty_page/widgets/tabs/restaurants_tab.dart';
 export 'package:visit_uzbekistan/features/restaurant/bloc/restaurant_bloc.dart';
 export 'package:visit_uzbekistan/features/restaurant/restaurant_page.dart';
+export 'package:visit_uzbekistan/features/favorites/favorites_page.dart';
+export 'package:visit_uzbekistan/features/place/bloc/place_bloc.dart';
+export 'package:visit_uzbekistan/features/place/place_page.dart';
