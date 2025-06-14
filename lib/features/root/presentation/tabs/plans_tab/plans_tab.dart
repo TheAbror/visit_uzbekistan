@@ -19,21 +19,21 @@ class PlansTab extends StatelessWidget {
               SizedBox(height: 10.h),
               TransportationOptions(),
               SizedBox(height: 10.h),
-              Text('''
-                Transportation options
-                ✅ Train tickets 
-                ✅ Airport tickets
-                
-                ✅ Currency exchange tips
-                
-                Safety & cultural do’s and don’ts
-                
-                ✅ Tax refund info
-                
-                Travel tips & must-know essentials
-                
-                '''),
-              SizedBox(height: 20.h),
+              // Text('''
+              //   Transportation options
+              //   ✅ Train tickets
+              //   ✅ Airport tickets
+
+              //   ✅ Currency exchange tips
+
+              //   Safety & cultural do’s and don’ts
+
+              //   ✅ Tax refund info
+
+              //   Travel tips & must-know essentials
+
+              //   '''),
+              SizedBox(height: 60.h),
             ],
           ),
         ),

@@ -24,6 +24,8 @@ class RootBloc extends Cubit<RootState> {
     ));
   }
 
+  //  3
+
   void search(String value) {
     final searchedList = state.favoritesInitial
         .where((element) =>

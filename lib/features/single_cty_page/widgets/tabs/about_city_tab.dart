@@ -8,18 +8,9 @@ class AboutCityTab extends StatelessWidget {
     return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
         return ListView(
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.only(bottom: 40.h),
           children: [
-            // TitleDescReviews(
-            //   title: state.response.name,
-            //   reviews: '32 Reviews',
-            // ),
-            // SingleCityPageShortDesc(
-            //   shortDesc: state.response.info,
-            // ),
-
             HtmlWidget(state.response.info),
-            SizedBox(height: 40.h),
           ],
         );
       },
