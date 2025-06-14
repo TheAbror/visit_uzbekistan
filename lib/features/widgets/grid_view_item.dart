@@ -9,12 +9,12 @@ class GridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        final String routeName = getRouteNameFromType(
-          item.type ?? 'none',
+        final String? routeName = getRouteNameFromType(
+          item.type ?? '',
         );
 
-        if (routeName == 'none') {
-          showMessage('Error ');
+        if (routeName == null || routeName == '') {
+          showMessage('Error ', isError: true);
         } else {
           Navigator.pushNamed(
             context,

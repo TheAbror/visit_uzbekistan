@@ -104,3 +104,4 @@ export 'package:visit_uzbekistan/features/restaurant/restaurant_page.dart';
 export 'package:visit_uzbekistan/features/favorites/favorites_page.dart';
 export 'package:visit_uzbekistan/features/place/bloc/place_bloc.dart';
 export 'package:visit_uzbekistan/features/place/place_page.dart';
+export 'package:cached_network_image/cached_network_image.dart';

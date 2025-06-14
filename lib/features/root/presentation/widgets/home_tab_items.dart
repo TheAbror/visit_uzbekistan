@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class HomeTabItems extends StatelessWidget {
@@ -40,8 +39,8 @@ class HomeTabItems extends StatelessWidget {
                     singleItem.type ?? '',
                   );
 
-                  if (routeName == null) {
-                    showMessage('error');
+                  if (routeName == null || routeName == '') {
+                    showMessage('Error ', isError: true);
                   } else {
                     Navigator.pushNamed(
                       context,

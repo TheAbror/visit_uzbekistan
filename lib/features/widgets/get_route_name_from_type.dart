@@ -1,6 +1,6 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-String getRouteNameFromType(String type) {
+String? getRouteNameFromType(String type) {
   switch (type) {
     case 'article':
       return AppRoutes.htmlView;
@@ -14,8 +14,8 @@ String getRouteNameFromType(String type) {
       return AppRoutes.restaurantPage;
     case 'place':
       return AppRoutes.placePage;
-    // case 'html':
+
     default:
-      return AppRoutes.usefullAppsPage;
+      return null;
   }
 }
