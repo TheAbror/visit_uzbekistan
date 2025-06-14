@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class HomeTabItems extends StatelessWidget {
@@ -196,48 +197,27 @@ class ImageAndFavoriteIcon extends StatelessWidget {
             topLeft: Radius.circular(12.r),
             topRight: Radius.circular(12.r),
           ),
-          child: Image.network(
+          child: CachedNetworkImage(
+            imageUrl: item.photo,
             height: _height.h,
             width: _width == null ? double.infinity : _width.w,
             fit: item.isImageTiny == true ? BoxFit.fitWidth : BoxFit.fill,
-            //error case
-            errorBuilder: (
-              BuildContext context,
-              Object exception,
-              StackTrace? stackTrace,
-            ) {
-              return Container(
-                height: _height.h,
-                width: _width == null ? double.infinity : _width.w,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/sign_in_bg.jpg'),
-                    fit: BoxFit.cover,
-                  ),
+            placeholder: (context, url) => Container(
+              height: _height.h,
+              width: _width == null ? double.infinity : _width.w,
+              color: Colors.grey[200],
+              child: Center(child: CircularProgressIndicator()),
+            ),
+            errorWidget: (context, url, error) => Container(
+              height: _height.h,
+              width: _width == null ? double.infinity : _width.w,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/sign_in_bg.jpg'),
+                  fit: BoxFit.cover,
                 ),
-              );
-            },
-            //loader case
-            loadingBuilder: (
-              BuildContext context,
-              Widget child,
-              ImageChunkEvent? loadingProgress,
-            ) {
-              if (loadingProgress == null) return child;
-              return SizedBox(
-                height: _height.h,
-                width: _width == null ? double.infinity : _width.w,
-                child: Center(
-                  child: CircularProgressIndicator(
-                    value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes!
-                        : null,
-                  ),
-                ),
-              );
-            },
-            item.photo,
+              ),
+            ),
           ),
         ),
         BlocBuilder<RootBloc, RootState>(
