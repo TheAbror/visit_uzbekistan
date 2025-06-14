@@ -71,53 +71,6 @@ class HomeTabAppBar extends StatelessWidget {
             ],
           ),
           SizedBox(height: 12.h),
-          // Container(
-          //   height: 56.h,
-          //   margin: EdgeInsets.only(bottom: 12.h),
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(16.r),
-          //     color: AppColors.white,
-          //   ),
-          //   padding: EdgeInsets.symmetric(horizontal: 16.w),
-          //   child: Row(
-          //     children: [
-          //       Icon(IconsaxPlusLinear.search_normal_1),
-          //       SizedBox(width: 16.w),
-          //       Expanded(
-          //         child: TextField(
-          //           decoration: InputDecoration(
-          //             hintText: context.localizations.search,
-          //             border: InputBorder.none,
-          //             isDense: true,
-          //             hintStyle: TextStyle(
-          //               fontSize: 15.sp,
-          //               color: AppColors.lightGrey,
-          //               fontWeight: FontWeight.w500,
-          //             ),
-          //           ),
-          //           style: TextStyle(
-          //             fontSize: 15.sp,
-          //             color: Colors.black,
-          //             fontWeight: FontWeight.w500,
-          //           ),
-          //         ),
-          //       ),
-          //       SizedBox(width: 16.w),
-          //       GestureDetector(
-          //         onTap: () {
-          //           showModalBottomSheet(
-          //             backgroundColor: Colors.transparent,
-          //             context: context,
-          //             builder: (context) {
-          //               return const HomeTabSearchFilter();
-          //             },
-          //           );
-          //         },
-          //         child: Icon(IconsaxPlusLinear.setting_3),
-          //       ),
-          //     ],
-          //   ),
-          // ),
         ],
       ),
     );

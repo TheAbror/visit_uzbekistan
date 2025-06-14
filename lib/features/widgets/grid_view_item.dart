@@ -13,11 +13,15 @@ class GridViewItem extends StatelessWidget {
           item.type ?? 'none',
         );
 
-        Navigator.pushNamed(
-          context,
-          routeName,
-          arguments: item.id,
-        );
+        if (routeName == 'none') {
+          showMessage('Error ');
+        } else {
+          Navigator.pushNamed(
+            context,
+            routeName,
+            arguments: item.id,
+          );
+        }
       },
       child: Container(
         decoration: BoxDecoration(
@@ -75,9 +79,9 @@ class GridViewItem extends StatelessWidget {
                     maxLines: item.location.isEmpty ? 3 : 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  if (item.shortDescription.length < 20) SizedBox(height: 17.h),
+                  if (item.shortDescription.length < 27) SizedBox(height: 17.h),
                   if (item.location.isNotEmpty) ...[
-                    SizedBox(height: 6.h),
+                    SizedBox(height: 8.h),
                     Row(
                       children: [
                         Icon(

@@ -39,24 +39,23 @@ class _ToursTabState extends State<ToursTab> {
 
   @override
   Widget build(BuildContext context) {
-    //TODO
     return WebViewWidget(controller: _controller);
 
-    SizedBox(
-      height: 400.h,
-      width: double.infinity,
-      child: Column(
-        children: [
-          (_progress < 1)
-              ? LinearProgressIndicator(
-                  value: _progress,
-                  backgroundColor: Colors.transparent,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-                )
-              : SizedBox.shrink(),
-          WebViewWidget(controller: _controller),
-        ],
-      ),
-    );
+    // SizedBox(
+    //   height: 400.h,
+    //   width: double.infinity,
+    //   child: Column(
+    //     children: [
+    //       (_progress < 1)
+    //           ? LinearProgressIndicator(
+    //               value: _progress,
+    //               backgroundColor: Colors.transparent,
+    //               valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+    //             )
+    //           : SizedBox.shrink(),
+    //       WebViewWidget(controller: _controller),
+    //     ],
+    //   ),
+    // );
   }
 }

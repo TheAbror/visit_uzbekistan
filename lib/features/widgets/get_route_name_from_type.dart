@@ -14,11 +14,8 @@ String getRouteNameFromType(String type) {
       return AppRoutes.restaurantPage;
     case 'place':
       return AppRoutes.placePage;
-
     // case 'html':
-    // case 'none':
-    //  return showMessage('Error ');
     default:
-      return AppRoutes.mustKnowPage;
+      return AppRoutes.usefullAppsPage;
   }
 }

@@ -28,14 +28,14 @@ class HomeState extends Equatable {
     return HomeState(
       filterItemsAll: [
         'Must know',
-        'Places',
         'Useful apps',
+        'Places',
         'Articles',
       ],
       filterItemsSelected: [
         'Must know',
-        'Places',
         'Useful apps',
+        'Places',
         'Articles',
       ],
       places: [],

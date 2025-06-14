@@ -17,8 +17,20 @@ class CityBloc extends Cubit<CityState> {
         final result = response.body;
 
         if (result != null) {
+          final singleCityItem = SingleItemResponse(
+            id: id,
+            name: result.name,
+            location: result.location,
+            info: result.info,
+            photo: result.photo,
+            shortDescription: result.shortDescription,
+            createdAt: '',
+            updatedAt: '',
+          );
+
           emit(state.copyWith(
             response: result,
+            singleItem: singleCityItem,
             blocProgress: BlocProgress.LOADED,
           ));
         }

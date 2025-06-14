@@ -42,7 +42,15 @@ class _PlacePageState extends State<PlacePage> {
               SizedBox(height: 10.h),
               Text(state.place.shortDescription),
               Text(state.place.info),
-              Text(state.place.cityName ?? ''),
+              Row(
+                children: [
+                  Text(
+                    'City name: ',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(state.place.cityName ?? ''),
+                ],
+              ),
             ],
           );
         },

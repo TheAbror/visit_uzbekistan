@@ -73,7 +73,7 @@ class SingleCityPageBgImage extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
           alignment: Alignment.topCenter,
-          //add error builder
+          //loader
           loadingBuilder: (
             BuildContext context,
             Widget child,
@@ -116,6 +116,51 @@ class SingleCityPageBgImage extends StatelessWidget {
   }
 }
 
+class SingleCityPageMakeFavoriteWidget extends StatelessWidget {
+  final int cityID;
+
+  const SingleCityPageMakeFavoriteWidget({
+    super.key,
+    required this.cityID,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CityBloc, CityState>(
+      builder: (context, cityState) {
+        final singleItem = cityState.singleItem;
+
+        return GestureDetector(
+          onTap: () {
+            context.read<RootBloc>().addFavorite(singleItem, context);
+          },
+          child: BlocBuilder<RootBloc, RootState>(
+            builder: (context, rootState) {
+              return Container(
+                padding: EdgeInsets.all(4.w),
+                margin: EdgeInsets.only(right: 8.w),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Icon(
+                  rootState.favoritesInitial.isEmpty
+                      ? IconsaxPlusLinear.heart
+                      : rootState.favoritesInitial.any((e) => e.id == cityID)
+                          ? IconsaxPlusBold.heart
+                          : IconsaxPlusLinear.heart,
+                  size: 18.sp,
+                  color: Colors.red,
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+}
+
 class SingleCityPageLeadingIcon extends StatelessWidget {
   const SingleCityPageLeadingIcon({super.key});
 
@@ -136,45 +181,6 @@ class SingleCityPageLeadingIcon extends StatelessWidget {
             'assets/icons/single_city/arrow-left.svg'),
       ),
       onPressed: () => Navigator.pop(context),
-    );
-  }
-}
-
-class SingleCityPageMakeFavoriteWidget extends StatelessWidget {
-  final int cityID;
-
-  const SingleCityPageMakeFavoriteWidget({
-    super.key,
-    required this.cityID,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<RootBloc, RootState>(
-      builder: (context, state) {
-        return GestureDetector(
-          onTap: () {
-            // context.read<RootBloc>().addFavorite(item);
-          },
-          child: Container(
-            padding: EdgeInsets.all(4.w),
-            margin: EdgeInsets.only(right: 8.w),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: Icon(
-              // state.favorites.contains(
-              //         state.favorites.firstWhere((e) => e.id == cityID))
-              //     ? IconsaxPlusBold.heart
-              //     :
-              IconsaxPlusLinear.heart,
-              size: 18.sp,
-              color: Colors.red,
-            ),
-          ),
-        );
-      },
     );
   }
 }
