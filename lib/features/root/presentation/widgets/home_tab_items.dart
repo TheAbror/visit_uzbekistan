@@ -35,18 +35,32 @@ class HomeTabItems extends StatelessWidget {
               return ItemInfo(
                 item: singleItem,
                 onTap: () {
-                  final String? routeName = getRouteNameFromType(
-                    singleItem.type ?? '',
-                  );
-
-                  if (routeName == null || routeName == '') {
-                    showMessage('Error ', isError: true);
-                  } else {
+                  if (pageNamed == OpenPageNamed.mustKnow) {
                     Navigator.pushNamed(
                       context,
-                      routeName,
+                      AppRoutes.mustKnowPage,
                       arguments: singleItem.id,
                     );
+                  } else if (pageNamed == OpenPageNamed.usefulApp) {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.usefullAppsPage,
+                      arguments: singleItem.id,
+                    );
+                  } else {
+                    final String? routeName = getRouteNameFromType(
+                      singleItem.type ?? '',
+                    );
+
+                    if (routeName == null || routeName == '') {
+                      showMessage('Error ', isError: true);
+                    } else {
+                      Navigator.pushNamed(
+                        context,
+                        routeName,
+                        arguments: singleItem.id,
+                      );
+                    }
                   }
                 },
               );
