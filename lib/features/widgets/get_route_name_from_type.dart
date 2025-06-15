@@ -14,6 +14,8 @@ String? getRouteNameFromType(String type) {
       return AppRoutes.restaurantPage;
     case 'place':
       return AppRoutes.placePage;
+    case 'car_rental':
+      return AppRoutes.transportPage;
 
     default:
       return null;

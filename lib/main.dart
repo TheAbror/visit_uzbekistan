@@ -16,7 +16,7 @@ void main() async {
           providers: [
             BlocProvider(create: (context) => RootBloc()),
             BlocProvider(create: (context) => HomeBloc()),
-            BlocProvider(create: (context) => CitiesBloc()),
+            BlocProvider(create: (context) => CitiesTabBloc()),
             BlocProvider(
                 create: (context) => LocalizationBloc()..initLocalization()),
           ],

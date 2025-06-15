@@ -2,6 +2,8 @@ import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 part 'city_state.dart';
 
+// TODO there are citybloc and citiesbloc
+
 class CityBloc extends Cubit<CityState> {
   CityBloc() : super(CityState.initial());
 

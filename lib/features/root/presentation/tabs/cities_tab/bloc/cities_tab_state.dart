@@ -1,20 +1,20 @@
-part of 'cities_bloc.dart';
+part of 'cities_tab_bloc.dart';
 
-class CitiesState extends Equatable {
+class CitiesTabState extends Equatable {
   final List<SingleItemResponse> cities;
   final List<SingleItemResponse> citiesSearched;
   final BlocProgress blocProgress;
   final String failureMessage;
 
-  const CitiesState({
+  const CitiesTabState({
     required this.cities,
     required this.citiesSearched,
     required this.blocProgress,
     required this.failureMessage,
   });
 
-  factory CitiesState.initial() {
-    return CitiesState(
+  factory CitiesTabState.initial() {
+    return CitiesTabState(
       cities: [],
       citiesSearched: [],
       blocProgress: BlocProgress.NOT_STARTED,
@@ -22,13 +22,13 @@ class CitiesState extends Equatable {
     );
   }
 
-  CitiesState copyWith({
+  CitiesTabState copyWith({
     List<SingleItemResponse>? cities,
     List<SingleItemResponse>? citiesSearched,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
-    return CitiesState(
+    return CitiesTabState(
       cities: cities ?? this.cities,
       citiesSearched: citiesSearched ?? this.citiesSearched,
       blocProgress: blocProgress ?? this.blocProgress,

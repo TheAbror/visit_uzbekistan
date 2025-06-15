@@ -19,7 +19,7 @@ abstract class AppRoutes {
   static const rootPage = '/rootPage';
   static const profilePage = '/profilePage';
   static const singleCityPage = '/singleCityPage';
-  static const singleTransportPage = '/singleTransportPage';
+  static const transportPage = '/transportPage';
   static const viewAllPage = '/viewAllPage';
   static const mustKnowPage = '/mustKnowPage';
   static const restaurantPage = '/restaurantPage';

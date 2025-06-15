@@ -43,10 +43,13 @@ class MainRouteGenerator {
           ),
         );
 
-      case AppRoutes.singleTransportPage:
+      case AppRoutes.transportPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => SingleTransportPage(
-            id: settings.arguments as int,
+          builder: (_) => BlocProvider(
+            create: (context) => TransportationBloc(),
+            child: TransportPage(
+              id: settings.arguments as int,
+            ),
           ),
         );
 

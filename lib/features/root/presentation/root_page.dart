@@ -12,7 +12,7 @@ class _RootPageState extends State<RootPage> {
   void initState() {
     super.initState();
 
-    context.read<CitiesBloc>().getAllCities(context);
+    context.read<CitiesTabBloc>().getAllCities(context);
     context.read<HomeBloc>().getAllPlaces(context);
     context.read<HomeBloc>().getAllArticels(context);
   }

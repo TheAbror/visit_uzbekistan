@@ -1,23 +1,21 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-part 'cities_state.dart';
+part 'transportation_state.dart';
 
-class CitiesBloc extends Cubit<CitiesState> {
-  CitiesBloc() : super(CitiesState.initial());
-
-  void getAllCities(BuildContext context) async {
+class TransportationBloc extends Cubit<TransportationState> {
+  TransportationBloc() : super(TransportationState.initial());
+  void getRentalCars(int id) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 
     try {
-      final response = await ApiProvider.homeServices.getAllCities();
+      final response = await ApiProvider.homeServices.getRentalCars(id);
 
       if (response.isSuccessful) {
         final result = response.body;
 
         if (result != null) {
           emit(state.copyWith(
-            cities: result.cities,
-            citiesSearched: result.cities,
+            carRentals: result,
             blocProgress: BlocProgress.LOADED,
           ));
         }
@@ -40,14 +38,5 @@ class CitiesBloc extends Cubit<CitiesState> {
         ));
       }
     }
-  }
-
-  void search(String value) {
-    final searchedList = state.cities
-        .where((element) =>
-            element.name.toLowerCase().contains(value.toLowerCase()))
-        .toList();
-
-    emit(state.copyWith(citiesSearched: searchedList));
   }
 }

@@ -6,7 +6,7 @@ class CitiesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<CitiesBloc, CitiesState>(
+      child: BlocBuilder<CitiesTabBloc, CitiesTabState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
@@ -35,7 +35,7 @@ class CitiesTab extends StatelessWidget {
                     Expanded(
                       child: TextField(
                         onChanged: (value) {
-                          context.read<CitiesBloc>().search(value);
+                          context.read<CitiesTabBloc>().search(value);
                         },
                         decoration: InputDecoration(
                           hintText: context.localizations.search,

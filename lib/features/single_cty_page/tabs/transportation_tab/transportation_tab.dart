@@ -31,15 +31,17 @@ class TransportationTab extends StatelessWidget {
             final singleItem = state.response.carRentals[index];
 
             final newModel = SingleItemResponse(
-                id: singleItem.id,
-                name: singleItem.name,
-                location: singleItem.location,
-                info: singleItem.info,
-                photo: singleItem.photo,
-                shortDescription: singleItem.shortDescription,
-                createdAt: singleItem.createdAt,
-                updatedAt: singleItem.updatedAt,
-                isImageTiny: true);
+              id: singleItem.id,
+              name: singleItem.name,
+              location: singleItem.location,
+              info: singleItem.info,
+              photo: singleItem.photo,
+              shortDescription: singleItem.shortDescription,
+              createdAt: singleItem.createdAt,
+              updatedAt: singleItem.updatedAt,
+              isImageTiny: true,
+              type: singleItem.type,
+            );
 
             return GridViewItem(item: newModel);
           },
@@ -164,7 +166,7 @@ class TransportationItem extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          AppRoutes.singleTransportPage,
+          AppRoutes.transportPage,
           arguments: 0,
         );
       },
