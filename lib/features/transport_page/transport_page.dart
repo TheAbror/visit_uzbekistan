@@ -41,10 +41,7 @@ class _TransportPageState extends State<TransportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // title: const Text('Car Details'),
-          // backgroundColor: Colors.transparent,
-          ),
+      appBar: AppBar(),
       body: BlocBuilder<TransportationBloc, TransportationState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
@@ -146,6 +143,7 @@ class _TransportPageState extends State<TransportPage> {
                       text: 'Book this car',
                       onPressed: () {},
                     ),
+                    SizedBox(height: 40.h),
                   ],
                 ),
               )

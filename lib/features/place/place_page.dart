@@ -33,47 +33,45 @@ class _PlacePageState extends State<PlacePage> {
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: 8.w),
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12.r),
-                  topRight: Radius.circular(12.r),
-                ),
-                child: CachedNetworkImage(
-                  imageUrl: state.place.photo,
+              CachedNetworkImage(
+                imageUrl: state.place.photo,
+                height: 300.h,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Container(
                   height: 300.h,
                   width: double.infinity,
-                  placeholder: (context, url) => Container(
-                    height: 300.h,
-                    width: double.infinity,
-                    color: Colors.grey[200],
-                    child: Center(child: CircularProgressIndicator()),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    height: 300.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/sign_in_bg.jpg'),
-                        fit: BoxFit.cover,
-                      ),
+                  color: Colors.grey[200],
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  height: 300.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/sign_in_bg.jpg'),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
-              Text(state.place.name),
-              Text(state.place.location),
-              SizedBox(height: 10.h),
-              Text(state.place.shortDescription),
-              Text(state.place.info),
-              Row(
-                children: [
-                  Text(
-                    'City name: ',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(state.place.cityName ?? ''),
-                ],
+              SizedBox(height: 2.h),
+              Text(
+                state.place.name,
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 2.h),
+              Text(
+                state.place.location,
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                state.place.shortDescription,
+                style: TextStyle(fontSize: 14.sp),
+              ),
+              Text(state.place.info),
+              SizedBox(height: 40.h),
             ],
           );
         },
