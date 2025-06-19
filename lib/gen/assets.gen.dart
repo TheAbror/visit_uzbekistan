@@ -66,6 +66,12 @@ class $AssetsIconsGen {
 
   $AssetsIconsSingleCityGen get singleCity => const $AssetsIconsSingleCityGen();
 
+  /// File path: assets/icons/star_empty.svg
+  String get starEmpty => 'assets/icons/star_empty.svg';
+
+  /// File path: assets/icons/star_filled.svg
+  String get starFilled => 'assets/icons/star_filled.svg';
+
   /// File path: assets/icons/user_plus.svg
   String get userPlus => 'assets/icons/user_plus.svg';
 
@@ -86,6 +92,8 @@ class $AssetsIconsGen {
         icTrashCan,
         infoRect,
         pillsChecked,
+        starEmpty,
+        starFilled,
         userPlus
       ];
 }
