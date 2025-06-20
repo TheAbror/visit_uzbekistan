@@ -19,9 +19,13 @@ class ReviewsAndRatingsWidget extends StatelessWidget {
         SizedBox(height: 8.h),
         Row(
           children: [
-            CircleAvatar(
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
               child: Image.network(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrtQBXGauSHMKNR-H7uIGq5k7Par8k4scPw&s'),
+                width: 40.w,
+                height: 40.w,
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrtQBXGauSHMKNR-H7uIGq5k7Par8k4scPw&s',
+              ),
             ),
             SizedBox(width: 12.w),
             Column(
@@ -60,9 +64,13 @@ class ReviewsAndRatingsWidget extends StatelessWidget {
         SizedBox(height: 12.h),
         Row(
           children: [
-            CircleAvatar(
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
               child: Image.network(
-                  'https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740'),
+                width: 40.w,
+                height: 40.w,
+                'https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740',
+              ),
             ),
             SizedBox(width: 12.w),
             Column(
