@@ -106,3 +106,4 @@ export 'package:visit_uzbekistan/features/place/bloc/place_bloc.dart';
 export 'package:visit_uzbekistan/features/place/place_page.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:visit_uzbekistan/features/transport_page/bloc/transportation_bloc.dart';
+export 'package:visit_uzbekistan/features/widgets/reviews_and_ratings_widget.dart';

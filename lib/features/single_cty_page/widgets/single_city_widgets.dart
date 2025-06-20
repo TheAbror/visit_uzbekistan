@@ -176,9 +176,10 @@ class SingleCityPageLeadingIcon extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
         ),
         child: SvgPicture.asset(
-            height: 24.w,
-            width: 24.w,
-            'assets/icons/single_city/arrow-left.svg'),
+          height: 24.w,
+          width: 24.w,
+          'assets/icons/single_city/arrow-left.svg',
+        ),
       ),
       onPressed: () => Navigator.pop(context),
     );
