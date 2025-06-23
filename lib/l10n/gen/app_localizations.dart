@@ -362,6 +362,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Email address'**
   String get emailAddress;
+
+  /// No description provided for @tours.
+  ///
+  /// In en, this message translates to:
+  /// **'Tours'**
+  String get tours;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

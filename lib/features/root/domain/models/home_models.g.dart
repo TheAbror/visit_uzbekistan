@@ -128,6 +128,20 @@ Map<String, dynamic> _$ArticlesResponseToJson(ArticlesResponse instance) =>
       'articles': instance.articles.map((e) => e.toJson()).toList(),
     };
 
+ToursResponse _$ToursResponseFromJson(Map<String, dynamic> json) =>
+    ToursResponse(
+      tours: (json['tours'] as List<dynamic>?)
+              ?.map(
+                  (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+    );
+
+Map<String, dynamic> _$ToursResponseToJson(ToursResponse instance) =>
+    <String, dynamic>{
+      'tours': instance.tours.map((e) => e.toJson()).toList(),
+    };
+
 SingleArticleResponse _$SingleArticleResponseFromJson(
         Map<String, dynamic> json) =>
     SingleArticleResponse(

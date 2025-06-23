@@ -53,6 +53,42 @@ class HomeBloc extends Cubit<HomeState> {
     }
   }
 
+  void getAllTours(BuildContext context) async {
+    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+
+    try {
+      final response = await ApiProvider.homeServices.getAllTours();
+
+      if (response.isSuccessful) {
+        final result = response.body;
+
+        if (result != null) {
+          emit(state.copyWith(
+            tours: result.tours,
+            blocProgress: BlocProgress.LOADED,
+          ));
+        }
+      } else {
+        final error =
+            ErrorResponse.fromJson(json.decode(response.error.toString()));
+
+        emit(state.copyWith(
+          blocProgress: BlocProgress.FAILED,
+          failureMessage: error.message,
+        ));
+      }
+    } catch (e) {
+      debugPrint('Error getting: $e');
+
+      if (!isClosed) {
+        emit(state.copyWith(
+          blocProgress: BlocProgress.FAILED,
+          failureMessage: e.toString(),
+        ));
+      }
+    }
+  }
+
   void getAllArticels(BuildContext context) async {
     emit(
       state.copyWith(

@@ -134,4 +134,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get emailAddress => 'Адрес электронной почты';
+
+  @override
+  String get tours => 'Туры';
 }

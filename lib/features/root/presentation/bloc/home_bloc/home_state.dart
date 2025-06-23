@@ -8,6 +8,7 @@ class HomeState extends Equatable {
   final List<SingleItemResponse> usefulApps;
   final List<SingleItemResponse> mustKnow;
   final SuperBlocProgress<ArticlesResponse> articles;
+  final List<SingleItemResponse> tours;
   final SingleArticleResponse singleArticle;
   final BlocProgress blocProgress;
   final String failureMessage;
@@ -19,6 +20,7 @@ class HomeState extends Equatable {
     required this.usefulApps,
     required this.mustKnow,
     required this.articles,
+    required this.tours,
     required this.singleArticle,
     required this.blocProgress,
     required this.failureMessage,
@@ -31,17 +33,20 @@ class HomeState extends Equatable {
         'Useful apps',
         'Places',
         'Articles',
+        'Tours',
       ],
       filterItemsSelected: [
         'Must know',
         'Useful apps',
         'Places',
         'Articles',
+        'Tours',
       ],
       places: [],
       articles: SuperBlocProgress(
         model: ArticlesResponse(articles: []),
       ),
+      tours: [],
       singleArticle: SingleArticleResponse(
         id: 0,
         title: '',
@@ -210,6 +215,7 @@ class HomeState extends Equatable {
     List<SingleItemResponse>? usefulApps,
     List<SingleItemResponse>? mustKnow,
     SuperBlocProgress<ArticlesResponse>? articles,
+    List<SingleItemResponse>? tours,
     SingleArticleResponse? singleArticle,
     BlocProgress? blocProgress,
     String? failureMessage,
@@ -219,6 +225,7 @@ class HomeState extends Equatable {
       filterItemsSelected: filterItemsSelected ?? this.filterItemsSelected,
       places: places ?? this.places,
       articles: articles ?? this.articles,
+      tours: tours ?? this.tours,
       usefulApps: usefulApps ?? this.usefulApps,
       mustKnow: mustKnow ?? this.mustKnow,
       singleArticle: singleArticle ?? this.singleArticle,
@@ -235,6 +242,7 @@ class HomeState extends Equatable {
         usefulApps,
         mustKnow,
         articles,
+        tours,
         singleArticle,
         blocProgress,
         failureMessage,

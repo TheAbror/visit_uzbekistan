@@ -73,6 +73,17 @@ final class _$HomeServices extends HomeServices {
   }
 
   @override
+  Future<Response<ToursResponse>> getAllTours() {
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/tours');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<ToursResponse, ToursResponse>($request);
+  }
+
+  @override
   Future<Response<SingleArticleResponse>> getSingleArticle(int id) {
     final Uri $url =
         Uri.parse('http://travel.getcontact.uz/api/articles/${id}');

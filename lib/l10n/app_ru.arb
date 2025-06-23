@@ -85,5 +85,7 @@
   "lastName": "Фамилия",
   "@lastName": {},
   "emailAddress": "Адрес электронной почты",
-  "@emailAddress": {}
+  "@emailAddress": {},
+  "tours": "Туры",
+  "@tours": {}
 }

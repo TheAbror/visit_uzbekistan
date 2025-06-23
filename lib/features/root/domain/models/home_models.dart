@@ -218,6 +218,19 @@ class ArticlesResponse {
 }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
+class ToursResponse {
+  @JsonKey(defaultValue: [])
+  final List<SingleItemResponse> tours;
+
+  ToursResponse({required this.tours});
+
+  factory ToursResponse.fromJson(Map<String, dynamic> json) =>
+      _$ToursResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ToursResponseToJson(this);
+}
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
 class SingleArticleResponse {
   @JsonKey(defaultValue: 0)
   final int id;

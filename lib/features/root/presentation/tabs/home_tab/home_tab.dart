@@ -56,7 +56,16 @@ class HomeTab extends StatelessWidget {
                     pageNamed: OpenPageNamed.article,
                   ),
               if (state.articles.blocProgress == BlocProgress.IS_LOADING)
-                Center(child: CircularProgressIndicator())
+                Center(child: CircularProgressIndicator()),
+
+              //places
+              if (state.filterItemsSelected.contains('Tours'))
+                if (state.tours.isNotEmpty)
+                  HomeTabItems(
+                    header: context.localizations.tours,
+                    item: state.tours,
+                    pageNamed: OpenPageNamed.tours,
+                  ),
             ],
           );
         },

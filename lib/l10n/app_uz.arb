@@ -85,5 +85,7 @@
   "lastName": "Familiya",
   "@lastName": {},
   "emailAddress": "E-pochta manzili",
-  "@emailAddress": {}
+  "@emailAddress": {},
+  "tours": "Ekskursiyalar",
+  "@tours": {}
 }

@@ -134,4 +134,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get emailAddress => 'Correo electrónico';
+
+  @override
+  String get tours => 'Excursiones';
 }

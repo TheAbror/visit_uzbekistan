@@ -134,4 +134,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get emailAddress => 'E-pochta manzili';
+
+  @override
+  String get tours => 'Ekskursiyalar';
 }

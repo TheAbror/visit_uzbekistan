@@ -533,16 +533,6 @@ class HelpBottomSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                // SvgPicture.asset(
-                //   'assets/icons/global.svg',
-                //   height: 24.h,
-                //   width: 24.w,
-                //   colorFilter: ColorFilter.mode(
-                //     AppColors.textColorDarkBlue,
-                //     BlendMode.srcIn,
-                //   ),
-                // ),
-                // SizedBox(width: 8.w),
                 Text(
                   'Choose help option',
                   textAlign: TextAlign.left,
@@ -555,6 +545,15 @@ class HelpBottomSheet extends StatelessWidget {
               ],
             ),
             SizedBox(height: 12.h),
+            moreTabOptions(
+              'Tourist police',
+              const Locale.fromSubtags(
+                languageCode: 'uz',
+                countryCode: 'UZ',
+              ),
+              context,
+              true,
+            ),
             moreTabOptions(
               'Gmail',
               const Locale.fromSubtags(

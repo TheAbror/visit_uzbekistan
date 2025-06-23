@@ -85,5 +85,7 @@
   "lastName": "Nom",
   "@lastName": {},
   "emailAddress": "Adresse e-mail",
-  "@emailAddress": {}
+  "@emailAddress": {},
+  "tours": "Visites",
+  "@tours": {}
 }

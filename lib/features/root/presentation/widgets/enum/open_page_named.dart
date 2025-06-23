@@ -5,4 +5,5 @@ enum OpenPageNamed {
   html,
   mustKnow,
   places,
+  tours,
 }
