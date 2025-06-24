@@ -13,7 +13,7 @@ abstract class AppRoutes {
   static const signUpEnterDetails = '/signUpEnterDetails';
 
   //
-  static const htmlView = '/htmlView';
+  static const articlePage = '/articlePage';
   static const favoritesPage = '/favoritesPage';
   static const usefullAppsPage = '/usefullAppsPage';
   static const rootPage = '/rootPage';
@@ -24,4 +24,5 @@ abstract class AppRoutes {
   static const mustKnowPage = '/mustKnowPage';
   static const restaurantPage = '/restaurantPage';
   static const placePage = '/placePage';
+  static const toursPage = '/toursPage';
 }

@@ -1,5 +1,15 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
+class IdandTitle {
+  final int id;
+  final String title;
+
+  IdandTitle({
+    required this.id,
+    required this.title,
+  });
+}
+
 class GridViewItem extends StatelessWidget {
   final SingleItemResponse item;
 
@@ -19,7 +29,10 @@ class GridViewItem extends StatelessWidget {
           Navigator.pushNamed(
             context,
             routeName,
-            arguments: item.id,
+            arguments: IdandTitle(
+              id: item.id,
+              title: item.name,
+            ),
           );
         }
       },

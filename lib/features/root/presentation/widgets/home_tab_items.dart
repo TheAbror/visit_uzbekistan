@@ -39,13 +39,19 @@ class HomeTabItems extends StatelessWidget {
                     Navigator.pushNamed(
                       context,
                       AppRoutes.mustKnowPage,
-                      arguments: singleItem.id,
+                      arguments: IdandTitle(
+                        id: singleItem.id,
+                        title: singleItem.name,
+                      ),
                     );
                   } else if (pageNamed == OpenPageNamed.usefulApp) {
                     Navigator.pushNamed(
                       context,
                       AppRoutes.usefullAppsPage,
-                      arguments: singleItem.id,
+                      arguments: IdandTitle(
+                        id: singleItem.id,
+                        title: singleItem.name,
+                      ),
                     );
                   } else {
                     final String? routeName = getRouteNameFromType(
@@ -58,7 +64,10 @@ class HomeTabItems extends StatelessWidget {
                       Navigator.pushNamed(
                         context,
                         routeName,
-                        arguments: singleItem.id,
+                        arguments: IdandTitle(
+                          id: singleItem.id,
+                          title: singleItem.name,
+                        ),
                       );
                     }
                   }

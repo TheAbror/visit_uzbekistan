@@ -1,11 +1,11 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class UsefullAppsPage extends StatelessWidget {
-  final int id;
+  final IdandTitle idandTitle;
 
   const UsefullAppsPage({
     super.key,
-    required this.id,
+    required this.idandTitle,
   });
 
   @override
@@ -14,7 +14,7 @@ class UsefullAppsPage extends StatelessWidget {
       appBar: AppBar(),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
-          final item = state.usefulApps[id];
+          final item = state.usefulApps[idandTitle.id];
           final _height = 300.h;
 
           return ListView(

@@ -38,7 +38,7 @@ class MainRouteGenerator {
           builder: (_) => BlocProvider(
             create: (context) => CityBloc(),
             child: SignleCityPage(
-              id: settings.arguments as int,
+              idandTitle: settings.arguments as IdandTitle,
             ),
           ),
         );
@@ -48,7 +48,7 @@ class MainRouteGenerator {
           builder: (_) => BlocProvider(
             create: (context) => TransportationBloc(),
             child: TransportPage(
-              id: settings.arguments as int,
+              idandTitle: settings.arguments as IdandTitle,
             ),
           ),
         );
@@ -93,24 +93,24 @@ class MainRouteGenerator {
           builder: (_) => const SignUpEnterDetailsPage(),
         );
 
-      case AppRoutes.htmlView:
+      case AppRoutes.articlePage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => HtmlView(
-            id: settings.arguments as int,
+          builder: (_) => ArticlePage(
+            idandTitle: settings.arguments as IdandTitle,
           ),
         );
 
       case AppRoutes.usefullAppsPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => UsefullAppsPage(
-            id: settings.arguments as int,
+            idandTitle: settings.arguments as IdandTitle,
           ),
         );
 
       case AppRoutes.mustKnowPage:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => MustKnowPage(
-            id: settings.arguments as int,
+            idandTitle: settings.arguments as IdandTitle,
           ),
         );
 
@@ -119,7 +119,7 @@ class MainRouteGenerator {
           builder: (_) => BlocProvider(
             create: (context) => RestaurantBloc(),
             child: RestaurentPage(
-              id: settings.arguments as int,
+              idandTitle: settings.arguments as IdandTitle,
             ),
           ),
         );
@@ -129,7 +129,17 @@ class MainRouteGenerator {
           builder: (_) => BlocProvider(
             create: (context) => PlaceBloc(),
             child: PlacePage(
-              id: settings.arguments as int,
+              idandTitle: settings.arguments as IdandTitle,
+            ),
+          ),
+        );
+
+      case AppRoutes.toursPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => ToursBloc(),
+            child: ToursPage(
+              idandTitle: settings.arguments as IdandTitle,
             ),
           ),
         );

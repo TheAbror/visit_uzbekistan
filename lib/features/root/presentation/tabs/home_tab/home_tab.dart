@@ -58,7 +58,7 @@ class HomeTab extends StatelessWidget {
               if (state.articles.blocProgress == BlocProgress.IS_LOADING)
                 Center(child: CircularProgressIndicator()),
 
-              //places
+              //tours
               if (state.filterItemsSelected.contains('Tours'))
                 if (state.tours.isNotEmpty)
                   HomeTabItems(

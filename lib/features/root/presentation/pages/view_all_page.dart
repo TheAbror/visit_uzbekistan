@@ -19,8 +19,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
 
     final homeBloc = context.read<HomeBloc>();
     final viewAllBloc = context.read<ViewAllBloc>();
-    //TODO should I leave it
-    
+
     switch (widget.pageNamed) {
       case OpenPageNamed.article:
         viewAllBloc.assignSearchValues(homeBloc.state.articles.model.articles);
@@ -33,6 +32,9 @@ class _ViewAllPageState extends State<ViewAllPage> {
         break;
       case OpenPageNamed.usefulApp:
         viewAllBloc.assignSearchValues(homeBloc.state.usefulApps);
+        break;
+      case OpenPageNamed.tours:
+        viewAllBloc.assignSearchValues(homeBloc.state.tours);
         break;
       default:
         // viewAllBloc.assignSearchValues(homeBloc.state.cities);

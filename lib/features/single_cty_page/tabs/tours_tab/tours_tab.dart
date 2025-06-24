@@ -64,8 +64,35 @@ class ToursTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('No tours found'),
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        if (state.tours.isEmpty) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 50.h),
+            child: Center(
+              child: Text('No tours found'),
+            ),
+          );
+        }
+
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 8.h,
+            crossAxisSpacing: 8.h,
+            childAspectRatio: 0.85,
+          ),
+          itemCount: state.tours.length,
+          shrinkWrap: true,
+          padding: EdgeInsets.zero,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            final singleItem = state.tours[index];
+
+            return GridViewItem(item: singleItem);
+          },
+        );
+      },
     );
   }
 }

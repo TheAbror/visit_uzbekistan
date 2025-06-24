@@ -73,6 +73,18 @@ final class _$HomeServices extends HomeServices {
   }
 
   @override
+  Future<Response<SingleArticleResponse>> getSingleArticle(int id) {
+    final Uri $url =
+        Uri.parse('http://travel.getcontact.uz/api/articles/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<SingleArticleResponse, SingleArticleResponse>($request);
+  }
+
+  @override
   Future<Response<ToursResponse>> getAllTours() {
     final Uri $url = Uri.parse('http://travel.getcontact.uz/api/tours');
     final Request $request = Request(
@@ -84,15 +96,14 @@ final class _$HomeServices extends HomeServices {
   }
 
   @override
-  Future<Response<SingleArticleResponse>> getSingleArticle(int id) {
-    final Uri $url =
-        Uri.parse('http://travel.getcontact.uz/api/articles/${id}');
+  Future<Response<SingleToursResponse>> getSingleTour(int id) {
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/tours/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<SingleArticleResponse, SingleArticleResponse>($request);
+    return client.send<SingleToursResponse, SingleToursResponse>($request);
   }
 
   @override

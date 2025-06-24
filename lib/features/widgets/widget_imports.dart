@@ -83,7 +83,7 @@ export 'package:visit_uzbekistan/features/root/presentation/widgets/enum/open_pa
 export 'package:visit_uzbekistan/features/auth/code_verification_page/code_verification_page.dart';
 export 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_enter_details_page.dart';
 export 'package:visit_uzbekistan/features/auth/sign_up_page/sign_up_page.dart';
-export 'package:visit_uzbekistan/features/html_view/html_view.dart';
+export 'package:visit_uzbekistan/features/article/article_page.dart';
 export 'package:visit_uzbekistan/features/usefull_apps/usefull_apps_page.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/home_tab/widgets/home_tab_app_bar.dart';
 export 'package:visit_uzbekistan/core/bloc_progress/super_bloc_progress.dart';
@@ -107,3 +107,6 @@ export 'package:visit_uzbekistan/features/place/place_page.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:visit_uzbekistan/features/transport_page/bloc/transportation_bloc.dart';
 export 'package:visit_uzbekistan/features/widgets/reviews_and_ratings_widget.dart';
+export 'package:visit_uzbekistan/core/widgets/open_in_browser.dart';
+export 'package:visit_uzbekistan/features/tours_page/bloc/tours_bloc.dart';
+export 'package:visit_uzbekistan/features/tours_page/tours_page.dart';

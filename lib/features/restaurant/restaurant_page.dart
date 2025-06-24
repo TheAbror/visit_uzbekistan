@@ -1,11 +1,11 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class RestaurentPage extends StatefulWidget {
-  final int id;
+  final IdandTitle idandTitle;
 
   const RestaurentPage({
     super.key,
-    required this.id,
+    required this.idandTitle,
   });
 
   @override
@@ -19,7 +19,7 @@ class _RestaurentPageState extends State<RestaurentPage> {
   @override
   void initState() {
     super.initState();
-    context.read<RestaurantBloc>().getSingleRestaurant(widget.id);
+    context.read<RestaurantBloc>().getSingleRestaurant(widget.idandTitle.id);
 
     _scrollController.addListener(() {
       if (_scrollController.offset > 50 && !_showHeaderBg) {

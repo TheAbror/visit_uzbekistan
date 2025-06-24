@@ -2,11 +2,11 @@ import 'package:visit_uzbekistan/features/place/place_details.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class PlacePage extends StatefulWidget {
-  final int id;
+  final IdandTitle idandTitle;
 
   const PlacePage({
     super.key,
-    required this.id,
+    required this.idandTitle,
   });
 
   @override
@@ -20,7 +20,7 @@ class _PlacePageState extends State<PlacePage> {
   @override
   void initState() {
     super.initState();
-    context.read<PlaceBloc>().getSinglePlace(widget.id);
+    context.read<PlaceBloc>().getSinglePlace(widget.idandTitle.id);
 
     _scrollController.addListener(() {
       if (_scrollController.offset > 50 && !_showHeaderBg) {

@@ -2,11 +2,11 @@ import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class MustKnowPage extends StatefulWidget {
-  final int id;
+  final IdandTitle idandTitle;
 
   const MustKnowPage({
     super.key,
-    required this.id,
+    required this.idandTitle,
   });
 
   @override
@@ -45,7 +45,8 @@ class _MustKnowPageState extends State<MustKnowPage> {
       )
       //TODO had lifecycle problem
       ..loadRequest(Uri.parse(
-          _bloc.mustKnow.firstWhere((e) => e.id == widget.id).link ?? ''));
+          _bloc.mustKnow.firstWhere((e) => e.id == widget.idandTitle.id).link ??
+              ''));
   }
 
   @override
@@ -60,7 +61,9 @@ class _MustKnowPageState extends State<MustKnowPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_bloc.mustKnow.firstWhere((e) => e.id == widget.id).name),
+        title: Text(_bloc.mustKnow
+            .firstWhere((e) => e.id == widget.idandTitle.id)
+            .name),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(3.0),
           child: (_progress < 1)

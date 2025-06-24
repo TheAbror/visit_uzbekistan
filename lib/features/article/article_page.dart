@@ -1,18 +1,18 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class TransportPage extends StatefulWidget {
+class ArticlePage extends StatefulWidget {
   final IdandTitle idandTitle;
 
-  const TransportPage({
+  const ArticlePage({
     super.key,
     required this.idandTitle,
   });
 
   @override
-  State<TransportPage> createState() => _TransportPageState();
+  State<ArticlePage> createState() => _ArticlePageState();
 }
 
-class _TransportPageState extends State<TransportPage> {
+class _ArticlePageState extends State<ArticlePage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -20,7 +20,7 @@ class _TransportPageState extends State<TransportPage> {
   void initState() {
     super.initState();
 
-    context.read<TransportationBloc>().getRentalCars(widget.idandTitle.id);
+    context.read<HomeBloc>().getSingleArticle(widget.idandTitle.id);
 
     _pageController.addListener(() {
       final newIndex = _pageController.page?.round() ?? 0;
@@ -41,20 +41,17 @@ class _TransportPageState extends State<TransportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: BlocBuilder<TransportationBloc, TransportationState>(
+      appBar: AppBar(
+        title: Text(widget.idandTitle.title),
+      ),
+      body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
           }
 
-          if (state.blocProgress == BlocProgress.FAILED) {
-            return const SomethingWentWrong();
-          }
-
-          final item = state.carRentals;
-
           return ListView(
+            padding: EdgeInsets.zero,
             children: [
               Stack(
                 children: [
@@ -65,7 +62,7 @@ class _TransportPageState extends State<TransportPage> {
                       itemCount: 5,
                       itemBuilder: (context, index) {
                         return CachedNetworkImage(
-                          imageUrl: item.photo,
+                          imageUrl: state.singleArticle.photo,
                           height: 300.h,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -112,41 +109,22 @@ class _TransportPageState extends State<TransportPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
-              SingleChildScrollView(
-                padding: EdgeInsets.all(16.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Title
-                    Text(
-                      item.name,
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(height: 12.h),
-                    // Description
-                    Text(
-                      item.info,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        color: Colors.grey[800],
-                        height: 1.5,
-                      ),
-                    ),
-                    SizedBox(height: 16.h),
-
-                    ActionButton(
-                      text: 'Book this car',
-                      onPressed: () {},
-                    ),
-                    SizedBox(height: 40.h),
-                  ],
+              SizedBox(height: 10.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
+                child: HtmlWidget(state.singleArticle.desc),
+              ),
+              SizedBox(height: 10.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
+                child: ActionButton(
+                  text: 'Open in the browser',
+                  onPressed: () {
+                    openInBrowser(state.singleArticle.url);
+                  },
                 ),
-              )
+              ),
+              SizedBox(height: 40.h),
             ],
           );
         },

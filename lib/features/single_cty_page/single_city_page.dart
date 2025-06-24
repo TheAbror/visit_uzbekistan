@@ -1,11 +1,11 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class SignleCityPage extends StatefulWidget {
-  final int id;
+  final IdandTitle idandTitle;
 
   const SignleCityPage({
     super.key,
-    required this.id,
+    required this.idandTitle,
   });
 
   @override
@@ -17,7 +17,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
   void initState() {
     super.initState();
 
-    context.read<CityBloc>().getSingleCity(widget.id);
+    context.read<CityBloc>().getSingleCity(widget.idandTitle.id);
   }
 
   @override
@@ -33,7 +33,9 @@ class _SignleCityPageState extends State<SignleCityPage> {
               floating: true,
               expandedHeight: 200.h,
               leading: SingleCityPageLeadingIcon(),
-              actions: [SingleCityPageMakeFavoriteWidget(cityID: widget.id)],
+              actions: [
+                SingleCityPageMakeFavoriteWidget(cityID: widget.idandTitle.id)
+              ],
               flexibleSpace: FlexibleSpaceBar(
                 stretchModes: const [StretchMode.zoomBackground],
                 expandedTitleScale: 1.8,

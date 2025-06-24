@@ -1,19 +1,20 @@
-import 'package:visit_uzbekistan/core/widgets/open_in_browser.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class HtmlView extends StatefulWidget {
-  final int id;
+class ToursPage extends StatefulWidget {
+  final IdandTitle idandTitle;
 
-  const HtmlView({
+  const ToursPage({
     super.key,
-    required this.id,
+    required this.idandTitle,
   });
 
   @override
-  State<HtmlView> createState() => _HtmlViewState();
+  State<ToursPage> createState() => _ToursPageState();
 }
 
-class _HtmlViewState extends State<HtmlView> {
+//TODO
+
+class _ToursPageState extends State<ToursPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -21,7 +22,7 @@ class _HtmlViewState extends State<HtmlView> {
   void initState() {
     super.initState();
 
-    context.read<HomeBloc>().getSingleArticle(widget.id);
+    context.read<ToursBloc>().getSingleTour(widget.idandTitle.id);
 
     _pageController.addListener(() {
       final newIndex = _pageController.page?.round() ?? 0;
@@ -43,9 +44,9 @@ class _HtmlViewState extends State<HtmlView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Darvaza Gaz Crater'),
+        title: Text(widget.idandTitle.title),
       ),
-      body: BlocBuilder<HomeBloc, HomeState>(
+      body: BlocBuilder<ToursBloc, ToursState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
@@ -63,7 +64,7 @@ class _HtmlViewState extends State<HtmlView> {
                       itemCount: 5,
                       itemBuilder: (context, index) {
                         return CachedNetworkImage(
-                          imageUrl: state.singleArticle.photo,
+                          imageUrl: state.tour.photo,
                           height: 300.h,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -113,7 +114,7 @@ class _HtmlViewState extends State<HtmlView> {
               SizedBox(height: 10.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: HtmlWidget(state.singleArticle.desc),
+                child: HtmlWidget(state.tour.desc),
               ),
               SizedBox(height: 10.h),
               Padding(
@@ -121,7 +122,7 @@ class _HtmlViewState extends State<HtmlView> {
                 child: ActionButton(
                   text: 'Open in the browser',
                   onPressed: () {
-                    openInBrowser(state.singleArticle.url);
+                    openInBrowser(state.tour.url);
                   },
                 ),
               ),

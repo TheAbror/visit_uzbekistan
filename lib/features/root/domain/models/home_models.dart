@@ -265,3 +265,39 @@ class SingleArticleResponse {
 
   Map<String, dynamic> toJson() => _$SingleArticleResponseToJson(this);
 }
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
+class SingleToursResponse {
+  @JsonKey(defaultValue: 0)
+  final int id;
+  @JsonKey(defaultValue: '')
+  final String title;
+  @JsonKey(defaultValue: '')
+  final String desc;
+  @JsonKey(defaultValue: '', name: 'short_desc')
+  final String shortDescription;
+  @JsonKey(defaultValue: '')
+  final String photo;
+  @JsonKey(defaultValue: '')
+  final String url;
+  @JsonKey(defaultValue: '', name: 'created_at')
+  final String createdAt;
+  @JsonKey(defaultValue: '', name: 'updated_at')
+  final String updatedAt;
+
+  SingleToursResponse({
+    required this.id,
+    required this.title,
+    required this.desc,
+    required this.shortDescription,
+    required this.photo,
+    required this.url,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory SingleToursResponse.fromJson(Map<String, dynamic> json) =>
+      _$SingleToursResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SingleToursResponseToJson(this);
+}
