@@ -155,7 +155,7 @@ class ItemInfo extends StatelessWidget {
                     Flexible(
                       child: Text(
                         item.shortDescription,
-                        maxLines: 2,
+                        maxLines: item.location.isNotEmpty ? 1 : 2,
                         style: TextStyle(
                           fontSize: 11.sp,
                           color: AppColors.miscellaneousTabUnselected,

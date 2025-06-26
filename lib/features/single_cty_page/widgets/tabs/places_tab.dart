@@ -25,7 +25,7 @@ class PlacesTab extends StatelessWidget {
           ),
           itemCount: state.response.places.length,
           shrinkWrap: true,
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.only(bottom: 40.h),
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             final singleItem = state.response.places[index];
