@@ -184,6 +184,8 @@ class SingleCityResponse {
   final List<SingleItemResponse> articles;
   @JsonKey(defaultValue: [], name: 'carRentals')
   final List<SingleItemResponse> carRentals;
+  @JsonKey(defaultValue: [])
+  final List<SingleItemResponse> tours;
 
   SingleCityResponse({
     required this.id,
@@ -196,6 +198,7 @@ class SingleCityResponse {
     required this.restaurants,
     required this.articles,
     required this.carRentals,
+    required this.tours,
   });
 
   factory SingleCityResponse.fromJson(Map<String, dynamic> json) =>

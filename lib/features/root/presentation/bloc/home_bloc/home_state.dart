@@ -88,20 +88,22 @@ class HomeState extends Equatable {
           isImageTiny: true,
           link: 'https://www.uzcaa.uz/en/drones',
         ),
+
+        //
         SingleItemResponse(
           id: 2,
-          name: '16 things to know before visiting Uzbekistan',
+          name: 'Tax refund in Uzbekistan',
           location: '',
           info: '',
           photo:
-              'https://lp-cms-production.imgix.net/2023-08/GettyImages-1167036520.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop',
+              'https://sherman.house.gov/sites/evo-subsites/sherman.house.gov/files/styles/evo_featured_image/public/featured_image/1140-claim-tax-refund-note.imgcache.rev_.web_.1140.655.jpg?h=ba18f007&itok=nY4n-yxx',
           shortDescription:
-              'Uzbekistan is the Central Asian destination that you’ve been dreaming about. Magnificent blue-domed mosques, towering minarets, atmospheric Silk Road cities and ancient bazaars are coupled with the region’s best accommodation, easiest transportation and great value for money. It’s the most visited of the Central Asian republics and with good reason.',
+              'Foreign nationals will now be able to receive a for goods bought in Uzbekistan, thanks to the introduction of the Tax Free system at the country’s five international airports - Tashkent, Samarkand, Bukhara, Fergana and Urgench.',
           createdAt: '',
           updatedAt: '',
           isImageTiny: false,
           link:
-              'https://www.lonelyplanet.com/articles/things-to-know-before-traveling-to-uzbekistan',
+              'https://www.uzairways.com/en/press-center/news/tax-free-how-tourists-can-get-refund-goods-purchased-uzbekistan',
         ),
       ],
       usefulApps: [

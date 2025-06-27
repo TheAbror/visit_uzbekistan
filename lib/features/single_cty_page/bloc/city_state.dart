@@ -4,6 +4,7 @@ class CityState extends Equatable {
   final SingleCityResponse response;
   final SingleItemResponse singleItem;
   final SingleItemResponse carRentals;
+  final SingleItemResponse tours;
   final String failureMessage;
   final BlocProgress blocProgress;
 
@@ -11,6 +12,7 @@ class CityState extends Equatable {
     required this.response,
     required this.singleItem,
     required this.carRentals,
+    required this.tours,
     required this.failureMessage,
     required this.blocProgress,
   });
@@ -27,6 +29,7 @@ class CityState extends Equatable {
         articles: [],
         places: [],
         restaurants: [],
+        tours: [],
         carRentals: [],
       ),
       singleItem: SingleItemResponse(
@@ -49,6 +52,16 @@ class CityState extends Equatable {
         createdAt: '',
         updatedAt: '',
       ),
+      tours: SingleItemResponse(
+        id: 0,
+        name: '',
+        location: '',
+        info: '',
+        photo: '',
+        shortDescription: '',
+        createdAt: '',
+        updatedAt: '',
+      ),
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',
     );
@@ -58,6 +71,7 @@ class CityState extends Equatable {
     SingleCityResponse? response,
     SingleItemResponse? singleItem,
     SingleItemResponse? carRentals,
+    SingleItemResponse? tours,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
@@ -65,6 +79,7 @@ class CityState extends Equatable {
       response: response ?? this.response,
       singleItem: singleItem ?? this.singleItem,
       carRentals: carRentals ?? this.carRentals,
+      tours: tours ?? this.tours,
       failureMessage: failureMessage ?? this.failureMessage,
       blocProgress: blocProgress ?? this.blocProgress,
     );
@@ -75,6 +90,7 @@ class CityState extends Equatable {
         response,
         singleItem,
         carRentals,
+        tours,
         blocProgress,
         failureMessage,
       ];

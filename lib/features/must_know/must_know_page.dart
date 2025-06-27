@@ -43,7 +43,6 @@ class _MustKnowPageState extends State<MustKnowPage> {
           },
         ),
       )
-      //TODO had lifecycle problem
       ..loadRequest(Uri.parse(
           _bloc.mustKnow.firstWhere((e) => e.id == widget.idandTitle.id).link ??
               ''));

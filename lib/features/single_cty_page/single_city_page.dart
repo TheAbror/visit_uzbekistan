@@ -25,7 +25,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
     return Scaffold(
       backgroundColor: AppColors.float,
       body: DefaultTabController(
-        length: 6,
+        length: 5,
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -58,11 +58,11 @@ class _SignleCityPageState extends State<SignleCityPage> {
                   physics: NeverScrollableScrollPhysics(),
                   children: [
                     AboutCityTab(),
-                    BeforeTheTripTab(),
+                    PlacesTab(),
+                    // BeforeTheTripTab(),
                     TransportationTab(),
                     ToursTab(),
                     RestaurantsTab(),
-                    PlacesTab(),
                   ],
                 ),
               ),
@@ -117,11 +117,11 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
                     padding: EdgeInsets.symmetric(horizontal: defaultPadding),
                     tabs: [
                       SingleCityTab(label: 'About ' + state.response.name),
-                      SingleCityTab(label: 'Before the trip'),
+                      SingleCityTab(label: 'Places'),
+                      // SingleCityTab(label: 'Before the trip'),
                       SingleCityTab(label: 'Transportation'),
                       SingleCityTab(label: 'Tours'),
                       SingleCityTab(label: 'Restaurants'),
-                      SingleCityTab(label: 'Places'),
                     ],
                   ),
                 ),

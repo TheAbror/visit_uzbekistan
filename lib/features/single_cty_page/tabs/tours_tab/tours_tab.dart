@@ -64,9 +64,9 @@ class ToursTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
-        if (state.tours.isEmpty) {
+        if (state.response.tours.isEmpty) {
           return Padding(
             padding: EdgeInsets.only(bottom: 50.h),
             child: Center(
@@ -82,12 +82,12 @@ class ToursTab extends StatelessWidget {
             crossAxisSpacing: 8.h,
             childAspectRatio: 0.85,
           ),
-          itemCount: state.tours.length,
+          itemCount: state.response.tours.length,
           shrinkWrap: true,
           padding: EdgeInsets.zero,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            final singleItem = state.tours[index];
+            final singleItem = state.response.tours[index];
 
             return GridViewItem(item: singleItem);
           },

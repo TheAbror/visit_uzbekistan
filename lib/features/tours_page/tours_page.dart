@@ -12,8 +12,6 @@ class ToursPage extends StatefulWidget {
   State<ToursPage> createState() => _ToursPageState();
 }
 
-//TODO
-
 class _ToursPageState extends State<ToursPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
