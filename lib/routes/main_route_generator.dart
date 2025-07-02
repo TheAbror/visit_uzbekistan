@@ -144,6 +144,11 @@ class MainRouteGenerator {
           ),
         );
 
+      case AppRoutes.localStoragePage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => LocalStoragePage(),
+        );
+
       default:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const LogInPage(),

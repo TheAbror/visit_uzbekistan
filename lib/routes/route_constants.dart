@@ -25,4 +25,5 @@ abstract class AppRoutes {
   static const restaurantPage = '/restaurantPage';
   static const placePage = '/placePage';
   static const toursPage = '/toursPage';
+  static const localStoragePage = '/localStoragePage';
 }

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 part 'home_models.g.dart';
 
@@ -104,6 +105,20 @@ class SingleItemResponse {
     this.cityName,
     this.isImageTiny,
   });
+
+  SingleItemModel toSingleItemHiveModel() {
+    return SingleItemModel(
+      id: id,
+      name: name,
+      location: location,
+      shortDescription: shortDescription,
+      info: info,
+      photo: photo,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      type: type,
+    );
+  }
 
   factory SingleItemResponse.fromJson(Map<String, dynamic> json) =>
       _$SingleItemResponseFromJson(json);

@@ -4,6 +4,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await PreferencesServices.init();
+  await Hive.initFlutter();
+  Hive.registerAdapter(LocalStorageAdapter());
+  Hive.registerAdapter(SingleItemModelAdapter());
+  hiveBox = await Hive.openBox<SingleItemResponse>(ShPrefKeys.singleItemModel);
+  hiveBox = await Hive.openBox<LocalStorage>(ShPrefKeys.localStorageItems);
 
   ApiProvider.create();
 
@@ -60,3 +65,40 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+
+
+//TODO 
+//1. make article or place downloadable 
+
+
+
+
+// class InquiryItem {
+//   String name;
+//   double quantity;
+//   MeasurementResponse? measurement;
+
+//   InquiryItem({
+//     required this.name,
+//     required this.quantity,
+//     required this.measurement,
+//   });
+
+//   InquiryItemRequest toInquiryRequest(String name, double quantity, String? measurement) {
+//     return InquiryItemRequest(
+//       name: name,
+//       quantity: quantity,
+//       measurement: measurement,
+//     );
+//   }
+// }
+
+
+//  final itemsRequest = state.listofItems
+//         .map((item) => item.toInquiryRequest(
+//               item.name,
+//               item.quantity,
+//               item.measurement?.value,
+//             ))
+//         .toList();

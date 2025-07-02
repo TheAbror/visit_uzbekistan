@@ -110,3 +110,7 @@ export 'package:visit_uzbekistan/features/widgets/reviews_and_ratings_widget.dar
 export 'package:visit_uzbekistan/core/widgets/open_in_browser.dart';
 export 'package:visit_uzbekistan/features/tours_page/bloc/tours_bloc.dart';
 export 'package:visit_uzbekistan/features/tours_page/tours_page.dart';
+export 'package:visit_uzbekistan/features/local_storage/hive_box.dart';
+export 'package:visit_uzbekistan/features/local_storage/hive_models.dart';
+export 'package:hive_flutter/hive_flutter.dart';
+export 'package:visit_uzbekistan/features/local_storage/local_storage_page.dart';

@@ -74,6 +74,14 @@ class MoreTab extends StatelessWidget {
                   },
                 );
               },
+              hideDivider: false,
+            ),
+            SettingRowItem(
+              title: 'Downloads',
+              iconPath: 'assets/icons/info_rect.svg',
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.localStoragePage);
+              },
               hideDivider: true,
             ),
           ],

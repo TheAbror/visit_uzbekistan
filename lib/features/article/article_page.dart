@@ -40,95 +40,143 @@ class _ArticlePageState extends State<ArticlePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.idandTitle.title),
-      ),
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          if (state.blocProgress == BlocProgress.IS_LOADING) {
-            return Center(child: CircularProgressIndicator());
-          }
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        final LocalStorage exisitngItems =
+            hiveBox.get(ShPrefKeys.localStorageItems) ??
+                LocalStorage(localStorageItems: []);
 
-          return ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              Stack(
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(widget.idandTitle.title),
+            actions: [
+              IconButton(
+                onPressed: () async {
+                  final SingleItemResponse article =
+                      state.articles.model.articles.firstWhere(
+                    (e) => e.id == widget.idandTitle.id,
+                    orElse: () => SingleItemResponse(
+                      id: -1,
+                      name: '',
+                      location: '',
+                      shortDescription: '',
+                      info: '',
+                      photo: '',
+                      createdAt: '',
+                      updatedAt: '',
+                    ),
+                  );
+
+                  if (article.id != -1 &&
+                      !exisitngItems.localStorageItems
+                          .any((e) => e.id == article.id)) {
+                    await hiveBox.put(
+                      ShPrefKeys.localStorageItems,
+                      LocalStorage(
+                        localStorageItems: [
+                          ...exisitngItems.localStorageItems,
+                          article.toSingleItemHiveModel(),
+                        ],
+                      ),
+                    );
+                  }
+                  showMessage('Added to downloads');
+                },
+                icon: exisitngItems.localStorageItems
+                        .any((e) => e.id == widget.idandTitle.id)
+                    ? Icon(IconsaxPlusBold.document_download)
+                    : Icon(IconsaxPlusLinear.document_download),
+              ),
+            ],
+          ),
+          body: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              if (state.blocProgress == BlocProgress.IS_LOADING) {
+                return Center(child: CircularProgressIndicator());
+              }
+
+              return ListView(
+                padding: EdgeInsets.zero,
                 children: [
-                  SizedBox(
-                    height: 250,
-                    child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return CachedNetworkImage(
-                          imageUrl: state.singleArticle.photo,
-                          height: 300.h,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => Container(
-                            height: 300.h,
-                            width: double.infinity,
-                            color: Colors.grey[200],
-                            child: Center(child: CircularProgressIndicator()),
-                          ),
-                          errorWidget: (context, url, error) => Container(
-                            height: 300.h,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/sign_in_bg.jpg'),
-                                fit: BoxFit.cover,
+                  Stack(
+                    children: [
+                      SizedBox(
+                        height: 250,
+                        child: PageView.builder(
+                          controller: _pageController,
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return CachedNetworkImage(
+                              imageUrl: state.singleArticle.photo,
+                              height: 300.h,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              placeholder: (context, url) => Container(
+                                height: 300.h,
+                                width: double.infinity,
+                                color: Colors.grey[200],
+                                child:
+                                    Center(child: CircularProgressIndicator()),
                               ),
+                              errorWidget: (context, url, error) => Container(
+                                height: 300.h,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/sign_in_bg.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      // Index indicator
+                      Positioned(
+                        right: 16,
+                        bottom: 16,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: Colors.black54,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(
+                            '${_currentPage + 1} / ${5}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        );
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10.h),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: HtmlWidget(state.singleArticle.desc),
+                  ),
+                  SizedBox(height: 10.h),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: ActionButton(
+                      text: 'Open in the browser',
+                      onPressed: () {
+                        openInBrowser(state.singleArticle.url);
                       },
                     ),
                   ),
-                  // Index indicator
-                  Positioned(
-                    right: 16,
-                    bottom: 16,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        '${_currentPage + 1} / ${5}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  SizedBox(height: 40.h),
                 ],
-              ),
-              SizedBox(height: 10.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: HtmlWidget(state.singleArticle.desc),
-              ),
-              SizedBox(height: 10.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: ActionButton(
-                  text: 'Open in the browser',
-                  onPressed: () {
-                    openInBrowser(state.singleArticle.url);
-                  },
-                ),
-              ),
-              SizedBox(height: 40.h),
-            ],
-          );
-        },
-      ),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }
