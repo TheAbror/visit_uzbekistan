@@ -42,51 +42,14 @@ class _ArticlePageState extends State<ArticlePage> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        final LocalStorage exisitngItems =
-            hiveBox.get(ShPrefKeys.localStorageItems) ??
-                LocalStorage(localStorageItems: []);
-
         return Scaffold(
           appBar: AppBar(
             title: Text(widget.idandTitle.title),
             actions: [
-              IconButton(
-                onPressed: () async {
-                  final SingleItemResponse article =
-                      state.articles.model.articles.firstWhere(
-                    (e) => e.id == widget.idandTitle.id,
-                    orElse: () => SingleItemResponse(
-                      id: -1,
-                      name: '',
-                      location: '',
-                      shortDescription: '',
-                      info: '',
-                      photo: '',
-                      createdAt: '',
-                      updatedAt: '',
-                    ),
-                  );
-
-                  if (article.id != -1 &&
-                      !exisitngItems.localStorageItems
-                          .any((e) => e.id == article.id)) {
-                    await hiveBox.put(
-                      ShPrefKeys.localStorageItems,
-                      LocalStorage(
-                        localStorageItems: [
-                          ...exisitngItems.localStorageItems,
-                          article.toSingleItemHiveModel(),
-                        ],
-                      ),
-                    );
-                  }
-                  showMessage('Added to downloads');
-                },
-                icon: exisitngItems.localStorageItems
-                        .any((e) => e.id == widget.idandTitle.id)
-                    ? Icon(IconsaxPlusBold.document_download)
-                    : Icon(IconsaxPlusLinear.document_download),
-              ),
+              DownloadWidget(
+                id: widget.idandTitle.id,
+                newItems: state.articles.model.articles,
+              )
             ],
           ),
           body: BlocBuilder<HomeBloc, HomeState>(
