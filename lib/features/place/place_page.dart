@@ -173,10 +173,15 @@ class _PlacePageState extends State<PlacePage> {
                         : Colors.transparent,
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SingleCityPageLeadingIcon(),
+                      Spacer(),
+                      DownloadWidget(
+                        id: widget.idandTitle.id,
+                        newItem: state.place,
+                      ),
                       Container(
+                        margin: EdgeInsets.only(left: 4.w),
                         padding: EdgeInsets.all(4.w),
                         decoration: BoxDecoration(
                           color: Colors.white,

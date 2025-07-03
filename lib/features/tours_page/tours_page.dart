@@ -45,11 +45,13 @@ class _ToursPageState extends State<ToursPage> {
         return Scaffold(
           appBar: AppBar(
             title: Text(widget.idandTitle.title),
+            leading: SingleCityPageLeadingIcon(),
             actions: [
-              // DownloadWidget(
-              //   id: widget.idandTitle.id,
-              //   newItems: state.tour,
-              // )
+              DownloadWidget(
+                id: widget.idandTitle.id,
+                newItem: state.tour,
+              ),
+              SizedBox(width: 8.w),
             ],
           ),
           body: BlocBuilder<ToursBloc, ToursState>(

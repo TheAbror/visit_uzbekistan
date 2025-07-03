@@ -60,6 +60,7 @@ class _MustKnowPageState extends State<MustKnowPage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: SingleCityPageLeadingIcon(),
         title: Text(_bloc.mustKnow
             .firstWhere((e) => e.id == widget.idandTitle.id)
             .name),

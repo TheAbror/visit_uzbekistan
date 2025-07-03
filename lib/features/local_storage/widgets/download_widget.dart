@@ -27,25 +27,41 @@ class _DownloadWidgetState extends State<DownloadWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () async {
-        if (!exisitngItems.localStorageItems
-            .any((e) => e.id == widget.newItem.id)) {
-          await hiveBox.put(
-            ShPrefKeys.localStorageItems,
-            LocalStorage(
-              localStorageItems: [
-                ...exisitngItems.localStorageItems,
-                widget.newItem.toSingleItemHiveModel(),
-              ],
-            ),
-          );
-        }
-        showMessage('Added to downloads');
-      },
-      icon: exisitngItems.localStorageItems.any((e) => e.id == widget.id)
-          ? Icon(IconsaxPlusBold.document_download)
-          : Icon(IconsaxPlusLinear.document_download),
+    return Container(
+      padding: EdgeInsets.all(4.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: GestureDetector(
+        onTap: () async {
+          if (!exisitngItems.localStorageItems.any(
+            (e) => e.id == widget.newItem.id && e.type == widget.newItem.type,
+          )) {
+            await hiveBox.put(
+              ShPrefKeys.localStorageItems,
+              LocalStorage(
+                localStorageItems: [
+                  ...exisitngItems.localStorageItems,
+                  widget.newItem.toSingleItemHiveModel(),
+                ],
+              ),
+            );
+
+            showMessage('Added to downloads');
+          } else {
+            showMessage('Could not save', isError: true);
+          }
+        },
+        child: exisitngItems.localStorageItems.any(
+          (e) => e.id == widget.id && e.type == widget.newItem.type,
+        )
+            ? Icon(IconsaxPlusBold.document_download)
+            : Icon(
+                IconsaxPlusLinear.document_download,
+                color: Colors.black,
+              ),
+      ),
     );
   }
 }

@@ -45,11 +45,12 @@ class _ArticlePageState extends State<ArticlePage> {
         return Scaffold(
           appBar: AppBar(
             title: Text(widget.idandTitle.title),
+            leading: SingleCityPageLeadingIcon(),
             actions: [
               DownloadWidget(
                 id: widget.idandTitle.id,
                 newItem: state.singleArticle,
-              ) //TODO
+              ),
             ],
           ),
           body: BlocBuilder<HomeBloc, HomeState>(

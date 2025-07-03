@@ -82,6 +82,7 @@ class SingleItemModel extends HiveObject {
       createdAt: createdAt,
       updatedAt: updatedAt,
       type: type,
+      link: link,
     );
   }
 }

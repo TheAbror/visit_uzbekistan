@@ -80,7 +80,7 @@ class MoreTab extends StatelessWidget {
               title: 'Downloads',
               iconPath: 'assets/icons/info_rect.svg',
               onTap: () {
-                Navigator.pushNamed(context, AppRoutes.localStoragePage);
+                Navigator.pushNamed(context, AppRoutes.downloadsPage);
               },
               hideDivider: true,
             ),

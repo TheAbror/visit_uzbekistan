@@ -144,9 +144,16 @@ class MainRouteGenerator {
           ),
         );
 
-      case AppRoutes.localStoragePage:
+      case AppRoutes.downloadsPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => LocalStoragePage(),
+          builder: (_) => DownloadsPage(),
+        );
+
+      case AppRoutes.singleDownloadPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => SingleDownloadedItemPage(
+            idandTitle: settings.arguments as IdandTitle,
+          ),
         );
 
       default:

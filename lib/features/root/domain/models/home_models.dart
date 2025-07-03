@@ -88,7 +88,6 @@ class SingleItemResponse {
   final double? rating;
   @JsonKey(defaultValue: false)
   final bool? isImageTiny;
-
   @JsonKey(defaultValue: [])
   final List<ListOfImages>? images;
 
@@ -121,6 +120,7 @@ class SingleItemResponse {
       createdAt: createdAt,
       updatedAt: updatedAt,
       type: type,
+      link: link,
     );
   }
 

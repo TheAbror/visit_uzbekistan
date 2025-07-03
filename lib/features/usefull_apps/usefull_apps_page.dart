@@ -10,14 +10,24 @@ class UsefullAppsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          final item = state.usefulApps[idandTitle.id];
-          final _height = 300.h;
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        final item = state.usefulApps[idandTitle.id];
+        final _height = 300.h;
 
-          return ListView(
+        return Scaffold(
+          appBar: AppBar(
+            leading: SingleCityPageLeadingIcon(),
+            actions: [
+              DownloadWidget(
+                id: idandTitle.id,
+                newItem:
+                    state.usefulApps.firstWhere((e) => e.id == idandTitle.id),
+              ),
+              SizedBox(width: 8.w),
+            ],
+          ),
+          body: ListView(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             children: [
               Image.network(
@@ -71,9 +81,9 @@ class UsefullAppsPage extends StatelessWidget {
                 onPressed: () {},
               ),
             ],
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
