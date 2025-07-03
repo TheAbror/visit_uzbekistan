@@ -121,7 +121,7 @@ class _ToursPageState extends State<ToursPage> {
                   SizedBox(height: 10.h),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: HtmlWidget(state.tour.desc),
+                    child: HtmlWidget(state.tour.info),
                   ),
                   SizedBox(height: 10.h),
                   Padding(
@@ -129,7 +129,10 @@ class _ToursPageState extends State<ToursPage> {
                     child: ActionButton(
                       text: 'Open in the browser',
                       onPressed: () {
-                        openInBrowser(state.tour.url);
+                        if (state.tour.link != null &&
+                            state.tour.link?.isNotEmpty == true) {
+                          openInBrowser(state.tour.link ?? '');
+                        }
                       },
                     ),
                   ),

@@ -1,7 +1,7 @@
 part of 'tours_bloc.dart';
 
 class ToursState extends Equatable {
-  final SingleToursResponse tour;
+  final SingleItemResponse tour;
   final String failureMessage;
   final BlocProgress blocProgress;
 
@@ -13,12 +13,12 @@ class ToursState extends Equatable {
 
   factory ToursState.initial() {
     return ToursState(
-      tour: SingleToursResponse(
+      tour: SingleItemResponse(
         id: 0,
         name: '',
-        desc: '',
+        location: '',
         photo: '',
-        url: '',
+        info: '',
         shortDescription: '',
         createdAt: '',
         updatedAt: '',
@@ -29,7 +29,7 @@ class ToursState extends Equatable {
   }
 
   ToursState copyWith({
-    SingleToursResponse? tour,
+    SingleItemResponse? tour,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {

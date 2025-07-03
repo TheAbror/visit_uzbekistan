@@ -46,10 +46,10 @@ class _ArticlePageState extends State<ArticlePage> {
           appBar: AppBar(
             title: Text(widget.idandTitle.title),
             actions: [
-              // DownloadWidget(
-              //   id: widget.idandTitle.id,
-              //   newItem: state.singleArticle,
-              // ) //TODO
+              DownloadWidget(
+                id: widget.idandTitle.id,
+                newItem: state.singleArticle,
+              ) //TODO
             ],
           ),
           body: BlocBuilder<HomeBloc, HomeState>(
@@ -121,7 +121,7 @@ class _ArticlePageState extends State<ArticlePage> {
                   SizedBox(height: 10.h),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: HtmlWidget(state.singleArticle.desc),
+                    child: HtmlWidget(state.singleArticle.info),
                   ),
                   SizedBox(height: 10.h),
                   Padding(
@@ -129,7 +129,10 @@ class _ArticlePageState extends State<ArticlePage> {
                     child: ActionButton(
                       text: 'Open in the browser',
                       onPressed: () {
-                        openInBrowser(state.singleArticle.url);
+                        if (state.singleArticle.link != null &&
+                            state.singleArticle.link?.isNotEmpty == true) {
+                          openInBrowser(state.singleArticle.link ?? '');
+                        }
                       },
                     ),
                   ),
