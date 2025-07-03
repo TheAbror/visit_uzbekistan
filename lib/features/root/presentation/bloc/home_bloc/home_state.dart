@@ -4,12 +4,12 @@ class HomeState extends Equatable {
   final List<String> filterItemsAll;
   final List<String> filterItemsSelected;
   //
-  final List<SingleItemResponse> places;
+  final SuperBlocProgress<List<SingleItemResponse>> places;
   final List<SingleItemResponse> usefulApps;
   final List<SingleItemResponse> mustKnow;
   final SuperBlocProgress<ArticlesResponse> articles;
-  final List<SingleItemResponse> tours;
   final SingleArticleResponse singleArticle;
+  final SuperBlocProgress<List<SingleItemResponse>> tours;
   final BlocProgress blocProgress;
   final String failureMessage;
 
@@ -42,14 +42,14 @@ class HomeState extends Equatable {
         'Articles',
         'Tours',
       ],
-      places: [],
+      places: SuperBlocProgress(model: []),
       articles: SuperBlocProgress(
         model: ArticlesResponse(articles: []),
       ),
-      tours: [],
+      tours: SuperBlocProgress(model: []),
       singleArticle: SingleArticleResponse(
         id: 0,
-        title: '',
+        name: '',
         desc: '',
         shortDescription: '',
         photo: '',
@@ -213,11 +213,11 @@ class HomeState extends Equatable {
   HomeState copyWith({
     List<String>? filterItemsAll,
     List<String>? filterItemsSelected,
-    List<SingleItemResponse>? places,
+    SuperBlocProgress<List<SingleItemResponse>>? places,
     List<SingleItemResponse>? usefulApps,
     List<SingleItemResponse>? mustKnow,
     SuperBlocProgress<ArticlesResponse>? articles,
-    List<SingleItemResponse>? tours,
+    SuperBlocProgress<List<SingleItemResponse>>? tours,
     SingleArticleResponse? singleArticle,
     BlocProgress? blocProgress,
     String? failureMessage,

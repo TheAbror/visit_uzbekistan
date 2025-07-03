@@ -56,8 +56,37 @@ class SingleCityTitle extends StatelessWidget {
   }
 }
 
-class SingleCityPageBgImage extends StatelessWidget {
-  const SingleCityPageBgImage({super.key});
+class SingleCityPageBgImage extends StatefulWidget {
+  const SingleCityPageBgImage({
+    super.key,
+  });
+
+  @override
+  State<SingleCityPageBgImage> createState() => _SingleCityPageBgImageState();
+}
+
+class _SingleCityPageBgImageState extends State<SingleCityPageBgImage> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      final newIndex = _pageController.page?.round() ?? 0;
+      if (newIndex != _currentPage) {
+        setState(() {
+          _currentPage = newIndex;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,50 +95,81 @@ class SingleCityPageBgImage extends StatelessWidget {
         if (state.blocProgress == BlocProgress.IS_LOADING) {
           return Center(child: CircularProgressIndicator());
         }
-
-        return Image.network(
-          state.response.photo,
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: double.infinity,
-          alignment: Alignment.topCenter,
-          //loader
-          loadingBuilder: (
-            BuildContext context,
-            Widget child,
-            ImageChunkEvent? loadingProgress,
-          ) {
-            if (loadingProgress == null) return child;
-            return SizedBox(
-              height: 200.h,
-              width: double.infinity,
-              child: Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes!
-                      : null,
+        return Stack(
+          children: [
+            (state.response.images != null &&
+                    state.response.images?.isEmpty == true)
+                ? CachedNetworkImage(
+                    imageUrl: state.response.photo,
+                    height: 300.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => Container(
+                      height: 300.h,
+                      width: double.infinity,
+                      color: Colors.grey[200],
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      height: 300.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/sign_in_bg.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  )
+                : PageView.builder(
+                    controller: _pageController,
+                    itemCount: state.response.images?.length,
+                    itemBuilder: (context, index) {
+                      return CachedNetworkImage(
+                        imageUrl: state.response.images![index].path,
+                        height: 300.h,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => Container(
+                          height: 300.h,
+                          width: double.infinity,
+                          color: Colors.grey[200],
+                          child: Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) => Container(
+                          height: 300.h,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/sign_in_bg.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+            if (state.response.images?.isNotEmpty == true)
+              Positioned(
+                right: 16,
+                bottom: 16,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    '${_currentPage + 1} / ${state.response.images?.length}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
-            );
-          },
-          //error case
-          errorBuilder: (
-            BuildContext context,
-            Object exception,
-            StackTrace? stackTrace,
-          ) {
-            return Container(
-              height: 200.h,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/sign_in_bg.jpg'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            );
-          },
+          ],
         );
       },
     );

@@ -159,6 +159,9 @@ class TransportationOption extends StatelessWidget {
               icon,
               height: 40.w,
               width: 40.w,
+              errorBuilder: (context, error, stackTrace) {
+                return Text('error');
+              },
             ),
           ),
           SizedBox(width: 8.w),

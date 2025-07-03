@@ -16,6 +16,8 @@ class PlacePage extends StatefulWidget {
 class _PlacePageState extends State<PlacePage> {
   final ScrollController _scrollController = ScrollController();
   bool _showHeaderBg = false;
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
 
   @override
   void initState() {
@@ -29,11 +31,22 @@ class _PlacePageState extends State<PlacePage> {
         setState(() => _showHeaderBg = false);
       }
     });
+
+    _pageController.addListener(() {
+      final newIndex = _pageController.page?.round() ?? 0;
+      if (newIndex != _currentPage) {
+        setState(() {
+          _currentPage = newIndex;
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _pageController.dispose();
+
     super.dispose();
   }
 
@@ -52,26 +65,89 @@ class _PlacePageState extends State<PlacePage> {
                 controller: _scrollController,
                 child: Column(
                   children: [
-                    CachedNetworkImage(
-                      imageUrl: state.place.photo,
+                    SizedBox(
                       height: 300.h,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => Container(
-                        height: 300.h,
-                        width: double.infinity,
-                        color: Colors.grey[200],
-                        child: Center(child: CircularProgressIndicator()),
-                      ),
-                      errorWidget: (context, url, error) => Container(
-                        height: 300.h,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/sign_in_bg.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                      child: Stack(
+                        children: [
+                          (state.place.images != null &&
+                                  state.place.images?.isEmpty == true)
+                              ? CachedNetworkImage(
+                                  imageUrl: state.place.photo,
+                                  height: 300.h,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => Container(
+                                    height: 300.h,
+                                    width: double.infinity,
+                                    color: Colors.grey[200],
+                                    child: Center(
+                                        child: CircularProgressIndicator()),
+                                  ),
+                                  errorWidget: (context, url, error) =>
+                                      Container(
+                                    height: 300.h,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/sign_in_bg.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : PageView.builder(
+                                  controller: _pageController,
+                                  itemCount: state.place.images?.length,
+                                  itemBuilder: (context, index) {
+                                    return CachedNetworkImage(
+                                      imageUrl: state.place.images![index].path,
+                                      height: 300.h,
+                                      width: double.infinity,
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) => Container(
+                                        height: 300.h,
+                                        width: double.infinity,
+                                        color: Colors.grey[200],
+                                        child: Center(
+                                            child: CircularProgressIndicator()),
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          Container(
+                                        height: 300.h,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/sign_in_bg.jpg'),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                          if (state.place.images?.isNotEmpty == true)
+                            Positioned(
+                              right: 16,
+                              bottom: 16,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 4),
+                                decoration: BoxDecoration(
+                                  color: Colors.black54,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  '${_currentPage + 1} / ${state.place.images?.length}',
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                     SinglePlaceDetails(state: state),

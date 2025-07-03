@@ -40,10 +40,10 @@ class HomeTab extends StatelessWidget {
 
               //places
               if (state.filterItemsSelected.contains('Places'))
-                if (state.places.isNotEmpty)
+                if (state.places.model.isNotEmpty)
                   HomeTabItems(
                     header: context.localizations.places,
-                    item: state.places,
+                    item: state.places.model,
                     pageNamed: OpenPageNamed.places,
                   ),
 
@@ -60,10 +60,10 @@ class HomeTab extends StatelessWidget {
 
               //tours
               if (state.filterItemsSelected.contains('Tours'))
-                if (state.tours.isNotEmpty)
+                if (state.tours.model.isNotEmpty)
                   HomeTabItems(
                     header: context.localizations.tours,
-                    item: state.tours,
+                    item: state.tours.model,
                     pageNamed: OpenPageNamed.tours,
                   ),
             ],

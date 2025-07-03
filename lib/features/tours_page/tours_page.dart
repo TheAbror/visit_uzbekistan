@@ -64,7 +64,7 @@ class _ToursPageState extends State<ToursPage> {
                   Stack(
                     children: [
                       SizedBox(
-                        height: 250,
+                        height: 250.h,
                         child: PageView.builder(
                           controller: _pageController,
                           itemCount: 5,

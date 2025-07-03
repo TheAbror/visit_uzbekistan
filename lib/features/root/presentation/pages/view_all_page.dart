@@ -25,7 +25,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
         viewAllBloc.assignSearchValues(homeBloc.state.articles.model.articles);
         break;
       case OpenPageNamed.places:
-        viewAllBloc.assignSearchValues(homeBloc.state.places);
+        viewAllBloc.assignSearchValues(homeBloc.state.places.model);
         break;
       case OpenPageNamed.mustKnow:
         viewAllBloc.assignSearchValues(homeBloc.state.mustKnow);
@@ -34,7 +34,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
         viewAllBloc.assignSearchValues(homeBloc.state.usefulApps);
         break;
       case OpenPageNamed.tours:
-        viewAllBloc.assignSearchValues(homeBloc.state.tours);
+        viewAllBloc.assignSearchValues(homeBloc.state.tours.model);
         break;
       default:
         // viewAllBloc.assignSearchValues(homeBloc.state.cities);

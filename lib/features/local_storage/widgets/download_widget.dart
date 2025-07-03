@@ -2,12 +2,12 @@ import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class DownloadWidget extends StatefulWidget {
   final int id;
-  final List<SingleItemResponse> newItems;
+  final SingleItemResponse newItem;
 
   const DownloadWidget({
     super.key,
     required this.id,
-    required this.newItems,
+    required this.newItem,
   });
 
   @override
@@ -29,29 +29,14 @@ class _DownloadWidgetState extends State<DownloadWidget> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () async {
-        final SingleItemResponse singleItem = widget.newItems.firstWhere(
-          (e) => e.id == widget.id,
-          orElse: () => SingleItemResponse(
-            id: -1,
-            name: '',
-            location: '',
-            shortDescription: '',
-            info: '',
-            photo: '',
-            createdAt: '',
-            updatedAt: '',
-          ),
-        );
-
-        if (singleItem.id != -1 &&
-            !exisitngItems.localStorageItems
-                .any((e) => e.id == singleItem.id)) {
+        if (!exisitngItems.localStorageItems
+            .any((e) => e.id == widget.newItem.id)) {
           await hiveBox.put(
             ShPrefKeys.localStorageItems,
             LocalStorage(
               localStorageItems: [
                 ...exisitngItems.localStorageItems,
-                singleItem.toSingleItemHiveModel(),
+                widget.newItem.toSingleItemHiveModel(),
               ],
             ),
           );

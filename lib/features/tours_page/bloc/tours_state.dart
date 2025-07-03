@@ -15,7 +15,7 @@ class ToursState extends Equatable {
     return ToursState(
       tour: SingleToursResponse(
         id: 0,
-        title: '',
+        name: '',
         desc: '',
         photo: '',
         url: '',

@@ -18,7 +18,9 @@ class HomeBloc extends Cubit<HomeState> {
   }
 
   void getAllPlaces(BuildContext context) async {
-    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+    emit(state.copyWith(
+      places: state.places.copyWith(blocProgress: BlocProgress.IS_LOADING),
+    ));
 
     try {
       final response = await ApiProvider.homeServices.getAllPlaces();
@@ -27,34 +29,48 @@ class HomeBloc extends Cubit<HomeState> {
         final result = response.body;
 
         if (result != null) {
-          emit(state.copyWith(
-            places: result.places,
-            blocProgress: BlocProgress.LOADED,
-          ));
+          emit(
+            state.copyWith(
+              places: state.places.copyWith(
+                model: result.places,
+                blocProgress: BlocProgress.LOADED,
+              ),
+            ),
+          );
         }
       } else {
         final error =
             ErrorResponse.fromJson(json.decode(response.error.toString()));
 
-        emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: error.message,
-        ));
+        emit(
+          state.copyWith(
+            places: state.places.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: error.message,
+            ),
+          ),
+        );
       }
     } catch (e) {
       debugPrint('Error getting: $e');
 
       if (!isClosed) {
-        emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: e.toString(),
-        ));
+        emit(
+          state.copyWith(
+            places: state.places.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: e.toString(),
+            ),
+          ),
+        );
       }
     }
   }
 
   void getAllTours(BuildContext context) async {
-    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+    emit(state.copyWith(
+      tours: state.tours.copyWith(blocProgress: BlocProgress.IS_LOADING),
+    ));
 
     try {
       final response = await ApiProvider.homeServices.getAllTours();
@@ -63,28 +79,40 @@ class HomeBloc extends Cubit<HomeState> {
         final result = response.body;
 
         if (result != null) {
-          emit(state.copyWith(
-            tours: result.tours,
-            blocProgress: BlocProgress.LOADED,
-          ));
+          emit(
+            state.copyWith(
+              tours: state.tours.copyWith(
+                model: result.tours,
+                blocProgress: BlocProgress.LOADED,
+              ),
+            ),
+          );
         }
       } else {
         final error =
             ErrorResponse.fromJson(json.decode(response.error.toString()));
 
-        emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: error.message,
-        ));
+        emit(
+          state.copyWith(
+            tours: state.tours.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: error.message,
+            ),
+          ),
+        );
       }
     } catch (e) {
       debugPrint('Error getting: $e');
 
       if (!isClosed) {
-        emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: e.toString(),
-        ));
+        emit(
+          state.copyWith(
+            tours: state.tours.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: e.toString(),
+            ),
+          ),
+        );
       }
     }
   }

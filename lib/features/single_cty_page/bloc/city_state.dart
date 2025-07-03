@@ -31,6 +31,7 @@ class CityState extends Equatable {
         restaurants: [],
         tours: [],
         carRentals: [],
+        images: [],
       ),
       singleItem: SingleItemResponse(
         id: 0,

@@ -89,6 +89,9 @@ class SingleItemResponse {
   @JsonKey(defaultValue: false)
   final bool? isImageTiny;
 
+  @JsonKey(defaultValue: [])
+  final List<ListOfImages>? images;
+
   SingleItemResponse({
     required this.id,
     required this.name,
@@ -104,6 +107,7 @@ class SingleItemResponse {
     this.link,
     this.cityName,
     this.isImageTiny,
+    this.images,
   });
 
   SingleItemModel toSingleItemHiveModel() {
@@ -201,6 +205,8 @@ class SingleCityResponse {
   final List<SingleItemResponse> carRentals;
   @JsonKey(defaultValue: [])
   final List<SingleItemResponse> tours;
+  @JsonKey(defaultValue: [])
+  final List<ListOfImages>? images;
 
   SingleCityResponse({
     required this.id,
@@ -214,12 +220,35 @@ class SingleCityResponse {
     required this.articles,
     required this.carRentals,
     required this.tours,
+    required this.images,
   });
 
   factory SingleCityResponse.fromJson(Map<String, dynamic> json) =>
       _$SingleCityResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$SingleCityResponseToJson(this);
+}
+
+// "images": [
+//   {
+//     "path": "http://travel.getcontact.uz/storage/images/1751480027.png"
+//   },
+//   {
+//     "path": "http://travel.getcontact.uz/storage/images/1751480116.png"
+//   }
+// ],
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
+class ListOfImages {
+  @JsonKey(defaultValue: '')
+  final String path;
+
+  ListOfImages({required this.path});
+
+  factory ListOfImages.fromJson(Map<String, dynamic> json) =>
+      _$ListOfImagesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ListOfImagesToJson(this);
 }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
@@ -253,7 +282,7 @@ class SingleArticleResponse {
   @JsonKey(defaultValue: 0)
   final int id;
   @JsonKey(defaultValue: '')
-  final String title;
+  final String name;
   @JsonKey(defaultValue: '')
   final String desc;
   @JsonKey(defaultValue: '', name: 'short_desc')
@@ -269,7 +298,7 @@ class SingleArticleResponse {
 
   SingleArticleResponse({
     required this.id,
-    required this.title,
+    required this.name,
     required this.desc,
     required this.shortDescription,
     required this.photo,
@@ -289,7 +318,7 @@ class SingleToursResponse {
   @JsonKey(defaultValue: 0)
   final int id;
   @JsonKey(defaultValue: '')
-  final String title;
+  final String name;
   @JsonKey(defaultValue: '')
   final String desc;
   @JsonKey(defaultValue: '', name: 'short_desc')
@@ -305,7 +334,7 @@ class SingleToursResponse {
 
   SingleToursResponse({
     required this.id,
-    required this.title,
+    required this.name,
     required this.desc,
     required this.shortDescription,
     required this.photo,

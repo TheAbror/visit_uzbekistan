@@ -50,6 +50,10 @@ SingleItemResponse _$SingleItemResponseFromJson(Map<String, dynamic> json) =>
       link: json['link'] as String? ?? '',
       cityName: json['city_name'] as String? ?? '',
       isImageTiny: json['isImageTiny'] as bool? ?? false,
+      images: (json['images'] as List<dynamic>?)
+              ?.map((e) => ListOfImages.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$SingleItemResponseToJson(SingleItemResponse instance) =>
@@ -68,6 +72,7 @@ Map<String, dynamic> _$SingleItemResponseToJson(SingleItemResponse instance) =>
       'type': instance.type,
       'rating': instance.rating,
       'isImageTiny': instance.isImageTiny,
+      'images': instance.images?.map((e) => e.toJson()).toList(),
     };
 
 SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
@@ -103,6 +108,10 @@ SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
                   (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      images: (json['images'] as List<dynamic>?)
+              ?.map((e) => ListOfImages.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
@@ -118,6 +127,16 @@ Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
       'articles': instance.articles.map((e) => e.toJson()).toList(),
       'carRentals': instance.carRentals.map((e) => e.toJson()).toList(),
       'tours': instance.tours.map((e) => e.toJson()).toList(),
+      'images': instance.images?.map((e) => e.toJson()).toList(),
+    };
+
+ListOfImages _$ListOfImagesFromJson(Map<String, dynamic> json) => ListOfImages(
+      path: json['path'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$ListOfImagesToJson(ListOfImages instance) =>
+    <String, dynamic>{
+      'path': instance.path,
     };
 
 ArticlesResponse _$ArticlesResponseFromJson(Map<String, dynamic> json) =>
@@ -152,7 +171,7 @@ SingleArticleResponse _$SingleArticleResponseFromJson(
         Map<String, dynamic> json) =>
     SingleArticleResponse(
       id: json['id'] as int? ?? 0,
-      title: json['title'] as String? ?? '',
+      name: json['name'] as String? ?? '',
       desc: json['desc'] as String? ?? '',
       shortDescription: json['short_desc'] as String? ?? '',
       photo: json['photo'] as String? ?? '',
@@ -165,7 +184,7 @@ Map<String, dynamic> _$SingleArticleResponseToJson(
         SingleArticleResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'name': instance.name,
       'desc': instance.desc,
       'short_desc': instance.shortDescription,
       'photo': instance.photo,
@@ -177,7 +196,7 @@ Map<String, dynamic> _$SingleArticleResponseToJson(
 SingleToursResponse _$SingleToursResponseFromJson(Map<String, dynamic> json) =>
     SingleToursResponse(
       id: json['id'] as int? ?? 0,
-      title: json['title'] as String? ?? '',
+      name: json['name'] as String? ?? '',
       desc: json['desc'] as String? ?? '',
       shortDescription: json['short_desc'] as String? ?? '',
       photo: json['photo'] as String? ?? '',
@@ -190,7 +209,7 @@ Map<String, dynamic> _$SingleToursResponseToJson(
         SingleToursResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'name': instance.name,
       'desc': instance.desc,
       'short_desc': instance.shortDescription,
       'photo': instance.photo,

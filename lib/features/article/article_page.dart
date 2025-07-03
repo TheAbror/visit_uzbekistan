@@ -46,10 +46,10 @@ class _ArticlePageState extends State<ArticlePage> {
           appBar: AppBar(
             title: Text(widget.idandTitle.title),
             actions: [
-              DownloadWidget(
-                id: widget.idandTitle.id,
-                newItems: state.articles.model.articles,
-              )
+              // DownloadWidget(
+              //   id: widget.idandTitle.id,
+              //   newItem: state.singleArticle,
+              // ) //TODO
             ],
           ),
           body: BlocBuilder<HomeBloc, HomeState>(
@@ -64,7 +64,7 @@ class _ArticlePageState extends State<ArticlePage> {
                   Stack(
                     children: [
                       SizedBox(
-                        height: 250,
+                        height: 250.h,
                         child: PageView.builder(
                           controller: _pageController,
                           itemCount: 5,
