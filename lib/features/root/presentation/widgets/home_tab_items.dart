@@ -25,7 +25,7 @@ class HomeTabItems extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 8.h),
           width: double.infinity,
           child: ListView.builder(
-            itemCount: pageNamed == OpenPageNamed.usefulApp ? 5 : item.length,
+            itemCount: item.length,
             padding: EdgeInsets.only(left: 8.w),
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -223,7 +223,7 @@ class ImageAndFavoriteIcon extends StatelessWidget {
             imageUrl: item.photo,
             height: _height.h,
             width: _width == null ? double.infinity : _width.w,
-            fit: item.isImageTiny == true ? BoxFit.fitWidth : BoxFit.fill,
+            fit: item.type == 'useful_app' ? BoxFit.fitWidth : BoxFit.fill,
             placeholder: (context, url) => Container(
               height: _height.h,
               width: _width == null ? double.infinity : _width.w,

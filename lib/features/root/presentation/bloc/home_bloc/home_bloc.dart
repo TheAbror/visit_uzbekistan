@@ -17,6 +17,108 @@ class HomeBloc extends Cubit<HomeState> {
     emit(state.copyWith(filterItemsSelected: updatedList));
   }
 
+  void getAllUsefulApps(BuildContext context) async {
+    emit(state.copyWith(
+      usefulApps:
+          state.usefulApps.copyWith(blocProgress: BlocProgress.IS_LOADING),
+    ));
+
+    try {
+      final response = await ApiProvider.homeServices.getAllUsefulApps();
+
+      if (response.isSuccessful) {
+        final result = response.body;
+
+        if (result != null) {
+          emit(
+            state.copyWith(
+              usefulApps: state.usefulApps.copyWith(
+                model: result.usefulApps,
+                blocProgress: BlocProgress.LOADED,
+              ),
+            ),
+          );
+        }
+      } else {
+        final error =
+            ErrorResponse.fromJson(json.decode(response.error.toString()));
+
+        emit(
+          state.copyWith(
+            usefulApps: state.usefulApps.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: error.message,
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      debugPrint('Error getting: $e');
+
+      if (!isClosed) {
+        emit(
+          state.copyWith(
+            usefulApps: state.usefulApps.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: e.toString(),
+            ),
+          ),
+        );
+      }
+    }
+  }
+
+  void getSingleUsefulApp(BuildContext context, int id) async {
+    emit(state.copyWith(
+      usefulApps:
+          state.usefulApps.copyWith(blocProgress: BlocProgress.IS_LOADING),
+    ));
+
+    try {
+      final response = await ApiProvider.homeServices.getSingleUsefulApp(id);
+
+      if (response.isSuccessful) {
+        final result = response.body;
+
+        if (result != null) {
+          emit(
+            state.copyWith(
+              singleUsefulApp: state.singleUsefulApp.copyWith(
+                model: result,
+                blocProgress: BlocProgress.LOADED,
+              ),
+            ),
+          );
+        }
+      } else {
+        final error =
+            ErrorResponse.fromJson(json.decode(response.error.toString()));
+
+        emit(
+          state.copyWith(
+            usefulApps: state.usefulApps.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: error.message,
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      debugPrint('Error getting: $e');
+
+      if (!isClosed) {
+        emit(
+          state.copyWith(
+            usefulApps: state.usefulApps.copyWith(
+              blocProgress: BlocProgress.FAILED,
+              failureMessage: e.toString(),
+            ),
+          ),
+        );
+      }
+    }
+  }
+
   void getAllPlaces(BuildContext context) async {
     emit(state.copyWith(
       places: state.places.copyWith(blocProgress: BlocProgress.IS_LOADING),

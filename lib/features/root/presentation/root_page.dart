@@ -16,6 +16,7 @@ class _RootPageState extends State<RootPage> {
     context.read<HomeBloc>().getAllPlaces(context);
     context.read<HomeBloc>().getAllArticels(context);
     context.read<HomeBloc>().getAllTours(context);
+    context.read<HomeBloc>().getAllUsefulApps(context);
   }
 
   @override

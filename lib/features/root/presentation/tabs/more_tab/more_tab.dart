@@ -78,7 +78,7 @@ class MoreTab extends StatelessWidget {
             ),
             SettingRowItem(
               title: 'Downloads',
-              iconPath: 'assets/icons/info_rect.svg',
+              iconPath: 'assets/icons/pills_checked.svg',
               onTap: () {
                 Navigator.pushNamed(context, AppRoutes.downloadsPage);
               },

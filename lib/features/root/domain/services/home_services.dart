@@ -38,4 +38,12 @@ abstract class HomeServices extends ChopperService {
   //not being used so far
   @Get(path: '${AppStrings.carRentals}/{id}')
   Future<Response<SingleItemResponse>> getRentalCars(@Path('id') int id);
+
+  // http://travel.getcontact.uz/useful_apps
+
+  @Get(path: AppStrings.usefulApps)
+  Future<Response<UsefulAppResponse>> getAllUsefulApps();
+
+  @Get(path: '${AppStrings.usefulApps}/{id}')
+  Future<Response<SingleItemResponse>> getSingleUsefulApp(@Path('id') int id);
 }

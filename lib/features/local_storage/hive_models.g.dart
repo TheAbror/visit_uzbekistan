@@ -63,6 +63,8 @@ class SingleItemModelAdapter extends TypeAdapter<SingleItemModel> {
       cityID: fields[8] as int?,
       cityName: fields[9] as String?,
       link: fields[10] as String?,
+      androidLink: fields[14] as String?,
+      iosLink: fields[15] as String?,
       type: fields[11] as String?,
       rating: fields[12] as double?,
       isImageTiny: fields[13] as bool?,
@@ -72,7 +74,7 @@ class SingleItemModelAdapter extends TypeAdapter<SingleItemModel> {
   @override
   void write(BinaryWriter writer, SingleItemModel obj) {
     writer
-      ..writeByte(14)
+      ..writeByte(16)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -100,7 +102,11 @@ class SingleItemModelAdapter extends TypeAdapter<SingleItemModel> {
       ..writeByte(12)
       ..write(obj.rating)
       ..writeByte(13)
-      ..write(obj.isImageTiny);
+      ..write(obj.isImageTiny)
+      ..writeByte(14)
+      ..write(obj.androidLink)
+      ..writeByte(15)
+      ..write(obj.iosLink);
   }
 
   @override

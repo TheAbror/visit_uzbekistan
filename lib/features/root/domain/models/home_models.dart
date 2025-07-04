@@ -58,6 +58,19 @@ class PlacesResponse {
 }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
+class UsefulAppResponse {
+  @JsonKey(defaultValue: [], name: 'useful_apps')
+  final List<SingleItemResponse> usefulApps;
+
+  UsefulAppResponse({required this.usefulApps});
+
+  factory UsefulAppResponse.fromJson(Map<String, dynamic> json) =>
+      _$UsefulAppResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UsefulAppResponseToJson(this);
+}
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
 class SingleItemResponse {
   @JsonKey(defaultValue: 0)
   final int id;
@@ -75,13 +88,16 @@ class SingleItemResponse {
   final String createdAt;
   @JsonKey(defaultValue: '', name: 'updated_at')
   final String updatedAt;
-  //
   @JsonKey(defaultValue: 0, name: 'city_id')
   final int? cityID;
   @JsonKey(defaultValue: '', name: 'city_name')
   final String? cityName;
   @JsonKey(defaultValue: '')
   final String? link;
+  @JsonKey(defaultValue: '', name: 'android_link')
+  final String? androidLink;
+  @JsonKey(defaultValue: '', name: 'ios_link')
+  final String? iosLink;
   @JsonKey(defaultValue: '')
   final String? type;
   @JsonKey(defaultValue: 0)
@@ -104,6 +120,8 @@ class SingleItemResponse {
     this.type,
     this.rating,
     this.link,
+    this.androidLink,
+    this.iosLink,
     this.cityName,
     this.isImageTiny,
     this.images,
@@ -121,6 +139,8 @@ class SingleItemResponse {
       updatedAt: updatedAt,
       type: type,
       link: link,
+      androidLink: link,
+      iosLink: link,
     );
   }
 

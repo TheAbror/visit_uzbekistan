@@ -9,4 +9,5 @@ class AppStrings {
   static const tours = 'tours';
   static const restaurants = 'restaurants';
   static const carRentals = 'car_rentals';
+  static const usefulApps = 'useful_apps';
 }

@@ -54,6 +54,12 @@ class SingleItemModel extends HiveObject {
   @HiveField(13)
   final bool? isImageTiny;
 
+  @HiveField(14)
+  final String? androidLink;
+
+  @HiveField(15)
+  final String? iosLink;
+
   SingleItemModel({
     required this.id,
     required this.name,
@@ -66,6 +72,8 @@ class SingleItemModel extends HiveObject {
     this.cityID,
     this.cityName,
     this.link,
+    this.androidLink,
+    this.iosLink,
     this.type,
     this.rating,
     this.isImageTiny,
@@ -83,6 +91,8 @@ class SingleItemModel extends HiveObject {
       updatedAt: updatedAt,
       type: type,
       link: link,
+      androidLink: androidLink,
+      iosLink: iosLink,
     );
   }
 }

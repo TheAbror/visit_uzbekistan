@@ -71,5 +71,37 @@ class _MyAppState extends State<MyApp> {
 //TODO 
 //1. make article or place downloadable  - DONE
 //2. make whole city downloadable
+//3. make ui update when working with hive
+// Option 3: Use ValueListenableBuilder (recommended for Hive)
+// Hive boxes are ValueListenable, which means you can listen to changes automatically and rebuild UI reactively:
+
+// dart
+// Copy
+// Edit
+// ValueListenableBuilder(
+//   valueListenable: hiveBox.listenable(),
+//   builder: (context, Box box, _) {
+//     final LocalStorage? data = box.get(ShPrefKeys.localStorageItems);
+//     final items = data?.localStorageItems ?? [];
+
+//     if (items.isEmpty) {
+//       return Center(child: Text("No saved items"));
+//     }
+
+//     return ListView.builder(
+//       itemCount: items.length,
+//       itemBuilder: (context, index) {
+//         final item = items[index];
+//         return ListTile(title: Text(item.name));
+//       },
+//     );
+//   },
+// );
+// Then, when you delete:
+
+// dart
+// Copy
+// Edit
+// await hiveBox.delete(ShPrefKeys.localStorageItems);
 
 

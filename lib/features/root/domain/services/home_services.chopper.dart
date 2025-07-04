@@ -129,4 +129,27 @@ final class _$HomeServices extends HomeServices {
     );
     return client.send<SingleItemResponse, SingleItemResponse>($request);
   }
+
+  @override
+  Future<Response<UsefulAppResponse>> getAllUsefulApps() {
+    final Uri $url = Uri.parse('http://travel.getcontact.uz/api/useful_apps');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<UsefulAppResponse, UsefulAppResponse>($request);
+  }
+
+  @override
+  Future<Response<SingleItemResponse>> getSingleUsefulApp(int id) {
+    final Uri $url =
+        Uri.parse('http://travel.getcontact.uz/api/useful_apps/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<SingleItemResponse, SingleItemResponse>($request);
+  }
 }

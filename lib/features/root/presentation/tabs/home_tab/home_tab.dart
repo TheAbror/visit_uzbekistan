@@ -31,10 +31,10 @@ class HomeTab extends StatelessWidget {
 
               // useful apps
               if (state.filterItemsSelected.contains('Useful apps'))
-                if (state.usefulApps.isNotEmpty)
+                if (state.usefulApps.model.isNotEmpty)
                   HomeTabItems(
                     header: context.localizations.usefulApps,
-                    item: state.usefulApps,
+                    item: state.usefulApps.model,
                     pageNamed: OpenPageNamed.usefulApp,
                   ),
 

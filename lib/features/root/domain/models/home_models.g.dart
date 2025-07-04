@@ -34,6 +34,20 @@ Map<String, dynamic> _$PlacesResponseToJson(PlacesResponse instance) =>
       'places': instance.places.map((e) => e.toJson()).toList(),
     };
 
+UsefulAppResponse _$UsefulAppResponseFromJson(Map<String, dynamic> json) =>
+    UsefulAppResponse(
+      usefulApps: (json['useful_apps'] as List<dynamic>?)
+              ?.map(
+                  (e) => SingleItemResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+    );
+
+Map<String, dynamic> _$UsefulAppResponseToJson(UsefulAppResponse instance) =>
+    <String, dynamic>{
+      'useful_apps': instance.usefulApps.map((e) => e.toJson()).toList(),
+    };
+
 SingleItemResponse _$SingleItemResponseFromJson(Map<String, dynamic> json) =>
     SingleItemResponse(
       id: json['id'] as int? ?? 0,
@@ -48,6 +62,8 @@ SingleItemResponse _$SingleItemResponseFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String? ?? '',
       rating: (json['rating'] as num?)?.toDouble() ?? 0,
       link: json['link'] as String? ?? '',
+      androidLink: json['android_link'] as String? ?? '',
+      iosLink: json['ios_link'] as String? ?? '',
       cityName: json['city_name'] as String? ?? '',
       isImageTiny: json['isImageTiny'] as bool? ?? false,
       images: (json['images'] as List<dynamic>?)
@@ -69,6 +85,8 @@ Map<String, dynamic> _$SingleItemResponseToJson(SingleItemResponse instance) =>
       'city_id': instance.cityID,
       'city_name': instance.cityName,
       'link': instance.link,
+      'android_link': instance.androidLink,
+      'ios_link': instance.iosLink,
       'type': instance.type,
       'rating': instance.rating,
       'isImageTiny': instance.isImageTiny,

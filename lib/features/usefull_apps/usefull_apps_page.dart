@@ -1,6 +1,6 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class UsefullAppsPage extends StatelessWidget {
+class UsefullAppsPage extends StatefulWidget {
   final IdandTitle idandTitle;
 
   const UsefullAppsPage({
@@ -9,10 +9,21 @@ class UsefullAppsPage extends StatelessWidget {
   });
 
   @override
+  State<UsefullAppsPage> createState() => _UsefullAppsPageState();
+}
+
+class _UsefullAppsPageState extends State<UsefullAppsPage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeBloc>().getSingleUsefulApp(context, widget.idandTitle.id);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        final item = state.usefulApps[idandTitle.id];
+        final item = state.singleUsefulApp.model;
         final _height = 300.h;
 
         return Scaffold(
@@ -20,9 +31,9 @@ class UsefullAppsPage extends StatelessWidget {
             leading: SingleCityPageLeadingIcon(),
             actions: [
               DownloadWidget(
-                id: idandTitle.id,
-                newItem:
-                    state.usefulApps.firstWhere((e) => e.id == idandTitle.id),
+                id: widget.idandTitle.id,
+                newItem: state.usefulApps.model
+                    .firstWhere((e) => e.id == widget.idandTitle.id),
               ),
               SizedBox(width: 8.w),
             ],
@@ -74,7 +85,11 @@ class UsefullAppsPage extends StatelessWidget {
                 },
               ),
               SizedBox(height: 20.h),
-              Text(item.info),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
+                child: HtmlWidget(state.singleUsefulApp.model.info),
+              ),
+              SizedBox(height: 20.h),
               SizedBox(height: 20.h),
               ActionButton(
                 text: 'Download',

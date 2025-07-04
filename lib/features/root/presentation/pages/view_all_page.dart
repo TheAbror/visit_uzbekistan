@@ -31,7 +31,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
         viewAllBloc.assignSearchValues(homeBloc.state.mustKnow);
         break;
       case OpenPageNamed.usefulApp:
-        viewAllBloc.assignSearchValues(homeBloc.state.usefulApps);
+        viewAllBloc.assignSearchValues(homeBloc.state.usefulApps.model);
         break;
       case OpenPageNamed.tours:
         viewAllBloc.assignSearchValues(homeBloc.state.tours.model);
