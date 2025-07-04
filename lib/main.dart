@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
 //TODO 
 //1. make article or place downloadable  - DONE
 //2. make whole city downloadable
-//3. make ui update when working with hive
+//3. make ui update when working with hive for downloads page - - DONE
 // Option 3: Use ValueListenableBuilder (recommended for Hive)
 // Hive boxes are ValueListenable, which means you can listen to changes automatically and rebuild UI reactively:
 
@@ -103,5 +103,9 @@ class _MyAppState extends State<MyApp> {
 // Copy
 // Edit
 // await hiveBox.delete(ShPrefKeys.localStorageItems);
+
+
+//4. useful apps with backend - DONE
+
 
 

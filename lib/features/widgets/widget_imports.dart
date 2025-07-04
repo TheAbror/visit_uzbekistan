@@ -116,3 +116,4 @@ export 'package:hive_flutter/hive_flutter.dart';
 export 'package:visit_uzbekistan/features/local_storage/downloads_page.dart';
 export 'package:visit_uzbekistan/features/local_storage/widgets/download_widget.dart';
 export 'package:visit_uzbekistan/features/local_storage/single_downloaded_item_page.dart';
+export 'package:visit_uzbekistan/features/local_storage/widgets/dialog_action.dart';
