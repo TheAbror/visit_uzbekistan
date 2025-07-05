@@ -5,9 +5,27 @@ part 'city_state.dart';
 class CityBloc extends Cubit<CityState> {
   CityBloc() : super(CityState.initial());
 
-  // http://192.168.0.101:8000/api/cities/1
+  void saveSingleCityToHive() {
+    final _box = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
+    final _whenEmpty = LocalStorageForCities(localStorageCityItems: []);
 
-  void saveSingleCityToHive() {}
+    final LocalStorageForCities? savedItems = _box ?? _whenEmpty;
+    final response = state.response.toSingleCityModel();
+
+    savedCitiesBox.put(
+      ShPrefKeys.localStorageSavedCity,
+      LocalStorageForCities(
+        localStorageCityItems: [
+          ...savedItems?.localStorageCityItems ?? [],
+          response,
+        ],
+      ),
+    );
+
+    print(savedItems);
+  }
+
+  // http://192.168.0.101:8000/api/cities/1
 
   void getSingleCity(int id) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));

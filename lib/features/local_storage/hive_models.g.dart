@@ -119,3 +119,139 @@ class SingleItemModelAdapter extends TypeAdapter<SingleItemModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+class LocalStorageForCitiesAdapter extends TypeAdapter<LocalStorageForCities> {
+  @override
+  final int typeId = 2;
+
+  @override
+  LocalStorageForCities read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return LocalStorageForCities(
+      localStorageCityItems:
+          fields[0] == null ? [] : (fields[0] as List).cast<SingleCityModel>(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, LocalStorageForCities obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.localStorageCityItems);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is LocalStorageForCitiesAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class SingleCityModelAdapter extends TypeAdapter<SingleCityModel> {
+  @override
+  final int typeId = 3;
+
+  @override
+  SingleCityModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return SingleCityModel(
+      id: fields[0] as int,
+      name: fields[1] as String,
+      location: fields[2] as String,
+      shortDescription: fields[3] as String,
+      info: fields[4] as String,
+      photo: fields[5] as String,
+      places: (fields[6] as List).cast<SingleItemModel>(),
+      restaurants: (fields[7] as List).cast<SingleItemModel>(),
+      articles: (fields[8] as List).cast<SingleItemModel>(),
+      carRentals: (fields[9] as List).cast<SingleItemModel>(),
+      tours: (fields[10] as List).cast<SingleItemModel>(),
+      images: (fields[11] as List?)?.cast<ListOfImagesModel>(),
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, SingleCityModel obj) {
+    writer
+      ..writeByte(12)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.location)
+      ..writeByte(3)
+      ..write(obj.shortDescription)
+      ..writeByte(4)
+      ..write(obj.info)
+      ..writeByte(5)
+      ..write(obj.photo)
+      ..writeByte(6)
+      ..write(obj.places)
+      ..writeByte(7)
+      ..write(obj.restaurants)
+      ..writeByte(8)
+      ..write(obj.articles)
+      ..writeByte(9)
+      ..write(obj.carRentals)
+      ..writeByte(10)
+      ..write(obj.tours)
+      ..writeByte(11)
+      ..write(obj.images);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SingleCityModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class ListOfImagesModelAdapter extends TypeAdapter<ListOfImagesModel> {
+  @override
+  final int typeId = 4;
+
+  @override
+  ListOfImagesModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ListOfImagesModel(
+      path: fields[0] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, ListOfImagesModel obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.path);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ListOfImagesModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}

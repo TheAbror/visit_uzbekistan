@@ -12,6 +12,6 @@ abstract class ShPrefKeys {
   static const androidStoreUrl = 'androidStoreUrl';
   static const iosStoreUrl = 'iosStoreUrl';
   static const langCode = 'langCode';
-  static const singleItemModel = 'singleItemModel';
   static const localStorageItems = 'listOfLocalStorageItems';
+  static const localStorageSavedCity = 'localStorageSavedCity';
 }

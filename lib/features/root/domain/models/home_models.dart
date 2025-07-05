@@ -105,7 +105,7 @@ class SingleItemResponse {
   @JsonKey(defaultValue: false)
   final bool? isImageTiny;
   @JsonKey(defaultValue: [])
-  final List<ListOfImages>? images;
+  final List<ListOfImagesResponse>? images;
 
   SingleItemResponse({
     required this.id,
@@ -126,6 +126,27 @@ class SingleItemResponse {
     this.isImageTiny,
     this.images,
   });
+
+  factory SingleItemResponse.fromResponse(SingleItemModel response) {
+    return SingleItemResponse(
+      id: response.id,
+      name: response.name,
+      location: response.location,
+      shortDescription: response.shortDescription,
+      info: response.info,
+      photo: response.photo,
+      createdAt: response.createdAt,
+      updatedAt: response.updatedAt,
+      cityID: response.cityID,
+      cityName: response.cityName,
+      link: response.link,
+      type: response.type,
+      rating: response.rating,
+      isImageTiny: response.isImageTiny,
+      androidLink: response.androidLink,
+      iosLink: response.iosLink,
+    );
+  }
 
   SingleItemModel toSingleItemHiveModel() {
     return SingleItemModel(
@@ -226,7 +247,7 @@ class SingleCityResponse {
   @JsonKey(defaultValue: [])
   final List<SingleItemResponse> tours;
   @JsonKey(defaultValue: [])
-  final List<ListOfImages>? images;
+  final List<ListOfImagesResponse>? images;
 
   SingleCityResponse({
     required this.id,
@@ -242,6 +263,23 @@ class SingleCityResponse {
     required this.tours,
     required this.images,
   });
+
+  SingleCityModel toSingleCityModel() {
+    return SingleCityModel(
+      id: id,
+      name: name,
+      location: location,
+      shortDescription: shortDescription,
+      info: info,
+      photo: photo,
+      places: places.map(SingleItemModel.fromResponse).toList(),
+      restaurants: restaurants.map(SingleItemModel.fromResponse).toList(),
+      articles: articles.map(SingleItemModel.fromResponse).toList(),
+      carRentals: carRentals.map(SingleItemModel.fromResponse).toList(),
+      tours: tours.map(SingleItemModel.fromResponse).toList(),
+      images: images?.map(ListOfImagesModel.fromResponse).toList(),
+    );
+  }
 
   factory SingleCityResponse.fromJson(Map<String, dynamic> json) =>
       _$SingleCityResponseFromJson(json);
@@ -259,16 +297,20 @@ class SingleCityResponse {
 // ],
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
-class ListOfImages {
+class ListOfImagesResponse {
   @JsonKey(defaultValue: '')
   final String path;
 
-  ListOfImages({required this.path});
+  ListOfImagesResponse({required this.path});
 
-  factory ListOfImages.fromJson(Map<String, dynamic> json) =>
-      _$ListOfImagesFromJson(json);
+  factory ListOfImagesResponse.fromResponse(ListOfImagesModel images) {
+    return ListOfImagesResponse(path: images.path);
+  }
 
-  Map<String, dynamic> toJson() => _$ListOfImagesToJson(this);
+  factory ListOfImagesResponse.fromJson(Map<String, dynamic> json) =>
+      _$ListOfImagesResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ListOfImagesResponseToJson(this);
 }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)

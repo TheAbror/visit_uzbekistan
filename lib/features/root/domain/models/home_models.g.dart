@@ -67,7 +67,8 @@ SingleItemResponse _$SingleItemResponseFromJson(Map<String, dynamic> json) =>
       cityName: json['city_name'] as String? ?? '',
       isImageTiny: json['isImageTiny'] as bool? ?? false,
       images: (json['images'] as List<dynamic>?)
-              ?.map((e) => ListOfImages.fromJson(e as Map<String, dynamic>))
+              ?.map((e) =>
+                  ListOfImagesResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
     );
@@ -127,7 +128,8 @@ SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
               .toList() ??
           [],
       images: (json['images'] as List<dynamic>?)
-              ?.map((e) => ListOfImages.fromJson(e as Map<String, dynamic>))
+              ?.map((e) =>
+                  ListOfImagesResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
     );
@@ -148,11 +150,14 @@ Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
       'images': instance.images?.map((e) => e.toJson()).toList(),
     };
 
-ListOfImages _$ListOfImagesFromJson(Map<String, dynamic> json) => ListOfImages(
+ListOfImagesResponse _$ListOfImagesResponseFromJson(
+        Map<String, dynamic> json) =>
+    ListOfImagesResponse(
       path: json['path'] as String? ?? '',
     );
 
-Map<String, dynamic> _$ListOfImagesToJson(ListOfImages instance) =>
+Map<String, dynamic> _$ListOfImagesResponseToJson(
+        ListOfImagesResponse instance) =>
     <String, dynamic>{
       'path': instance.path,
     };

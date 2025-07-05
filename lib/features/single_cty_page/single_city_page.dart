@@ -34,6 +34,22 @@ class _SignleCityPageState extends State<SignleCityPage> {
               expandedHeight: 200.h,
               leading: SingleCityPageLeadingIcon(),
               actions: [
+                Container(
+                  padding: EdgeInsets.all(4.w),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: GestureDetector(
+                    onTap: () =>
+                        context.read<CityBloc>().saveSingleCityToHive(),
+                    child: Icon(
+                      IconsaxPlusLinear.document_download,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 4.w),
                 SingleCityPageMakeFavoriteWidget(cityID: widget.idandTitle.id)
               ],
               flexibleSpace: FlexibleSpaceBar(
@@ -59,7 +75,6 @@ class _SignleCityPageState extends State<SignleCityPage> {
                   children: [
                     AboutCityTab(),
                     PlacesTab(),
-                    // BeforeTheTripTab(),
                     TransportationTab(),
                     ToursTab(),
                     RestaurantsTab(),
@@ -118,7 +133,6 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
                     tabs: [
                       SingleCityTab(label: 'About ' + state.response.name),
                       SingleCityTab(label: 'Places'),
-                      // SingleCityTab(label: 'Before the trip'),
                       SingleCityTab(label: 'Transportation'),
                       SingleCityTab(label: 'Tours'),
                       SingleCityTab(label: 'Restaurants'),

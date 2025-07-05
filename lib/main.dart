@@ -5,9 +5,15 @@ void main() async {
 
   await PreferencesServices.init();
   await Hive.initFlutter();
+
   Hive.registerAdapter(LocalStorageAdapter());
+  Hive.registerAdapter(LocalStorageForCitiesAdapter());
   Hive.registerAdapter(SingleItemModelAdapter());
-  hiveBox = await Hive.openBox<SingleItemResponse>(ShPrefKeys.singleItemModel);
+  Hive.registerAdapter(SingleCityModelAdapter());
+  Hive.registerAdapter(ListOfImagesModelAdapter());
+
+  savedCitiesBox = await Hive.openBox<LocalStorageForCities>(
+      ShPrefKeys.localStorageSavedCity);
   hiveBox = await Hive.openBox<LocalStorage>(ShPrefKeys.localStorageItems);
 
   ApiProvider.create();
