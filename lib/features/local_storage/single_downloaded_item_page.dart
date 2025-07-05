@@ -56,7 +56,9 @@ class _SingleDownloadedItemPageState extends State<SingleDownloadedItemPage> {
                   imageUrl: item?.photo ?? '',
                   height: 300.h,
                   width: double.infinity,
-                  fit: BoxFit.cover,
+                  fit: item?.type == 'useful_app'
+                      ? BoxFit.fitWidth
+                      : BoxFit.fill,
                   placeholder: (context, url) => Container(
                     height: 300.h,
                     width: double.infinity,

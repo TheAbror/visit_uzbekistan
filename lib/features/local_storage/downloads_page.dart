@@ -8,37 +8,38 @@ class DownloadsPage extends StatelessWidget {
     return Scaffold(
       appBar: DownloadsAppBar(),
       body: ValueListenableBuilder(
-          valueListenable: hiveBox.listenable(),
-          builder: (context, Box hiveBox, _) {
-            final rawItemData = hiveBox.get(ShPrefKeys.localStorageItems);
-            final LocalStorage? itemData = rawItemData;
-            final localStorageItems = itemData?.localStorageItems ?? [];
+        valueListenable: hiveBox.listenable(),
+        builder: (context, Box hiveBox, _) {
+          final rawItemData = hiveBox.get(ShPrefKeys.localStorageItems);
+          final LocalStorage? itemData = rawItemData;
+          final localStorageItems = itemData?.localStorageItems ?? [];
 
-            return ValueListenableBuilder(
-              valueListenable: savedCitiesBox.listenable(),
-              builder: (context, Box box, _) {
-                final rawCityData = box.get(ShPrefKeys.localStorageSavedCity);
-                final LocalStorageForCities? cityData = rawCityData;
-                final cityItems = cityData?.localStorageCityItems ?? [];
+          return ValueListenableBuilder(
+            valueListenable: savedCitiesBox.listenable(),
+            builder: (context, Box box, _) {
+              final rawCityData = box.get(ShPrefKeys.localStorageSavedCity);
+              final LocalStorageForCities? cityData = rawCityData;
+              final cityItems = cityData?.localStorageCityItems ?? [];
 
-                final allItems = [
-                  ...localStorageItems,
-                  ...cityItems,
-                ];
+              final allItems = [
+                ...localStorageItems,
+                ...cityItems,
+              ];
 
-                if (allItems.isEmpty) {
-                  return Center(
-                    child: Text(
-                      'No saved items',
-                      style: TextStyle(fontSize: 18.sp),
-                    ),
-                  );
-                }
+              if (allItems.isEmpty) {
+                return Center(
+                  child: Text(
+                    'No saved items',
+                    style: TextStyle(fontSize: 18.sp),
+                  ),
+                );
+              }
 
-                return _Body(items: allItems);
-              },
-            );
-          }),
+              return _Body(items: allItems);
+            },
+          );
+        },
+      ),
     );
   }
 }
@@ -69,14 +70,25 @@ class _Body extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              AppRoutes.singleDownloadPage,
-              arguments: IdandTitle(
-                id: singleItem.id,
-                title: singleItem.type,
-              ),
-            );
+            if (singleItem.type == 'city') {
+              Navigator.pushNamed(
+                context,
+                AppRoutes.singleCityPage,
+                arguments: IdandTitle(
+                  id: singleItem.id,
+                  title: singleItem.type,
+                ),
+              );
+            } else {
+              Navigator.pushNamed(
+                context,
+                AppRoutes.singleDownloadPage,
+                arguments: IdandTitle(
+                  id: singleItem.id,
+                  title: singleItem.type,
+                ),
+              );
+            }
           },
           child: Container(
             decoration: BoxDecoration(
@@ -88,10 +100,10 @@ class _Body extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Image + Favorite Icon
-                // ImageAndFavoriteIcon(
-                //   height: 120,
-                //   item: singleItem.toSingleItemResponse(),
-                // ),
+                ImageAndFavoriteIcon(
+                  height: 120,
+                  item: singleItem.toSingleItemResponse(),
+                ),
 
                 // Item Details
                 Padding(
