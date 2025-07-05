@@ -22,6 +22,7 @@ class RestaurantState extends Equatable {
         shortDescription: '',
         createdAt: '',
         updatedAt: '',
+        type: '',
       ),
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',

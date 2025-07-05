@@ -132,6 +132,7 @@ SingleCityResponse _$SingleCityResponseFromJson(Map<String, dynamic> json) =>
                   ListOfImagesResponse.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      type: json['type'] as String? ?? '',
     );
 
 Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
@@ -148,6 +149,7 @@ Map<String, dynamic> _$SingleCityResponseToJson(SingleCityResponse instance) =>
       'carRentals': instance.carRentals.map((e) => e.toJson()).toList(),
       'tours': instance.tours.map((e) => e.toJson()).toList(),
       'images': instance.images?.map((e) => e.toJson()).toList(),
+      'type': instance.type,
     };
 
 ListOfImagesResponse _$ListOfImagesResponseFromJson(

@@ -55,7 +55,7 @@ class HomeTabItems extends StatelessWidget {
                     );
                   } else {
                     final String? routeName = getRouteNameFromType(
-                      singleItem.type ?? '',
+                      singleItem.type,
                     );
 
                     if (routeName == null || routeName == '') {

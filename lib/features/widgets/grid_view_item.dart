@@ -20,7 +20,7 @@ class GridViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         final String? routeName = getRouteNameFromType(
-          item.type ?? '',
+          item.type,
         );
 
         if (routeName == null || routeName == '') {

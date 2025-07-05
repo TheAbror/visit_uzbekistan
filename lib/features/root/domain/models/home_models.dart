@@ -85,9 +85,9 @@ class SingleItemResponse {
   @JsonKey(defaultValue: '')
   final String photo;
   @JsonKey(defaultValue: '', name: 'created_at')
-  final String createdAt;
+  final String? createdAt;
   @JsonKey(defaultValue: '', name: 'updated_at')
-  final String updatedAt;
+  final String? updatedAt;
   @JsonKey(defaultValue: 0, name: 'city_id')
   final int? cityID;
   @JsonKey(defaultValue: '', name: 'city_name')
@@ -99,7 +99,7 @@ class SingleItemResponse {
   @JsonKey(defaultValue: '', name: 'ios_link')
   final String? iosLink;
   @JsonKey(defaultValue: '')
-  final String? type;
+  final String type;
   @JsonKey(defaultValue: 0)
   final double? rating;
   @JsonKey(defaultValue: false)
@@ -114,10 +114,10 @@ class SingleItemResponse {
     required this.info,
     required this.photo,
     required this.shortDescription,
-    required this.createdAt,
-    required this.updatedAt,
+    this.createdAt,
+    this.updatedAt,
     this.cityID,
-    this.type,
+    required this.type,
     this.rating,
     this.link,
     this.androidLink,
@@ -156,8 +156,6 @@ class SingleItemResponse {
       shortDescription: shortDescription,
       info: info,
       photo: photo,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
       type: type,
       link: link,
       androidLink: link,
@@ -248,6 +246,8 @@ class SingleCityResponse {
   final List<SingleItemResponse> tours;
   @JsonKey(defaultValue: [])
   final List<ListOfImagesResponse>? images;
+  @JsonKey(defaultValue: '')
+  final String type;
 
   SingleCityResponse({
     required this.id,
@@ -262,6 +262,7 @@ class SingleCityResponse {
     required this.carRentals,
     required this.tours,
     required this.images,
+    required this.type,
   });
 
   SingleCityModel toSingleCityModel() {
@@ -278,6 +279,7 @@ class SingleCityResponse {
       carRentals: carRentals.map(SingleItemModel.fromResponse).toList(),
       tours: tours.map(SingleItemModel.fromResponse).toList(),
       images: images?.map(ListOfImagesModel.fromResponse).toList(),
+      type: type,
     );
   }
 

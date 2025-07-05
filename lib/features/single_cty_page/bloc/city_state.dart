@@ -32,6 +32,7 @@ class CityState extends Equatable {
         tours: [],
         carRentals: [],
         images: [],
+        type: '',
       ),
       singleItem: SingleItemResponse(
         id: 0,
@@ -42,6 +43,7 @@ class CityState extends Equatable {
         shortDescription: '',
         createdAt: '',
         updatedAt: '',
+        type: '',
       ),
       carRentals: SingleItemResponse(
         id: 0,
@@ -52,6 +54,7 @@ class CityState extends Equatable {
         shortDescription: '',
         createdAt: '',
         updatedAt: '',
+        type: '',
       ),
       tours: SingleItemResponse(
         id: 0,
@@ -62,6 +65,7 @@ class CityState extends Equatable {
         shortDescription: '',
         createdAt: '',
         updatedAt: '',
+        type: '',
       ),
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',

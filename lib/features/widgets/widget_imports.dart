@@ -117,3 +117,5 @@ export 'package:visit_uzbekistan/features/local_storage/downloads_page.dart';
 export 'package:visit_uzbekistan/features/local_storage/widgets/download_widget.dart';
 export 'package:visit_uzbekistan/features/local_storage/single_downloaded_item_page.dart';
 export 'package:visit_uzbekistan/features/local_storage/widgets/dialog_action.dart';
+export 'package:visit_uzbekistan/features/local_storage/widgets/delete_dialog.dart';
+export 'package:visit_uzbekistan/features/local_storage/widgets/downloads_app_bar.dart';

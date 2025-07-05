@@ -59,6 +59,7 @@ class HomeState extends Equatable {
         link: '',
         createdAt: '',
         updatedAt: '',
+        type: '',
       ),
       mustKnow: [
         SingleItemResponse(
@@ -75,6 +76,7 @@ class HomeState extends Equatable {
           updatedAt: '',
           isImageTiny: true,
           link: 'https://uzbek-travel.com/visa/registration/',
+          type: '',
         ),
         SingleItemResponse(
           id: 1,
@@ -90,6 +92,7 @@ class HomeState extends Equatable {
           updatedAt: '',
           isImageTiny: true,
           link: 'https://www.uzcaa.uz/en/drones',
+          type: '',
         ),
 
         //
@@ -107,6 +110,7 @@ class HomeState extends Equatable {
           isImageTiny: false,
           link:
               'https://www.uzairways.com/en/press-center/news/tax-free-how-tourists-can-get-refund-goods-purchased-uzbekistan',
+          type: '',
         ),
       ],
       usefulApps: SuperBlocProgress(model: []),
@@ -121,6 +125,7 @@ class HomeState extends Equatable {
           link: '',
           createdAt: '',
           updatedAt: '',
+          type: '',
         ),
       ),
       blocProgress: BlocProgress.NOT_STARTED,

@@ -41,8 +41,13 @@ class _SignleCityPageState extends State<SignleCityPage> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: GestureDetector(
-                    onTap: () =>
-                        context.read<CityBloc>().saveSingleCityToHive(),
+                    onTap: () async {
+                      final isSaved =
+                          await context.read<CityBloc>().saveSingleCityToHive();
+                      if (isSaved) {
+                        showMessage('Saved');
+                      }
+                    },
                     child: Icon(
                       IconsaxPlusLinear.document_download,
                       color: Colors.black,

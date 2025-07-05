@@ -25,9 +25,9 @@ class SingleItemModel extends HiveObject {
   @HiveField(5)
   final String photo;
   @HiveField(6)
-  final String createdAt;
+  final String? createdAt;
   @HiveField(7)
-  final String updatedAt;
+  final String? updatedAt;
   @HiveField(8)
   final int? cityID;
   @HiveField(9)
@@ -35,7 +35,7 @@ class SingleItemModel extends HiveObject {
   @HiveField(10)
   final String? link;
   @HiveField(11)
-  final String? type;
+  final String type;
   @HiveField(12)
   final double? rating;
   @HiveField(13)
@@ -52,14 +52,14 @@ class SingleItemModel extends HiveObject {
     required this.shortDescription,
     required this.info,
     required this.photo,
-    required this.createdAt,
-    required this.updatedAt,
+    this.createdAt,
+    this.updatedAt,
     this.cityID,
     this.cityName,
     this.link,
     this.androidLink,
     this.iosLink,
-    this.type,
+    required this.type,
     this.rating,
     this.isImageTiny,
   });
@@ -72,8 +72,6 @@ class SingleItemModel extends HiveObject {
       shortDescription: response.shortDescription,
       info: response.info,
       photo: response.photo,
-      createdAt: response.createdAt,
-      updatedAt: response.updatedAt,
       cityID: response.cityID,
       cityName: response.cityName,
       link: response.link,
@@ -137,6 +135,8 @@ class SingleCityModel extends HiveObject {
   final List<SingleItemModel> tours;
   @HiveField(11)
   final List<ListOfImagesModel>? images;
+  @HiveField(12)
+  final String type;
 
   SingleCityModel({
     required this.id,
@@ -151,6 +151,7 @@ class SingleCityModel extends HiveObject {
     required this.carRentals,
     required this.tours,
     required this.images,
+    required this.type,
   });
 
   SingleCityResponse toSingleCityResponse() {
@@ -167,6 +168,21 @@ class SingleCityModel extends HiveObject {
       carRentals: carRentals.map(SingleItemResponse.fromResponse).toList(),
       tours: tours.map(SingleItemResponse.fromResponse).toList(),
       images: images?.map(ListOfImagesResponse.fromResponse).toList(),
+      type: type,
+    );
+  }
+
+  SingleItemResponse toSingleItemResponse() {
+    return SingleItemResponse(
+      id: id,
+      name: name,
+      location: location,
+      shortDescription: shortDescription,
+      info: info,
+      photo: photo,
+      createdAt: '',
+      images: images?.map(ListOfImagesResponse.fromResponse).toList(),
+      type: type,
     );
   }
 }

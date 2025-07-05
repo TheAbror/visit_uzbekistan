@@ -58,14 +58,14 @@ class SingleItemModelAdapter extends TypeAdapter<SingleItemModel> {
       shortDescription: fields[3] as String,
       info: fields[4] as String,
       photo: fields[5] as String,
-      createdAt: fields[6] as String,
-      updatedAt: fields[7] as String,
+      createdAt: fields[6] as String?,
+      updatedAt: fields[7] as String?,
       cityID: fields[8] as int?,
       cityName: fields[9] as String?,
       link: fields[10] as String?,
       androidLink: fields[14] as String?,
       iosLink: fields[15] as String?,
-      type: fields[11] as String?,
+      type: fields[11] as String,
       rating: fields[12] as double?,
       isImageTiny: fields[13] as bool?,
     );
@@ -178,13 +178,14 @@ class SingleCityModelAdapter extends TypeAdapter<SingleCityModel> {
       carRentals: (fields[9] as List).cast<SingleItemModel>(),
       tours: (fields[10] as List).cast<SingleItemModel>(),
       images: (fields[11] as List?)?.cast<ListOfImagesModel>(),
+      type: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, SingleCityModel obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -208,7 +209,9 @@ class SingleCityModelAdapter extends TypeAdapter<SingleCityModel> {
       ..writeByte(10)
       ..write(obj.tours)
       ..writeByte(11)
-      ..write(obj.images);
+      ..write(obj.images)
+      ..writeByte(12)
+      ..write(obj.type);
   }
 
   @override
