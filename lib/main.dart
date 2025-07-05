@@ -75,43 +75,13 @@ class _MyAppState extends State<MyApp> {
 
 
 //TODO 
-//1. make article or place downloadable  - DONE
-//2. make whole city downloadable
-//3. make ui update when working with hive for downloads page - - DONE
-// Option 3: Use ValueListenableBuilder (recommended for Hive)
-// Hive boxes are ValueListenable, which means you can listen to changes automatically and rebuild UI reactively:
-
-// dart
-// Copy
-// Edit
-// ValueListenableBuilder(
-//   valueListenable: hiveBox.listenable(),
-//   builder: (context, Box box, _) {
-//     final LocalStorage? data = box.get(ShPrefKeys.localStorageItems);
-//     final items = data?.localStorageItems ?? [];
-
-//     if (items.isEmpty) {
-//       return Center(child: Text("No saved items"));
-//     }
-
-//     return ListView.builder(
-//       itemCount: items.length,
-//       itemBuilder: (context, index) {
-//         final item = items[index];
-//         return ListTile(title: Text(item.name));
-//       },
-//     );
-//   },
-// );
-// Then, when you delete:
-
-// dart
-// Copy
-// Edit
-// await hiveBox.delete(ShPrefKeys.localStorageItems);
-
-
-//4. useful apps with backend - DONE
+//1.✅  make article or place, apps downloadable  - DONE 
+//2.✅  make whole city downloadable
+//3.✅  make ui update when working with hive for downloads page - - DONE 
+//4.✅  useful apps with backend - DONE 
+//5.⛔️  show Single city content when there is no internet
+//6.⛔️  apply internet connection checker
+//7.✅. in downloads page show both boxes conternt - DONE 
 
 
 
