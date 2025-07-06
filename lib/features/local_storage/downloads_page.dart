@@ -7,39 +7,48 @@ class DownloadsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DownloadsAppBar(),
-      body: ValueListenableBuilder(
-        valueListenable: hiveBox.listenable(),
-        builder: (context, Box hiveBox, _) {
-          final rawItemData = hiveBox.get(ShPrefKeys.localStorageItems);
-          final LocalStorage? itemData = rawItemData;
-          final localStorageItems = itemData?.localStorageItems ?? [];
+      body: DownloadsBody(),
+    );
+  }
+}
 
-          return ValueListenableBuilder(
-            valueListenable: savedCitiesBox.listenable(),
-            builder: (context, Box box, _) {
-              final rawCityData = box.get(ShPrefKeys.localStorageSavedCity);
-              final LocalStorageForCities? cityData = rawCityData;
-              final cityItems = cityData?.localStorageCityItems ?? [];
+class DownloadsBody extends StatelessWidget {
+  const DownloadsBody({super.key});
 
-              final allItems = [
-                ...localStorageItems,
-                ...cityItems,
-              ];
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: hiveBox.listenable(),
+      builder: (context, Box hiveBox, _) {
+        final rawItemData = hiveBox.get(ShPrefKeys.localStorageItems);
+        final LocalStorage? itemData = rawItemData;
+        final localStorageItems = itemData?.localStorageItems ?? [];
 
-              if (allItems.isEmpty) {
-                return Center(
-                  child: Text(
-                    'No saved items',
-                    style: TextStyle(fontSize: 18.sp),
-                  ),
-                );
-              }
+        return ValueListenableBuilder(
+          valueListenable: savedCitiesBox.listenable(),
+          builder: (context, Box box, _) {
+            final rawCityData = box.get(ShPrefKeys.localStorageSavedCity);
+            final LocalStorageForCities? cityData = rawCityData;
+            final cityItems = cityData?.localStorageCityItems ?? [];
 
-              return _Body(items: allItems);
-            },
-          );
-        },
-      ),
+            final allItems = [
+              ...localStorageItems,
+              ...cityItems,
+            ];
+
+            if (allItems.isEmpty) {
+              return Center(
+                child: Text(
+                  'No saved items',
+                  style: TextStyle(fontSize: 18.sp),
+                ),
+              );
+            }
+
+            return _Body(items: allItems);
+          },
+        );
+      },
     );
   }
 }

@@ -5,6 +5,9 @@ part 'root_state.dart';
 class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
+  void isConnectedToInternet(bool isConnected) {
+    emit(state.copyWith(isConnectedToInternet: isConnected));
+  }
   void changeTab(int tabIndex) {
     emit(state.copyWith(tabIndex: tabIndex));
   }
