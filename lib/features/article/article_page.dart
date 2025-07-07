@@ -51,6 +51,7 @@ class _ArticlePageState extends State<ArticlePage> {
                 id: widget.idandTitle.id,
                 newItem: state.singleArticle,
               ),
+              SizedBox(width: 8.w),
             ],
           ),
           body: BlocBuilder<HomeBloc, HomeState>(

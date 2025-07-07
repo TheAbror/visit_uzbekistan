@@ -120,3 +120,6 @@ export 'package:visit_uzbekistan/features/local_storage/single_downloaded_item_p
 export 'package:visit_uzbekistan/features/local_storage/widgets/dialog_action.dart';
 export 'package:visit_uzbekistan/features/local_storage/widgets/delete_dialog.dart';
 export 'package:visit_uzbekistan/features/local_storage/widgets/downloads_app_bar.dart';
+export 'dart:async';
+export 'package:internet_connection_checker/internet_connection_checker.dart';
+export 'package:visit_uzbekistan/features/root/presentation/widgets/tabs.dart';

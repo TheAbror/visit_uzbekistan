@@ -45,7 +45,9 @@ class _ViewAllPageState extends State<ViewAllPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: SingleCityPageLeadingIcon(),
+      ),
       body: SafeArea(
         child: BlocBuilder<ViewAllBloc, ViewAllState>(
           builder: (context, state) {

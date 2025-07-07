@@ -6,8 +6,15 @@ class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
   void isConnectedToInternet(bool isConnected) {
-    emit(state.copyWith(isConnectedToInternet: isConnected));
+    emit(state.copyWith(
+      isConnectedToInternet: isConnected,
+    ));
   }
+
+  void attemptedToCheckConnection() {
+    emit(state.copyWith(hasInternetConnectionBeenChecked: true));
+  }
+
   void changeTab(int tabIndex) {
     emit(state.copyWith(tabIndex: tabIndex));
   }

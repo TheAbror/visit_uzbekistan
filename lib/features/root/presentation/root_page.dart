@@ -1,7 +1,3 @@
-import 'dart:async';
-
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class RootPage extends StatefulWidget {
@@ -15,7 +11,6 @@ class _RootPageState extends State<RootPage> {
   late StreamSubscription<InternetConnectionStatus> _connectionListener;
   final InternetConnectionChecker _connectionChecker =
       InternetConnectionChecker.instance;
-  bool _hasShownInitialConnectionMessage = false;
 
   @override
   void initState() {
@@ -34,6 +29,7 @@ class _RootPageState extends State<RootPage> {
       (InternetConnectionStatus status) {
         if (status == InternetConnectionStatus.connected) {
           context.read<RootBloc>().isConnectedToInternet(true);
+          context.read<RootBloc>().attemptedToCheckConnection();
         } else {
           context.read<RootBloc>().isConnectedToInternet(false);
         }
@@ -50,50 +46,40 @@ class _RootPageState extends State<RootPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RootBloc, RootState>(
-      listenWhen: (previous, current) =>
-          previous.isConnectedToInternet != current.isConnectedToInternet,
-      listener: (context, state) {
-        // Skip the very first change (usually the initialization)
-        if (!_hasShownInitialConnectionMessage) {
-          _hasShownInitialConnectionMessage = true;
-          return;
-        }
+    return Scaffold(
+      backgroundColor: AppColors.rootBgColor,
+      body: BlocConsumer<RootBloc, RootState>(
+        listenWhen: (previous, current) =>
+            previous.isConnectedToInternet != current.isConnectedToInternet,
+        listener: (context, state) {
+          // Skip showing toast messages UNTIL the connection has been checked
+          if (!state.hasInternetConnectionBeenChecked) {
+            return;
+          }
 
-        if (!state.isConnectedToInternet) {
-          showMessage(
-            'No internet connection. Displaying downloaded content until back online.',
-            isError: true,
-          );
-        }
-        if (state.isConnectedToInternet) {
-          showMessage('Back online');
-        }
-      },
-      builder: (context, state) {
-        if (state.blocProgress == BlocProgress.IS_LOADING) {
-          return Center(child: CircularProgressIndicator());
-        }
+          if (!state.isConnectedToInternet) {
+            showMessage(
+              'No internet connection. Displaying downloaded content until back online.',
+              isError: true,
+            );
+          }
+          if (state.isConnectedToInternet) {
+            showMessage('Back online');
+          }
+        },
+        builder: (context, state) {
+          if (!state.hasInternetConnectionBeenChecked &&
+              !state.isConnectedToInternet) {
+            return Center(child: CircularProgressIndicator());
+          }
 
-        return Scaffold(
-          backgroundColor: AppColors.rootBgColor,
-          body: !state.isConnectedToInternet
+          return !state.isConnectedToInternet
               ? DownloadsBody()
-              : IndexedStack(
-                  index: state.tabIndex,
-                  children: [
-                    HomeTab(),
-                    CitiesTab(),
-                    PlansTab(),
-                    MoreTab(),
-                  ],
-                ),
-          extendBody: true,
-          bottomNavigationBar: !state.isConnectedToInternet
-              ? SizedBox()
-              : RootPageBottomAppBar(tabIndex: state.tabIndex),
-        );
-      },
+              : Tabs(state: state);
+        },
+      ),
+      extendBody: true,
+      bottomNavigationBar: RootPageBottomAppBar(),
     );
   }
 }

@@ -4,7 +4,7 @@ String? getRouteNameFromType(String type) {
   switch (type) {
     case 'article':
       return AppRoutes.articlePage;
-    case 'usefulApp':
+    case 'useful_app':
       return AppRoutes.usefullAppsPage;
     case 'mustKnow':
       return AppRoutes.mustKnowPage;
