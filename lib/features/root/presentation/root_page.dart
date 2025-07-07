@@ -17,6 +17,10 @@ class _RootPageState extends State<RootPage> {
     super.initState();
     internetConnectionChecker();
 
+    allRequests();
+  }
+
+  void allRequests() {
     context.read<CitiesTabBloc>().getAllCities(context);
     context.read<HomeBloc>().getAllPlaces(context);
     context.read<HomeBloc>().getAllArticels(context);
@@ -29,9 +33,11 @@ class _RootPageState extends State<RootPage> {
       (InternetConnectionStatus status) {
         if (status == InternetConnectionStatus.connected) {
           context.read<RootBloc>().isConnectedToInternet(true);
-          context.read<RootBloc>().attemptedToCheckConnection();
+          context.read<RootBloc>().attemptedToCheckConnection(true);
+          allRequests();
         } else {
           context.read<RootBloc>().isConnectedToInternet(false);
+          context.read<RootBloc>().attemptedToCheckConnection(true);
         }
       },
     );
@@ -49,15 +55,17 @@ class _RootPageState extends State<RootPage> {
     return Scaffold(
       backgroundColor: AppColors.rootBgColor,
       body: BlocConsumer<RootBloc, RootState>(
-        listenWhen: (previous, current) =>
-            previous.isConnectedToInternet != current.isConnectedToInternet,
+        // listenWhen: (previous, current) =>
+        //     previous.isConnectedToInternet != current.isConnectedToInternet,
         listener: (context, state) {
           // Skip showing toast messages UNTIL the connection has been checked
-          if (!state.hasInternetConnectionBeenChecked) {
-            return;
-          }
+          // if (!state.hasInternetConnectionBeenChecked) {
+          //   return;
+          // }
 
-          if (!state.isConnectedToInternet) {
+          if (!state.isConnectedToInternet ||
+              (!state.isConnectedToInternet &&
+                  state.hasInternetConnectionBeenChecked)) {
             showMessage(
               'No internet connection. Displaying downloaded content until back online.',
               isError: true,
@@ -74,7 +82,7 @@ class _RootPageState extends State<RootPage> {
           }
 
           return !state.isConnectedToInternet
-              ? DownloadsBody()
+              ? NoInternetMode()
               : Tabs(state: state);
         },
       ),

@@ -84,7 +84,9 @@ class _MyAppState extends State<MyApp> {
 //7.✅  refactor plans tab
 //8.✅  in downloads page show both boxes conternt - DONE 
 //9.⛔️  search competitors
-//10⛔️  default of rootpage when not loading
+//10✅  default of rootpage when not loading - showing downloads in init
+//11⛔️  make downloads body look good in init
+
 
 
 

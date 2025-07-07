@@ -158,7 +158,8 @@ class MainRouteGenerator {
 
       default:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const LogInPage(),
+          // builder: (_) => const LogInPage(),
+          builder: (_) => const RootPage(),
         );
     }
   }

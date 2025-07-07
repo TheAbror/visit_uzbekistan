@@ -12,6 +12,27 @@ class DownloadsPage extends StatelessWidget {
   }
 }
 
+class NoInternetMode extends StatelessWidget {
+  const NoInternetMode({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              TabsAppBar(text: 'Downloads'),
+              DownloadsBody(),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class DownloadsBody extends StatelessWidget {
   const DownloadsBody({super.key});
 
