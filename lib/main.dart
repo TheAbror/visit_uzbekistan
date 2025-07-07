@@ -79,11 +79,12 @@ class _MyAppState extends State<MyApp> {
 //2.✅  make whole city downloadable
 //3.✅  make ui update when working with hive for downloads page - - DONE 
 //4.✅  useful apps with backend - DONE 
-//5.⛔️  show Single city content when there is no internet
-//6.⛔️  apply internet connection checker
-//7.⛔️  refactor plans tab
-//8.✅. in downloads page show both boxes conternt - DONE 
-//7.⛔️  search competitors
+//5.⛔️  show Single city content from hive when there is no internet
+//6.✅  apply internet connection checker
+//7.✅  refactor plans tab
+//8.✅  in downloads page show both boxes conternt - DONE 
+//9.⛔️  search competitors
+//10⛔️  default of rootpage when not loading
 
 
 

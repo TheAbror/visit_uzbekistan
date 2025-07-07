@@ -8,6 +8,7 @@ export 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 export 'package:visit_uzbekistan/core/db/shared_keys.dart';
 export 'package:visit_uzbekistan/core/bloc_progress/bloc_progress.dart';
 export 'package:equatable/equatable.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/widgets/plans_tab_widgets.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:visit_uzbekistan/core/colors/app_colors.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
