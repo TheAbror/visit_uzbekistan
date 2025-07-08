@@ -1,7 +1,5 @@
 // ignore_for_file: unused_field
 
-import 'dart:async';
-
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class CodeVerificationPage extends StatefulWidget {

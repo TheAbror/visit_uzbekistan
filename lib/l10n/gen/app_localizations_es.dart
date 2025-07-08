@@ -137,4 +137,37 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tours => 'Excursiones';
+
+  @override
+  String get contact => 'Contacto';
+
+  @override
+  String get help => 'Ayuda';
+
+  @override
+  String get downloads => 'Descargas';
+
+  @override
+  String get logout => 'Cerrar sesión';
+
+  @override
+  String get fullName => 'Nombre completo';
+
+  @override
+  String get more => 'Más';
+
+  @override
+  String get mustKnow => 'Información importante';
+
+  @override
+  String get hi => 'Hola';
+
+  @override
+  String get plans => 'Planes';
+
+  @override
+  String get taxRefund => 'Reembolso de impuestos';
+
+  @override
+  String get transportationOptions => 'Opciones de transporte';
 }

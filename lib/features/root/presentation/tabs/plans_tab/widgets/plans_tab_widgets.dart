@@ -43,7 +43,7 @@ class TransportationOptions extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Tansportation options',
+            context.localizations.transportationOptions,
             style: TextStyle(
               fontSize: 18.sp,
               color: AppColors.secondary,
@@ -177,7 +177,7 @@ class TaxRefundInfo extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'Tax refund',
+                  context.localizations.taxRefund,
                   style: TextStyle(
                     fontSize: 18.sp,
                     color: AppColors.secondary,

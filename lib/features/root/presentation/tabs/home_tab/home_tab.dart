@@ -24,7 +24,7 @@ class HomeTab extends StatelessWidget {
               if (state.filterItemsSelected.contains('Must know'))
                 if (state.mustKnow.isNotEmpty)
                   HomeTabItems(
-                    header: 'Must know',
+                    header: context.localizations.mustKnow,
                     item: state.mustKnow,
                     pageNamed: OpenPageNamed.mustKnow,
                   ),

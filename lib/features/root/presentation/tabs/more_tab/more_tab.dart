@@ -21,7 +21,7 @@ class MoreTab extends StatelessWidget {
           ),
         ),
         CustomAppBar(
-          title: 'More',
+          title: context.localizations.more,
           color: AppColors.primary,
           height: 56.h,
         ),
@@ -53,7 +53,7 @@ class MoreTab extends StatelessWidget {
               iconPath: 'assets/icons/global.svg',
             ),
             SettingRowItem(
-              title: 'contact',
+              title: context.localizations.contact,
               iconPath: 'assets/icons/user_plus.svg',
               onTap: () {
                 // launchUrl(
@@ -63,7 +63,7 @@ class MoreTab extends StatelessWidget {
               },
             ),
             SettingRowItem(
-              title: 'help',
+              title: context.localizations.help,
               iconPath: 'assets/icons/info_rect.svg',
               onTap: () {
                 showModalBottomSheet(
@@ -77,7 +77,7 @@ class MoreTab extends StatelessWidget {
               hideDivider: false,
             ),
             SettingRowItem(
-              title: 'Downloads',
+              title: context.localizations.downloads,
               iconPath: 'assets/icons/pills_checked.svg',
               onTap: () {
                 Navigator.pushNamed(context, AppRoutes.downloadsPage);

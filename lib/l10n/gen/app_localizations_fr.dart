@@ -137,4 +137,37 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tours => 'Visites';
+
+  @override
+  String get contact => 'Contact';
+
+  @override
+  String get help => 'Aide';
+
+  @override
+  String get downloads => 'Téléchargements';
+
+  @override
+  String get logout => 'Déconnexion';
+
+  @override
+  String get fullName => 'Nom complet';
+
+  @override
+  String get more => 'Plus';
+
+  @override
+  String get mustKnow => 'À savoir';
+
+  @override
+  String get hi => 'Bonjour';
+
+  @override
+  String get plans => 'Programmes';
+
+  @override
+  String get taxRefund => 'Remboursement d\'impôt';
+
+  @override
+  String get transportationOptions => 'Options de transport';
 }

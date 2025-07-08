@@ -7,7 +7,7 @@ class PlansTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TabsAppBar(text: 'Plans'),
+        TabsAppBar(text: context.localizations.plans),
         Expanded(
           child: ListView(
             physics: BouncingScrollPhysics(),

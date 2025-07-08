@@ -137,4 +137,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tours => 'Tours';
+
+  @override
+  String get contact => 'Contact';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get downloads => 'Downloads';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get mustKnow => 'Must know';
+
+  @override
+  String get hi => 'Hi';
+
+  @override
+  String get plans => 'Plans';
+
+  @override
+  String get taxRefund => 'Tax refund';
+
+  @override
+  String get transportationOptions => 'Transportation options';
 }

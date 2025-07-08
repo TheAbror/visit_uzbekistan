@@ -137,4 +137,37 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tours => 'Туры';
+
+  @override
+  String get contact => 'Контакты';
+
+  @override
+  String get help => 'Помощь';
+
+  @override
+  String get downloads => 'Загрузки';
+
+  @override
+  String get logout => 'Выйти';
+
+  @override
+  String get fullName => 'Полное имя';
+
+  @override
+  String get more => 'Больше';
+
+  @override
+  String get mustKnow => 'Должен знать';
+
+  @override
+  String get hi => 'Привет';
+
+  @override
+  String get plans => 'Планы';
+
+  @override
+  String get taxRefund => 'Возврат налога';
+
+  @override
+  String get transportationOptions => 'Варианты транспортировки';
 }

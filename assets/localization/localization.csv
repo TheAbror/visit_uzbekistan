@@ -43,3 +43,14 @@ firstName,First name,Имя,Ism,Prénom,Nombre,Nome
 lastName,Last name,Фамилия,Familiya,Nom,Apellidos,Cognome
 emailAddress,Email address,Адрес электронной почты,E-pochta manzili,Adresse e-mail,Correo electrónico,Indirizzo email
 tours,Tours,Туры,Ekskursiyalar,Visites,Excursiones,Tour
+contact,Contact,Контакты,Aloqa,Contact,Contacto,Contatti
+help,Help,Помощь,Yordam,Aide,Ayuda,Aiuto
+downloads,Downloads,Загрузки,Yuklashlar,Téléchargements,Descargas,Download
+logout,Logout,Выйти,Chiqish,Déconnexion,Cerrar sesión,Esci
+fullName,Full Name,Полное имя,To'liq ism,Nom complet,Nombre completo,Nome completo
+more,More,Больше,Ko'proq,Plus,Más,Di più
+mustKnow,Must know,Должен знать,Bilish kerak,À savoir,Información importante,Da sapere
+hi,Hi,Привет,Salom,Bonjour,Hola,Ciao
+plans,Plans,Планы,Rejalar,Programmes,Planes,Piani
+taxRefund,Tax refund,Возврат налога,Soliqni qaytarish,Remboursement d'impôt,Reembolso de impuestos,Rimborso tasse
+transportationOptions,Transportation options,Варианты транспортировки,Transport imkoniyatlari,Options de transport,Opciones de transporte,Opzioni di trasporto

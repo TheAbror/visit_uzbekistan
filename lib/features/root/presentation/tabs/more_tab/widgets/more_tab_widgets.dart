@@ -67,7 +67,7 @@ CardRounded18 profileCard(BuildContext context) {
           SizedBox(width: 8.w),
           Expanded(
             child: Text(
-              'fullNameText',
+              context.localizations.fullName,
               overflow: TextOverflow.fade,
               maxLines: 1,
               style: TextStyle(
@@ -121,7 +121,7 @@ class LogoutButton extends StatelessWidget {
             Icon(IconsaxPlusLinear.logout_1),
             SizedBox(width: 8.w),
             Text(
-              'Logout',
+              context.localizations.logout,
               style: TextStyle(
                 color: AppColors.textColorDarkBlue,
                 fontWeight: FontWeight.w600,

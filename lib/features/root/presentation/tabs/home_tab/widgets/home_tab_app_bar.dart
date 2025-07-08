@@ -35,7 +35,7 @@ class HomeTabAppBar extends StatelessWidget {
               ),
               SizedBox(width: 8.w),
               Text(
-                'Hi',
+                context.localizations.hi,
                 style: TextStyle(fontSize: 16.sp),
               ),
               Text(

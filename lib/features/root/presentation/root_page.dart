@@ -73,7 +73,7 @@ class _RootPageState extends State<RootPage> {
           }
 
           return !state.isConnectedToInternet && !state.attemptedToCheck
-              ? DownloadsBody()
+              ? NoInternetMode()
               : Tabs(state: state);
         },
       ),

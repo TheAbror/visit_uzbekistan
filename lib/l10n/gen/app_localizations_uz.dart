@@ -137,4 +137,37 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get tours => 'Ekskursiyalar';
+
+  @override
+  String get contact => 'Aloqa';
+
+  @override
+  String get help => 'Yordam';
+
+  @override
+  String get downloads => 'Yuklashlar';
+
+  @override
+  String get logout => 'Chiqish';
+
+  @override
+  String get fullName => 'To\'liq ism';
+
+  @override
+  String get more => 'Ko\'proq';
+
+  @override
+  String get mustKnow => 'Bilish kerak';
+
+  @override
+  String get hi => 'Salom';
+
+  @override
+  String get plans => 'Rejalar';
+
+  @override
+  String get taxRefund => 'Soliqni qaytarish';
+
+  @override
+  String get transportationOptions => 'Transport imkoniyatlari';
 }
