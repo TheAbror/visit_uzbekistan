@@ -2,7 +2,7 @@ part of 'root_bloc.dart';
 
 class RootState extends Equatable {
   final bool isConnectedToInternet;
-  final bool hasInternetConnectionBeenChecked;
+  final bool attemptedToCheck;
   final int tabIndex;
   //search functionality
   final List<SingleItemResponse> favoritesInitial;
@@ -12,7 +12,7 @@ class RootState extends Equatable {
 
   const RootState({
     required this.isConnectedToInternet,
-    required this.hasInternetConnectionBeenChecked,
+    required this.attemptedToCheck,
     required this.tabIndex,
     required this.favoritesInitial,
     required this.favoritesSearched,
@@ -23,7 +23,7 @@ class RootState extends Equatable {
   factory RootState.initial() {
     return RootState(
       isConnectedToInternet: false,
-      hasInternetConnectionBeenChecked: false,
+      attemptedToCheck: false,
       tabIndex: 0,
       favoritesInitial: [],
       favoritesSearched: [],
@@ -34,7 +34,7 @@ class RootState extends Equatable {
 
   RootState copyWith({
     bool? isConnectedToInternet,
-    bool? hasInternetConnectionBeenChecked,
+    bool? attemptedToCheck,
     int? tabIndex,
     List<SingleItemResponse>? favoritesInitial,
     List<SingleItemResponse>? favoritesSearched,
@@ -44,8 +44,7 @@ class RootState extends Equatable {
     return RootState(
       isConnectedToInternet:
           isConnectedToInternet ?? this.isConnectedToInternet,
-      hasInternetConnectionBeenChecked: hasInternetConnectionBeenChecked ??
-          this.hasInternetConnectionBeenChecked,
+      attemptedToCheck: attemptedToCheck ?? this.attemptedToCheck,
       tabIndex: tabIndex ?? this.tabIndex,
       favoritesInitial: favoritesInitial ?? this.favoritesInitial,
       favoritesSearched: favoritesSearched ?? this.favoritesSearched,
@@ -57,7 +56,7 @@ class RootState extends Equatable {
   @override
   List<Object?> get props => [
         isConnectedToInternet,
-        hasInternetConnectionBeenChecked,
+        attemptedToCheck,
         tabIndex,
         favoritesInitial,
         favoritesSearched,

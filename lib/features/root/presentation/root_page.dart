@@ -33,11 +33,9 @@ class _RootPageState extends State<RootPage> {
       (InternetConnectionStatus status) {
         if (status == InternetConnectionStatus.connected) {
           context.read<RootBloc>().isConnectedToInternet(true);
-          context.read<RootBloc>().attemptedToCheckConnection(true);
           allRequests();
         } else {
           context.read<RootBloc>().isConnectedToInternet(false);
-          context.read<RootBloc>().attemptedToCheckConnection(true);
         }
       },
     );
@@ -46,7 +44,6 @@ class _RootPageState extends State<RootPage> {
   @override
   void dispose() {
     _connectionListener.cancel();
-    _connectionChecker.dispose();
     super.dispose();
   }
 
@@ -55,34 +52,28 @@ class _RootPageState extends State<RootPage> {
     return Scaffold(
       backgroundColor: AppColors.rootBgColor,
       body: BlocConsumer<RootBloc, RootState>(
-        // listenWhen: (previous, current) =>
-        //     previous.isConnectedToInternet != current.isConnectedToInternet,
+        listenWhen: (previous, current) =>
+            previous.isConnectedToInternet != current.isConnectedToInternet,
         listener: (context, state) {
-          // Skip showing toast messages UNTIL the connection has been checked
-          // if (!state.hasInternetConnectionBeenChecked) {
-          //   return;
-          // }
-
-          if (!state.isConnectedToInternet ||
-              (!state.isConnectedToInternet &&
-                  state.hasInternetConnectionBeenChecked)) {
+          if (!state.isConnectedToInternet) {
             showMessage(
               'No internet connection. Displaying downloaded content until back online.',
               isError: true,
             );
           }
-          if (state.isConnectedToInternet) {
-            showMessage('Back online');
+          if (!state.attemptedToCheck) {
+            if (state.isConnectedToInternet) {
+              showMessage('Back online');
+            }
           }
         },
         builder: (context, state) {
-          if (!state.hasInternetConnectionBeenChecked &&
-              !state.isConnectedToInternet) {
+          if (!state.attemptedToCheck && !state.isConnectedToInternet) {
             return Center(child: CircularProgressIndicator());
           }
 
-          return !state.isConnectedToInternet
-              ? NoInternetMode()
+          return !state.isConnectedToInternet && !state.attemptedToCheck
+              ? DownloadsBody()
               : Tabs(state: state);
         },
       ),

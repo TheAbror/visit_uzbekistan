@@ -86,6 +86,8 @@ class _MyAppState extends State<MyApp> {
 //9.⛔️  search competitors
 //10✅  default of rootpage when not loading - showing downloads in init
 //11⛔️  make downloads body look good in init
+// fixed first time launch when no internet + same case when internet returns 
+// next - fix loader in init
 
 
 
