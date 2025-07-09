@@ -52,7 +52,7 @@ class CityBloc extends Cubit<CityState> {
             shortDescription: result.shortDescription,
             createdAt: '',
             updatedAt: '',
-            type: '',
+            type: result.type,
           );
 
           emit(state.copyWith(

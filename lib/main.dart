@@ -75,19 +75,20 @@ class _MyAppState extends State<MyApp> {
 
 
 //TODO 
-//1.✅  make article or place, apps downloadable  - DONE 
-//2.✅  make whole city downloadable
-//3.✅  make ui update when working with hive for downloads page - - DONE 
-//4.✅  useful apps with backend - DONE 
-//5.✅  show Single city content from hive when there is no internet
-//6.✅  apply internet connection checker
-//7.✅  refactor plans tab
-//8.✅  in downloads page show both boxes conternt - DONE 
-//9.⛔️  search competitors
-//10✅  default of rootpage when not loading - showing downloads in init
-//11✅  make downloads body look good in init
-//12⛔️ fixed first time launch when no internet + same case when internet returns - next - fix loader in init
-//12⛔️ make city be downloadable only once - no repetitions
+//✅  make article or place, apps downloadable  - DONE 
+//✅  make whole city downloadable
+//✅  make ui update when working with hive for downloads page - - DONE 
+//✅  useful apps with backend - DONE 
+//✅  show Single city content from hive when there is no internet
+//✅  apply internet connection checker
+//✅  refactor plans tab
+//✅  in downloads page show both boxes conternt - DONE 
+//⛔️  search competitors
+//✅  default of rootpage when not loading - showing downloads in init
+//✅  make downloads body look good in init
+//⛔️ fixed first time launch when no internet + same case when internet returns - next - fix loader in init
+//✅ make city be downloadable only once - no repetitions
+//✅ make downladed city`s download icon - bold
 
 
 
@@ -97,7 +98,5 @@ class _MyAppState extends State<MyApp> {
 
 // 🌍 Competitor Apps & Their Strengths
 // Triposo
-
 // Guides by Lonely Planet
-
 // SmartGuide / izi.TRAVEL / PocketGuide
