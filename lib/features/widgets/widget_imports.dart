@@ -123,3 +123,4 @@ export 'package:visit_uzbekistan/features/local_storage/widgets/downloads_app_ba
 export 'dart:async';
 export 'package:internet_connection_checker/internet_connection_checker.dart';
 export 'package:visit_uzbekistan/features/root/presentation/widgets/tabs.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/bloc/plans_bloc.dart';

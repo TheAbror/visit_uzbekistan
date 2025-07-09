@@ -79,15 +79,16 @@ class _MyAppState extends State<MyApp> {
 //2.✅  make whole city downloadable
 //3.✅  make ui update when working with hive for downloads page - - DONE 
 //4.✅  useful apps with backend - DONE 
-//5.⛔️  show Single city content from hive when there is no internet
+//5.✅  show Single city content from hive when there is no internet
 //6.✅  apply internet connection checker
 //7.✅  refactor plans tab
 //8.✅  in downloads page show both boxes conternt - DONE 
 //9.⛔️  search competitors
 //10✅  default of rootpage when not loading - showing downloads in init
-//11⛔️  make downloads body look good in init
-// fixed first time launch when no internet + same case when internet returns 
-// next - fix loader in init
+//11✅  make downloads body look good in init
+//12⛔️ fixed first time launch when no internet + same case when internet returns - next - fix loader in init
+//12⛔️ make city be downloadable only once - no repetitions
+
 
 
 
@@ -96,25 +97,7 @@ class _MyAppState extends State<MyApp> {
 
 // 🌍 Competitor Apps & Their Strengths
 // Triposo
-// A global city guide app sourcing data from Wikivoyage, Wikipedia, and user contributions. Offers offline maps, curated attractions, restaurants, and context for thousands of destinations 
-// architecturaldigest.com
-// +6
-// cruiseable.com
-// +6
-// blog.smart-guide.org
-// +6
-// reddit.com
-// .
 
 // Guides by Lonely Planet
-// Provides in-depth destination guides for over 8,000 cities, with expertly curated articles, maps, phrasebooks, and itineraries 
-// softwarehouse.au
-// .
-
-// Spotted by Locals
-// Local-authored city guides in 80+ cities, focusing on authentic recommendations—hidden gems, eateries, cultural spots—written by residents .
 
 // SmartGuide / izi.TRAVEL / PocketGuide
-// Specialized in audio walking tours, they offer offline GPS-triggered narration and curated walking routes for both historic and cultural experiences 
-// narratemytrip.com
-// .

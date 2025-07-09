@@ -41,7 +41,9 @@ class _TransportPageState extends State<TransportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: SingleCityPageLeadingIcon(),
+      ),
       body: BlocBuilder<TransportationBloc, TransportationState>(
         builder: (context, state) {
           if (state.blocProgress == BlocProgress.IS_LOADING) {

@@ -39,7 +39,7 @@ class HomeTabAppBar extends StatelessWidget {
                 style: TextStyle(fontSize: 16.sp),
               ),
               Text(
-                ' Williamson,',
+                ' Williamson',
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,

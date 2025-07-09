@@ -5,39 +5,42 @@ class PlansTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TabsAppBar(text: context.localizations.plans),
-        Expanded(
-          child: ListView(
-            physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.only(top: 10.h, bottom: 40.h),
-            children: [
-              CurrencyExchangeCalculator(),
-              SizedBox(height: 10.h),
-              TaxRefundInfo(),
-              SizedBox(height: 10.h),
-              TransportationOptions(),
-              SizedBox(height: 10.h),
-              // Text('''
-              //   Transportation options
-              //   ✅ Train tickets
-              //   ✅ Airport tickets
+    return BlocProvider(
+      create: (context) => PlansBloc(),
+      child: Column(
+        children: [
+          TabsAppBar(text: context.localizations.plans),
+          Expanded(
+            child: ListView(
+              physics: BouncingScrollPhysics(),
+              padding: EdgeInsets.only(top: 10.h, bottom: 40.h),
+              children: [
+                CurrencyExchangeCalculator(),
+                SizedBox(height: 10.h),
+                TaxRefundInfo(),
+                SizedBox(height: 10.h),
+                TransportationOptions(),
+                SizedBox(height: 10.h),
+                // Text('''
+                //   Transportation options
+                //   ✅ Train tickets
+                //   ✅ Airport tickets
 
-              //   ✅ Currency exchange tips
+                //   ✅ Currency exchange tips
 
-              //   Safety & cultural do’s and don’ts
+                //   Safety & cultural do’s and don’ts
 
-              //   ✅ Tax refund info
+                //   ✅ Tax refund info
 
-              //   Travel tips & must-know essentials
+                //   Travel tips & must-know essentials
 
-              //   '''),
-              SizedBox(height: 60.h),
-            ],
+                //   '''),
+                SizedBox(height: 60.h),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

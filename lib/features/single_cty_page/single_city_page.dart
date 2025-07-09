@@ -17,7 +17,13 @@ class _SignleCityPageState extends State<SignleCityPage> {
   void initState() {
     super.initState();
 
-    context.read<CityBloc>().getSingleCity(widget.idandTitle.id);
+    final bool _root = context.read<RootBloc>().state.isConnectedToInternet;
+
+    if (_root) {
+      context.read<CityBloc>().getSingleCity(widget.idandTitle.id);
+    } else {
+      context.read<CityBloc>().assignSaveCity(widget.idandTitle.id);
+    }
   }
 
   @override

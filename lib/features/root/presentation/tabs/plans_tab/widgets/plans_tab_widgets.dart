@@ -134,7 +134,7 @@ class TransportationOption extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 AppRoutes.usefullAppsPage,
-                arguments: id,
+                arguments: IdandTitle(id: id, title: text),
               );
             },
             child: Container(
@@ -211,8 +211,17 @@ class TaxRefundInfo extends StatelessWidget {
   }
 }
 
-class CurrencyExchangeCalculator extends StatelessWidget {
+class CurrencyExchangeCalculator extends StatefulWidget {
   const CurrencyExchangeCalculator({super.key});
+
+  @override
+  State<CurrencyExchangeCalculator> createState() =>
+      _CurrencyExchangeCalculatorState();
+}
+
+class _CurrencyExchangeCalculatorState
+    extends State<CurrencyExchangeCalculator> {
+  final value = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -285,7 +294,7 @@ class CurrencyExchangeCalculator extends StatelessWidget {
                       Text('USD'),
                       Spacer(),
                       Text(
-                        '12820',
+                        '12720',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -300,7 +309,7 @@ class CurrencyExchangeCalculator extends StatelessWidget {
                       Text('EUR'),
                       Spacer(),
                       Text(
-                        '14710',
+                        '14925',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -347,30 +356,43 @@ class CurrencyExchangeCalculator extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 6.w),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Select currency',
-                            border: InputBorder.none,
-                            isDense: true,
-                            hintStyle: TextStyle(
-                              fontSize: 13.sp,
-                              color: AppColors.lightGrey,
-                              fontWeight: FontWeight.w500,
+                      BlocBuilder<PlansBloc, PlansState>(
+                        builder: (context, state) {
+                          return Expanded(
+                            child: TextField(
+                              controller: state.value == 0
+                                  ? value
+                                  : TextEditingController(
+                                      text: state.value.toString(),
+                                    ),
+                              decoration: InputDecoration(
+                                hintText: 'Select currency',
+                                border: InputBorder.none,
+                                isDense: true,
+                                hintStyle: TextStyle(
+                                  fontSize: 13.sp,
+                                  color: AppColors.lightGrey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              keyboardType: TextInputType.number,
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          keyboardType: TextInputType.number,
-                          style: TextStyle(
-                            fontSize: 15.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16.w),
                       GestureDetector(
                         onTap: () {
                           //
+
+                          context
+                              .read<PlansBloc>()
+                              .calculator(int.parse(value.text));
                         },
                         child: Icon(
                           IconsaxPlusLinear.calculator,

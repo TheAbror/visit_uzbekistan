@@ -2,6 +2,7 @@ part of 'city_bloc.dart';
 
 class CityState extends Equatable {
   final SingleCityResponse response;
+  //needed to make SingleCityResponse into SingleItemResponse to save
   final SingleItemResponse singleItem;
   final SingleItemResponse carRentals;
   final SingleItemResponse tours;

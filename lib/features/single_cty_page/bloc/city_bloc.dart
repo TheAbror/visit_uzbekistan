@@ -77,4 +77,17 @@ class CityBloc extends Cubit<CityState> {
       }
     }
   }
+
+  void assignSaveCity(int id) {
+    final rawCityData = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
+    final LocalStorageForCities? cityData = rawCityData;
+    final cityItems = cityData?.localStorageCityItems ?? [];
+
+    emit(
+      state.copyWith(
+        response:
+            cityItems.firstWhere((e) => e.id == id).toSingleCityResponse(),
+      ),
+    );
+  }
 }

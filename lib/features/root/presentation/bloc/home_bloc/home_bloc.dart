@@ -69,10 +69,13 @@ class HomeBloc extends Cubit<HomeState> {
   }
 
   void getSingleUsefulApp(BuildContext context, int id) async {
-    emit(state.copyWith(
-      usefulApps:
-          state.usefulApps.copyWith(blocProgress: BlocProgress.IS_LOADING),
-    ));
+    emit(
+      state.copyWith(
+        usefulApps: state.usefulApps.copyWith(
+          blocProgress: BlocProgress.IS_LOADING,
+        ),
+      ),
+    );
 
     try {
       final response = await ApiProvider.homeServices.getSingleUsefulApp(id);
