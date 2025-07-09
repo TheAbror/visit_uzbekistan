@@ -12,19 +12,23 @@ class CityBloc extends Cubit<CityState> {
     final LocalStorageForCities? savedItems = _box ?? _whenEmpty;
     final response = state.response.toSingleCityModel();
 
-    savedCitiesBox.put(
-      ShPrefKeys.localStorageSavedCity,
-      LocalStorageForCities(
-        localStorageCityItems: [
-          ...savedItems?.localStorageCityItems ?? [],
-          response,
-        ],
-      ),
-    );
+    if (savedItems != null) {
+      bool alreadyExists = savedItems.localStorageCityItems
+          .any((item) => item.id == response.id);
 
-    print(savedItems);
-
-    return true;
+      if (!alreadyExists) {
+        savedCitiesBox.put(
+          ShPrefKeys.localStorageSavedCity,
+          LocalStorageForCities(
+            localStorageCityItems: [
+              ...savedItems.localStorageCityItems,
+              response,
+            ],
+          ),
+        );
+        return true;
+      }
+    }
   }
 
   // http://192.168.0.101:8000/api/cities/1
