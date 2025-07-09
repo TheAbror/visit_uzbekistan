@@ -19,15 +19,6 @@ Widget onErrorProfileWidget(ctx, _, s) => Container(
     );
 
 CardRounded18 profileCard(BuildContext context) {
-  // final fullName = HiveHelperUser.getFullName();
-  // final profileImageUrl = HiveHelperUser.getProfileImage();
-  // final profileImageLocal = HiveHelperUser.getProfileImageLocal();
-  // final fullNameShorted =
-  //     fullName.length > 12 ? '${fullName.substring(0, 12)}...' : fullName;
-
-  // final fullNameText =
-  //     fullNameShorted.isNotEmpty ? fullNameShorted : 'fillProfileTitle';
-
   return CardRounded18(
     height: 64.h,
     child: GestureDetector(
@@ -41,26 +32,6 @@ CardRounded18 profileCard(BuildContext context) {
             height: 40.h,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(32.r),
-              // child: profileImageUrl != null
-              //     ? Image.network(
-              //         profileImageUrl,
-              //         fit: BoxFit.cover,
-              //         errorBuilder: profileImageLocal != null
-              //             ? (ctx, _, __) {
-              //                 return Image.memory(
-              //                   profileImageLocal,
-              //                   fit: BoxFit.cover,
-              //                   errorBuilder: onErrorProfileWidget,
-              //                 );
-              //               }
-              //             : onErrorProfileWidget,
-              //       )
-              // : 'profileImageLocal' != null
-              //     ? Image.memory(
-              //         'profileImageLocal',
-              //         fit: BoxFit.cover,
-              //         errorBuilder: onErrorProfileWidget,
-              //       )
               child: Image.asset('assets/images/male_avatar_placeholder.png'),
             ),
           ),

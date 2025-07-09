@@ -25,7 +25,7 @@ class MainRouteGenerator {
 
       case AppRoutes.profilePage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const ProfilePage(),
+          builder: (_) => ProfilePage(),
         );
 
       case AppRoutes.onBoardingPage:
