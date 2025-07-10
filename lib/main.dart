@@ -91,6 +91,9 @@ class _MyAppState extends State<MyApp> {
 //✅ make downladed city`s download icon - bold
 //✅ profile page
 //✅ useful apps page loader
+//✅ articles loader issue
+//⛔️ remove favorites
+
 
 
 

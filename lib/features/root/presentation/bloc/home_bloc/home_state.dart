@@ -9,7 +9,7 @@ class HomeState extends Equatable {
   final SuperBlocProgress<SingleItemResponse> singleUsefulApp;
   final List<SingleItemResponse> mustKnow;
   final SuperBlocProgress<ArticlesResponse> articles;
-  final SingleItemResponse singleArticle;
+  final SuperBlocProgress<SingleItemResponse> singleArticle;
   final SuperBlocProgress<List<SingleItemResponse>> tours;
   final BlocProgress blocProgress;
   final String failureMessage;
@@ -49,17 +49,19 @@ class HomeState extends Equatable {
         model: ArticlesResponse(articles: []),
       ),
       tours: SuperBlocProgress(model: []),
-      singleArticle: SingleItemResponse(
-        id: 0,
-        name: '',
-        location: '',
-        info: '',
-        shortDescription: '',
-        photo: '',
-        link: '',
-        createdAt: '',
-        updatedAt: '',
-        type: '',
+      singleArticle: SuperBlocProgress(
+        model: SingleItemResponse(
+          id: 0,
+          name: '',
+          location: '',
+          info: '',
+          shortDescription: '',
+          photo: '',
+          link: '',
+          createdAt: '',
+          updatedAt: '',
+          type: '',
+        ),
       ),
       mustKnow: [
         SingleItemResponse(
@@ -142,7 +144,7 @@ class HomeState extends Equatable {
     List<SingleItemResponse>? mustKnow,
     SuperBlocProgress<ArticlesResponse>? articles,
     SuperBlocProgress<List<SingleItemResponse>>? tours,
-    SingleItemResponse? singleArticle,
+    SuperBlocProgress<SingleItemResponse>? singleArticle,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {

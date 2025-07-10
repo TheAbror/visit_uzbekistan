@@ -49,14 +49,14 @@ class _ArticlePageState extends State<ArticlePage> {
             actions: [
               DownloadWidget(
                 id: widget.idandTitle.id,
-                newItem: state.singleArticle,
+                newItem: state.singleArticle.model,
               ),
               SizedBox(width: 8.w),
             ],
           ),
           body: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              if (state.blocProgress == BlocProgress.IS_LOADING) {
+              if (state.singleArticle.blocProgress == BlocProgress.IS_LOADING) {
                 return Center(child: CircularProgressIndicator());
               }
 
@@ -72,7 +72,7 @@ class _ArticlePageState extends State<ArticlePage> {
                           itemCount: 5,
                           itemBuilder: (context, index) {
                             return CachedNetworkImage(
-                              imageUrl: state.singleArticle.photo,
+                              imageUrl: state.singleArticle.model.photo,
                               height: 300.h,
                               width: double.infinity,
                               fit: BoxFit.cover,
@@ -123,7 +123,7 @@ class _ArticlePageState extends State<ArticlePage> {
                   SizedBox(height: 10.h),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: HtmlWidget(state.singleArticle.info),
+                    child: HtmlWidget(state.singleArticle.model.info),
                   ),
                   SizedBox(height: 10.h),
                   Padding(
@@ -131,9 +131,10 @@ class _ArticlePageState extends State<ArticlePage> {
                     child: ActionButton(
                       text: 'Open in the browser',
                       onPressed: () {
-                        if (state.singleArticle.link != null &&
-                            state.singleArticle.link?.isNotEmpty == true) {
-                          openInBrowser(state.singleArticle.link ?? '');
+                        if (state.singleArticle.model.link != null &&
+                            state.singleArticle.model.link?.isNotEmpty ==
+                                true) {
+                          openInBrowser(state.singleArticle.model.link ?? '');
                         }
                       },
                     ),

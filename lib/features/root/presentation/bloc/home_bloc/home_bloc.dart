@@ -273,7 +273,13 @@ class HomeBloc extends Cubit<HomeState> {
   }
 
   void getSingleArticle(int id) async {
-    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+    emit(
+      state.copyWith(
+        singleArticle: state.singleArticle.copyWith(
+          blocProgress: BlocProgress.IS_LOADING,
+        ),
+      ),
+    );
 
     try {
       final response = await ApiProvider.homeServices.getSingleArticle(id);
@@ -283,8 +289,10 @@ class HomeBloc extends Cubit<HomeState> {
 
         if (result != null) {
           emit(state.copyWith(
-            singleArticle: result,
-            blocProgress: BlocProgress.LOADED,
+            singleArticle: state.singleArticle.copyWith(
+              model: result,
+              blocProgress: BlocProgress.LOADED,
+            ),
           ));
         }
       } else {
@@ -292,8 +300,10 @@ class HomeBloc extends Cubit<HomeState> {
             ErrorResponse.fromJson(json.decode(response.error.toString()));
 
         emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: error.message,
+          singleArticle: state.singleArticle.copyWith(
+            blocProgress: BlocProgress.FAILED,
+            failureMessage: error.message,
+          ),
         ));
       }
     } catch (e) {
@@ -301,8 +311,10 @@ class HomeBloc extends Cubit<HomeState> {
 
       if (!isClosed) {
         emit(state.copyWith(
-          blocProgress: BlocProgress.FAILED,
-          failureMessage: e.toString(),
+          singleArticle: state.singleArticle.copyWith(
+            blocProgress: BlocProgress.FAILED,
+            failureMessage: e.toString(),
+          ),
         ));
       }
     }
