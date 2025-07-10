@@ -89,6 +89,7 @@ class _MyAppState extends State<MyApp> {
 //⛔️ fixed first time launch when no internet + same case when internet returns - next - fix loader in init
 //✅ make city be downloadable only once - no repetitions
 //✅ make downladed city`s download icon - bold
+//✅ profile page
 
 
 

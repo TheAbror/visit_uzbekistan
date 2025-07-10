@@ -44,15 +44,6 @@ class HomeTabItems extends StatelessWidget {
                         title: singleItem.name,
                       ),
                     );
-                  } else if (pageNamed == OpenPageNamed.usefulApp) {
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.usefullAppsPage,
-                      arguments: IdandTitle(
-                        id: singleItem.id,
-                        title: singleItem.name,
-                      ),
-                    );
                   } else {
                     final String? routeName = getRouteNameFromType(
                       singleItem.type,
