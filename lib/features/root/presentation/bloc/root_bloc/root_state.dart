@@ -1,8 +1,9 @@
 part of 'root_bloc.dart';
 
 class RootState extends Equatable {
-  final bool isConnectedToInternet;
+  final bool isInternetOn;
   final bool attemptedToCheck;
+  //
   final int tabIndex;
   //search functionality
   final List<SingleItemResponse> favoritesInitial;
@@ -11,7 +12,7 @@ class RootState extends Equatable {
   final String failureMessage;
 
   const RootState({
-    required this.isConnectedToInternet,
+    required this.isInternetOn,
     required this.attemptedToCheck,
     required this.tabIndex,
     required this.favoritesInitial,
@@ -22,7 +23,7 @@ class RootState extends Equatable {
 
   factory RootState.initial() {
     return RootState(
-      isConnectedToInternet: false,
+      isInternetOn: false,
       attemptedToCheck: false,
       tabIndex: 0,
       favoritesInitial: [],
@@ -33,7 +34,7 @@ class RootState extends Equatable {
   }
 
   RootState copyWith({
-    bool? isConnectedToInternet,
+    bool? isInternetOn,
     bool? attemptedToCheck,
     int? tabIndex,
     List<SingleItemResponse>? favoritesInitial,
@@ -42,8 +43,7 @@ class RootState extends Equatable {
     String? failureMessage,
   }) {
     return RootState(
-      isConnectedToInternet:
-          isConnectedToInternet ?? this.isConnectedToInternet,
+      isInternetOn: isInternetOn ?? this.isInternetOn,
       attemptedToCheck: attemptedToCheck ?? this.attemptedToCheck,
       tabIndex: tabIndex ?? this.tabIndex,
       favoritesInitial: favoritesInitial ?? this.favoritesInitial,
@@ -55,7 +55,7 @@ class RootState extends Equatable {
 
   @override
   List<Object?> get props => [
-        isConnectedToInternet,
+        isInternetOn,
         attemptedToCheck,
         tabIndex,
         favoritesInitial,

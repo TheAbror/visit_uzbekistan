@@ -17,7 +17,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
   void initState() {
     super.initState();
 
-    final bool _root = context.read<RootBloc>().state.isConnectedToInternet;
+    final bool _root = context.read<RootBloc>().state.isInternetOn;
 
     if (_root) {
       context.read<CityBloc>().getSingleCity(widget.idandTitle.id);

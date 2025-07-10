@@ -72,7 +72,10 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-
+// 🌍 Competitor Apps & Their Strengths
+// Triposo
+// Guides by Lonely Planet
+// SmartGuide / izi.TRAVEL / PocketGuide
 
 //TODO 
 //✅  make article or place, apps downloadable  - DONE 
@@ -92,7 +95,16 @@ class _MyAppState extends State<MyApp> {
 //✅ profile page
 //✅ useful apps page loader
 //✅ articles loader issue
-//⛔️ remove favorites
+//⛔️ remove favorites - but it looks cool
+
+
+
+//tasks for root page internet connection checker
+//⛔️ first opened - should not show dialog
+//⛔️ first opened - no internet show dialog and show content
+//✅ fix loader
+//⛔️ 
+//⛔️ 
 
 
 
@@ -101,7 +113,5 @@ class _MyAppState extends State<MyApp> {
 
 
 
-// 🌍 Competitor Apps & Their Strengths
-// Triposo
-// Guides by Lonely Planet
-// SmartGuide / izi.TRAVEL / PocketGuide
+
+

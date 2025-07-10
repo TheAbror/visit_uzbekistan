@@ -15,6 +15,8 @@ class _RootPageState extends State<RootPage> {
   @override
   void initState() {
     super.initState();
+    context.read<RootBloc>().manageLoader(true);
+
     internetConnectionChecker();
 
     allRequests();
@@ -32,10 +34,12 @@ class _RootPageState extends State<RootPage> {
     _connectionListener = _connectionChecker.onStatusChange.listen(
       (InternetConnectionStatus status) {
         if (status == InternetConnectionStatus.connected) {
-          context.read<RootBloc>().isConnectedToInternet(true);
+          context.read<RootBloc>().isInternetOn(true);
           allRequests();
+          context.read<RootBloc>().manageLoader(false);
         } else {
-          context.read<RootBloc>().isConnectedToInternet(false);
+          context.read<RootBloc>().isInternetOn(false);
+          // context.read<RootBloc>().manageLoader(false);
         }
       },
     );
@@ -53,28 +57,27 @@ class _RootPageState extends State<RootPage> {
       backgroundColor: AppColors.rootBgColor,
       body: BlocConsumer<RootBloc, RootState>(
         listenWhen: (previous, current) =>
-            previous.isConnectedToInternet != current.isConnectedToInternet,
+            previous.isInternetOn != current.isInternetOn,
         listener: (context, state) {
-          if (!state.isConnectedToInternet) {
+          if (!state.isInternetOn) {
             showMessage(
               'No internet connection. Displaying downloaded content until back online.',
               isError: true,
             );
+
+            context.read<RootBloc>().setAttemptedCheck();
           }
-          if (!state.attemptedToCheck) {
-            if (state.isConnectedToInternet) {
-              showMessage('Back online');
-            }
+
+          if (state.isInternetOn && state.attemptedToCheck) {
+            showMessage('Back online');
           }
         },
         builder: (context, state) {
-          if (!state.attemptedToCheck && !state.isConnectedToInternet) {
+          if (state.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
           }
 
-          return !state.isConnectedToInternet && !state.attemptedToCheck
-              ? NoInternetMode()
-              : Tabs(state: state);
+          return !state.isInternetOn ? NoInternetMode() : Tabs(state: state);
         },
       ),
       extendBody: true,

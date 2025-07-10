@@ -5,13 +5,25 @@ part 'root_state.dart';
 class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
-  void isConnectedToInternet(bool isConnected) {
+  void manageLoader(bool loaderStatus) {
     emit(
       state.copyWith(
-        isConnectedToInternet: isConnected,
-        attemptedToCheck: true,
+        blocProgress:
+            loaderStatus ? BlocProgress.IS_LOADING : BlocProgress.LOADED,
       ),
     );
+  }
+
+  void isInternetOn(bool isConnected) {
+    emit(
+      state.copyWith(
+        isInternetOn: isConnected,
+      ),
+    );
+  }
+
+  void setAttemptedCheck() {
+    emit(state.copyWith(attemptedToCheck: true));
   }
 
   void changeTab(int tabIndex) {
