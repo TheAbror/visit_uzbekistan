@@ -11,17 +11,16 @@ class ApiProvider {
   static late HomeServices homeServices;
 
   ///Services
-  static create({String? token, int? institutionID, String? language}) {
+  static create({String? token, String? language}) {
     _client = ChopperClient(
       client: http.IOClient(
-        HttpClient()..connectionTimeout = const Duration(seconds: 40),
+        HttpClient()..connectionTimeout = const Duration(seconds: 5),
       ),
       services: [
         HomeServices.create(),
       ],
       interceptors: getInterceptors(
         token: token,
-        institutionID: institutionID,
         language: language,
       ),
       converter: CustomDataConverter(),
@@ -32,7 +31,6 @@ class ApiProvider {
 
   static List getInterceptors({
     String? token,
-    int? institutionID,
     String? language,
   }) {
     final userLang = PreferencesServices.getLangCode();

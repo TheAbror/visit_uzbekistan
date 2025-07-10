@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            CustomAppBarBackButton(),
+            SingleCityPageLeadingIcon(),
             SizedBox(
               width: 256.w,
               child: Text(

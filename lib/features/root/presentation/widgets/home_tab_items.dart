@@ -168,8 +168,8 @@ class ItemInfo extends StatelessWidget {
                             child: Text(
                               item.location,
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
                                 fontSize: 10.sp,
+                                color: Colors.grey,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),

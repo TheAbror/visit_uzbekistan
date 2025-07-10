@@ -49,12 +49,7 @@ CardRounded18 profileCard(BuildContext context) {
             ),
           ),
           SizedBox(width: 8.w),
-          GestureDetector(
-            onTap: () {
-              // Navigator.of(context).pushNamed(ProfileUpdatePage.routeName);
-            },
-            child: const IconContainer(iconPath: 'assets/icons/edit.svg'),
-          ),
+          IconContainer(iconPath: 'assets/icons/edit.svg'),
         ],
       ),
     ),

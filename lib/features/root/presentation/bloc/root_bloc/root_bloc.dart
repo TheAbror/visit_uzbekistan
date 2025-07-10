@@ -15,11 +15,9 @@ class RootBloc extends Cubit<RootState> {
   }
 
   void isInternetOn(bool isConnected) {
-    emit(
-      state.copyWith(
-        isInternetOn: isConnected,
-      ),
-    );
+    emit(state.copyWith(isInternetOn: isConnected));
+
+    // manageLoader(isConnected);
   }
 
   void setAttemptedCheck() {

@@ -100,7 +100,7 @@ class _MyAppState extends State<MyApp> {
 
 
 //tasks for root page internet connection checker
-//⛔️ first opened - should not show dialog
+//✅ first opened - should not show dialog
 //⛔️ first opened - no internet show dialog and show content
 //✅ fix loader
 //⛔️ 

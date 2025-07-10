@@ -39,7 +39,6 @@ class _RootPageState extends State<RootPage> {
           context.read<RootBloc>().manageLoader(false);
         } else {
           context.read<RootBloc>().isInternetOn(false);
-          // context.read<RootBloc>().manageLoader(false);
         }
       },
     );
@@ -68,8 +67,10 @@ class _RootPageState extends State<RootPage> {
             context.read<RootBloc>().setAttemptedCheck();
           }
 
-          if (state.isInternetOn && state.attemptedToCheck) {
-            showMessage('Back online');
+          if (state.attemptedToCheck) {
+            if (state.isInternetOn) {
+              showMessage('Back online');
+            }
           }
         },
         builder: (context, state) {
