@@ -71,7 +71,7 @@ class HomeBloc extends Cubit<HomeState> {
   void getSingleUsefulApp(BuildContext context, int id) async {
     emit(
       state.copyWith(
-        usefulApps: state.usefulApps.copyWith(
+        singleUsefulApp: state.singleUsefulApp.copyWith(
           blocProgress: BlocProgress.IS_LOADING,
         ),
       ),

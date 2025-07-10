@@ -90,6 +90,7 @@ class _MyAppState extends State<MyApp> {
 //✅ make city be downloadable only once - no repetitions
 //✅ make downladed city`s download icon - bold
 //✅ profile page
+//✅ useful apps page loader
 
 
 
