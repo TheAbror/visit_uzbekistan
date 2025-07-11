@@ -89,22 +89,18 @@ class _MyAppState extends State<MyApp> {
 //⛔️  search competitors
 //✅  default of rootpage when not loading - showing downloads in init
 //✅  make downloads body look good in init
-//⛔️ fixed first time launch when no internet + same case when internet returns - next - fix loader in init
+//✅ fixed first time launch when no internet + same case when internet returns - next - fix loader in init
 //✅ make city be downloadable only once - no repetitions
 //✅ make downladed city`s download icon - bold
 //✅ profile page
 //✅ useful apps page loader
 //✅ articles loader issue
-//⛔️ remove favorites - but it looks cool
+//⛔️ save favorites 
+//⛔️ add reviews page 
+//⛔️ add adding comment page 
 
 
 
-//tasks for root page internet connection checker
-//✅ first opened - should not show dialog
-//⛔️ first opened - no internet show dialog and show content
-//✅ fix loader
-//⛔️ 
-//⛔️ 
 
 
 

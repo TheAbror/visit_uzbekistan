@@ -17,8 +17,6 @@ class DownloadsAppBar extends StatelessWidget implements PreferredSizeWidget {
               await hiveBox.delete(ShPrefKeys.localStorageItems);
               await savedCitiesBox.delete(ShPrefKeys.localStorageSavedCity);
               showMessage('Deleted successfully');
-            } else {
-              showMessage('Something went wrong', isError: true);
             }
           },
           icon: Icon(IconsaxPlusLinear.box_remove),

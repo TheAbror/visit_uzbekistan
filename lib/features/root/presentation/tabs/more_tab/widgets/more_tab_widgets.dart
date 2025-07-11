@@ -70,31 +70,41 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      child: GestureDetector(
-        onTap: () {
-          signOutDialog(context);
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(IconsaxPlusLinear.logout_1),
-            SizedBox(width: 8.w),
-            Text(
-              context.localizations.logout,
-              style: TextStyle(
-                color: AppColors.textColorDarkBlue,
-                fontWeight: FontWeight.w600,
-                fontSize: 18.sp,
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () async {
+        final bool? logout = await logoutDialog(context);
+
+        if (logout != null && logout) {
+          Navigator.pushNamed(context, AppRoutes.splashPage);
+        }
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12.r),
+        ),
+        child: GestureDetector(
+          onTap: () {
+            signOutDialog(context);
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(IconsaxPlusLinear.logout_1),
+              SizedBox(width: 8.w),
+              Text(
+                context.localizations.logout,
+                style: TextStyle(
+                  color: AppColors.textColorDarkBlue,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18.sp,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
