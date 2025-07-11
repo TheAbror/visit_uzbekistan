@@ -15,7 +15,7 @@ class _RootPageState extends State<RootPage> {
   @override
   void initState() {
     super.initState();
-    context.read<RootBloc>().manageLoader(true);
+    context.read<RootBloc>().manageLoader(BlocProgress.IS_LOADING);
 
     internetConnectionChecker();
 
@@ -33,12 +33,20 @@ class _RootPageState extends State<RootPage> {
   void internetConnectionChecker() {
     _connectionListener = _connectionChecker.onStatusChange.listen(
       (InternetConnectionStatus status) {
+        final rootState = context.read<RootBloc>().state;
+
         if (status == InternetConnectionStatus.connected) {
-          context.read<RootBloc>().isInternetOn(true);
+          context.read<RootBloc>()
+            ..isInternetOn(true)
+            ..manageLoader(BlocProgress.LOADED);
+
           allRequests();
-          context.read<RootBloc>().manageLoader(false);
-        } else {
+        }
+        if (status == InternetConnectionStatus.disconnected) {
           context.read<RootBloc>().isInternetOn(false);
+          if (rootState.attemptedToCheck) {
+            context.read<RootBloc>().manageLoader(BlocProgress.FAILED);
+          }
         }
       },
     );

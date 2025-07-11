@@ -5,13 +5,8 @@ part 'root_state.dart';
 class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
-  void manageLoader(bool loaderStatus) {
-    emit(
-      state.copyWith(
-        blocProgress:
-            loaderStatus ? BlocProgress.IS_LOADING : BlocProgress.LOADED,
-      ),
-    );
+  void manageLoader(BlocProgress loaderStatus) {
+    emit(state.copyWith(blocProgress: loaderStatus));
   }
 
   void isInternetOn(bool isConnected) {

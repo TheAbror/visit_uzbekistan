@@ -24,11 +24,11 @@ class SignUpEnterDetailsPageAppBar extends StatelessWidget
           //     ),
           //   ),
           // ),
-          CustomAppBarBackButton(
-            func: () {
-              // context.read<AuthBloc>().setInitialValue();
-            },
-          ),
+          // CustomAppBarBackButton(
+          //   func: () {
+          //     // context.read<AuthBloc>().setInitialValue();
+          //   },
+          // ),
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, AppRoutes.rootPage);

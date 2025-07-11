@@ -43,7 +43,6 @@ export 'package:visit_uzbekistan/features/root/presentation/bloc/root_bloc/root_
 export 'package:visit_uzbekistan/features/splash/bloc/splash_bloc.dart';
 export 'package:visit_uzbekistan/routes/main_route_generator.dart';
 export 'package:google_sign_in/google_sign_in.dart';
-export 'package:visit_uzbekistan/features/auth/widgets/custom_app_bar_back_button.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/google_sign_in_api.dart';
 export 'package:introduction_screen/introduction_screen.dart';
 export 'package:visit_uzbekistan/features/auth/log_in_page.dart';

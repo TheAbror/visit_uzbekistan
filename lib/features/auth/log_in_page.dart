@@ -17,7 +17,7 @@ class _LogInPageState extends State<LogInPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: CustomAppBarBackButton(),
+        // leading: CustomAppBarBackButton(),
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
