@@ -98,6 +98,7 @@ class _MyAppState extends State<MyApp> {
 //⛔️ save favorites 
 //⛔️ add reviews page 
 //⛔️ add adding comment page 
+//✅ make places, tours, transport, restaurants get data from box when no internet
 
 
 

@@ -40,4 +40,20 @@ class TransportationBloc extends Cubit<TransportationState> {
       }
     }
   }
+
+  void assignTransportFromSavedCity(int cityID, int transportID) {
+    final rawCityData = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
+    final LocalStorageForCities? cityData = rawCityData;
+    final cityItems = cityData?.localStorageCityItems ?? [];
+
+    emit(
+      state.copyWith(
+        carRentals: cityItems
+            .firstWhere((e) => e.id == cityID)
+            .carRentals
+            .firstWhere((e) => e.id == transportID)
+            .toSingleItemResponse(),
+      ),
+    );
+  }
 }

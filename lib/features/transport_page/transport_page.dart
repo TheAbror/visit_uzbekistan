@@ -20,7 +20,16 @@ class _TransportPageState extends State<TransportPage> {
   void initState() {
     super.initState();
 
-    context.read<TransportationBloc>().getRentalCars(widget.idandTitle.id);
+    final bool _root = context.read<RootBloc>().state.isInternetOn;
+
+    if (_root) {
+      context.read<TransportationBloc>().getRentalCars(widget.idandTitle.id);
+    } else {
+      context.read<TransportationBloc>().assignTransportFromSavedCity(
+            widget.idandTitle.moreID ?? 0,
+            widget.idandTitle.id,
+          );
+    }
 
     _pageController.addListener(() {
       final newIndex = _pageController.page?.round() ?? 0;

@@ -30,7 +30,10 @@ class RestaurantsTab extends StatelessWidget {
           itemBuilder: (context, index) {
             final singleItem = state.response.restaurants[index];
 
-            return GridViewItem(item: singleItem);
+            return GridViewItem(
+              item: singleItem,
+              moreID: state.response.id,
+            );
           },
         );
       },

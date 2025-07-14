@@ -40,4 +40,20 @@ class ToursBloc extends Cubit<ToursState> {
       }
     }
   }
+
+  void assignTourFromSavedCity(int cityID, int tourID) {
+    final rawCityData = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
+    final LocalStorageForCities? cityData = rawCityData;
+    final cityItems = cityData?.localStorageCityItems ?? [];
+
+    emit(
+      state.copyWith(
+        tour: cityItems
+            .firstWhere((e) => e.id == cityID)
+            .tours
+            .firstWhere((e) => e.id == tourID)
+            .toSingleItemResponse(),
+      ),
+    );
+  }
 }

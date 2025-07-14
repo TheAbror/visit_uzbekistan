@@ -22,7 +22,17 @@ class _PlacePageState extends State<PlacePage> {
   @override
   void initState() {
     super.initState();
-    context.read<PlaceBloc>().getSinglePlace(widget.idandTitle.id);
+
+    final bool _root = context.read<RootBloc>().state.isInternetOn;
+
+    if (_root) {
+      context.read<PlaceBloc>().getSinglePlace(widget.idandTitle.id);
+    } else {
+      context.read<PlaceBloc>().assignPlaceFromSavedCity(
+            widget.idandTitle.moreID ?? 0,
+            widget.idandTitle.id,
+          );
+    }
 
     _scrollController.addListener(() {
       if (_scrollController.offset > 50 && !_showHeaderBg) {
@@ -71,32 +81,7 @@ class _PlacePageState extends State<PlacePage> {
                         children: [
                           (state.place.images != null &&
                                   state.place.images?.isEmpty == true)
-                              ? CachedNetworkImage(
-                                  imageUrl: state.place.photo,
-                                  height: 300.h,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                  placeholder: (context, url) => Container(
-                                    height: 300.h,
-                                    width: double.infinity,
-                                    color: Colors.grey[200],
-                                    child: Center(
-                                        child: CircularProgressIndicator()),
-                                  ),
-                                  errorWidget: (context, url, error) =>
-                                      Container(
-                                    height: 300.h,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/sign_in_bg.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : PageView.builder(
+                              ? PageView.builder(
                                   controller: _pageController,
                                   itemCount: state.place.images?.length,
                                   itemBuilder: (context, index) {
@@ -126,6 +111,31 @@ class _PlacePageState extends State<PlacePage> {
                                       ),
                                     );
                                   },
+                                )
+                              : CachedNetworkImage(
+                                  imageUrl: state.place.photo,
+                                  height: 300.h,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => Container(
+                                    height: 300.h,
+                                    width: double.infinity,
+                                    color: Colors.grey[200],
+                                    child: Center(
+                                        child: CircularProgressIndicator()),
+                                  ),
+                                  errorWidget: (context, url, error) =>
+                                      Container(
+                                    height: 300.h,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/sign_in_bg.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                           if (state.place.images?.isNotEmpty == true)
                             Positioned(

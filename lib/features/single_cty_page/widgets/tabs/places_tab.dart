@@ -30,7 +30,10 @@ class PlacesTab extends StatelessWidget {
           itemBuilder: (context, index) {
             final singleItem = state.response.places[index];
 
-            return GridViewItem(item: singleItem);
+            return GridViewItem(
+              item: singleItem,
+              moreID: state.response.id,
+            );
           },
         );
       },

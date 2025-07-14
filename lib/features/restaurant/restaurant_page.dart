@@ -19,7 +19,17 @@ class _RestaurentPageState extends State<RestaurentPage> {
   @override
   void initState() {
     super.initState();
-    context.read<RestaurantBloc>().getSingleRestaurant(widget.idandTitle.id);
+
+    final bool _root = context.read<RootBloc>().state.isInternetOn;
+
+    if (_root) {
+      context.read<RestaurantBloc>().getSingleRestaurant(widget.idandTitle.id);
+    } else {
+      context.read<RestaurantBloc>().assignRestaurantFromSavedCity(
+            widget.idandTitle.moreID ?? 0,
+            widget.idandTitle.id,
+          );
+    }
 
     _scrollController.addListener(() {
       if (_scrollController.offset > 50 && !_showHeaderBg) {

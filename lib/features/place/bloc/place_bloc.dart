@@ -40,4 +40,20 @@ class PlaceBloc extends Cubit<PlaceState> {
       }
     }
   }
+
+  void assignPlaceFromSavedCity(int cityID, int placeID) {
+    final rawCityData = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
+    final LocalStorageForCities? cityData = rawCityData;
+    final cityItems = cityData?.localStorageCityItems ?? [];
+
+    emit(
+      state.copyWith(
+        place: cityItems
+            .firstWhere((e) => e.id == cityID)
+            .places
+            .firstWhere((e) => e.id == placeID)
+            .toSingleItemResponse(),
+      ),
+    );
+  }
 }

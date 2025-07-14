@@ -21,10 +21,28 @@ class ReviewsAndRatingsWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.network(
+              child: CachedNetworkImage(
+                imageUrl:
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrtQBXGauSHMKNR-H7uIGq5k7Par8k4scPw&s',
                 width: 40.w,
                 height: 40.w,
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrtQBXGauSHMKNR-H7uIGq5k7Par8k4scPw&s',
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Container(
+                  height: 200.h,
+                  width: double.infinity,
+                  color: Colors.grey[200],
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  height: 200.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/sign_in_bg.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ),
             ),
             SizedBox(width: 12.w),
@@ -66,10 +84,28 @@ class ReviewsAndRatingsWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.network(
+              child: CachedNetworkImage(
+                imageUrl:
+                    'https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740',
                 width: 40.w,
                 height: 40.w,
-                'https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740',
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Container(
+                  height: 200.h,
+                  width: double.infinity,
+                  color: Colors.grey[200],
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  height: 200.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/sign_in_bg.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ),
             ),
             SizedBox(width: 12.w),

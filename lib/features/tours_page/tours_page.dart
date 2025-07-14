@@ -20,7 +20,16 @@ class _ToursPageState extends State<ToursPage> {
   void initState() {
     super.initState();
 
-    context.read<ToursBloc>().getSingleTour(widget.idandTitle.id);
+    final bool _root = context.read<RootBloc>().state.isInternetOn;
+
+    if (_root) {
+      context.read<ToursBloc>().getSingleTour(widget.idandTitle.id);
+    } else {
+      context.read<ToursBloc>().assignTourFromSavedCity(
+            widget.idandTitle.moreID ?? 0,
+            widget.idandTitle.id,
+          );
+    }
 
     _pageController.addListener(() {
       final newIndex = _pageController.page?.round() ?? 0;

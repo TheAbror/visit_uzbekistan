@@ -43,7 +43,10 @@ class TransportationTab extends StatelessWidget {
               type: singleItem.type,
             );
 
-            return GridViewItem(item: newModel);
+            return GridViewItem(
+              item: newModel,
+              moreID: state.response.id,
+            );
           },
         );
       },

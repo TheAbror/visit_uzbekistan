@@ -40,4 +40,20 @@ class RestaurantBloc extends Cubit<RestaurantState> {
       }
     }
   }
+
+  void assignRestaurantFromSavedCity(int cityID, int restaurantID) {
+    final rawCityData = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
+    final LocalStorageForCities? cityData = rawCityData;
+    final cityItems = cityData?.localStorageCityItems ?? [];
+
+    emit(
+      state.copyWith(
+        restaurant: cityItems
+            .firstWhere((e) => e.id == cityID)
+            .restaurants
+            .firstWhere((e) => e.id == restaurantID)
+            .toSingleItemResponse(),
+      ),
+    );
+  }
 }
