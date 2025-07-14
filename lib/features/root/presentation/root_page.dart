@@ -17,6 +17,13 @@ class _RootPageState extends State<RootPage> {
     super.initState();
     context.read<RootBloc>().manageLoader(BlocProgress.IS_LOADING);
 
+    Future.delayed(Duration(seconds: 3), () {
+      final blocState = context.read<RootBloc>().state;
+      if (blocState.blocProgress == BlocProgress.IS_LOADING) {
+        context.read<RootBloc>().manageLoader(BlocProgress.FAILED);
+      }
+    });
+
     internetConnectionChecker();
 
     allRequests();
@@ -86,7 +93,7 @@ class _RootPageState extends State<RootPage> {
             return Center(child: CircularProgressIndicator());
           }
 
-          return !state.isInternetOn ? NoInternetMode() : Tabs(state: state);
+          return state.isInternetOn ? Tabs(state: state) : NoInternetMode();
         },
       ),
       extendBody: true,
