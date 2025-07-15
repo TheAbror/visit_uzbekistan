@@ -99,6 +99,7 @@ class _MyAppState extends State<MyApp> {
 //⛔️ add reviews page 
 //⛔️ add adding comment page 
 //✅ make places, tours, transport, restaurants get data from box when no internet
+//⛔️ plans add route trip from tashkent to xiva
 
 
 

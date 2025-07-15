@@ -10,4 +10,16 @@ class PlansBloc extends Cubit<PlansState> {
 
     print(state.value);
   }
+
+  void addCity(String value) {
+    List<String> updatedSelection = List<String>.from(state.selectedCities);
+
+    if (updatedSelection.contains(value)) {
+      updatedSelection.remove(value);
+    } else {
+      updatedSelection.add(value);
+    }
+
+    emit(state.copyWith(selectedCities: updatedSelection));
+  }
 }

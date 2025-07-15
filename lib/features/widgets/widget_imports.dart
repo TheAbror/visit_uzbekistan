@@ -126,3 +126,4 @@ export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/bloc/
 export 'package:visit_uzbekistan/features/root/presentation/tabs/more_tab/widgets/custom_appbar.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/profile_page/widgets/profile_page_widget.dart';
 export 'package:visit_uzbekistan/core/id_and_title.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/trip_planner.dart';
