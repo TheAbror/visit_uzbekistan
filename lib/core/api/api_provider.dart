@@ -1,5 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:http/io_client.dart' as http;
+import 'package:visit_uzbekistan/features/auth/services/auth_service.dart';
 import 'package:visit_uzbekistan/features/root/domain/services/home_services.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
@@ -9,6 +10,7 @@ class ApiProvider {
 
   static late ChopperClient _client;
   static late HomeServices homeServices;
+  static late AuthService authServices;
 
   ///Services
   static create({String? token, String? language}) {
@@ -18,6 +20,7 @@ class ApiProvider {
       ),
       services: [
         HomeServices.create(),
+        AuthService.create(),
       ],
       interceptors: getInterceptors(
         token: token,
@@ -27,6 +30,7 @@ class ApiProvider {
     );
 
     homeServices = _client.getService<HomeServices>();
+    authServices = _client.getService<AuthService>();
   }
 
   static List getInterceptors({

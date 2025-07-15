@@ -63,6 +63,12 @@ dynamic deserialize<SingleItemType>(Map<String, dynamic> json) {
     case UsefulAppResponse:
       return UsefulAppResponse.fromJson(json);
 
+    case LogInRequest:
+      return LogInRequest.fromJson(json);
+
+    case LogInResponse:
+      return LogInResponse.fromJson(json);
+
     default:
       return null;
   }

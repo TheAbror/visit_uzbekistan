@@ -31,6 +31,7 @@ class _BodyState extends State<_Body> {
 
   final _firstName = TextEditingController();
   final _lastName = TextEditingController();
+  final _email = TextEditingController();
   final _password = TextEditingController();
 
   @override
@@ -99,7 +100,13 @@ class _BodyState extends State<_Body> {
               //       );
               // }
 
-              Navigator.pushNamed(context, AppRoutes.rootPage);
+              context.read<AuthBloc>().register(
+                    _firstName.text + _lastName.text,
+                    _email.text,
+                    _password.text,
+                  );
+
+              // Navigator.pushNamed(context, AppRoutes.rootPage);
             },
           ),
         ],
@@ -162,7 +169,7 @@ class _BodyState extends State<_Body> {
         // }
         return null;
       },
-      controller: TextEditingController(),
+      controller: _email,
       textInputAction: TextInputAction.next,
       decoration: AuthFieldDecoration(
         context,
