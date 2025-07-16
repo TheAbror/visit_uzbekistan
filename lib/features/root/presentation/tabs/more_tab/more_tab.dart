@@ -30,7 +30,7 @@ class _MoreTabState extends State<MoreTab> {
         CustomAppBar(
           title: context.localizations.more,
           color: AppColors.primary,
-          height: 56.h,
+          height: 45.h,
         ),
       ],
     );

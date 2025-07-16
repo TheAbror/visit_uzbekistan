@@ -9,7 +9,11 @@ class PlansTab extends StatelessWidget {
       create: (context) => PlansBloc(),
       child: Column(
         children: [
-          TabsAppBar(text: context.localizations.plans),
+          CustomAppBar(
+            title: context.localizations.plans,
+            color: AppColors.primary,
+            height: 45.h,
+          ),
           Expanded(
             child: ListView(
               physics: BouncingScrollPhysics(),

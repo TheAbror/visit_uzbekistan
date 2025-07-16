@@ -19,7 +19,11 @@ class NoInternetMode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TabsAppBar(text: 'Downloads'),
+        CustomAppBar(
+          title: 'Downloads',
+          color: AppColors.primary,
+          height: 56.h,
+        ),
         Expanded(
           child: DownloadsBody(),
         ),

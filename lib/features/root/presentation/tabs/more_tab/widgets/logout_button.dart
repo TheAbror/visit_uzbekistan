@@ -8,17 +8,7 @@ class LogoutButton extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.isLogoutSuccess) {
-          ApiProvider.create();
-          context.read<RootBloc>().clearAll();
-          context.read<AuthBloc>().clearAll();
-          context.read<CitiesTabBloc>().clearAll();
-          context.read<LocalizationBloc>().clearAll();
-
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            AppRoutes.splashPage,
-            (route) => false,
-          );
+          clearData(context);
         } else if (state.blocProgress == BlocProgress.FAILED) {
           showMessage('Logout failed', isError: true);
         }
@@ -27,6 +17,14 @@ class LogoutButton extends StatelessWidget {
         behavior: HitTestBehavior.opaque,
         onTap: () async {
           final bool? logout = await logoutDialog(context);
+
+          final UserModel? hive = userBox.get(ShPrefKeys.userBox);
+
+          final isValid = hive?.token != null && hive?.token.isNotEmpty == true;
+
+          if (!isValid) {
+            clearData(context);
+          }
 
           if (logout == true) {
             context.read<AuthBloc>().logout();
@@ -58,4 +56,18 @@ class LogoutButton extends StatelessWidget {
       ),
     );
   }
+}
+
+void clearData(BuildContext context) {
+  ApiProvider.create();
+  context.read<RootBloc>().clearAll();
+  context.read<AuthBloc>().clearAll();
+  context.read<CitiesTabBloc>().clearAll();
+  context.read<LocalizationBloc>().clearAll();
+
+  Navigator.pushNamedAndRemoveUntil(
+    context,
+    AppRoutes.splashPage,
+    (route) => false,
+  );
 }

@@ -1,33 +1,5 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class TabsAppBar extends StatelessWidget {
-  final String text;
-
-  TabsAppBar({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 90.h,
-      color: AppColors.float,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: EdgeInsets.only(bottom: 10.h),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold,
-              color: AppColors.secondary,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class TransportationOptions extends StatelessWidget {
   const TransportationOptions({super.key});
 
