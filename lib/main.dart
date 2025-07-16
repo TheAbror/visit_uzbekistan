@@ -11,10 +11,12 @@ void main() async {
   Hive.registerAdapter(SingleItemModelAdapter());
   Hive.registerAdapter(SingleCityModelAdapter());
   Hive.registerAdapter(ListOfImagesModelAdapter());
+  Hive.registerAdapter(UserModelAdapter());
 
   savedCitiesBox = await Hive.openBox<LocalStorageForCities>(
       ShPrefKeys.localStorageSavedCity);
   hiveBox = await Hive.openBox<LocalStorage>(ShPrefKeys.localStorageItems);
+  userBox = await Hive.openBox<UserModel>(ShPrefKeys.userBox);
 
   ApiProvider.create();
 

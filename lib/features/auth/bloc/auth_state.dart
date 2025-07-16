@@ -1,11 +1,15 @@
 part of 'auth_bloc.dart';
 
 class AuthState extends Equatable {
+  final bool isLogoutSuccess;
+  final bool isSuccess;
   final LogInResponse response;
   final BlocProgress blocProgress;
   final String failureMessage;
 
   const AuthState({
+    required this.isLogoutSuccess,
+    required this.isSuccess,
     required this.response,
     required this.blocProgress,
     required this.failureMessage,
@@ -13,6 +17,8 @@ class AuthState extends Equatable {
 
   factory AuthState.initial() {
     return AuthState(
+      isLogoutSuccess: false,
+      isSuccess: false,
       response: LogInResponse(
         message: '',
         data: LogInDataResponse(
@@ -32,11 +38,15 @@ class AuthState extends Equatable {
   }
 
   AuthState copyWith({
+    bool? isLogoutSuccess,
+    bool? isSuccess,
     LogInResponse? response,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
     return AuthState(
+      isLogoutSuccess: isLogoutSuccess ?? this.isLogoutSuccess,
+      isSuccess: isSuccess ?? this.isSuccess,
       response: response ?? this.response,
       blocProgress: blocProgress ?? this.blocProgress,
       failureMessage: failureMessage ?? this.failureMessage,
@@ -45,6 +55,8 @@ class AuthState extends Equatable {
 
   @override
   List<Object?> get props => [
+        isLogoutSuccess,
+        isSuccess,
         response,
         blocProgress,
         failureMessage,

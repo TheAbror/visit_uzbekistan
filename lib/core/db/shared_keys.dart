@@ -14,4 +14,5 @@ abstract class ShPrefKeys {
   static const langCode = 'langCode';
   static const localStorageItems = 'listOfLocalStorageItems';
   static const localStorageSavedCity = 'localStorageSavedCity';
+  static const userBox = 'userBox';
 }

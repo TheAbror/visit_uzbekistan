@@ -139,7 +139,6 @@ class SinglePlaceDetails extends StatelessWidget {
               ),
             ],
           ),
-          ReviewsAndRatingsWidget(),
           SizedBox(height: 40.h),
         ],
       ),

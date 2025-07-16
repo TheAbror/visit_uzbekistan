@@ -26,8 +26,8 @@ class _SignleCityPageState extends State<SignleCityPage> {
     }
   }
 
-  final box = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity);
-  final whenEmpty = LocalStorageForCities(localStorageCityItems: []);
+  final box = savedCitiesBox.get(ShPrefKeys.localStorageSavedCity) ??
+      LocalStorageForCities(localStorageCityItems: []);
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +57,19 @@ class _SignleCityPageState extends State<SignleCityPage> {
                         showMessage('Saved');
                       }
                     },
-                    child: box.localStorageCityItems.any(
-                      (e) => e.id == widget.idandTitle.id,
-                    )
-                        ? Icon(IconsaxPlusBold.document_download)
-                        : Icon(
+                    child: box.localStorageCityItems.isNotEmpty
+                        ? Icon(
                             IconsaxPlusLinear.document_download,
                             color: Colors.black,
-                          ),
+                          )
+                        : box.localStorageCityItems.any(
+                            (e) => e.id == widget.idandTitle.id,
+                          )
+                            ? Icon(IconsaxPlusBold.document_download)
+                            : Icon(
+                                IconsaxPlusLinear.document_download,
+                                color: Colors.black,
+                              ),
                   ),
                 ),
                 SizedBox(width: 4.w),

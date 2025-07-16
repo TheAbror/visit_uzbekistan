@@ -1,7 +1,7 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class SignUpEnterDetailsPage extends StatelessWidget {
-  const SignUpEnterDetailsPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class _BodyState extends State<_Body> {
               // }
 
               context.read<AuthBloc>().register(
-                    _firstName.text + _lastName.text,
+                    _firstName.text + ' ' + _lastName.text,
                     _email.text,
                     _password.text,
                   );

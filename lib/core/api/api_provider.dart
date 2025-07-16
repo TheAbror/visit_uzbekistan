@@ -38,8 +38,7 @@ class ApiProvider {
     String? token,
     String? language,
   }) {
-    final userLang = PreferencesServices.getLangCode();
-
+    final String? token = savedUserData?.token;
     List interceptors = [];
 
     interceptors.add(HttpLoggingInterceptor());
@@ -50,10 +49,8 @@ class ApiProvider {
         {
           HttpHeaders.acceptHeader: 'application/json',
           HttpHeaders.contentTypeHeader: 'application/json',
-          HttpHeaders.authorizationHeader:
-              'Bearer 8|NgNHP4RPmzuIRRPFIwjftH51D8N9cA5MlwlpRjlY89011d96',
-          // HttpHeaders.authorizationHeader: token != null ? 'Bearer $token' : '',
-          'Accept-Language': userLang ?? 'en'
+          HttpHeaders.authorizationHeader: token != null ? 'Bearer $token' : '',
+          'Accept-Language': 'en'
         },
       ),
     );

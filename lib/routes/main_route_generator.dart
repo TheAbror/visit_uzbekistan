@@ -83,14 +83,9 @@ class MainRouteGenerator {
           builder: (_) => const CodeVerificationPage(),
         );
 
-      case AppRoutes.signUpPage:
+      case AppRoutes.registerPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const SignUpPage(),
-        );
-
-      case AppRoutes.signUpEnterDetails:
-        return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const SignUpEnterDetailsPage(),
+          builder: (_) => const RegisterPage(),
         );
 
       case AppRoutes.articlePage:
@@ -168,8 +163,7 @@ class MainRouteGenerator {
 
       default:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => const LogInPage(),
-          // builder: (_) => const RootPage(),
+          builder: (_) => const SplashPage(),
         );
     }
   }

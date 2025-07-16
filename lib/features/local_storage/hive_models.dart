@@ -202,3 +202,28 @@ class ListOfImagesModel extends HiveObject {
     return ListOfImagesResponse(path: path);
   }
 }
+
+@HiveType(typeId: 5)
+class UserModel extends HiveObject {
+  @HiveField(0)
+  final int id;
+  @HiveField(1)
+  final String name;
+  @HiveField(2)
+  final String email;
+  @HiveField(3)
+  final String createdAt;
+  @HiveField(4)
+  final String updatedAt;
+  @HiveField(5)
+  final String token;
+
+  UserModel({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.token,
+  });
+}

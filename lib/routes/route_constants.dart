@@ -9,8 +9,7 @@ abstract class AppRoutes {
   static const forgotPasswordSuccessPage = '/forgotPasswordSuccessPage';
   static const forgotPasswordNewPassordPage = '/forgotPasswordNewPassordPage';
   static const codeVerificationPage = '/codeVerificationPage';
-  static const signUpPage = '/signUpPage';
-  static const signUpEnterDetails = '/signUpEnterDetails';
+  static const registerPage = '/registerPage';
 
   //
   static const articlePage = '/articlePage';

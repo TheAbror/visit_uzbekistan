@@ -11,12 +11,33 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SplashBloc(),
-      child: BlocConsumer<SplashBloc, SplashState>(
-        listener: (context, state) {},
+      create: (context) => SplashBloc()..assignToken(),
+      child: BlocBuilder<SplashBloc, SplashState>(
         builder: (context, state) {
+          if (state.token.isNotEmpty) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Future.delayed(const Duration(seconds: 2), () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.rootPage,
+                  (route) => false,
+                );
+              });
+            });
+          } else {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Future.delayed(const Duration(seconds: 2), () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.onBoardingPage,
+                  (route) => false,
+                );
+              });
+            });
+          }
+
           return Scaffold(
-            backgroundColor: AppColors.primaryDark,
+            backgroundColor: AppColors.rootBgColor,
             body: _SplashView(),
           );
         },
@@ -30,39 +51,15 @@ class _SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/background_gradient.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Center(
-          child: Icon(
-            Icons.travel_explore,
-            size: 150,
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
-            child: ActionButton(
-              text: 'Skip',
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  AppRoutes.onBoardingPage,
-                  (route) => false,
-                );
-              },
-            ),
-          ),
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(IconsaxPlusLinear.map, size: 150),
+          SizedBox(height: 80.h),
+          CircularProgressIndicator(color: AppColors.primary),
+        ],
+      ),
     );
   }
 }

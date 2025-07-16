@@ -38,7 +38,7 @@ CardRounded18 profileCard(BuildContext context) {
           SizedBox(width: 8.w),
           Expanded(
             child: Text(
-              context.localizations.fullName,
+              savedUserData?.name ?? '',
               overflow: TextOverflow.fade,
               maxLines: 1,
               style: TextStyle(
@@ -76,6 +76,8 @@ class LogoutButton extends StatelessWidget {
         final bool? logout = await logoutDialog(context);
 
         if (logout != null && logout) {
+          context.read<AuthBloc>().logout();
+
           Navigator.pushNamed(context, AppRoutes.splashPage);
         }
       },
@@ -86,68 +88,24 @@ class LogoutButton extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.r),
         ),
-        child: GestureDetector(
-          onTap: () {
-            signOutDialog(context);
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(IconsaxPlusLinear.logout_1),
-              SizedBox(width: 8.w),
-              Text(
-                context.localizations.logout,
-                style: TextStyle(
-                  color: AppColors.textColorDarkBlue,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18.sp,
-                ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(IconsaxPlusLinear.logout_1),
+            SizedBox(width: 8.w),
+            Text(
+              context.localizations.logout,
+              style: TextStyle(
+                color: AppColors.textColorDarkBlue,
+                fontWeight: FontWeight.w600,
+                fontSize: 18.sp,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
-}
-
-Future<dynamic> signOutDialog(BuildContext context) {
-  return showPlatformDialog(
-    context: context,
-    builder: (myContext) => Theme(
-      data: ThemeData(
-          dialogBackgroundColor: Theme.of(context).colorScheme.background),
-      child: BasicDialogAlert(
-        title: Text('Sign out'),
-        content: Text('Do you really want to sign out'),
-        actions: <Widget>[
-          BasicDialogAction(
-            title: Text(
-              'Yes',
-              style: const TextStyle(color: AppColors.primary),
-            ),
-            onPressed: () async {
-              GoogleSignInApi.logout();
-
-              // HiveHelperUser.googleSignInBox.clear();
-
-              debugPrint('Clearing finished');
-
-              Navigator.of(context)
-                  .pushReplacementNamed(OnboardingPage.routeName);
-            },
-          ),
-          BasicDialogAction(
-            title: Text(
-              'No',
-              style: const TextStyle(color: AppColors.primary),
-            ),
-            onPressed: () => Navigator.pop(myContext),
-          ),
-        ],
-      ),
-    ),
-  );
 }
 
 class CardRounded18 extends StatelessWidget {

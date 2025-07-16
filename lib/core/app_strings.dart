@@ -9,6 +9,7 @@ class AppStrings {
   static const carRentals = 'car_rentals';
   static const usefulApps = 'useful_apps';
   static const login = 'client/login';
+  static const logout = 'client/logout';
   static const register = 'client/register';
   static const review = 'review';
 }

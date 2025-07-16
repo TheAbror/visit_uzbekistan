@@ -179,7 +179,6 @@ class _RestaurentPageState extends State<RestaurentPage> {
                               ),
                             ],
                           ),
-                          ReviewsAndRatingsWidget(),
                           ActionButton(
                             text: 'Book Now',
                             onPressed: () {},

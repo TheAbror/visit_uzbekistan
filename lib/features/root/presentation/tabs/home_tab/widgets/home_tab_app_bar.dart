@@ -1,6 +1,8 @@
 import 'package:visit_uzbekistan/core/bottomsheet/widgets/bottom_sheet_list_multiple_choice_item.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
+final UserModel? savedUserData = userBox.get(ShPrefKeys.userBox);
+
 class HomeTabAppBar extends StatelessWidget {
   const HomeTabAppBar({super.key});
 
@@ -39,7 +41,7 @@ class HomeTabAppBar extends StatelessWidget {
                 style: TextStyle(fontSize: 16.sp),
               ),
               Text(
-                ' Williamson',
+                ' ' + (savedUserData?.name ?? ''),
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,

@@ -258,3 +258,52 @@ class ListOfImagesModelAdapter extends TypeAdapter<ListOfImagesModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+class UserModelAdapter extends TypeAdapter<UserModel> {
+  @override
+  final int typeId = 5;
+
+  @override
+  UserModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return UserModel(
+      id: fields[0] as int,
+      name: fields[1] as String,
+      email: fields[2] as String,
+      createdAt: fields[3] as String,
+      updatedAt: fields[4] as String,
+      token: fields[5] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, UserModel obj) {
+    writer
+      ..writeByte(6)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.email)
+      ..writeByte(3)
+      ..write(obj.createdAt)
+      ..writeByte(4)
+      ..write(obj.updatedAt)
+      ..writeByte(5)
+      ..write(obj.token);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}

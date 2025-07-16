@@ -19,14 +19,9 @@ class NoInternetMode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        TabsAppBar(text: 'Downloads'),
         Expanded(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              TabsAppBar(text: 'Downloads'),
-              DownloadsBody(),
-            ],
-          ),
+          child: DownloadsBody(),
         ),
       ],
     );
@@ -75,18 +70,14 @@ class DownloadsBody extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
-  final dynamic items;
+  final List<dynamic> items;
 
   const _Body({required this.items});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.only(
-        left: defaultPadding,
-        right: defaultPadding,
-        top: 10.h,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: defaultPadding, vertical: 10.h),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 8.h,
@@ -94,31 +85,23 @@ class _Body extends StatelessWidget {
         childAspectRatio: 0.85,
       ),
       itemCount: items.length,
-      shrinkWrap: true,
       itemBuilder: (context, index) {
         final singleItem = items[index];
 
         return GestureDetector(
           onTap: () {
-            if (singleItem.type == 'city') {
-              Navigator.pushNamed(
-                context,
-                AppRoutes.singleCityPage,
-                arguments: IdandTitle(
-                  id: singleItem.id,
-                  title: singleItem.type,
-                ),
-              );
-            } else {
-              Navigator.pushNamed(
-                context,
-                AppRoutes.singleDownloadPage,
-                arguments: IdandTitle(
-                  id: singleItem.id,
-                  title: singleItem.type,
-                ),
-              );
-            }
+            final route = singleItem.type == 'city'
+                ? AppRoutes.singleCityPage
+                : AppRoutes.singleDownloadPage;
+
+            Navigator.pushNamed(
+              context,
+              route,
+              arguments: IdandTitle(
+                id: singleItem.id,
+                title: singleItem.type,
+              ),
+            );
           },
           child: Container(
             decoration: BoxDecoration(
@@ -129,31 +112,20 @@ class _Body extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Image + Favorite Icon
                 ImageAndFavoriteIcon(
                   height: 120,
                   item: singleItem.toSingleItemResponse(),
                 ),
-
-                // Item Details
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 4.h,
-                    vertical: 2.h,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 4.h, vertical: 2.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              singleItem.name,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                              maxLines: 1,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        singleItem.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       Text(
                         singleItem.shortDescription,
@@ -170,16 +142,13 @@ class _Body extends StatelessWidget {
                         SizedBox(height: 8.h),
                         Row(
                           children: [
-                            Icon(
-                              IconsaxPlusLinear.location,
-                              size: 14.sp,
-                            ),
+                            Icon(IconsaxPlusLinear.location, size: 14.sp),
                             SizedBox(width: 4.w),
                             Flexible(
                               child: Text(
                                 singleItem.location,
-                                style: TextStyle(
-                                  fontSize: 11.sp,
+                                style: const TextStyle(
+                                  fontSize: 11,
                                   color: Colors.grey,
                                 ),
                                 overflow: TextOverflow.ellipsis,
