@@ -5,6 +5,10 @@ part 'tours_state.dart';
 class ToursBloc extends Cubit<ToursState> {
   ToursBloc() : super(ToursState.initial());
 
+  void clearAll() {
+    emit(ToursState.initial());
+  }
+
   void getSingleTour(int id) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 

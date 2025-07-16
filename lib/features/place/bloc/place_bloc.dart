@@ -5,6 +5,10 @@ part 'place_state.dart';
 class PlaceBloc extends Cubit<PlaceState> {
   PlaceBloc() : super(PlaceState.initial());
 
+  void clearAll() {
+    emit(PlaceState.initial());
+  }
+
   void getSinglePlace(int id) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 

@@ -18,7 +18,7 @@ Widget onErrorProfileWidget(ctx, _, s) => Container(
       ),
     );
 
-CardRounded18 profileCard(BuildContext context) {
+CardRounded18 profileCard(BuildContext context, String name) {
   return CardRounded18(
     height: 64.h,
     child: GestureDetector(
@@ -38,7 +38,7 @@ CardRounded18 profileCard(BuildContext context) {
           SizedBox(width: 8.w),
           Expanded(
             child: Text(
-              savedUserData?.name ?? '',
+              name,
               overflow: TextOverflow.fade,
               maxLines: 1,
               style: TextStyle(
@@ -54,58 +54,6 @@ CardRounded18 profileCard(BuildContext context) {
       ),
     ),
   );
-}
-
-void handleLogOut(context) async {
-  // await HiveHelperUser.clear();
-  // await HiveHelperPills.clear();
-  // Navigator.of(context).pushNamedAndRemoveUntil(
-  //   SignInPage.routeName,
-  //   (Route<dynamic> route) => false,
-  // );
-}
-
-class LogoutButton extends StatelessWidget {
-  const LogoutButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () async {
-        final bool? logout = await logoutDialog(context);
-
-        if (logout != null && logout) {
-          context.read<AuthBloc>().logout();
-
-          Navigator.pushNamed(context, AppRoutes.splashPage);
-        }
-      },
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12.r),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(IconsaxPlusLinear.logout_1),
-            SizedBox(width: 8.w),
-            Text(
-              context.localizations.logout,
-              style: TextStyle(
-                color: AppColors.textColorDarkBlue,
-                fontWeight: FontWeight.w600,
-                fontSize: 18.sp,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
 
 class CardRounded18 extends StatelessWidget {

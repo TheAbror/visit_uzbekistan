@@ -131,8 +131,6 @@ class _LogInPageState extends State<LogInPage> {
                         email.text,
                         password.text,
                       );
-
-                  // signIn(context); TODO google signin
                 },
                 borderRadius: BorderRadius.circular(32),
                 child: Container(

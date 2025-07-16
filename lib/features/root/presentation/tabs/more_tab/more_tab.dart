@@ -1,7 +1,14 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class MoreTab extends StatelessWidget {
+class MoreTab extends StatefulWidget {
   const MoreTab({super.key});
+
+  @override
+  State<MoreTab> createState() => _MoreTabState();
+}
+
+class _MoreTabState extends State<MoreTab> {
+  final UserModel? hive = userBox.get(ShPrefKeys.userBox);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,7 @@ class MoreTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 124.h),
-              profileCard(context),
+              profileCard(context, hive?.name ?? 'User'),
               SizedBox(height: 20.h),
               settingsList(context),
               LogoutButton(),

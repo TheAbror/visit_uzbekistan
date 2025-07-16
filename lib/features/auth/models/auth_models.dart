@@ -100,3 +100,16 @@ class RegisterRequest {
 
   Map<String, dynamic> toJson() => _$RegisterRequestToJson(this);
 }
+
+@JsonSerializable(includeIfNull: true)
+class LogoutResponse {
+  @JsonKey(defaultValue: '')
+  final String message;
+
+  LogoutResponse({required this.message});
+
+  factory LogoutResponse.fromJson(Map<String, dynamic> json) =>
+      _$LogoutResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LogoutResponseToJson(this);
+}

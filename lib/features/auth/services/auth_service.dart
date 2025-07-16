@@ -15,5 +15,5 @@ abstract class AuthService extends ChopperService {
   Future<Response<LogInResponse>> register(@Body() RegisterRequest body);
 
   @Post(path: AppStrings.logout)
-  Future<Response<LogInResponse>> logout();
+  Future<Response<LogoutResponse>> logout();
 }

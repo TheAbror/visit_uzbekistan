@@ -13,9 +13,11 @@ class LocalizationBloc extends Cubit<LocalizationState> {
 
     emit(state.copyWith(languageCode: userLang));
 
-    // CurrentUser? currentUser = boxCurrentUser.get(ShPrefKeys.currentUser);
+    final UserModel? hive = userBox.get(ShPrefKeys.userBox);
 
-    ApiProvider.create(token: 'currentUser?.token', language: userLang);
+    final isValid = hive?.token != null && hive?.token.isNotEmpty == true;
+
+    if (isValid) ApiProvider.create(token: hive?.token, language: userLang);
   }
 
   Future<void> changeLocalization(String? languageCode) async {
@@ -26,9 +28,12 @@ class LocalizationBloc extends Cubit<LocalizationState> {
 
     PreferencesServices.saveLangCode(currentAppLang);
 
-    // CurrentUser? currentUser = boxCurrentUser.get(ShPrefKeys.currentUser);
+    final UserModel? hive = userBox.get(ShPrefKeys.userBox);
 
-    ApiProvider.create(token: 'currentUser?.token', language: currentAppLang);
+    final isValid = hive?.token != null && hive?.token.isNotEmpty == true;
+
+    if (isValid)
+      ApiProvider.create(token: hive?.token, language: currentAppLang);
   }
 
   void clearAll() {

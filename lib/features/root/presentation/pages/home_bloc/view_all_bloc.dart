@@ -5,6 +5,10 @@ part 'view_all_state.dart';
 class ViewAllBloc extends Cubit<ViewAllState> {
   ViewAllBloc() : super(ViewAllState.initial());
 
+  void clearAll() {
+    emit(ViewAllState.initial());
+  }
+
   void search(String value) {
     final searchedList = state.initialList
         .where((element) =>

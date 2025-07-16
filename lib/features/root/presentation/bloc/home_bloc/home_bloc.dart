@@ -5,6 +5,10 @@ part 'home_state.dart';
 class HomeBloc extends Cubit<HomeState> {
   HomeBloc() : super(HomeState.initial());
 
+  void clearAll() {
+    emit(HomeState.initial());
+  }
+
   void homeTabFilter(String value) {
     final updatedList = List<String>.from(state.filterItemsSelected);
 

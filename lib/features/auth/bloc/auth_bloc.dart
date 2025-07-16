@@ -62,11 +62,6 @@ class AuthBloc extends Cubit<AuthState> {
     }
   }
 
-  // void isPasswordHidden() {
-  //   final item = !state.isPasswordHidden;
-  //   emit(state.copyWith(isPasswordHidden: item));
-  // }
-
   void register(
     String name,
     String email,
@@ -115,29 +110,6 @@ class AuthBloc extends Cubit<AuthState> {
     }
   }
 
-  // void updateData({
-  //   String? login,
-  //   String? password,
-  // }) {
-  //   if (login != null) {
-  //     emit(state.copyWith(login: login));
-  //   } else if (password != null) {
-  //     emit(state.copyWith(password: password));
-  //   }
-
-  //   final isLoginValid = state.login.isNotEmpty;
-  //   final isPasswordValid = state.password.isNotEmpty;
-
-  //   var isFormValid = false;
-  //   isFormValid = isLoginValid && isPasswordValid;
-
-  //   emit(state.copyWith(isButtonEnabled: isFormValid));
-  // }
-
-  void clearAll() {
-    emit(AuthState.initial());
-  }
-
   void logout() async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 
@@ -179,4 +151,32 @@ class AuthBloc extends Cubit<AuthState> {
       ));
     }
   }
+
+  void clearAll() {
+    emit(AuthState.initial());
+  }
+
+  // void updateData({
+  //   String? login,
+  //   String? password,
+  // }) {
+  //   if (login != null) {
+  //     emit(state.copyWith(login: login));
+  //   } else if (password != null) {
+  //     emit(state.copyWith(password: password));
+  //   }
+
+  //   final isLoginValid = state.login.isNotEmpty;
+  //   final isPasswordValid = state.password.isNotEmpty;
+
+  //   var isFormValid = false;
+  //   isFormValid = isLoginValid && isPasswordValid;
+
+  //   emit(state.copyWith(isButtonEnabled: isFormValid));
+  // }
+
+  // void isPasswordHidden() {
+  //   final item = !state.isPasswordHidden;
+  //   emit(state.copyWith(isPasswordHidden: item));
+  // }
 }

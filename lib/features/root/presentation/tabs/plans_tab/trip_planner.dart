@@ -20,7 +20,7 @@ class TripPlannerPage extends StatelessWidget {
         elevation: 1,
       ),
       body: BlocProvider(
-        create: (context) => PlansBloc(), //TODO
+        create: (context) => PlansBloc(),
         child: BlocBuilder<PlansBloc, PlansState>(
           builder: (context, state) {
             return ListView(

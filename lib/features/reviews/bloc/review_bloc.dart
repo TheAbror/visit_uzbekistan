@@ -5,6 +5,10 @@ part 'review_state.dart';
 class ReviewBloc extends Cubit<ReviewState> {
   ReviewBloc() : super(ReviewState.initial());
 
+  void clearAll() {
+    emit(ReviewState.initial());
+  }
+
   void addReview(
       // String name,
       // String email,

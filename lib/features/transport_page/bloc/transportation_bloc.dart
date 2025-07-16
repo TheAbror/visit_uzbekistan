@@ -5,6 +5,10 @@ part 'transportation_state.dart';
 class TransportationBloc extends Cubit<TransportationState> {
   TransportationBloc() : super(TransportationState.initial());
 
+  void clearAll() {
+    emit(TransportationState.initial());
+  }
+
   void getRentalCars(int id) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 

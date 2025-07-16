@@ -3,9 +3,6 @@ import 'package:http/io_client.dart' as http;
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class ApiProvider {
-  static NotAuthorizedInterceptor notAuthorizedInterceptor =
-      NotAuthorizedInterceptor();
-
   static late ChopperClient _client;
   static late HomeServices homeServices;
   static late AuthService authServices;
@@ -38,11 +35,9 @@ class ApiProvider {
     String? token,
     String? language,
   }) {
-    final String? token = savedUserData?.token;
     List interceptors = [];
 
     interceptors.add(HttpLoggingInterceptor());
-    interceptors.add(notAuthorizedInterceptor);
 
     interceptors.add(
       HeadersInterceptor(

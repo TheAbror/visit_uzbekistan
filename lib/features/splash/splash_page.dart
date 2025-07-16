@@ -53,11 +53,13 @@ class _SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Spacer(),
           Icon(IconsaxPlusLinear.map, size: 150),
-          SizedBox(height: 80.h),
+          Spacer(),
           CircularProgressIndicator(color: AppColors.primary),
+          SizedBox(height: 100.h),
         ],
       ),
     );

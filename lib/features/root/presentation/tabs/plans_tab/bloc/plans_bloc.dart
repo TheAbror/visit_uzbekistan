@@ -5,6 +5,10 @@ part 'plans_state.dart';
 class PlansBloc extends Cubit<PlansState> {
   PlansBloc() : super(PlansState.initial());
 
+  void clearAll() {
+    emit(PlansState.initial());
+  }
+
   void calculator(int value) {
     emit(state.copyWith(value: value * 12720));
 

@@ -5,6 +5,10 @@ part 'cities_tab_state.dart';
 class CitiesTabBloc extends Cubit<CitiesTabState> {
   CitiesTabBloc() : super(CitiesTabState.initial());
 
+  void clearAll() {
+    emit(CitiesTabState.initial());
+  }
+
   void getAllCities(BuildContext context) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 

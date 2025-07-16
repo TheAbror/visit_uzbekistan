@@ -45,13 +45,13 @@ final class _$AuthService extends AuthService {
   }
 
   @override
-  Future<Response<LogInResponse>> logout() {
+  Future<Response<LogoutResponse>> logout() {
     final Uri $url = Uri.parse('http://travel.getcontact.uz/api/client/logout');
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
     );
-    return client.send<LogInResponse, LogInResponse>($request);
+    return client.send<LogoutResponse, LogoutResponse>($request);
   }
 }

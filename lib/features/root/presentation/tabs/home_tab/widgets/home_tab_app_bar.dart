@@ -1,10 +1,15 @@
 import 'package:visit_uzbekistan/core/bottomsheet/widgets/bottom_sheet_list_multiple_choice_item.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-final UserModel? savedUserData = userBox.get(ShPrefKeys.userBox);
-
-class HomeTabAppBar extends StatelessWidget {
+class HomeTabAppBar extends StatefulWidget {
   const HomeTabAppBar({super.key});
+
+  @override
+  State<HomeTabAppBar> createState() => _HomeTabAppBarState();
+}
+
+class _HomeTabAppBarState extends State<HomeTabAppBar> {
+  final UserModel? hive = userBox.get(ShPrefKeys.userBox);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +46,7 @@ class HomeTabAppBar extends StatelessWidget {
                 style: TextStyle(fontSize: 16.sp),
               ),
               Text(
-                ' ' + (savedUserData?.name ?? ''),
+                ' ' + (hive?.name ?? 'User'),
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,

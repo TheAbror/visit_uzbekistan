@@ -39,7 +39,6 @@ class _UsefullAppsPageState extends State<UsefullAppsPage> {
       ),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
-          //TODO
           if (state.singleUsefulApp.blocProgress == BlocProgress.IS_LOADING) {
             return Center(child: CircularProgressIndicator());
           }

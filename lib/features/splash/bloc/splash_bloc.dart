@@ -5,10 +5,15 @@ part 'splash_state.dart';
 class SplashBloc extends Cubit<SplashState> {
   SplashBloc() : super(SplashState.initial());
 
-  void assignToken() {
-    final isValid =
-        savedUserData?.token != null && savedUserData?.token.isNotEmpty == true;
+  void clearAll() {
+    emit(SplashState.initial());
+  }
 
-    if (isValid) emit(state.copyWith(token: savedUserData?.token));
+  void assignToken() {
+    final UserModel? hive = userBox.get(ShPrefKeys.userBox);
+
+    final isValid = hive?.token != null && hive?.token.isNotEmpty == true;
+
+    if (isValid) emit(state.copyWith(token: hive?.token));
   }
 }

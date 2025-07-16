@@ -5,6 +5,10 @@ part 'restaurant_state.dart';
 class RestaurantBloc extends Cubit<RestaurantState> {
   RestaurantBloc() : super(RestaurantState.initial());
 
+  void clearAll() {
+    emit(RestaurantState.initial());
+  }
+
   void getSingleRestaurant(int id) async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 

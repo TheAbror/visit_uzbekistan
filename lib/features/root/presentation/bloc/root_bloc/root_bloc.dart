@@ -5,6 +5,10 @@ part 'root_state.dart';
 class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
+  void clearAll() {
+    emit(RootState.initial());
+  }
+
   void manageLoader(BlocProgress loaderStatus) {
     emit(state.copyWith(blocProgress: loaderStatus));
   }
