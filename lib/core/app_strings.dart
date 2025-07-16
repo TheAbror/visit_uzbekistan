@@ -10,4 +10,5 @@ class AppStrings {
   static const usefulApps = 'useful_apps';
   static const login = 'client/login';
   static const register = 'client/register';
+  static const review = 'review';
 }

@@ -1,6 +1,7 @@
 part of 'city_bloc.dart';
 
 class CityState extends Equatable {
+  final ReviewsResponse reviews;
   final SingleCityResponse response;
   //needed to make SingleCityResponse into SingleItemResponse to save
   final SingleItemResponse singleItem;
@@ -10,6 +11,7 @@ class CityState extends Equatable {
   final BlocProgress blocProgress;
 
   const CityState({
+    required this.reviews,
     required this.response,
     required this.singleItem,
     required this.carRentals,
@@ -20,6 +22,7 @@ class CityState extends Equatable {
 
   factory CityState.initial() {
     return CityState(
+      reviews: ReviewsResponse(currentPage: 0, data: []),
       response: SingleCityResponse(
         id: 0,
         name: '',
@@ -74,6 +77,7 @@ class CityState extends Equatable {
   }
 
   CityState copyWith({
+    ReviewsResponse? reviews,
     SingleCityResponse? response,
     SingleItemResponse? singleItem,
     SingleItemResponse? carRentals,
@@ -82,6 +86,7 @@ class CityState extends Equatable {
     String? failureMessage,
   }) {
     return CityState(
+      reviews: reviews ?? this.reviews,
       response: response ?? this.response,
       singleItem: singleItem ?? this.singleItem,
       carRentals: carRentals ?? this.carRentals,
@@ -93,6 +98,7 @@ class CityState extends Equatable {
 
   @override
   List<Object?> get props => [
+        reviews,
         response,
         singleItem,
         carRentals,

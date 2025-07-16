@@ -1,7 +1,5 @@
 import 'package:chopper/chopper.dart';
 import 'package:http/io_client.dart' as http;
-import 'package:visit_uzbekistan/features/auth/services/auth_service.dart';
-import 'package:visit_uzbekistan/features/root/domain/services/home_services.dart';
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
 class ApiProvider {
@@ -11,6 +9,7 @@ class ApiProvider {
   static late ChopperClient _client;
   static late HomeServices homeServices;
   static late AuthService authServices;
+  static late ReviewService reviewService;
 
   ///Services
   static create({String? token, String? language}) {
@@ -21,6 +20,7 @@ class ApiProvider {
       services: [
         HomeServices.create(),
         AuthService.create(),
+        ReviewService.create(),
       ],
       interceptors: getInterceptors(
         token: token,
@@ -31,6 +31,7 @@ class ApiProvider {
 
     homeServices = _client.getService<HomeServices>();
     authServices = _client.getService<AuthService>();
+    reviewService = _client.getService<ReviewService>();
   }
 
   static List getInterceptors({
@@ -49,7 +50,9 @@ class ApiProvider {
         {
           HttpHeaders.acceptHeader: 'application/json',
           HttpHeaders.contentTypeHeader: 'application/json',
-          HttpHeaders.authorizationHeader: token != null ? 'Bearer $token' : '',
+          HttpHeaders.authorizationHeader:
+              'Bearer 8|NgNHP4RPmzuIRRPFIwjftH51D8N9cA5MlwlpRjlY89011d96',
+          // HttpHeaders.authorizationHeader: token != null ? 'Bearer $token' : '',
           'Accept-Language': userLang ?? 'en'
         },
       ),

@@ -34,7 +34,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
     return Scaffold(
       backgroundColor: AppColors.float,
       body: DefaultTabController(
-        length: 5,
+        length: 6,
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -96,6 +96,7 @@ class _SignleCityPageState extends State<SignleCityPage> {
                     TransportationTab(),
                     ToursTab(),
                     RestaurantsTab(),
+                    ReviewsTab(),
                   ],
                 ),
               ),
@@ -154,6 +155,7 @@ class _HeaderDelegate extends SliverPersistentHeaderDelegate {
                       SingleCityTab(label: 'Transportation'),
                       SingleCityTab(label: 'Tours'),
                       SingleCityTab(label: 'Restaurants'),
+                      SingleCityTab(label: 'Reviews'),
                     ],
                   ),
                 ),

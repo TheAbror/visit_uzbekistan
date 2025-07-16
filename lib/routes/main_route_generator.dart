@@ -161,6 +161,11 @@ class MainRouteGenerator {
           builder: (_) => TripPlannerPage(),
         );
 
+      case AppRoutes.addreviewPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => AddReviewPage(),
+        );
+
       default:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const LogInPage(),

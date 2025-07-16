@@ -50,46 +50,15 @@ String getLanguageCode(String languageCode) {
   }
 }
 
-extension StringReplaceBiBiCode on String {
-  String replaceBiBiCode() {
-    return replaceAll('<h3 style="text-align: justify"><sup>', '')
-        .replaceAll('</sup>', '')
-        .replaceAll('<h3>', '')
-        .replaceAll('</h3>', '')
-        .replaceAll('<h4>', '')
-        .replaceAll('</h4>', '')
-        .replaceAll('<p>', '')
-        .replaceAll('</p>', '')
-        .replaceAll('<br>', '')
-        .replaceAll('</br>', '')
-        .replaceAll('<strong>', '')
-        .replaceAll('</strong>', '')
-        .replaceAll('<em>', '')
-        .replaceAll('</em>', '')
-        .replaceAll('<u>', '')
-        .replaceAll('</u>', '')
-        .replaceAll('<p style="text-align: justify">', '')
-        .replaceAll('</p>', '')
-        .replaceAll('<p style="text-align: center">', '')
-        .replaceAll('</p>', '')
-        .replaceAll('<ul><li>', '')
-        .replaceAll('</li></ul>', '')
-        .replaceAll('&nbsp;', '')
-        .replaceAll('</li></li>', '')
-        .replaceAll('</p></li><li><p>', '')
-        .replaceAll(')</p></li><li><p>', ') ')
-        .replaceAll(')</li><li>', ') ');
-  }
-}
-
-extension HumanReadableDate on int? {
+extension HumanReadableDate on String? {
   String get humanReadable {
-    if (this == null) return 'Invalid Date';
+    if (this == null || this!.isEmpty) return 'Invalid Date';
 
-    // Convert int (milliseconds since epoch) to DateTime
-    final dateToFormat = DateTime.fromMillisecondsSinceEpoch(this!);
-
-    // Format the date
-    return DateFormat('dd-MMMM-yyyy, HH:mm').format(dateToFormat);
+    try {
+      final dateToFormat = DateTime.parse(this!).toLocal();
+      return DateFormat('dd-MMMM-yyyy, HH:mm').format(dateToFormat);
+    } catch (e) {
+      return 'Invalid Date';
+    }
   }
 }

@@ -28,4 +28,5 @@ abstract class AppRoutes {
   static const downloadsPage = '/downloadsPage';
   static const singleDownloadPage = '/singleDownloadPage';
   static const tripPlannerPage = '/tripPlannerPage';
+  static const addreviewPage = '/addreviewPage';
 }

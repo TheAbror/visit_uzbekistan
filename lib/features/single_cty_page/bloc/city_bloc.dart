@@ -95,4 +95,40 @@ class CityBloc extends Cubit<CityState> {
       ),
     );
   }
+
+  void getReviews() async {
+    emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
+
+    try {
+      final response =
+          await ApiProvider.reviewService.getReviews('city', state.response.id);
+
+      if (response.isSuccessful) {
+        final data = response.body;
+
+        if (data != null) {
+          emit(
+            state.copyWith(
+              reviews: data,
+              blocProgress: BlocProgress.IS_SUCCESS,
+            ),
+          );
+        }
+      } else {
+        final error =
+            ErrorResponse.fromJson(json.decode(response.error.toString()));
+
+        emit(state.copyWith(
+          blocProgress: BlocProgress.FAILED,
+          failureMessage: error.message,
+        ));
+      }
+    } catch (e) {
+      debugPrint('Error getting inquiries: $e');
+      emit(state.copyWith(
+        blocProgress: BlocProgress.FAILED,
+        failureMessage: e.toString(),
+      ));
+    }
+  }
 }
