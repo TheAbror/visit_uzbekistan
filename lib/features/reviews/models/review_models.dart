@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:visit_uzbekistan/features/auth/models/auth_models.dart';
 
 part 'review_models.g.dart';
 
@@ -86,6 +87,8 @@ class UserCommentResponse {
   final int rating;
   @JsonKey(defaultValue: '', name: 'created_at')
   final String createdAt;
+  @JsonKey()
+  final UserResponse user;
 
   UserCommentResponse({
     required this.id,
@@ -93,6 +96,7 @@ class UserCommentResponse {
     required this.comment,
     required this.rating,
     required this.createdAt,
+    required this.user,
   });
 
   factory UserCommentResponse.fromJson(Map<String, dynamic> json) =>

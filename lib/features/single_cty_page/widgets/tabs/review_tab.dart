@@ -18,53 +18,56 @@ class _ReviewsTabState extends State<ReviewsTab> {
   Widget build(BuildContext context) {
     return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
-        return ListView(
-          padding: EdgeInsets.zero,
+        return Stack(
           children: [
-            Text(
-              'Reviews & Ratings',
-              style: TextStyle(
-                fontSize: 22.sp,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8.h),
-            ListView.separated(
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              padding: EdgeInsets.only(bottom: 12.h),
-              itemCount: state.reviews.data.length,
-              itemBuilder: (context, index) {
-                final item = state.reviews.data[index];
+            ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                Text(
+                  'Reviews & Ratings',
+                  style: TextStyle(
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                ListView.separated(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  padding: EdgeInsets.only(bottom: 12.h),
+                  itemCount: state.reviews.data.length,
+                  itemBuilder: (context, index) {
+                    final item = state.reviews.data[index];
 
-                return UserCommnet(
-                  userName: item.userID.toString(),
-                  createdAt: item.createdAt,
-                  comment: item.comment,
-                );
-              },
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: Colors.grey.withOpacity(0.15),
-                );
-              },
+                    return UserCommnet(
+                      userName: item.user.name,
+                      createdAt: item.createdAt,
+                      comment: item.comment,
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(color: Colors.grey.withOpacity(0.15));
+                  },
+                ),
+              ],
             ),
+            Positioned(
+              left: 8.w,
+              right: 8.w,
+              bottom: 20.h,
+              child: ActionButton(
+                text: 'Submit review',
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.addreviewPage);
+                },
+              ),
+            )
           ],
         );
       },
     );
   }
 }
-
-// Positioned(
-//               bottom: 40.h,
-//               child: ActionButton(
-//                 text: 'Submit review',
-//                 onPressed: () {
-//                   Navigator.pushNamed(context, AppRoutes.addreviewPage);
-//                 },
-//               ),
-//             )
 
 class UserCommnet extends StatelessWidget {
   final String userName;

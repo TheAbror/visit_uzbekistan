@@ -57,6 +57,7 @@ UserCommentResponse _$UserCommentResponseFromJson(Map<String, dynamic> json) =>
       comment: json['comment'] as String? ?? '',
       rating: json['rating'] as int? ?? 0,
       createdAt: json['created_at'] as String? ?? '',
+      user: UserResponse.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserCommentResponseToJson(
@@ -67,4 +68,5 @@ Map<String, dynamic> _$UserCommentResponseToJson(
       'comment': instance.comment,
       'rating': instance.rating,
       'created_at': instance.createdAt,
+      'user': instance.user,
     };
