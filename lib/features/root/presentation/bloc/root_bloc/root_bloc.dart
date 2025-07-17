@@ -6,7 +6,11 @@ class RootBloc extends Cubit<RootState> {
   RootBloc() : super(RootState.initial());
 
   void clearAll() {
-    emit(RootState.initial());
+    emit(state.copyWith(
+      attemptedToCheck: false,
+      tabIndex: 0,
+      blocProgress: BlocProgress.NOT_STARTED,
+    ));
   }
 
   void manageLoader(BlocProgress loaderStatus) {

@@ -74,7 +74,6 @@ class _RootPageState extends State<RootPage> {
             previous.isInternetOn != current.isInternetOn,
         listener: (context, state) {
           if (!state.isInternetOn) {
-            //TODO showing when logging out
             showMessage(
               'No internet connection. Displaying downloaded content until back online.',
               isError: true,

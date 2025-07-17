@@ -136,3 +136,4 @@ export 'package:visit_uzbekistan/features/reviews/bloc/review_bloc.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/email_field.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/password_field.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/more_tab/widgets/logout_button.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/cities_tab_serach_wideget.dart';

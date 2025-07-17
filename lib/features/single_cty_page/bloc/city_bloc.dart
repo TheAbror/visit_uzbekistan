@@ -13,7 +13,6 @@ class CityBloc extends Cubit<CityState> {
     final response = state.response.toSingleCityModel();
 
     if (savedItems != null) {
-      //TODO
       bool alreadyExists = savedItems.localStorageCityItems
           .any((item) => item.id == response.id);
 

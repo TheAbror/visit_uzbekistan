@@ -1,5 +1,6 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
+//TODO from Figma design
 class AddReviewPage extends StatefulWidget {
   const AddReviewPage({super.key});
 
