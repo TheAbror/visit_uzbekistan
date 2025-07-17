@@ -23,11 +23,13 @@ class PlansTab extends StatelessWidget {
 
                 BlocBuilder<CitiesTabBloc, CitiesTabState>(
                   builder: (context, state) {
-                    return HomeTabItems(
-                      header: 'Discover Uzbekistan',
-                      item: state.cities,
-                      pageNamed: OpenPageNamed.places,
-                    );
+                    return state.cities.isNotEmpty
+                        ? HomeTabItems(
+                            header: 'Discover Uzbekistan',
+                            item: state.cities,
+                            pageNamed: OpenPageNamed.places,
+                          )
+                        : SizedBox();
                   },
                 ),
 

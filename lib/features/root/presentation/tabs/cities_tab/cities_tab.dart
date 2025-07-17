@@ -18,6 +18,17 @@ class CitiesTab extends StatelessWidget {
                 );
               }
 
+              if (state.citiesSearched.isEmpty) {
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                      child: Text(
+                    'No results',
+                    style: TextStyle(fontSize: 16.sp),
+                  )),
+                );
+              }
+
               if (state.blocProgress == BlocProgress.FAILED) {
                 return const SomethingWentWrong();
               }
@@ -26,32 +37,23 @@ class CitiesTab extends StatelessWidget {
                 child: Column(
                   children: [
                     CitiesTabSearchWidget(),
-                    state.citiesSearched.isEmpty
-                        ? Container(
-                            margin: EdgeInsets.only(top: 300.h),
-                            child: Center(
-                              child: Text('No results'),
-                            ),
-                          )
-                        : GridView.builder(
-                            shrinkWrap: true,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 8.h,
-                              crossAxisSpacing: 8.h,
-                              childAspectRatio: 0.85,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: defaultPadding),
-                            itemCount: state.citiesSearched.length,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              final singleItem = state.citiesSearched[index];
+                    GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 8.h,
+                        crossAxisSpacing: 8.h,
+                        childAspectRatio: 0.85,
+                      ),
+                      padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+                      itemCount: state.citiesSearched.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final singleItem = state.citiesSearched[index];
 
-                              return GridViewItem(item: singleItem);
-                            },
-                          ),
+                        return GridViewItem(item: singleItem);
+                      },
+                    ),
                   ],
                 ),
               );
