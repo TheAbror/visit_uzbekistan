@@ -18,6 +18,7 @@ class _LogInPageState extends State<LogInPage> {
     final l10 = context.localizations;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         // leading: CustomAppBarBackButton(),

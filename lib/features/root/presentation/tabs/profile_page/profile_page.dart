@@ -1,9 +1,15 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   final FocusNode _textFieldFocusNode = FocusNode();
+  final UserModel? hive = userBox.get(ShPrefKeys.userBox);
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +48,13 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: 24.h),
               EditProfilePageItem(
-                label: 'First name',
-                text: 'Darlene',
-                textFieldFocusNode: _textFieldFocusNode,
-              ),
-              EditProfilePageItem(
-                label: 'Last name',
-                text: 'Robinson',
+                label: 'Full name',
+                text: hive?.name ?? 'Name',
                 textFieldFocusNode: _textFieldFocusNode,
               ),
               EditProfilePageItem(
                 label: 'Email',
-                text: 'darline1984@gmail.com',
+                text: hive?.email ?? 'Email',
                 textFieldFocusNode: _textFieldFocusNode,
               ),
               EditProfileBiography(textFieldFocusNode: _textFieldFocusNode),

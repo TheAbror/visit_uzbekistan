@@ -121,6 +121,7 @@ flutter:
     - assets/icons/auth/
     - assets/icons/flags/
     - assets/images/
+    - assets/map/
 
   fonts:
     - family: Montserrat

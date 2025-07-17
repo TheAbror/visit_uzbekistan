@@ -140,3 +140,4 @@ export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/citi
 export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/pages/plans_transportation_page.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/widgets/quick_access_item.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/pages/plans_currency_page.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/pages/plans_map_page.dart';

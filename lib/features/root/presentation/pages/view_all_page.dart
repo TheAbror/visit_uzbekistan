@@ -18,6 +18,7 @@ class _ViewAllPageState extends State<ViewAllPage> {
     super.initState();
 
     final homeBloc = context.read<HomeBloc>();
+    final citiesTabBloc = context.read<CitiesTabBloc>();
     final viewAllBloc = context.read<ViewAllBloc>();
 
     switch (widget.pageNamed) {
@@ -35,6 +36,9 @@ class _ViewAllPageState extends State<ViewAllPage> {
         break;
       case OpenPageNamed.tours:
         viewAllBloc.assignSearchValues(homeBloc.state.tours.model);
+        break;
+      case OpenPageNamed.cities:
+        viewAllBloc.assignSearchValues(citiesTabBloc.state.cities);
         break;
       default:
         // viewAllBloc.assignSearchValues(homeBloc.state.cities);

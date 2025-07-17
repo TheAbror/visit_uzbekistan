@@ -168,7 +168,15 @@ class MainRouteGenerator {
 
       case AppRoutes.plansCurrencyPage:
         return CustomCupertinoStyleNavigationRoute(
-          builder: (_) => PlansCurrencyPage(),
+          builder: (_) => BlocProvider(
+            create: (context) => PlansBloc(),
+            child: PlansCurrencyPage(),
+          ),
+        );
+
+      case AppRoutes.plansMapPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => PlansMapPage(),
         );
 
       default:

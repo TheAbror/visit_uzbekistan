@@ -34,6 +34,7 @@ class _DownloadWidgetState extends State<DownloadWidget> {
         borderRadius: BorderRadius.circular(50),
       ),
       child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: () async {
           if (!exisitngItems.localStorageItems.any(
             (e) => e.id == widget.newItem.id && e.type == widget.newItem.type,

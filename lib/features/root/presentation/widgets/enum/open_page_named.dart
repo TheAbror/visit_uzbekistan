@@ -6,4 +6,5 @@ enum OpenPageNamed {
   mustKnow,
   places,
   tours,
+  cities,
 }

@@ -56,6 +56,7 @@ class _RestaurentPageState extends State<RestaurentPage> {
           }
 
           return Stack(
+            fit: StackFit.expand,
             children: [
               SingleChildScrollView(
                 child: Column(
@@ -179,11 +180,7 @@ class _RestaurentPageState extends State<RestaurentPage> {
                               ),
                             ],
                           ),
-                          ActionButton(
-                            text: 'Book Now',
-                            onPressed: () {},
-                          ),
-                          SizedBox(height: 40.h),
+                          SizedBox(height: 80.h),
                         ],
                       ),
                     ),
@@ -225,6 +222,16 @@ class _RestaurentPageState extends State<RestaurentPage> {
                       ),
                     ],
                   ),
+                ),
+              ),
+
+              Positioned(
+                left: 8.w,
+                right: 8.w,
+                bottom: 20.h,
+                child: ActionButton(
+                  text: 'Book Now',
+                  onPressed: () {},
                 ),
               ),
             ],

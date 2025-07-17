@@ -27,7 +27,7 @@ class PlansTab extends StatelessWidget {
                         ? HomeTabItems(
                             header: 'Discover Uzbekistan',
                             item: state.cities,
-                            pageNamed: OpenPageNamed.places,
+                            pageNamed: OpenPageNamed.cities,
                           )
                         : SizedBox();
                   },
@@ -57,7 +57,12 @@ class PlansTab extends StatelessWidget {
                       Row(
                         children: [
                           QuickAccesssItem(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.plansMapPage,
+                              );
+                            },
                             text: 'Map',
                             icon: IconsaxPlusLinear.map_1,
                           ),

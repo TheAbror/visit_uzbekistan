@@ -55,12 +55,14 @@ Center ProfilePhoto(context, String photo) {
         await showDialog(
           context: context,
           builder: (_) => Dialog(
-            child: Image.network(
-              photo,
-              width: 300.w,
-              height: 300.h,
-              fit: BoxFit.cover,
-            ),
+            child: Assets.images.maleAvatarPlaceholder.image(),
+
+            // Image.network(
+            //   photo,
+            //   width: 300.w,
+            //   height: 300.h,
+            //   fit: BoxFit.cover,
+            // ),
           ),
         );
       },
@@ -68,13 +70,19 @@ Center ProfilePhoto(context, String photo) {
       child: Stack(
         children: [
           ClipOval(
-            child: Image.network(
-              photo,
-              width: 84.w,
-              height: 84.w,
-              fit: BoxFit.cover,
+            child: Assets.images.maleAvatarPlaceholder.image(
+              width: 100.w,
+              height: 100.w,
             ),
           ),
+          // ClipOval(
+          //   child: Image.network(
+          //     photo,
+          //     width: 84.w,
+          //     height: 84.w,
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
           Positioned(
             bottom: 0,
             right: 0,
