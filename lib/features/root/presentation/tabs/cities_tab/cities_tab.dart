@@ -33,7 +33,7 @@ class CitiesTab extends StatelessWidget {
                 return const SomethingWentWrong();
               }
               return Padding(
-                padding: EdgeInsets.symmetric(vertical: 100.h),
+                padding: EdgeInsets.symmetric(vertical: 95.h),
                 child: Column(
                   children: [
                     CitiesTabSearchWidget(),

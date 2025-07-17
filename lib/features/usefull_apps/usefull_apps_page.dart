@@ -102,6 +102,7 @@ class _UsefullAppsPageState extends State<UsefullAppsPage> {
                 text: 'Download',
                 onPressed: () {},
               ),
+              SizedBox(height: 20.h),
             ],
           );
         },

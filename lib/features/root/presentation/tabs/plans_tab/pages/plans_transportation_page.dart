@@ -49,6 +49,48 @@ class PlansTransportationPage extends StatelessWidget {
               icon:
                   'https://play-lh.googleusercontent.com/Tt2MVvVqNqUc5ytsZv7D0pyvBnzTuEmlbt8KFvxOt5PFRHVzKyaIRU1SPlH8hRswTqs=w480-h960-rw',
             ),
+            SizedBox(height: 8.h),
+            Text(
+              'Taxi',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
+            ),
+            SizedBox(height: 4.h),
+            TransportationOption(
+              id: 7,
+              text: 'Yandex Go',
+              icon:
+                  'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/97/26/c897263f-2f49-5347-0428-2b38b49b5750/AppIcon-0-0-1x_U007emarketing-0-6-0-0-85-220.png/460x0w.webp',
+            ),
+            TransportationOption(
+              id: 8,
+              text: 'Uklon',
+              icon:
+                  'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/72/30/0072309e-9b8a-dd6d-69f5-d6c087da43c2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/460x0w.webp',
+            ),
+            SizedBox(height: 8.h),
+            Text(
+              'Bus schedules',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
+            ),
+            SizedBox(height: 4.h),
+            TransportationOption(
+              id: 2,
+              text: 'Yandex Maps',
+              icon:
+                  'https://play-lh.googleusercontent.com/DLCdDuCkVMI-vQhbNmPJU8cIDZulGHJxYGz_Cm9Mbrv6ssl9TW-RUMXfzczd9NKZj4w',
+            ),
+            SizedBox(height: 8.h),
+            Text(
+              'Metro (Tashkent)',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
+            ),
+            SizedBox(height: 4.h),
+            TransportationOption(
+              id: 9,
+              text: 'Yandex Metro',
+              icon:
+                  'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5b/0c/82/5b0c8233-5b19-f755-eb18-01976bc56a5a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/460x0w.webp',
+            ),
           ],
         ),
       ),

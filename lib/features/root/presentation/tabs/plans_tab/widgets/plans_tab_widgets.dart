@@ -49,10 +49,11 @@ class TransportationOption extends StatelessWidget {
                 arguments: IdandTitle(id: id, title: text),
               );
             },
+            behavior: HitTestBehavior.opaque,
             child: Container(
               padding: EdgeInsets.symmetric(
-                horizontal: 6.w,
-                vertical: 4.h,
+                horizontal: 8.w,
+                vertical: 6.h,
               ),
               decoration: BoxDecoration(
                 color: AppColors.siginTextColor,
