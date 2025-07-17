@@ -19,7 +19,7 @@ class PlansTab extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               padding: EdgeInsets.only(top: 10.h, bottom: 40.h),
               children: [
-                //places
+                //cities
 
                 BlocBuilder<CitiesTabBloc, CitiesTabState>(
                   builder: (context, state) {
@@ -63,7 +63,12 @@ class PlansTab extends StatelessWidget {
                           ),
                           SizedBox(width: 12.w),
                           QuickAccesssItem(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.plansCurrencyPage,
+                              );
+                            },
                             text: 'Currency',
                             icon: IconsaxPlusLinear.dollar_circle,
                           ),
@@ -73,7 +78,12 @@ class PlansTab extends StatelessWidget {
                       Row(
                         children: [
                           QuickAccesssItem(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.plansTransportationPage,
+                              );
+                            },
                             text: 'Transportation',
                             icon: IconsaxPlusLinear.car,
                           ),
@@ -106,46 +116,6 @@ class PlansTab extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class QuickAccesssItem extends StatelessWidget {
-  final String text;
-  final IconData icon;
-  final VoidCallback onTap;
-
-  const QuickAccesssItem({
-    super.key,
-    required this.text,
-    required this.icon,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          padding: EdgeInsets.all(16.w),
-          decoration: BoxDecoration(
-            color: AppColors.float,
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-          child: Row(
-            children: [
-              Icon(icon),
-              SizedBox(width: 4.w),
-              Text(
-                text,
-                style: TextStyle(fontWeight: FontWeight.bold),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

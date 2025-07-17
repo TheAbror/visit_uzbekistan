@@ -161,6 +161,16 @@ class MainRouteGenerator {
           builder: (_) => AddReviewPage(),
         );
 
+      case AppRoutes.plansTransportationPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => PlansTransportationPage(),
+        );
+
+      case AppRoutes.plansCurrencyPage:
+        return CustomCupertinoStyleNavigationRoute(
+          builder: (_) => PlansCurrencyPage(),
+        );
+
       default:
         return CustomCupertinoStyleNavigationRoute(
           builder: (_) => const SplashPage(),

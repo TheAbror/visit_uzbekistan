@@ -137,3 +137,6 @@ export 'package:visit_uzbekistan/features/auth/widgets/email_field.dart';
 export 'package:visit_uzbekistan/features/auth/widgets/password_field.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/more_tab/widgets/logout_button.dart';
 export 'package:visit_uzbekistan/features/root/presentation/tabs/cities_tab/cities_tab_serach_wideget.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/pages/plans_transportation_page.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/widgets/quick_access_item.dart';
+export 'package:visit_uzbekistan/features/root/presentation/tabs/plans_tab/pages/plans_currency_page.dart';
