@@ -85,9 +85,24 @@ class AuthBloc extends Cubit<AuthState> {
         if (data != null) {
           ApiProvider.create(token: data.data.token);
 
+          final user = data.data.user;
+
+          userBox.put(
+            ShPrefKeys.userBox,
+            UserModel(
+              id: user.id,
+              name: user.name,
+              email: user.email,
+              createdAt: user.createdAt,
+              updatedAt: user.updatedAt,
+              token: data.data.token,
+            ),
+          );
+
           emit(
             state.copyWith(
               response: data,
+              isRegistrationSuccess: true,
               blocProgress: BlocProgress.IS_SUCCESS,
             ),
           );
@@ -155,28 +170,4 @@ class AuthBloc extends Cubit<AuthState> {
   void clearAll() {
     emit(AuthState.initial());
   }
-
-  // void updateData({
-  //   String? login,
-  //   String? password,
-  // }) {
-  //   if (login != null) {
-  //     emit(state.copyWith(login: login));
-  //   } else if (password != null) {
-  //     emit(state.copyWith(password: password));
-  //   }
-
-  //   final isLoginValid = state.login.isNotEmpty;
-  //   final isPasswordValid = state.password.isNotEmpty;
-
-  //   var isFormValid = false;
-  //   isFormValid = isLoginValid && isPasswordValid;
-
-  //   emit(state.copyWith(isButtonEnabled: isFormValid));
-  // }
-
-  // void isPasswordHidden() {
-  //   final item = !state.isPasswordHidden;
-  //   emit(state.copyWith(isPasswordHidden: item));
-  // }
 }

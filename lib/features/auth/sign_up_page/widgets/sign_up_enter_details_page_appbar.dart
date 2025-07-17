@@ -11,24 +11,7 @@ class SignUpEnterDetailsPageAppBar extends StatelessWidget
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // IconButton(
-          //   onPressed: () {
-          //     Navigator.pop(context);
-          //   },
-          //   padding: EdgeInsets.zero,
-          //   constraints: BoxConstraints(),
-          //   icon: Assets.icons.main.arrowBack.svg(
-          //     colorFilter: ColorFilter.mode(
-          //       Theme.of(context).colorScheme.secondaryContainer,
-          //       BlendMode.srcIn,
-          //     ),
-          //   ),
-          // ),
-          // CustomAppBarBackButton(
-          //   func: () {
-          //     // context.read<AuthBloc>().setInitialValue();
-          //   },
-          // ),
+          SingleCityPageLeadingIcon(),
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, AppRoutes.rootPage);
