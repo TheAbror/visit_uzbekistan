@@ -5,6 +5,27 @@ part 'review_state.dart';
 class ReviewBloc extends Cubit<ReviewState> {
   ReviewBloc() : super(ReviewState.initial());
 
+  void addStar(Widget star, int selectedStarIndex) {
+    final updatedList = List<Widget>.from(state.stars);
+    final List<FilledStar> _replacements = [];
+
+    if (state.selectedStarIndex > selectedStarIndex) {
+      for (var i = 0; i < selectedStarIndex + 1; i++) {
+        _replacements.add(FilledStar());
+      }
+    } else {
+      for (var i = 0; i < selectedStarIndex + 1; i++) {
+        _replacements.add(FilledStar());
+      }
+
+      emit(state.copyWith(selectedStarIndex: selectedStarIndex + 1));
+    }
+
+    updatedList.replaceRange(0, selectedStarIndex + 1, _replacements);
+
+    emit(state.copyWith(stars: updatedList));
+  }
+
   void clearAll() {
     emit(ReviewState.initial());
   }

@@ -104,8 +104,9 @@ class _MyAppState extends State<MyApp> {
 //✅ make places, tours, transport, restaurants get data from box when no internet
 //⛔️ plans add route trip from tashkent to xiva
 
+//TODO add things to do 
 
-
+// https://www.booking.com/attractions/searchresults/uz/urganch.html?end_date=2025-08-17&filter_by_min_rating[]=0.0&selected_currency=USD&etStateBlob=EpfzfImYbs3Oq1sNLWqQigYMqaA4_GxYj1xWD1AvjDUQkn8YuDOsWxMLCXrEHav9qqRTNzSPVqmi3-kr4BfbPeg&adplat=www-ACCOMMODATION_SEARCH_RESULTS-IN_FEED_ATTRACTION_BANNER-attraction-missing_creative-2761xxdb8asGtYoLc0U8e2&label=New_Russian_RU_UZ_26761452505-qgdfSLOdsElQF7hwvy0jGAS217244927670%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-64415538505%3Alp9075974%3Ali%3Adec%3Adm&distribution_id=2761xxdb8asGtYoLc0U8e2&aid=318615&client_name=exposure&start_date=2025-08-13
 
 
 
