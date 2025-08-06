@@ -18,6 +18,14 @@ class _ReviewsTabState extends State<ReviewsTab> {
   Widget build(BuildContext context) {
     return BlocBuilder<CityBloc, CityState>(
       builder: (context, state) {
+        if (state.response.carRentals.isEmpty) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 50.h),
+            child: Center(
+              child: Text('No reviews found'),
+            ),
+          );
+        }
         return Stack(
           children: [
             ListView(

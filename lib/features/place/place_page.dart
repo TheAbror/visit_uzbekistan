@@ -79,7 +79,6 @@ class _PlacePageState extends State<PlacePage> {
                       height: 300.h,
                       child: Stack(
                         children: [
-                          //TODO
                           (state.place.images != null &&
                                   state.place.images?.isNotEmpty == true)
                               ? PageView.builder(

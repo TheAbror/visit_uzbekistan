@@ -26,4 +26,16 @@ class PlansBloc extends Cubit<PlansState> {
 
     emit(state.copyWith(selectedCities: updatedSelection));
   }
+
+  void addPriceRange(String value) {
+    List<String> updatedSelection = List<String>.from(state.selectedPriceRange);
+
+    if (updatedSelection.contains(value)) {
+      updatedSelection.remove(value);
+    } else {
+      updatedSelection.add(value);
+    }
+
+    emit(state.copyWith(selectedPriceRange: [updatedSelection.last]));
+  }
 }
