@@ -3,12 +3,14 @@ import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 class ActionButton extends StatelessWidget {
   final String text;
   final bool isFilled;
+  final bool isAnotherColor;
   final VoidCallback onPressed;
 
   const ActionButton({
     super.key,
     required this.text,
     this.isFilled = true,
+    this.isAnotherColor = false,
     required this.onPressed,
   });
 
@@ -20,10 +22,10 @@ class ActionButton extends StatelessWidget {
         height: 48.h,
         width: double.infinity,
         decoration: BoxDecoration(
-          // color: isFilled ? AppColors.primary : Colors.transparent,
-          color: AppColors.siginTextColor,
-          borderRadius: BorderRadius.all(Radius.circular(32.r)),
-          // border: Border.all(color: AppColors.primary, width: 1),
+          color: isAnotherColor
+              ? Theme.of(context).colorScheme.primary
+              : AppColors.siginTextColor,
+          borderRadius: BorderRadius.all(Radius.circular(8.r)),
         ),
         child: Center(
           child: Text(

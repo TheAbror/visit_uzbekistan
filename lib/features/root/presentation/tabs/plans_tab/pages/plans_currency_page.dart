@@ -149,10 +149,10 @@ class _PlansCurrencyPageState extends State<PlansCurrencyPage> {
                           builder: (context, state) {
                             return Expanded(
                               child: TextField(
-                                controller: state.value == 0
+                                controller: state.calculatorValue == 0
                                     ? value
                                     : TextEditingController(
-                                        text: state.value.toString(),
+                                        text: state.calculatorValue.toString(),
                                       ),
                                 decoration: InputDecoration(
                                   hintText: 'Select currency',

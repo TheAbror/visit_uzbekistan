@@ -1,16 +1,18 @@
 part of 'plans_bloc.dart';
 
 class PlansState extends Equatable {
-  final List<String> selectedCities;
+  final List<CityWithDays> selectedCities;
   final List<String> selectedPriceRange;
-  final int value;
+  final int calculatorValue;
+  final bool isFinalCostReady;
   final BlocProgress blocProgress;
   final String failureMessage;
 
   const PlansState({
     required this.selectedCities,
     required this.selectedPriceRange,
-    required this.value,
+    required this.calculatorValue,
+    required this.isFinalCostReady,
     required this.blocProgress,
     required this.failureMessage,
   });
@@ -19,23 +21,26 @@ class PlansState extends Equatable {
     return PlansState(
       selectedCities: [],
       selectedPriceRange: [],
-      value: 0,
+      calculatorValue: 0,
+      isFinalCostReady: false,
       blocProgress: BlocProgress.NOT_STARTED,
       failureMessage: '',
     );
   }
 
   PlansState copyWith({
-    List<String>? selectedCities,
+    List<CityWithDays>? selectedCities,
     List<String>? selectedPriceRange,
-    int? value,
+    int? calculatorValue,
+    bool? isFinalCostReady,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {
     return PlansState(
       selectedCities: selectedCities ?? this.selectedCities,
       selectedPriceRange: selectedPriceRange ?? this.selectedPriceRange,
-      value: value ?? this.value,
+      calculatorValue: calculatorValue ?? this.calculatorValue,
+      isFinalCostReady: isFinalCostReady ?? this.isFinalCostReady,
       blocProgress: blocProgress ?? this.blocProgress,
       failureMessage: failureMessage ?? this.failureMessage,
     );
@@ -45,8 +50,19 @@ class PlansState extends Equatable {
   List<Object?> get props => [
         selectedCities,
         selectedPriceRange,
-        value,
+        calculatorValue,
+        isFinalCostReady,
         blocProgress,
         failureMessage,
       ];
+}
+
+class CityWithDays {
+  final String city;
+  final int days;
+
+  CityWithDays({
+    required this.city,
+    this.days = 1,
+  });
 }

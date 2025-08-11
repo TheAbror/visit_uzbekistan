@@ -1,5 +1,243 @@
 import 'package:visit_uzbekistan/features/widgets/widget_imports.dart';
 
+class PriceRangeWidget extends StatelessWidget {
+  final PlansState state;
+
+  const PriceRangeWidget({
+    super.key,
+    required this.state,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Price range',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
+          ),
+        ),
+        SizedBox(height: 10.h),
+        Wrap(
+          children: List.generate(
+            priceRange.length,
+            (index) {
+              bool isSelected =
+                  state.selectedPriceRange.contains(priceRange[index]);
+
+              Color backgroundColor = isSelected
+                  ? Theme.of(context).colorScheme.primary
+                  : Colors.grey.withOpacity(0.1);
+
+              Color textColor = isSelected ? AppColors.float : Colors.black;
+
+              return GestureDetector(
+                onTap: () {
+                  context.read<PlansBloc>().addPriceRange(priceRange[index]);
+                },
+                behavior: HitTestBehavior.opaque,
+                child: Container(
+                  margin: EdgeInsets.only(right: 8.w, bottom: 8.h),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.circular(50.r),
+                  ),
+                  child: Text(
+                    priceRange[index],
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      color: textColor,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class TripPlannerItem extends StatelessWidget {
+  final String title;
+  final List<String> items;
+  final List<CityWithDays> stateItem;
+
+  const TripPlannerItem({
+    super.key,
+    required this.title,
+    required this.items,
+    required this.stateItem,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
+          ),
+        ),
+        SizedBox(height: 10.h),
+        Wrap(
+          children: List.generate(
+            items.length,
+            (index) {
+              final matchingCities =
+                  stateItem.where((e) => e.city == items[index]);
+              bool isSelected = matchingCities.isNotEmpty;
+
+              Color backgroundColor = isSelected
+                  ? Theme.of(context).colorScheme.primary
+                  : Colors.grey.withOpacity(0.1);
+
+              Color textColor = isSelected ? AppColors.float : Colors.black;
+
+              return GestureDetector(
+                onTap: () {
+                  context.read<PlansBloc>().addCity(items[index]);
+                },
+                behavior: HitTestBehavior.opaque,
+                child: Container(
+                  margin: EdgeInsets.only(right: 8.w, bottom: 8.h),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.circular(50.r),
+                  ),
+                  child: Text(
+                    items[index],
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      color: textColor,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        SizedBox(height: 10.h),
+      ],
+    );
+  }
+}
+
+class TripPlannerDays extends StatelessWidget {
+  final String title;
+  final List<CityWithDays> items;
+
+  const TripPlannerDays({
+    super.key,
+    required this.title,
+    required this.items,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
+          ),
+        ),
+        SizedBox(height: 10.h),
+        Wrap(
+          children: List.generate(
+            items.length,
+            (index) {
+              return Padding(
+                padding: EdgeInsets.only(bottom: 4.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IncreaseDecreaseButton(
+                      icon: Icons.remove,
+                      onTap: () {
+                        context.read<PlansBloc>().addCityTravelDays(
+                              false,
+                              index,
+                            );
+                      },
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      items[index].city,
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                      ),
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      '(${items[index].days}-day)',
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                      ),
+                    ),
+                    SizedBox(width: 5.w),
+                    IncreaseDecreaseButton(
+                      icon: Icons.add,
+                      onTap: () {
+                        context.read<PlansBloc>().addCityTravelDays(
+                              true,
+                              index,
+                            );
+                      },
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+        SizedBox(height: 5.h),
+      ],
+    );
+  }
+}
+
+class IncreaseDecreaseButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onTap;
+
+  const IncreaseDecreaseButton({
+    super.key,
+    required this.icon,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+        decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(50.r),
+        ),
+        child: Icon(icon),
+      ),
+    );
+  }
+}
+
 class TransportationOption extends StatelessWidget {
   final int id;
   final String icon;
