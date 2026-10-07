@@ -1,4 +1,4 @@
-package com.example.visit_uzbekistan
+package uz.visit.uzbekistan
 
 import io.flutter.embedding.android.FlutterActivity
 
